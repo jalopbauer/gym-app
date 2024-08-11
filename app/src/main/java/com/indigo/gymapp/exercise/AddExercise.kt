@@ -6,12 +6,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import com.indigo.gymapp.exercise.type.set.AddSet
-import com.indigo.gymapp.exercise.type.timed.AddTimed
 import com.indigo.gymapp.common.header.CreateHeader
 import com.indigo.gymapp.common.preview.screen.ScreenPreview
-import com.indigo.gymapp.ui.spacing.Brand
+import com.indigo.gymapp.exercise.type.set.AddSet
+import com.indigo.gymapp.exercise.type.timed.AddTimed
 import com.indigo.gymapp.ui.spacing.Context
 
 @Composable
