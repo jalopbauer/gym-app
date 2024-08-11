@@ -15,11 +15,6 @@ import com.indigo.gymapp.common.button.textInput.HeaderTextDrawerButton
 import com.indigo.gymapp.ui.theme.color.Content
 
 @Composable
-fun Header() {
-
-}
-
-@Composable
 fun CreateHeader(title: String) {
     val onClick = { /*TODO*/ }
     Row (
