@@ -11,6 +11,8 @@ import com.indigo.gymapp.exercise.type.set.AddSet
 import com.indigo.gymapp.exercise.type.timed.AddTimed
 import com.indigo.gymapp.common.header.CreateHeader
 import com.indigo.gymapp.common.preview.screen.ScreenPreview
+import com.indigo.gymapp.ui.spacing.Brand
+import com.indigo.gymapp.ui.spacing.Context
 
 @Composable
 fun AddExercise(
@@ -20,7 +22,7 @@ fun AddExercise(
         modifier = Modifier
             .fillMaxSize()
             .padding(
-                horizontal = 24.dp
+                horizontal = Context.Padding.screen
             )
     ) {
         CreateHeader(
