@@ -23,12 +23,13 @@ private fun TextDrawerButton(
     leadingText: String,
     isOnlyText: Boolean = false,
     isTextCentered: Boolean = false,
+    isSelected: Boolean = false,
     textStyle: TextStyle = MaterialTheme.typography.titleLarge,
     onClick: () -> Unit,
     @FloatRange(from = 0.0, to = 1.0) maxWidthFraction: Float = 1f,
     content: @Composable () -> Unit = {},
 ) {
-    val color = if (isOnlyText) Content.Text.information else Content.Text.primary
+    val color = if (isOnlyText && isSelected || !isOnlyText) Content.Text.primary else Content.Text.information
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween,
@@ -96,11 +97,15 @@ fun OnlyTextDrawerButton(leadingText: String, onClick: () -> Unit) {
 }
 
 @Composable
-fun HeaderTextDrawerButton(title: String) {
+fun HeaderTextDrawerButton(
+    title: String,
+    isSelected: Boolean = false
+) {
     TextDrawerButton(
         leadingText = title,
         isOnlyText = true,
         isTextCentered = true,
+        isSelected = isSelected,
         textStyle = MaterialTheme.typography.headlineSmall,
         onClick = { /*TODO*/ },
         maxWidthFraction = 0.82f

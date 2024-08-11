@@ -15,7 +15,10 @@ import com.indigo.gymapp.common.button.textInput.HeaderTextDrawerButton
 import com.indigo.gymapp.ui.theme.color.Content
 
 @Composable
-fun CreateHeader(title: String) {
+fun CreateHeader(
+    title: String,
+    isSelected: Boolean = false
+) {
     val onClick = { /*TODO*/ }
     Row (
         modifier = Modifier.fillMaxWidth(),
@@ -24,7 +27,8 @@ fun CreateHeader(title: String) {
     ) {
         SaveButton(onClick)
         HeaderTextDrawerButton(
-            title = title
+            title = title,
+            isSelected = isSelected
         )
         CancelButton(onClick)
     }

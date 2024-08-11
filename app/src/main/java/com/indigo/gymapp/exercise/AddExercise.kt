@@ -16,6 +16,9 @@ import com.indigo.gymapp.ui.spacing.Context
 fun AddExercise(
     addExerciseVariant : AddExerciseVariant = Empty
 ) {
+    val title = getTitle(addExerciseVariant)
+    val isSelected = getIsSelected(addExerciseVariant)
+
     Column (
         modifier = Modifier
             .fillMaxSize()
@@ -24,7 +27,8 @@ fun AddExercise(
             )
     ) {
         CreateHeader(
-            title = "Select exercise type",
+            title = title,
+            isSelected = isSelected
         )
         when (addExerciseVariant) {
             AddSet -> AddSet()
@@ -33,6 +37,20 @@ fun AddExercise(
         }
     }
 }
+
+private fun getIsSelected(addExerciseVariant: AddExerciseVariant) =
+    when (addExerciseVariant) {
+        AddSet -> true
+        AddTimed -> true
+        Empty -> false
+    }
+
+private fun getTitle(addExerciseVariant: AddExerciseVariant) =
+    when (addExerciseVariant) {
+        AddSet -> "Set"
+        AddTimed -> "Timed"
+        Empty -> "Select exercise type"
+    }
 
 @Preview
 @Composable
