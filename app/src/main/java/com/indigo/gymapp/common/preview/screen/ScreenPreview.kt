@@ -6,7 +6,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.indigo.gymapp.ui.theme.color.Content
+import com.indigo.gymapp.ui.theme.color.Color
 
 @Composable
 fun ScreenPreview(
@@ -16,7 +16,7 @@ fun ScreenPreview(
         modifier = Modifier
             .width(720.dp)
             .height(1280.dp),
-        color = Content.Surface.base
+        color = Color.Context.Surface.base
     ) {
         content()
     }

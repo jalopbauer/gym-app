@@ -14,7 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.indigo.gymapp.common.button.textInput.HeaderTextDrawerButton
 import com.indigo.gymapp.ui.spacing.Spacing
-import com.indigo.gymapp.ui.theme.color.Content
+import com.indigo.gymapp.ui.theme.color.Color
 
 @Composable
 fun CreateHeader(
@@ -42,7 +42,7 @@ private fun CancelButton(onClick: () -> Unit) {
         Icon(
             imageVector = Icons.Outlined.Close,
             contentDescription = "Cancel",
-            tint = Content.Icon.primary
+            tint = Color.Context.Icon.primary
         )
     }
 }
@@ -53,7 +53,7 @@ private fun SaveButton(onClick: () -> Unit) {
         Icon(
             imageVector = Icons.Outlined.Add,
             contentDescription = "Save",
-            tint = Content.Icon.primary
+            tint = Color.Context.Icon.primary
         )
     }
 }
