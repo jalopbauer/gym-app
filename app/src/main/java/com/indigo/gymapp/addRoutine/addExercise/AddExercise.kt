@@ -18,22 +18,23 @@ fun AddExercise(
 ) {
     val title = getTitle(addExerciseVariant)
     val isSelected = getIsSelected(addExerciseVariant)
-
-    Column (
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(
-                horizontal = Context.Padding.screen
-            )
-    ) {
+    Column {
         CreateHeader(
             title = title,
             isSelected = isSelected
         )
-        when (addExerciseVariant) {
-            AddSet -> AddSet()
-            AddTimed -> AddTimed()
-            Empty -> {}
+        Column (
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(
+                    horizontal = Context.Padding.screen
+                )
+        ) {
+            when (addExerciseVariant) {
+                AddSet -> AddSet()
+                AddTimed -> AddTimed()
+                Empty -> {}
+            }
         }
     }
 }
