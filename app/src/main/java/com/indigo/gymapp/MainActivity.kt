@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.indigo.gymapp.exercise.AddExercise
+import com.indigo.gymapp.routine.addExercise.AddExercise
 import com.indigo.gymapp.ui.theme.GymAppTheme
 
 class MainActivity : ComponentActivity() {

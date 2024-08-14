@@ -1,4 +1,4 @@
-package com.indigo.gymapp.exercise
+package com.indigo.gymapp.routine.addExercise
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -8,8 +8,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.indigo.gymapp.common.header.CreateHeader
 import com.indigo.gymapp.common.preview.screen.ScreenPreview
-import com.indigo.gymapp.exercise.type.set.AddSet
-import com.indigo.gymapp.exercise.type.timed.AddTimed
+import com.indigo.gymapp.routine.addExercise.type.set.AddSet
+import com.indigo.gymapp.routine.addExercise.type.timed.AddTimed
 import com.indigo.gymapp.ui.spacing.Context
 
 @Composable
