@@ -92,6 +92,7 @@ fun OnlyTextDrawerButton(leadingText: String, onClick: () -> Unit) {
     TextDrawerButton(
         leadingText = leadingText,
         isOnlyText = true,
+        isTextCentered = true,
         onClick = onClick
     )
 }
