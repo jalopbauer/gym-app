@@ -1,4 +1,4 @@
-package com.indigo.gymapp.routine.addExercise.type.timed
+package com.indigo.gymapp.addRoutine.addExercise.type.timed
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
