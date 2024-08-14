@@ -10,7 +10,7 @@ import com.indigo.gymapp.addRoutine.addExercise.type.set.AddSet
 import com.indigo.gymapp.addRoutine.addExercise.type.timed.AddTimed
 import com.indigo.gymapp.common.header.CreateHeader
 import com.indigo.gymapp.common.preview.screen.ScreenPreview
-import com.indigo.gymapp.ui.spacing.Context
+import com.indigo.gymapp.ui.spacing.Spacing
 
 @Composable
 fun AddExercise(
@@ -27,7 +27,7 @@ fun AddExercise(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(
-                    horizontal = Context.Padding.screen
+                    horizontal = Spacing.Context.Padding.screen
                 )
         ) {
             when (addExerciseVariant) {

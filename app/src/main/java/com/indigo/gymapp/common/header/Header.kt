@@ -13,7 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.indigo.gymapp.common.button.textInput.HeaderTextDrawerButton
-import com.indigo.gymapp.ui.spacing.Context
+import com.indigo.gymapp.ui.spacing.Spacing
 import com.indigo.gymapp.ui.theme.color.Content
 
 @Composable
@@ -23,7 +23,7 @@ fun CreateHeader(
 ) {
     val onClick = { /*TODO*/ }
     Row (
-        modifier = Modifier.fillMaxWidth().padding(horizontal = Context.Padding.header_with_icon_button),
+        modifier = Modifier.fillMaxWidth().padding(horizontal = Spacing.Context.Padding.header_with_icon_button),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween,
     ) {
