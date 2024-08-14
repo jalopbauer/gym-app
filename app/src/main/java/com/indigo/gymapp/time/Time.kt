@@ -1,4 +1,4 @@
-package com.example.classkaty.time
+package com.indigo.gymapp.time
 
 fun displaySeconds(seconds: Int) = when (seconds) {
     0 -> "00"
@@ -13,3 +13,11 @@ fun displaySeconds(seconds: Int) = when (seconds) {
     9 -> "09"
     else -> "$seconds"
 }
+
+data class Time(val minutes: Int, val seconds : Int) {
+    override fun toString(): String {
+        return "$minutes:${displaySeconds(seconds)}"
+    }
+}
+typealias Rest = Time
+typealias Duration = Time

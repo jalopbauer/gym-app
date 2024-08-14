@@ -20,6 +20,7 @@ object Spacing {
         }
         object Gap {
             val default = Brand.s
+            val space = Brand.xs
         }
     }
 

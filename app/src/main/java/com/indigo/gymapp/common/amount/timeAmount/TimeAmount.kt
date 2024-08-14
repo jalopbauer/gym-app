@@ -5,7 +5,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import com.example.classkaty.time.displaySeconds
+import com.indigo.gymapp.time.displaySeconds
 
 @Composable
 fun TimeAmount(
