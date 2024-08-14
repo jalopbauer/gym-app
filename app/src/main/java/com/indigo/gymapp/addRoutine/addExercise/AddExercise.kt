@@ -5,7 +5,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.indigo.gymapp.R
 import com.indigo.gymapp.addRoutine.addExercise.type.set.AddSet
 import com.indigo.gymapp.addRoutine.addExercise.type.timed.AddTimed
 import com.indigo.gymapp.common.header.CreateHeader
@@ -16,7 +18,7 @@ import com.indigo.gymapp.ui.spacing.Spacing
 fun AddExercise(
     addExerciseVariant : AddExerciseVariant = Empty
 ) {
-    val title = getTitle(addExerciseVariant)
+    val title = stringResource(id = getTitle(addExerciseVariant))
     val isSelected = getIsSelected(addExerciseVariant)
     Column {
         CreateHeader(
@@ -48,9 +50,9 @@ private fun getIsSelected(addExerciseVariant: AddExerciseVariant) =
 
 private fun getTitle(addExerciseVariant: AddExerciseVariant) =
     when (addExerciseVariant) {
-        AddSet -> "Set"
-        AddTimed -> "Timed"
-        Empty -> "Select exercise type"
+        AddSet -> R.string.set
+        AddTimed -> R.string.timed
+        Empty -> R.string.select_exercise_type
     }
 
 @Preview

@@ -6,7 +6,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.indigo.gymapp.R
 import com.indigo.gymapp.addRoutine.exercise.Exercise
 import com.indigo.gymapp.addRoutine.exercise.SetExercise
 import com.indigo.gymapp.addRoutine.exercise.TimedExercise
@@ -29,7 +31,7 @@ fun AddRoutine(
     )
     Column {
         CreateHeader(
-            title = "Name your routine",
+            title = stringResource(id = R.string.name_your_routine),
             isSelected = false
         )
         Column (
@@ -41,13 +43,13 @@ fun AddRoutine(
             verticalArrangement = Arrangement.spacedBy(Spacing.Context.Gap.default)
         ) {
             TimeAmountTextDrawerButton(
-                leadingText = "Rest between exercises",
+                leadingText = stringResource(id = R.string.rest_between_exercises),
                 minutes = 2,
                 seconds = 0,
                 onClick = onClick
             )
             Title(
-                title = "Exercises",
+                title = stringResource(id = R.string.exercises),
                 textSize = Large
             )
             exercises.forEach{
