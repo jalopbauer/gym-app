@@ -10,6 +10,7 @@ import com.indigo.gymapp.R
 import com.indigo.gymapp.common.button.textInput.OnlyTextDrawerButton
 import com.indigo.gymapp.common.button.textInput.TimeAmountTextDrawerButton
 import com.indigo.gymapp.common.preview.screen.ScreenPreview
+import com.indigo.gymapp.time.Duration
 
 @Composable
 fun AddTimed() {
@@ -24,8 +25,7 @@ fun AddTimed() {
         )
         TimeAmountTextDrawerButton(
             leadingText = stringResource(id = R.string.duration),
-            minutes = 30,
-            seconds = 0,
+            time = Duration(30, 0),
             onClick = onClick,
         )
     }

@@ -11,6 +11,7 @@ import com.indigo.gymapp.common.button.textInput.IntAmountTextDrawerButton
 import com.indigo.gymapp.common.button.textInput.OnlyTextDrawerButton
 import com.indigo.gymapp.common.button.textInput.TimeAmountTextDrawerButton
 import com.indigo.gymapp.common.preview.screen.ScreenPreview
+import com.indigo.gymapp.time.Rest
 
 @Composable
 fun AddSet() {
@@ -25,8 +26,7 @@ fun AddSet() {
         )
         TimeAmountTextDrawerButton(
             leadingText = stringResource(id = R.string.rest_between_exercises),
-            minutes = 2,
-            seconds = 0,
+            time = Rest(2, 0),
             onClick = onClick
         )
         IntAmountTextDrawerButton(

@@ -5,28 +5,16 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import com.indigo.gymapp.time.displaySeconds
+import com.indigo.gymapp.time.Time
 
 @Composable
 fun TimeAmount(
-    minutes: Int,
-    seconds: Int,
+    time: Time,
     textColor: Color
 ) {
-    val displaySeconds = displaySeconds(seconds)
     Row {
         Text(
-            text = "$minutes",
-            color = textColor,
-            style = MaterialTheme.typography.titleLarge
-        )
-        Text(
-            text = ":",
-            color = textColor,
-            style = MaterialTheme.typography.titleLarge
-        )
-        Text(
-            text = displaySeconds,
+            text = "$time",
             color = textColor,
             style = MaterialTheme.typography.titleLarge
         )

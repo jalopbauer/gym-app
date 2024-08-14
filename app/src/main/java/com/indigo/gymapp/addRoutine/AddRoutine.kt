@@ -44,8 +44,7 @@ fun AddRoutine(
         ) {
             TimeAmountTextDrawerButton(
                 leadingText = stringResource(id = R.string.rest_between_exercises),
-                minutes = 2,
-                seconds = 0,
+                time = Rest(2, 0),
                 onClick = onClick
             )
             Title(

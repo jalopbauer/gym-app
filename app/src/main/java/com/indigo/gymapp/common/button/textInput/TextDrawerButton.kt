@@ -16,6 +16,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.indigo.gymapp.common.amount.intAmount.IntAmount
 import com.indigo.gymapp.common.amount.timeAmount.TimeAmount
+import com.indigo.gymapp.time.Time
 import com.indigo.gymapp.ui.theme.color.Color
 
 @Composable
@@ -53,16 +54,14 @@ private fun TextDrawerButton(
 fun TimeAmountTextDrawerButton(
     leadingText: String,
     onClick: () -> Unit,
-    minutes: Int,
-    seconds: Int
+    time: Time
 ) {
     TextDrawerButton(
         leadingText = leadingText,
         onClick = onClick,
         content = {
             TimeAmount(
-                minutes = minutes,
-                seconds = seconds,
+                time = time,
                 textColor = Color.Context.Text.information
             )
         }
