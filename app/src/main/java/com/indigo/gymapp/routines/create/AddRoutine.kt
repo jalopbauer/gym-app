@@ -1,4 +1,4 @@
-package com.indigo.gymapp.addRoutine
+package com.indigo.gymapp.routines.create
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -9,9 +9,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.indigo.gymapp.R
-import com.indigo.gymapp.addRoutine.exercise.Exercise
-import com.indigo.gymapp.addRoutine.exercise.SetExercise
-import com.indigo.gymapp.addRoutine.exercise.TimedExercise
+import com.indigo.gymapp.routines.create.exercise.Exercise
+import com.indigo.gymapp.routines.create.exercise.SetExercise
+import com.indigo.gymapp.routines.create.exercise.TimedExercise
 import com.indigo.gymapp.common.button.textInput.TimeAmountTextDrawerButton
 import com.indigo.gymapp.common.header.CreateHeader
 import com.indigo.gymapp.common.preview.screen.ScreenPreview

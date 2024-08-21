@@ -1,4 +1,4 @@
-package com.indigo.gymapp.addRoutine.exercise
+package com.indigo.gymapp.routines.create.exercise
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
