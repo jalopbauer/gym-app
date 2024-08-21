@@ -4,7 +4,14 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.indigo.gymapp.addRoutine.addExercise.AddExercise
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
+import androidx.compose.ui.Modifier
+import androidx.navigation.compose.rememberNavController
+import com.indigo.gymapp.navigation.BottomBar
+import com.indigo.gymapp.navigation.NavHostComposable
 import com.indigo.gymapp.ui.theme.GymAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -12,8 +19,20 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+            val navController = rememberNavController()
             GymAppTheme {
-                AddExercise()
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    Scaffold(
+                        bottomBar = {
+                            BottomBar { navController.navigate(it) }
+                        },
+                    ) { innerPadding ->
+                        NavHostComposable(innerPadding, navController)
+                    }
+                }
             }
         }
     }
