@@ -16,6 +16,7 @@ object Color {
 
     object Context {
         object Surface {
+            val contrast: Color = Brand.Greyscale.`500`()
             val base = Brand.Neutral.`600`()
         }
         object Text {
