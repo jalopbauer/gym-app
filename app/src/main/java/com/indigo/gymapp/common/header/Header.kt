@@ -19,20 +19,24 @@ import com.indigo.gymapp.ui.theme.color.Color
 @Composable
 fun CreateHeader(
     title: String,
-    isSelected: Boolean = false
+    isSelected: Boolean = false,
+    onClick: () -> Unit,
+
 ) {
-    val onClick = { /*TODO*/ }
     Row (
-        modifier = Modifier.fillMaxWidth().padding(horizontal = Spacing.Context.Padding.header_with_icon_button),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = Spacing.Context.Padding.header_with_icon_button),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween,
     ) {
-        SaveButton(onClick)
+        SaveButton { TODO() }
         HeaderTextDrawerButton(
             title = title,
-            isSelected = isSelected
+            isSelected = isSelected,
+            onClick = onClick
         )
-        CancelButton(onClick)
+        CancelButton { TODO() }
     }
 }
 

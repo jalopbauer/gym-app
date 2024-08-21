@@ -23,7 +23,8 @@ fun AddExercise(
     Column {
         CreateHeader(
             title = title,
-            isSelected = isSelected
+            isSelected = isSelected,
+            onClick = { TODO() }
         )
         Column (
             modifier = Modifier

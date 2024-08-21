@@ -22,8 +22,7 @@ import com.indigo.gymapp.time.Rest
 import com.indigo.gymapp.ui.spacing.Spacing
 
 @Composable
-fun AddRoutine(
-) {
+fun AddRoutine() {
     val onClick = { /*TODO*/ }
     val exercises = listOf(
         SetExercise("Chest", 4, Rest(2,0)),
@@ -32,7 +31,8 @@ fun AddRoutine(
     Column {
         CreateHeader(
             title = stringResource(id = R.string.name_your_routine),
-            isSelected = false
+            isSelected = false,
+            onClick = { TODO() }
         )
         Column (
             modifier = Modifier

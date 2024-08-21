@@ -99,7 +99,8 @@ fun OnlyTextDrawerButton(leadingText: String, onClick: () -> Unit) {
 @Composable
 fun HeaderTextDrawerButton(
     title: String,
-    isSelected: Boolean = false
+    isSelected: Boolean = false,
+    onClick: () -> Unit,
 ) {
     TextDrawerButton(
         leadingText = title,
@@ -107,7 +108,7 @@ fun HeaderTextDrawerButton(
         isTextCentered = true,
         isSelected = isSelected,
         textStyle = MaterialTheme.typography.headlineSmall,
-        onClick = { /*TODO*/ },
+        onClick = onClick,
         maxWidthFraction = 0.82f
     )
 }
