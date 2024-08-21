@@ -24,17 +24,22 @@ fun NavHostComposable(innerPadding: PaddingValues, navController: NavHostControl
             .padding(innerPadding)
             .padding(horizontal = 10.dp)
     ) {
+//        Exercises
         composable(route = NavigationPath.Exercises.name) {
             Exercises()
         }
+//        Calendar
         composable(route = NavigationPath.Calendar.name) {
             Calendar()
         }
+//        Routines
         composable(route = NavigationPath.Routines.name) {
             Routines()
         }
+//        Configuration
         composable(route = NavigationPath.Configuration.name) {
             Configuration()
         }
+        
     }
 }
