@@ -13,7 +13,9 @@ import androidx.navigation.compose.rememberNavController
 import com.indigo.gymapp.navigation.BottomBar
 import com.indigo.gymapp.navigation.NavHostComposable
 import com.indigo.gymapp.ui.theme.GymAppTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
