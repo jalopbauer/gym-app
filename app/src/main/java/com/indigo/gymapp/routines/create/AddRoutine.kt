@@ -18,15 +18,14 @@ import com.indigo.gymapp.common.preview.screen.ScreenPreview
 import com.indigo.gymapp.common.text.Large
 import com.indigo.gymapp.common.text.title.Title
 import com.indigo.gymapp.routines.create.exercise.Exercise
-import com.indigo.gymapp.routines.create.exercise.ExercisesViewModel
 import com.indigo.gymapp.time.Rest
 import com.indigo.gymapp.ui.spacing.Spacing
 
 @Composable
 fun AddRoutine() {
     val onClick = { /*TODO*/ }
-    val exercisesViewModel = hiltViewModel<ExercisesViewModel>()
-    val exercises by exercisesViewModel.exercises.collectAsState()
+    val routineViewModel = hiltViewModel<RoutineViewModel>()
+    val exercises by routineViewModel.exercises.collectAsState()
 
     Column {
         CreateHeader(
