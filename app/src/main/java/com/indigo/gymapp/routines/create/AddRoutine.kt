@@ -5,29 +5,29 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.indigo.gymapp.R
-import com.indigo.gymapp.routines.create.exercise.Exercise
-import com.indigo.gymapp.routines.create.exercise.SetExercise
-import com.indigo.gymapp.routines.create.exercise.TimedExercise
 import com.indigo.gymapp.common.button.textInput.TimeAmountTextDrawerButton
 import com.indigo.gymapp.common.header.CreateHeader
 import com.indigo.gymapp.common.preview.screen.ScreenPreview
 import com.indigo.gymapp.common.text.Large
 import com.indigo.gymapp.common.text.title.Title
-import com.indigo.gymapp.time.Duration
+import com.indigo.gymapp.routines.create.exercise.Exercise
+import com.indigo.gymapp.routines.create.exercise.ExercisesViewModel
 import com.indigo.gymapp.time.Rest
 import com.indigo.gymapp.ui.spacing.Spacing
 
 @Composable
 fun AddRoutine() {
     val onClick = { /*TODO*/ }
-    val exercises = listOf(
-        SetExercise("Chest", 4, Rest(2,0)),
-        TimedExercise("Running", Duration(2,0)),
-    )
+    val exercisesViewModel = hiltViewModel<ExercisesViewModel>()
+    val exercises by exercisesViewModel.exercises.collectAsState()
+
     Column {
         CreateHeader(
             title = stringResource(id = R.string.name_your_routine),
