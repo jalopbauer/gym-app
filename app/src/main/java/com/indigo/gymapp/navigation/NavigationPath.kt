@@ -12,6 +12,10 @@ object NavigationPath {
 
     data object Routines : NamedNavigation {
         override val name = "Routines"
+
+        data object Create : NamedNavigation {
+            override val name = "Create"
+        }
     }
 
     data object Configuration : NamedNavigation {

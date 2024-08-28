@@ -1,5 +1,6 @@
 package com.indigo.gymapp.navigation
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -13,6 +14,8 @@ import com.indigo.gymapp.calendar.Calendar
 import com.indigo.gymapp.configuration.Configuration
 import com.indigo.gymapp.exercises.Exercises
 import com.indigo.gymapp.routines.Routines
+import com.indigo.gymapp.routines.create.AddRoutine
+import com.indigo.gymapp.ui.theme.color.Color
 
 @Composable
 fun NavHostComposable(innerPadding: PaddingValues, navController: NavHostController) {
@@ -21,6 +24,7 @@ fun NavHostComposable(innerPadding: PaddingValues, navController: NavHostControl
         startDestination = NavigationPath.Calendar.name,
         modifier = Modifier
             .fillMaxSize()
+            .background(Color.Context.Surface.base)
             .padding(innerPadding)
             .padding(horizontal = 10.dp)
     ) {
@@ -34,7 +38,10 @@ fun NavHostComposable(innerPadding: PaddingValues, navController: NavHostControl
         }
 //        Routines
         composable(route = NavigationPath.Routines.name) {
-            Routines()
+            Routines( onNavigateToCreateRoutine = { navController.navigate( NavigationPath.Routines.Create.name )})
+        }
+        composable(route = NavigationPath.Routines.Create.name) {
+            AddRoutine()
         }
 //        Configuration
         composable(route = NavigationPath.Configuration.name) {
