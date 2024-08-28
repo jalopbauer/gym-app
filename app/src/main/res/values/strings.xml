@@ -2,7 +2,7 @@
     <string name="app_name">GymApp</string>
     <string name="name_your_routine">Name your routine</string>
     <string name="rest_between_exercises">Rest between exercises</string>
-    <string name="exercises">Exercises</string>
+    <string name="routine_exercises">Routine exercises</string>
     <string name="duration">Duration</string>
     <string name="amount_of_sets">Amount of sets</string>
     <string name="sets">Sets</string>

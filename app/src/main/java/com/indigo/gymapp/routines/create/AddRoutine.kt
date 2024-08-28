@@ -25,7 +25,7 @@ import com.indigo.gymapp.ui.spacing.Spacing
 fun AddRoutine() {
     val onClick = { /*TODO*/ }
     val routineViewModel = hiltViewModel<RoutineViewModel>()
-    val exercises by routineViewModel.exercises.collectAsState()
+    val routineExercises by routineViewModel.exercises.collectAsState()
 
     Column {
         CreateHeader(
@@ -47,12 +47,12 @@ fun AddRoutine() {
                 onClick = onClick
             )
             Title(
-                title = stringResource(id = R.string.exercises),
+                title = stringResource(id = R.string.routine_exercises),
                 textSize = Large
             )
-            exercises.forEach{
+            routineExercises.forEach{
                 Exercise(
-                    exercise = it
+                    routineExercise = it
                 )
             }
         }

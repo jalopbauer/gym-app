@@ -18,7 +18,7 @@ import com.indigo.gymapp.ui.theme.color.Color
 
 @Composable
 fun Exercise(
-    exercise: Exercise
+    routineExercise: RoutineExercise
 ) {
     val selected = false
     val onClick = { TODO() }
@@ -35,7 +35,7 @@ fun Exercise(
                 selected = selected,
                 onClick = onClick
             )
-            ExerciseDescription(exercise)
+            ExerciseDescription(routineExercise)
         }
         Icon(
             imageVector = Icons.Outlined.Menu,
@@ -47,17 +47,17 @@ fun Exercise(
 }
 
 @Composable
-private fun ExerciseDescription(exercise: Exercise) {
+private fun ExerciseDescription(routineExercise: RoutineExercise) {
     Column(
         verticalArrangement = Arrangement.spacedBy(Spacing.Context.Gap.space)
     ) {
-        Title(title = exercise.exerciseName, textSize = Medium)
+        Title(title = routineExercise.exerciseName, textSize = Medium)
         Column(
             verticalArrangement = Arrangement.spacedBy(Spacing.Context.Gap.default),
         ) {
-            when (exercise) {
-                is SetExercise -> SetExerciseIconTextValue(exercise)
-                is TimedExercise -> TimedExerciseIconTextValue(exercise)
+            when (routineExercise) {
+                is SetExercise -> SetExerciseIconTextValue(routineExercise)
+                is TimedExercise -> TimedExerciseIconTextValue(routineExercise)
             }
         }
     }
