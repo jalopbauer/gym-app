@@ -7,7 +7,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 
 @Composable
-fun Routines(onNavigateToCreateRoutine: () -> Unit) {
+fun Routines(
+    onNavigateToCreateRoutine: () -> Unit
+) {
     Column (
         verticalArrangement = Arrangement.SpaceBetween
     ){
