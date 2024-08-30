@@ -4,6 +4,7 @@ import androidx.compose.ui.graphics.Color
 
 object Color {
     private object Brand {
+//        TODO Brand should implement interface ColorTheme
         object Neutral {
             fun `600`() = Color(0xFF2E3440)
             fun `300`() = Color(0xFF4C566A)
