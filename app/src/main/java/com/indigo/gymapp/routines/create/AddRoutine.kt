@@ -41,8 +41,8 @@ fun AddRoutine(onNavigateToRoutines: () -> Unit) {
 
     val sheetState = rememberModalBottomSheetState()
 
-    var showBottomSheet by remember {
-        mutableStateOf(false)
+    var bottomSheetState by remember {
+        mutableStateOf<RoutineBottomSheetState>(Closed)
     }
 
     val title = stringResource(id = R.string.name_your_routine)
@@ -51,7 +51,7 @@ fun AddRoutine(onNavigateToRoutines: () -> Unit) {
             title = if(hastWrittenRoutineName) routineName else title,
             isSelected = hastWrittenRoutineName,
             onClickDrawerButton = {
-                showBottomSheet = true
+                bottomSheetState = NameYourRoutine
             },
             onClickSave = {
                 onNavigateToRoutines()
@@ -86,8 +86,8 @@ fun AddRoutine(onNavigateToRoutines: () -> Unit) {
     }
 
     BottomSheet(
-        showBottomSheet = showBottomSheet,
-        onDismissRequest = { showBottomSheet = false },
+        showBottomSheet = bottomSheetState.showBottomSheet(),
+        onDismissRequest = { bottomSheetState = Closed },
         sheetState = sheetState
     ) {
         Column (
@@ -103,6 +103,18 @@ fun AddRoutine(onNavigateToRoutines: () -> Unit) {
         }
     }
 }
+
+sealed interface RoutineBottomSheetState {
+    fun showBottomSheet() : Boolean
+}
+data object Closed : RoutineBottomSheetState {
+    override fun showBottomSheet(): Boolean = false
+}
+sealed interface Open : RoutineBottomSheetState {
+    override fun showBottomSheet(): Boolean = true
+}
+
+data object NameYourRoutine : Open
 
 @Preview
 @Composable
