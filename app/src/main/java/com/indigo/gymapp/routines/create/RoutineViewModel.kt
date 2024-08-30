@@ -12,6 +12,15 @@ import javax.inject.Inject
 @HiltViewModel
 class RoutineViewModel @Inject constructor() : ViewModel() {
 
+    private var _routineName = MutableStateFlow("")
+    val routineName = _routineName.asStateFlow()
+
+    fun changeRoutineName(newRoutineName: String) {
+        viewModelScope.launch {
+            _routineName.emit(newRoutineName)
+        }
+    }
+
     private var _routineExercises = MutableStateFlow(listOf<RoutineExercise>())
     val exercises = _routineExercises.asStateFlow()
 
