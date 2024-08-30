@@ -1,6 +1,8 @@
 package com.indigo.gymapp.common.bottomSheet
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.BottomSheetDefaults
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -13,7 +15,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.indigo.gymapp.ui.spacing.Spacing
 import com.indigo.gymapp.ui.theme.color.Color
 
 @Composable
@@ -31,7 +35,14 @@ fun BottomSheet(
             containerColor = Color.Context.Surface.base,
             dragHandle = { BottomSheetDefaults.DragHandle(color = Color.Context.Surface.contrast) },
         ) {
-            content()
+            Column(
+                modifier = Modifier
+                    .padding(
+                        horizontal = Spacing.Context.Padding.screen
+                    ),
+            ) {
+                content()
+            }
         }
     }
 }
