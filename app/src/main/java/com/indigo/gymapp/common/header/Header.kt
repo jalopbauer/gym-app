@@ -20,7 +20,9 @@ import com.indigo.gymapp.ui.theme.color.Color
 fun CreateHeader(
     title: String,
     isSelected: Boolean = false,
-    onClick: () -> Unit,
+    onClickDrawerButton: () -> Unit,
+    onClickSave: () -> Unit,
+    onClickCancel: () -> Unit,
 
 ) {
     Row (
@@ -30,13 +32,13 @@ fun CreateHeader(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween,
     ) {
-        SaveButton {}
+        SaveButton { onClickSave() }
         HeaderTextDrawerButton(
             title = title,
             isSelected = isSelected,
-            onClick = onClick
+            onClick = onClickDrawerButton
         )
-        CancelButton {}
+        CancelButton { onClickCancel() }
     }
 }
 

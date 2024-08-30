@@ -24,7 +24,9 @@ fun AddExercise(
         CreateHeader(
             title = title,
             isSelected = isSelected,
-            onClick = {}
+            onClickDrawerButton = {},
+            onClickSave = {},
+            onClickCancel = {},
         )
         Column (
             modifier = Modifier

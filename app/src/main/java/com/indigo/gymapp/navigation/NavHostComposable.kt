@@ -43,7 +43,9 @@ fun NavHostComposable(innerPadding: PaddingValues, navController: NavHostControl
             )
         }
         composable(route = NavigationPath.Routines.Create.name) {
-            AddRoutine()
+            AddRoutine(
+                onNavigateToRoutines = { navController.navigate( NavigationPath.Routines.name ) }
+            )
         }
 //        Configuration
         composable(route = NavigationPath.Configuration.name) {

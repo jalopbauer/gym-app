@@ -22,7 +22,7 @@ import com.indigo.gymapp.time.Rest
 import com.indigo.gymapp.ui.spacing.Spacing
 
 @Composable
-fun AddRoutine() {
+fun AddRoutine(onNavigateToRoutines: () -> Unit) {
     val routineViewModel = hiltViewModel<RoutineViewModel>()
     val routineExercises by routineViewModel.exercises.collectAsState()
 
@@ -30,7 +30,13 @@ fun AddRoutine() {
         CreateHeader(
             title = stringResource(id = R.string.name_your_routine),
             isSelected = false,
-            onClick = {}
+            onClickDrawerButton = {},
+            onClickSave = {
+                onNavigateToRoutines()
+            },
+            onClickCancel = {
+                onNavigateToRoutines()
+            },
         )
         Column (
             modifier = Modifier
@@ -62,6 +68,6 @@ fun AddRoutine() {
 @Composable
 private fun PreviewAddExerciseEmpty() {
     ScreenPreview {
-        AddRoutine()
+        AddRoutine {}
     }
 }
