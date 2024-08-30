@@ -94,6 +94,7 @@ fun AddRoutine(onNavigateToRoutines: () -> Unit) {
             verticalArrangement = Arrangement.spacedBy(4.dp)
         ) {
             CustomTextField(
+//                TODO Make keyboard open on show bottom sheet
                 value = routineName,
                 label = title,
                 onValueChange = { routineViewModel.changeRoutineName(it) },
