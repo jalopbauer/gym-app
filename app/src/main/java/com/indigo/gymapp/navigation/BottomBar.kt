@@ -5,32 +5,31 @@ import androidx.compose.material.icons.filled.Build
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Star
-import androidx.compose.material.icons.outlined.Build
-import androidx.compose.material.icons.outlined.Home
-import androidx.compose.material.icons.outlined.Person
-import androidx.compose.material.icons.outlined.Star
-import androidx.compose.material3.Badge
-import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.tooling.preview.Preview
+import com.indigo.gymapp.common.text.label.Label
+import com.indigo.gymapp.ui.theme.color.Color.Context
+
+// TODO Remove background color behind icon
+// TODO Change icons
 
 @Composable
 fun BottomBar(
     onNavigate: (String) -> Unit,
 ) {
 
-    val exercisesScreen = TabBarItem(title = NavigationPath.Exercises.name, selectedIcon = Icons.Filled.Home, unselectedIcon = Icons.Outlined.Home)
-    val calendarScreen = TabBarItem(title = NavigationPath.Calendar.name, selectedIcon = Icons.Filled.Star, unselectedIcon = Icons.Outlined.Star)
-    val routinesScreen = TabBarItem(title = NavigationPath.Routines.name, selectedIcon = Icons.Filled.Person, unselectedIcon = Icons.Outlined.Person)
-    val configScreen = TabBarItem(title = NavigationPath.Configuration.name, selectedIcon = Icons.Filled.Build, unselectedIcon = Icons.Outlined.Build)
+    val exercisesScreen = TabBarItem(title = NavigationPath.Exercises.name, icon = Icons.Filled.Home)
+    val calendarScreen = TabBarItem(title = NavigationPath.Calendar.name, icon = Icons.Filled.Star)
+    val routinesScreen = TabBarItem(title = NavigationPath.Routines.name, icon = Icons.Filled.Person)
+    val configScreen = TabBarItem(title = NavigationPath.Configuration.name, icon = Icons.Filled.Build)
 
     val tabBarItems = listOf(exercisesScreen, calendarScreen, routinesScreen, configScreen)
 
@@ -39,9 +38,7 @@ fun BottomBar(
 
 data class TabBarItem(
     val title: String,
-    val selectedIcon: ImageVector,
-    val unselectedIcon: ImageVector,
-    val badgeAmount: Int? = null
+    val icon: ImageVector
 )
 
 @Composable
@@ -50,49 +47,63 @@ fun TabView(tabBarItems: List<TabBarItem>, onNavigate: (String) -> Unit) {
         mutableIntStateOf(0)
     }
 
-    NavigationBar {
+    NavigationBar (
+        containerColor = Context.Surface.base
+    ) {
         tabBarItems.forEachIndexed { index, tabBarItem ->
+            val isSelected = selectedTabIndex == index
             NavigationBarItem(
-                selected = selectedTabIndex == index,
+                selected = isSelected,
                 onClick = {
                     selectedTabIndex = index
                     onNavigate(tabBarItem.title)
                 },
                 icon = {
                     TabBarIconView(
-                        isSelected = selectedTabIndex == index,
-                        selectedIcon = tabBarItem.selectedIcon,
-                        unselectedIcon = tabBarItem.unselectedIcon,
-                        title = tabBarItem.title,
-                        badgeAmount = tabBarItem.badgeAmount
+                        isSelected = isSelected,
+                        icon = tabBarItem.icon,
+                        title = tabBarItem.title
                     )
                 },
-                label = { Text(tabBarItem.title) })
+                label = {
+                    NavigationBarItemLabel(
+                        label = tabBarItem.title,
+                        isSelected = isSelected
+                    )
+                }
+            )
         }
     }
 }
+
+@Composable
+private fun NavigationBarItemLabel(label: String, isSelected: Boolean) =
+    Label(
+        label = label,
+        color = if (isSelected) {
+            Context.Text.active
+        } else {
+            Context.Text.primary
+        }
+    )
 
 @Composable
 fun TabBarIconView(
     isSelected: Boolean,
-    selectedIcon: ImageVector,
-    unselectedIcon: ImageVector,
-    title: String,
-    badgeAmount: Int? = null
+    icon: ImageVector,
+    title: String
 ) {
-    BadgedBox(badge = { TabBarBadgeView(badgeAmount) }) {
-        Icon(
-            imageVector = if (isSelected) {selectedIcon} else {unselectedIcon},
-            contentDescription = title
-        )
-    }
+    val tint = if (isSelected) { Context.Icon.active } else { Context.Icon.primary }
+    Icon(
+        imageVector = icon,
+        contentDescription = title,
+        tint = tint,
+
+    )
 }
 
+@Preview
 @Composable
-fun TabBarBadgeView(count: Int? = null) {
-    if (count != null) {
-        Badge {
-            Text(count.toString())
-        }
-    }
+private fun Preview() {
+    BottomBar { NavigationPath.Exercises.name }
 }

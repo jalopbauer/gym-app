@@ -12,6 +12,10 @@ object Color {
         object Greyscale {
             fun `500`() = Color(0xFFECEFF4)
         }
+
+        object Primary {
+            fun `600`() = Color(0xFF5E81AC)
+        }
     }
 
     object Context {
@@ -22,9 +26,11 @@ object Color {
         object Text {
             val primary = Brand.Greyscale.`500`()
             val information = Brand.Neutral.`300`()
+            val active = Brand.Primary.`600`()
         }
         object Icon {
             val primary = Brand.Greyscale.`500`()
+            val active = Brand.Primary.`600`()
         }
     }
 }
