@@ -23,7 +23,6 @@ import com.indigo.gymapp.ui.spacing.Spacing
 
 @Composable
 fun AddRoutine() {
-    val onClick = { /*TODO*/ }
     val routineViewModel = hiltViewModel<RoutineViewModel>()
     val routineExercises by routineViewModel.exercises.collectAsState()
 
@@ -31,7 +30,7 @@ fun AddRoutine() {
         CreateHeader(
             title = stringResource(id = R.string.name_your_routine),
             isSelected = false,
-            onClick = { TODO() }
+            onClick = {}
         )
         Column (
             modifier = Modifier
@@ -44,7 +43,7 @@ fun AddRoutine() {
             TimeAmountTextDrawerButton(
                 leadingText = stringResource(id = R.string.rest_between_exercises),
                 time = Rest(2, 0),
-                onClick = onClick
+                onClick = {}
             )
             Title(
                 title = stringResource(id = R.string.routine_exercises),

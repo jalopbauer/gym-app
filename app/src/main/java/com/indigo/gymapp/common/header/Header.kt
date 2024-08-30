@@ -30,13 +30,13 @@ fun CreateHeader(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween,
     ) {
-        SaveButton { TODO() }
+        SaveButton {}
         HeaderTextDrawerButton(
             title = title,
             isSelected = isSelected,
             onClick = onClick
         )
-        CancelButton { TODO() }
+        CancelButton {}
     }
 }
 

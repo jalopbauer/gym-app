@@ -21,7 +21,6 @@ fun Exercise(
     routineExercise: RoutineExercise
 ) {
     val selected = false
-    val onClick = { TODO() }
     Row (
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceBetween,
@@ -33,7 +32,7 @@ fun Exercise(
         ) {
             RadioButton(
                 selected = selected,
-                onClick = onClick
+                onClick = {}
             )
             ExerciseDescription(routineExercise)
         }

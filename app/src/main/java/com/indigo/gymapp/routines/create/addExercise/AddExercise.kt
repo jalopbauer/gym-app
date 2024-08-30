@@ -8,10 +8,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.indigo.gymapp.R
-import com.indigo.gymapp.routines.create.addExercise.type.set.AddSet
-import com.indigo.gymapp.routines.create.addExercise.type.timed.AddTimed
 import com.indigo.gymapp.common.header.CreateHeader
 import com.indigo.gymapp.common.preview.screen.ScreenPreview
+import com.indigo.gymapp.routines.create.addExercise.type.set.AddSet
+import com.indigo.gymapp.routines.create.addExercise.type.timed.AddTimed
 import com.indigo.gymapp.ui.spacing.Spacing
 
 @Composable
@@ -24,7 +24,7 @@ fun AddExercise(
         CreateHeader(
             title = title,
             isSelected = isSelected,
-            onClick = { TODO() }
+            onClick = {}
         )
         Column (
             modifier = Modifier
