@@ -1,4 +1,4 @@
-package com.indigo.gymapp.navigation.bottomBar
+package com.indigo.gymapp.common.bottomAppBar
 
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar

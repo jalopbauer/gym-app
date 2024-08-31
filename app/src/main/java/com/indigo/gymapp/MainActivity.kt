@@ -10,7 +10,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
-import com.indigo.gymapp.navigation.bottomBar.BottomBar
+import com.indigo.gymapp.common.bottomAppBar.BottomAppBar
 import com.indigo.gymapp.navigation.NavHostComposable
 import com.indigo.gymapp.ui.theme.GymAppTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -29,7 +29,7 @@ class MainActivity : ComponentActivity() {
                 ) {
                     Scaffold(
                         bottomBar = {
-                            BottomBar { navController.navigate(it) }
+                            BottomAppBar { navController.navigate(it) }
                         },
                     ) { innerPadding ->
                         NavHostComposable(innerPadding, navController)

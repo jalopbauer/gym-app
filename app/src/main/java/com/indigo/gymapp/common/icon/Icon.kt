@@ -3,6 +3,8 @@ package com.indigo.gymapp.common.icon
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Add
 import androidx.compose.material.icons.outlined.Close
+import androidx.compose.material.icons.outlined.Delete
+import androidx.compose.material.icons.outlined.Edit
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.indigo.gymapp.ui.theme.color.Color
@@ -12,6 +14,9 @@ fun Icon(iconVariant : IconVariant) {
     when (iconVariant) {
         Save -> SaveIcon()
         Cancel -> CancelIcon()
+        Delete -> DeleteIcon()
+        Edit -> EditIcon()
+        Add -> AddIcon()
     }
 }
 
@@ -29,7 +34,10 @@ private fun ImageVectorIcon(
 
 @Composable
 fun CancelIcon() {
-    ImageVectorIcon(Icons.Outlined.Close, "Cancel")
+    ImageVectorIcon(
+        imageVector = Icons.Outlined.Close,
+        contentDescription = "Cancel"
+    )
 }
 
 @Composable
@@ -40,9 +48,39 @@ fun SaveIcon() {
     )
 }
 
+@Composable
+fun DeleteIcon() {
+    ImageVectorIcon(
+        imageVector = Icons.Outlined.Delete,
+        contentDescription = "Delete",
+    )
+}
+
+@Composable
+fun EditIcon() {
+    ImageVectorIcon(
+        imageVector = Icons.Outlined.Edit,
+        contentDescription = "Edit",
+    )
+}
+
+@Composable
+fun AddIcon() {
+    ImageVectorIcon(
+        imageVector = Icons.Outlined.Add,
+        contentDescription = "Add",
+    )
+}
+
 
 sealed interface IconVariant
 
 data object Save : IconVariant
 
 data object Cancel : IconVariant
+
+data object Delete : IconVariant
+
+data object Edit : IconVariant
+
+data object Add : IconVariant

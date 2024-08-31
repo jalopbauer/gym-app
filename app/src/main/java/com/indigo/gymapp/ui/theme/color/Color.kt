@@ -7,6 +7,7 @@ object Color {
 //        TODO Brand should implement interface ColorTheme
         object Neutral {
             fun `600`() = Color(0xFF2E3440)
+            fun `500`() = Color(0xFF3B4252)
             fun `300`() = Color(0xFF4C566A)
         }
 
@@ -16,11 +17,15 @@ object Color {
 
         object Primary {
             fun `600`() = Color(0xFF5E81AC)
+            fun `500`() = Color(0xFF81A1C1)
         }
     }
 
     object Context {
         object Surface {
+            val top = Brand.Neutral.`500`()
+            val primary = Brand.Primary.`500`()
+            val active = Brand.Primary.`600`()
             val contrast: Color = Brand.Greyscale.`500`()
             val base = Brand.Neutral.`600`()
         }

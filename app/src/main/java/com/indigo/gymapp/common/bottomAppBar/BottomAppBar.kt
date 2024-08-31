@@ -1,4 +1,4 @@
-package com.indigo.gymapp.navigation.bottomBar
+package com.indigo.gymapp.common.bottomAppBar
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Build
@@ -10,7 +10,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.indigo.gymapp.navigation.NavigationPath
 
 @Composable
-fun BottomBar(
+fun BottomAppBar(
     onNavigate: (String) -> Unit,
 ) {
 
@@ -24,8 +24,9 @@ fun BottomBar(
     TabBottomBar(tabBarItems, onNavigate)
 }
 
+
 @Preview
 @Composable
-private fun Preview() {
-    BottomBar( onNavigate = { NavigationPath.Exercises.name } )
+private fun TabBottomBarVariantPreview() {
+    BottomAppBar( onNavigate = { NavigationPath.Exercises.name } )
 }
