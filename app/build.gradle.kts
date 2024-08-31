@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+//    TODO move to .toml
     id("dagger.hilt.android.plugin")
     id("kotlin-kapt")
 }
