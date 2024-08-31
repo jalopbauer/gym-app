@@ -1,34 +1,26 @@
 package com.indigo.gymapp.common.icon.button
 
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Add
-import androidx.compose.material.icons.outlined.Close
-import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.vector.ImageVector
-import com.indigo.gymapp.ui.theme.color.Color
+import com.indigo.gymapp.common.icon.Cancel
+import com.indigo.gymapp.common.icon.Icon
+import com.indigo.gymapp.common.icon.IconVariant
+import com.indigo.gymapp.common.icon.Save
 
 @Composable
 fun IconButton(
-    imageVector: ImageVector,
-    contentDescription: String,
+    iconVariant : IconVariant,
     onClick: () -> Unit
 ) {
     IconButton(onClick = onClick) {
-        Icon(
-            imageVector = imageVector,
-            contentDescription = contentDescription,
-            tint = Color.Context.Icon.primary
-        )
+        Icon(iconVariant)
     }
 }
 
 @Composable
 fun CancelIconButton(onClick: () -> Unit) {
     IconButton(
-        imageVector = Icons.Outlined.Close,
-        contentDescription = "Cancel",
+        iconVariant = Cancel,
         onClick = onClick
     )
 }
@@ -36,8 +28,7 @@ fun CancelIconButton(onClick: () -> Unit) {
 @Composable
 fun SaveIconButton(onClick: () -> Unit) {
     IconButton(
-        imageVector = Icons.Outlined.Add,
-        contentDescription = "Save",
+        iconVariant = Save,
         onClick = onClick
     )
 }
