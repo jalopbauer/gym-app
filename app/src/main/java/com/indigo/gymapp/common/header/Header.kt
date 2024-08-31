@@ -4,17 +4,13 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Add
-import androidx.compose.material.icons.outlined.Close
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.indigo.gymapp.common.button.textInput.HeaderTextDrawerButton
+import com.indigo.gymapp.common.icon.button.CancelIconButton
+import com.indigo.gymapp.common.icon.button.SaveIconButton
 import com.indigo.gymapp.ui.spacing.Spacing
-import com.indigo.gymapp.ui.theme.color.Color
 
 @Composable
 fun CreateHeader(
@@ -32,35 +28,13 @@ fun CreateHeader(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween,
     ) {
-        SaveButton { onClickSave() }
+        SaveIconButton { onClickSave() }
         HeaderTextDrawerButton(
             title = title,
             isSelected = isSelected,
             onClick = onClickDrawerButton
         )
-        CancelButton { onClickCancel() }
-    }
-}
-
-@Composable
-private fun CancelButton(onClick: () -> Unit) {
-    IconButton(onClick = onClick) {
-        Icon(
-            imageVector = Icons.Outlined.Close,
-            contentDescription = "Cancel",
-            tint = Color.Context.Icon.primary
-        )
-    }
-}
-
-@Composable
-private fun SaveButton(onClick: () -> Unit) {
-    IconButton(onClick = onClick) {
-        Icon(
-            imageVector = Icons.Outlined.Add,
-            contentDescription = "Save",
-            tint = Color.Context.Icon.primary
-        )
+        CancelIconButton { onClickCancel() }
     }
 }
 
