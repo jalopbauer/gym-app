@@ -1,10 +1,5 @@
-package com.indigo.gymapp.navigation
+package com.indigo.gymapp.navigation.bottomBar
 
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Build
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -14,35 +9,19 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.tooling.preview.Preview
 import com.indigo.gymapp.common.text.label.Label
 import com.indigo.gymapp.ui.theme.color.Color.Context
-
-// TODO Remove background color behind icon
-// TODO Change icons
-
-@Composable
-fun BottomBar(
-    onNavigate: (String) -> Unit,
-) {
-
-    val exercisesScreen = TabBarItem(title = NavigationPath.Exercises.name, icon = Icons.Filled.Home)
-    val calendarScreen = TabBarItem(title = NavigationPath.Calendar.name, icon = Icons.Filled.Star)
-    val routinesScreen = TabBarItem(title = NavigationPath.Routines.name, icon = Icons.Filled.Person)
-    val configScreen = TabBarItem(title = NavigationPath.Configuration.name, icon = Icons.Filled.Build)
-
-    val tabBarItems = listOf(exercisesScreen, calendarScreen, routinesScreen, configScreen)
-
-    TabView(tabBarItems, onNavigate)
-}
 
 data class TabBarItem(
     val title: String,
     val icon: ImageVector
 )
 
+// TODO Remove background color behind icon
+// TODO Change icons
+
 @Composable
-fun TabView(tabBarItems: List<TabBarItem>, onNavigate: (String) -> Unit) {
+fun TabBottomBar(tabBarItems: List<TabBarItem>, onNavigate: (String) -> Unit) {
     var selectedTabIndex by rememberSaveable {
         mutableIntStateOf(0)
     }
@@ -80,11 +59,7 @@ fun TabView(tabBarItems: List<TabBarItem>, onNavigate: (String) -> Unit) {
 private fun NavigationBarItemLabel(label: String, isSelected: Boolean) =
     Label(
         label = label,
-        color = if (isSelected) {
-            Context.Text.active
-        } else {
-            Context.Text.primary
-        }
+        color = if (isSelected) Context.Text.active else Context.Text.primary
     )
 
 @Composable
@@ -98,12 +73,5 @@ fun TabBarIconView(
         imageVector = icon,
         contentDescription = title,
         tint = tint,
-
     )
-}
-
-@Preview
-@Composable
-private fun Preview() {
-    BottomBar { NavigationPath.Exercises.name }
 }
