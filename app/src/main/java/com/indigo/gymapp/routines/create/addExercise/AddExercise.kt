@@ -16,6 +16,7 @@ import com.indigo.gymapp.ui.spacing.Spacing
 
 @Composable
 fun AddExercise(
+    onNavigateToCreateRoutine : () -> Unit,
     addExerciseVariant : AddExerciseVariant = Empty
 ) {
     val title = stringResource(id = getTitle(addExerciseVariant))
@@ -25,8 +26,12 @@ fun AddExercise(
             title = title,
             isSelected = isSelected,
             onClickDrawerButton = {},
-            onClickSave = {},
-            onClickCancel = {},
+            onClickSave = {
+                onNavigateToCreateRoutine()
+            },
+            onClickCancel = {
+                onNavigateToCreateRoutine()
+            },
         )
         Column (
             modifier = Modifier
@@ -62,7 +67,9 @@ private fun getTitle(addExerciseVariant: AddExerciseVariant) =
 @Composable
 private fun PreviewAddExerciseEmpty() {
     ScreenPreview {
-        AddExercise()
+        AddExercise(
+            onNavigateToCreateRoutine = {}
+        )
     }
 }
 
@@ -71,6 +78,7 @@ private fun PreviewAddExerciseEmpty() {
 private fun PreviewAddESet() {
     ScreenPreview {
         AddExercise(
+            onNavigateToCreateRoutine = {},
             addExerciseVariant = AddSet
         )
     }
@@ -81,6 +89,7 @@ private fun PreviewAddESet() {
 private fun PreviewAddTimed() {
     ScreenPreview {
         AddExercise(
+            onNavigateToCreateRoutine = {},
             addExerciseVariant = AddTimed
         )
     }

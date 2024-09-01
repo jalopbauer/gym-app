@@ -1,5 +1,6 @@
 package com.indigo.gymapp.navigation
 
+//Routine names must be unique
 object NavigationPath {
 
     data object Exercises : NamedNavigation {
@@ -14,7 +15,15 @@ object NavigationPath {
         override val name = "Routines"
 
         data object Create : NamedNavigation {
-            override val name = "Create"
+            override val name = "${Routines.name}Create"
+
+            data object Exercises : NamedNavigation {
+                override val name = "${Routines.Create.name}Exercises"
+
+                data object Create : NamedNavigation {
+                    override val name = "${Routines.Create.Exercises.name}Creates"
+                }
+            }
         }
     }
 
