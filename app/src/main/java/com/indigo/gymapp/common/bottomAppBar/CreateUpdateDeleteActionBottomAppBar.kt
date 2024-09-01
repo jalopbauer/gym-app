@@ -10,6 +10,8 @@ import com.indigo.gymapp.ui.theme.color.Color.Context
 
 @Composable
 fun CreateUpdateDeleteActionBottomAppBar(
+    isDeleteEnabled : Boolean,
+    isEditEnabled : Boolean,
     addOnClick: () -> Unit,
     editOnClick: () -> Unit,
     deleteOnClick: () -> Unit,
@@ -17,12 +19,16 @@ fun CreateUpdateDeleteActionBottomAppBar(
     androidx.compose.material3.BottomAppBar(
         containerColor = Context.Surface.top,
         actions = {
-            DeleteIconButton(
-                onClick = deleteOnClick
-            )
-            EditIconButton(
-                onClick = editOnClick
-            )
+            if (isDeleteEnabled) {
+                DeleteIconButton(
+                    onClick = deleteOnClick
+                )
+            }
+            if (isEditEnabled) {
+                EditIconButton(
+                    onClick = editOnClick
+                )
+            }
         },
         floatingActionButton = {
             FloatingActionButton(
@@ -36,10 +42,39 @@ fun CreateUpdateDeleteActionBottomAppBar(
 
 @Preview
 @Composable
-private fun CreateUpdateDeleteActionBottomAppBarPreview() {
+private fun DeleteAndEditDisabledCreateUpdateDeleteActionBottomAppBarPreview() {
     CreateUpdateDeleteActionBottomAppBar(
+        isDeleteEnabled = false,
+        isEditEnabled = false,
         addOnClick = {},
         editOnClick = {},
         deleteOnClick = {},
     )
 }
+
+@Preview
+@Composable
+private fun EditDisabledCreateUpdateDeleteActionBottomAppBarPreview() {
+    CreateUpdateDeleteActionBottomAppBar(
+        isDeleteEnabled = true,
+        isEditEnabled = false,
+        addOnClick = {},
+        editOnClick = {},
+        deleteOnClick = {},
+    )
+}
+
+@Preview
+@Composable
+private fun AllEnabledCreateUpdateDeleteActionBottomAppBarPreview() {
+    CreateUpdateDeleteActionBottomAppBar(
+        isDeleteEnabled = true,
+        isEditEnabled = true,
+        addOnClick = {},
+        editOnClick = {},
+        deleteOnClick = {},
+    )
+}
+
+
+
