@@ -38,36 +38,42 @@ fun AddRoutine(
     onNavigateToRoutines: () -> Unit,
     onNavigateToAddRoutineExercise: () -> Unit
 ) {
+    val routineViewModel = hiltViewModel<RoutineViewModel>()
+    val routineExercises by routineViewModel.exercises.collectAsState()
+    val routineName by routineViewModel.routineName.collectAsState()
+    val routineExercisesIsEmpty = routineExercises.isEmpty()
+
+    val hasWrittenRoutineName = routineName != ""
+
+    val sheetState = rememberModalBottomSheetState()
+
+    var bottomSheetState by remember {
+        mutableStateOf<RoutineBottomSheetState>(Closed)
+    }
+
+    val title = stringResource(id = R.string.name_your_routine)
+
+
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         containerColor = Context.Surface.base,
         bottomBar = {
             CreateUpdateDeleteActionBottomAppBar(
+                isDeleteEnabled = isDeleteEnabledInBottomAppBar(routineExercisesIsEmpty),
+                isEditEnabled = isEditEnabledInBottomAppBar(routineExercisesIsEmpty),
                 addOnClick = onNavigateToAddRoutineExercise,
                 editOnClick = {},
                 deleteOnClick = {}
             )
         },
     ) { innerPadding ->
-        val routineViewModel = hiltViewModel<RoutineViewModel>()
-        val routineExercises by routineViewModel.exercises.collectAsState()
-        val routineName by routineViewModel.routineName.collectAsState()
 
-        val hastWrittenRoutineName = routineName != ""
-
-        val sheetState = rememberModalBottomSheetState()
-
-        var bottomSheetState by remember {
-            mutableStateOf<RoutineBottomSheetState>(Closed)
-        }
-
-        val title = stringResource(id = R.string.name_your_routine)
         Column (
             modifier = Modifier.padding(innerPadding),
         ) {
             CreateHeader(
-                title = if(hastWrittenRoutineName) routineName else title,
-                isSelected = hastWrittenRoutineName,
+                title = if(hasWrittenRoutineName) routineName else title,
+                isSelected = hasWrittenRoutineName,
                 onClickDrawerButton = {
                     bottomSheetState = NameYourRoutine
                 },
@@ -121,6 +127,19 @@ fun AddRoutine(
         }
     }
 }
+
+private fun isDeleteEnabledInBottomAppBar(routineExercisesIsEmpty: Boolean) =
+    when {
+        routineExercisesIsEmpty -> false
+        else -> true
+    }
+
+private fun isEditEnabledInBottomAppBar(routineExercisesIsEmpty: Boolean) =
+    when {
+        routineExercisesIsEmpty -> false
+        else -> true
+    }
+
 sealed interface RoutineBottomSheetState {
     fun showBottomSheet() : Boolean
 }
