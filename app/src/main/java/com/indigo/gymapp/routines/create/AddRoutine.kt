@@ -51,9 +51,6 @@ fun AddRoutine(
         mutableStateOf<RoutineBottomSheetState>(Closed)
     }
 
-    val title = stringResource(id = R.string.name_your_routine)
-
-
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         containerColor = Context.Surface.base,
@@ -72,7 +69,7 @@ fun AddRoutine(
             modifier = Modifier.padding(innerPadding),
         ) {
             CreateHeader(
-                title = if(hasWrittenRoutineName) routineName else title,
+                title = if(hasWrittenRoutineName) routineName else stringResource(id = R.string.name_your_routine),
                 isSelected = hasWrittenRoutineName,
                 onClickDrawerButton = {
                     bottomSheetState = NameYourRoutine
@@ -119,7 +116,7 @@ fun AddRoutine(
 //                TODO Make keyboard open on show bottom sheet
 //                TODO close BottomSheet on keyboard enter
                     value = routineName,
-                    label = title,
+                    label = stringResource(id = R.string.name_your_routine),
                     onValueChange = { routineViewModel.changeRoutineName(it) },
                 )
 
