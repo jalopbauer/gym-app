@@ -16,7 +16,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.indigo.gymapp.R
 import com.indigo.gymapp.common.bottomAppBar.CreateUpdateDeleteActionBottomAppBar
@@ -110,20 +109,31 @@ fun AddRoutine(
             onDismissRequest = { bottomSheetState = Closed },
             sheetState = sheetState
         ) {
-            Column (
-                verticalArrangement = Arrangement.spacedBy(4.dp)
-            ) {
-                CustomTextField(
-//                TODO Make keyboard open on show bottom sheet
-//                TODO close BottomSheet on keyboard enter
-                    value = routineName,
-                    label = stringResource(id = R.string.name_your_routine),
-                    onValueChange = { routineViewModel.changeRoutineName(it) },
-                )
-
+            when (bottomSheetState) {
+                NameYourRoutine ->
+                    ChangeNameBottomSheetContent(
+                        routineName = routineName,
+                        onValueChange = { routineViewModel.changeRoutineName(it) }
+                    )
+                Closed -> {}
             }
+
         }
     }
+}
+
+@Composable
+private fun ChangeNameBottomSheetContent(
+    routineName: String,
+    onValueChange: (String) -> Unit
+) {
+    CustomTextField(
+// TODO Make keyboard open on show bottom sheet
+// TODO close BottomSheet on keyboard enter
+        value = routineName,
+        label = stringResource(id = R.string.name_your_routine),
+        onValueChange = onValueChange,
+    )
 }
 
 private fun isDeleteEnabledInBottomAppBar(routineExercisesIsEmpty: Boolean) =
