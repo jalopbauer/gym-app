@@ -39,7 +39,7 @@ fun AddRoutine(
 ) {
     val routineViewModel = hiltViewModel<RoutineViewModel>()
     val routineExercises by routineViewModel.exercises.collectAsState()
-    val routineName by routineViewModel.routineName.collectAsState()
+    val routineName by routineViewModel.name.collectAsState()
     val routineRestTimeBetweenExercises by routineViewModel.restTimeBetweenExercises.collectAsState()
     val routineExercisesIsEmpty = routineExercises.isEmpty()
 

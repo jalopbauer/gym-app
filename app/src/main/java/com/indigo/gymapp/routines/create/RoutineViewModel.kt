@@ -13,8 +13,8 @@ import javax.inject.Inject
 @HiltViewModel
 class RoutineViewModel @Inject constructor() : ViewModel() {
 
-    private var _routineName = MutableStateFlow("")
-    val routineName = _routineName.asStateFlow()
+    private var _name = MutableStateFlow("")
+    val name = _name.asStateFlow()
 
     private var _restTimeBetweenExercises = MutableStateFlow(Rest(2, 0))
     val restTimeBetweenExercises = _restTimeBetweenExercises.asStateFlow()
@@ -22,7 +22,7 @@ class RoutineViewModel @Inject constructor() : ViewModel() {
 
     fun changeRoutineName(newRoutineName: String) {
         viewModelScope.launch {
-            _routineName.emit(newRoutineName)
+            _name.emit(newRoutineName)
         }
     }
 
