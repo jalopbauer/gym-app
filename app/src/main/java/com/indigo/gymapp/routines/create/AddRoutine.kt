@@ -40,7 +40,7 @@ fun AddRoutine(
     val routineExercises by routineViewModel.exercises.collectAsState()
     val routineName by routineViewModel.name.collectAsState()
     val routineRestTimeBetweenExercises by routineViewModel.restTimeBetweenExercises.collectAsState()
-    val routineExercisesIsEmpty = routineExercises.isEmpty()
+    val isRoutineExercisesEmpty = routineExercises.isEmpty()
 
     val sheetState = rememberModalBottomSheetState()
 
@@ -57,8 +57,8 @@ fun AddRoutine(
         bottomBar = {
 //            TODO Remove CreateUpdateDeleteActionBottomAppBar and Scaffold from here
             CreateUpdateDeleteActionBottomAppBar(
-                isDeleteEnabled = isDeleteEnabledInBottomAppBar(routineExercisesIsEmpty),
-                isEditEnabled = isEditEnabledInBottomAppBar(routineExercisesIsEmpty),
+                isDeleteEnabled = isDeleteEnabledInBottomAppBar(isRoutineExercisesEmpty),
+                isEditEnabled = isEditEnabledInBottomAppBar(isRoutineExercisesEmpty),
                 addOnClick = onNavigateToAddRoutineExercise,
                 editOnClick = {},
                 deleteOnClick = {}
