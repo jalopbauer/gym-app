@@ -43,13 +43,15 @@ fun AddRoutine(
     val routineName by routineViewModel.routineName.collectAsState()
     val routineExercisesIsEmpty = routineExercises.isEmpty()
 
-    val hasWrittenRoutineName = routineName != ""
-
     val sheetState = rememberModalBottomSheetState()
 
     var bottomSheetState by remember {
         mutableStateOf<RoutineBottomSheetState>(Closed)
     }
+
+    val hasWrittenRoutineName = routineName != ""
+    val headerTitle = if (hasWrittenRoutineName) routineName else stringResource(id = R.string.name_your_routine)
+
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
@@ -69,7 +71,7 @@ fun AddRoutine(
             modifier = Modifier.padding(innerPadding),
         ) {
             CreateHeader(
-                title = if(hasWrittenRoutineName) routineName else stringResource(id = R.string.name_your_routine),
+                title = headerTitle,
                 isSelected = hasWrittenRoutineName,
                 onClickDrawerButton = {
                     bottomSheetState = NameYourRoutine
