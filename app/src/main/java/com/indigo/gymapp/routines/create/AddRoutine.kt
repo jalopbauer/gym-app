@@ -55,6 +55,7 @@ fun AddRoutine(
         modifier = Modifier.fillMaxSize(),
         containerColor = Context.Surface.base,
         bottomBar = {
+//            TODO Remove CreateUpdateDeleteActionBottomAppBar and Scaffold from here
             CreateUpdateDeleteActionBottomAppBar(
                 isDeleteEnabled = isDeleteEnabledInBottomAppBar(routineExercisesIsEmpty),
                 isEditEnabled = isEditEnabledInBottomAppBar(routineExercisesIsEmpty),
