@@ -15,7 +15,7 @@ import com.indigo.gymapp.configuration.Configuration
 import com.indigo.gymapp.exercises.Exercises
 import com.indigo.gymapp.routines.Routines
 import com.indigo.gymapp.routines.create.AddRoutine
-import com.indigo.gymapp.routines.create.addExercise.AddExercise
+import com.indigo.gymapp.routines.create.exercise.create.CreateRoutineExercise
 import com.indigo.gymapp.ui.theme.color.Color
 
 @Composable
@@ -50,7 +50,7 @@ fun NavHostComposable(innerPadding: PaddingValues, navController: NavHostControl
             )
         }
         composable(route = NavigationPath.Routines.Create.Exercises.Create.name) {
-            AddExercise(
+            CreateRoutineExercise(
                 onNavigateToCreateRoutine = { navController.navigate( NavigationPath.Routines.Create.name ) },
             )
         }

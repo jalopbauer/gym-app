@@ -1,4 +1,4 @@
-package com.indigo.gymapp.routines.create.addExercise
+package com.indigo.gymapp.routines.create.exercise.create
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -10,12 +10,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.indigo.gymapp.R
 import com.indigo.gymapp.common.header.CreateHeader
 import com.indigo.gymapp.common.preview.screen.ScreenPreview
-import com.indigo.gymapp.routines.create.addExercise.type.set.AddSet
-import com.indigo.gymapp.routines.create.addExercise.type.timed.AddTimed
 import com.indigo.gymapp.ui.spacing.Spacing
 
 @Composable
-fun AddExercise(
+fun CreateRoutineExercise(
     onNavigateToCreateRoutine : () -> Unit,
     addExerciseVariant : AddExerciseVariant = Empty
 ) {
@@ -41,8 +39,8 @@ fun AddExercise(
                 )
         ) {
             when (addExerciseVariant) {
-                AddSet -> AddSet()
-                AddTimed -> AddTimed()
+                CreateSetRoutineExercise -> CreateSetRoutineExercise()
+                CreateTimedRoutineExercise -> CreateTimedRoutineExercise()
                 Empty -> {}
             }
         }
@@ -51,15 +49,15 @@ fun AddExercise(
 
 private fun getIsSelected(addExerciseVariant: AddExerciseVariant) =
     when (addExerciseVariant) {
-        AddSet -> true
-        AddTimed -> true
+        CreateSetRoutineExercise -> true
+        CreateTimedRoutineExercise -> true
         Empty -> false
     }
 
 private fun getTitle(addExerciseVariant: AddExerciseVariant) =
     when (addExerciseVariant) {
-        AddSet -> R.string.set
-        AddTimed -> R.string.timed
+        CreateSetRoutineExercise -> R.string.set
+        CreateTimedRoutineExercise -> R.string.timed
         Empty -> R.string.select_exercise_type
     }
 
@@ -67,7 +65,7 @@ private fun getTitle(addExerciseVariant: AddExerciseVariant) =
 @Composable
 private fun PreviewAddExerciseEmpty() {
     ScreenPreview {
-        AddExercise(
+        CreateRoutineExercise(
             onNavigateToCreateRoutine = {}
         )
     }
@@ -77,9 +75,9 @@ private fun PreviewAddExerciseEmpty() {
 @Composable
 private fun PreviewAddESet() {
     ScreenPreview {
-        AddExercise(
+        CreateRoutineExercise(
             onNavigateToCreateRoutine = {},
-            addExerciseVariant = AddSet
+            addExerciseVariant = CreateSetRoutineExercise
         )
     }
 }
@@ -88,14 +86,14 @@ private fun PreviewAddESet() {
 @Composable
 private fun PreviewAddTimed() {
     ScreenPreview {
-        AddExercise(
+        CreateRoutineExercise(
             onNavigateToCreateRoutine = {},
-            addExerciseVariant = AddTimed
+            addExerciseVariant = CreateTimedRoutineExercise
         )
     }
 }
 
 sealed interface AddExerciseVariant
-data object AddSet : AddExerciseVariant
-data object AddTimed : AddExerciseVariant
+data object CreateSetRoutineExercise : AddExerciseVariant
+data object CreateTimedRoutineExercise : AddExerciseVariant
 data object Empty : AddExerciseVariant

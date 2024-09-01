@@ -1,4 +1,4 @@
-package com.indigo.gymapp.routines.create.addExercise.type.set
+package com.indigo.gymapp.routines.create.exercise.create
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,7 +14,7 @@ import com.indigo.gymapp.common.preview.screen.ScreenPreview
 import com.indigo.gymapp.time.Rest
 
 @Composable
-fun AddSet() {
+fun CreateSetRoutineExercise() {
     val onClick = { /*TODO*/ }
     Column (
         modifier = Modifier
@@ -42,6 +42,6 @@ fun AddSet() {
 @Composable
 private fun PreviewAddSet() {
     ScreenPreview {
-        AddSet()
+        CreateSetRoutineExercise()
     }
 }
