@@ -28,7 +28,6 @@ import com.indigo.gymapp.common.text.Large
 import com.indigo.gymapp.common.text.title.Title
 import com.indigo.gymapp.common.textField.CustomTextField
 import com.indigo.gymapp.routines.create.exercise.Exercise
-import com.indigo.gymapp.time.Rest
 import com.indigo.gymapp.ui.spacing.Spacing
 import com.indigo.gymapp.ui.theme.color.Color.Context
 
@@ -41,6 +40,7 @@ fun AddRoutine(
     val routineViewModel = hiltViewModel<RoutineViewModel>()
     val routineExercises by routineViewModel.exercises.collectAsState()
     val routineName by routineViewModel.routineName.collectAsState()
+    val routineRestTimeBetweenExercises by routineViewModel.restTimeBetweenExercises.collectAsState()
     val routineExercisesIsEmpty = routineExercises.isEmpty()
 
     val sheetState = rememberModalBottomSheetState()
@@ -51,7 +51,6 @@ fun AddRoutine(
 
     val hasWrittenRoutineName = routineName != ""
     val headerTitle = if (hasWrittenRoutineName) routineName else stringResource(id = R.string.name_your_routine)
-
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
@@ -91,7 +90,7 @@ fun AddRoutine(
             ) {
                 TimeAmountTextDrawerButton(
                     leadingText = stringResource(id = R.string.rest_between_exercises),
-                    time = Rest(2, 0),
+                    time = routineRestTimeBetweenExercises,
                     onClick = {}
                 )
                 Title(
