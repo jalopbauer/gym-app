@@ -17,7 +17,10 @@ import com.indigo.gymapp.R
 import com.indigo.gymapp.common.bottomSheet.BottomSheet
 import com.indigo.gymapp.common.header.CreateHeader
 import com.indigo.gymapp.common.preview.screen.ScreenPreview
+import com.indigo.gymapp.routines.create.exercise.create.bottomSheetContent.Closed
+import com.indigo.gymapp.routines.create.exercise.create.bottomSheetContent.CreateRoutineExerciseBottomSheetContentVariant
 import com.indigo.gymapp.routines.create.exercise.create.bottomSheetContent.SelectRoutineExerciseBottomSheetContent
+import com.indigo.gymapp.routines.create.exercise.create.bottomSheetContent.SelectRoutineExerciseVariant
 import com.indigo.gymapp.ui.spacing.Spacing.Context
 
 
@@ -32,7 +35,7 @@ fun CreateRoutineExercise(
 
     val sheetState = rememberModalBottomSheetState()
     var bottomSheetState by remember {
-        mutableStateOf<CreteRoutineExerciseBottomSheetState>(Closed)
+        mutableStateOf<CreateRoutineExerciseBottomSheetContentVariant>(Closed)
     }
 
 
@@ -68,7 +71,7 @@ fun CreateRoutineExercise(
             sheetState = sheetState
         ) {
             when (bottomSheetState) {
-                SelectRoutineExerciseVariant ->
+                SelectRoutineExerciseVariant -> {
                     SelectRoutineExerciseBottomSheetContent(
                         setRoutineExerciseOnClick = {
                             addExerciseVariant = CreateSetRoutineExercise
@@ -79,6 +82,7 @@ fun CreateRoutineExercise(
                             bottomSheetState = Closed
                         }
                     )
+                }
                 Closed -> {}
             }
 
@@ -118,16 +122,3 @@ data object CreateSetRoutineExercise : SelectedAddExerciseVariant {
 data object CreateTimedRoutineExercise : SelectedAddExerciseVariant {
     override fun titleId(): Int = R.string.timed
 }
-
-sealed interface CreteRoutineExerciseBottomSheetState {
-    fun showBottomSheet() : Boolean
-}
-
-data object Closed : CreteRoutineExerciseBottomSheetState {
-    override fun showBottomSheet(): Boolean = false
-}
-sealed interface Open : CreteRoutineExerciseBottomSheetState {
-    override fun showBottomSheet(): Boolean = true
-}
-
-data object SelectRoutineExerciseVariant : Open
