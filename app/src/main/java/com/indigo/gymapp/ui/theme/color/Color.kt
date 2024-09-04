@@ -1,5 +1,7 @@
 package com.indigo.gymapp.ui.theme.color
 
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.SearchBarDefaults
 import androidx.compose.material3.TextFieldColors
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
@@ -56,5 +58,12 @@ object Color {
                 unfocusedTextColor = Context.Text.primary
             )
         }
+        @Composable
+        @OptIn(ExperimentalMaterial3Api::class)
+        fun searchBarColors() = SearchBarDefaults.colors(
+            containerColor = Context.Surface.top,
+            dividerColor = Context.Surface.top,
+            inputFieldColors = Component.textFieldColorsField(),
+        )
     }
 }
