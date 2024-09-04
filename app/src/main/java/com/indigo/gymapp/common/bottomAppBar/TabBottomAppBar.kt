@@ -23,7 +23,7 @@ data class TabBarItem(
 @Composable
 fun TabBottomBar(tabBarItems: List<TabBarItem>, onNavigate: (String) -> Unit) {
     var selectedTabIndex by rememberSaveable {
-        mutableIntStateOf(0)
+        mutableIntStateOf(1)
     }
 
     NavigationBar (
