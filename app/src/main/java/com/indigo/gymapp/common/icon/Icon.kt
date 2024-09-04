@@ -17,6 +17,8 @@ fun Icon(iconVariant : IconVariant) {
         Delete -> DeleteIcon()
         Edit -> EditIcon()
         Add -> AddIcon()
+        SetRoutineExercise -> SetRoutineExerciseIcon()
+        TimedRoutineExercise -> TimedRoutineExerciseIcon()
     }
 }
 
@@ -72,6 +74,22 @@ fun AddIcon() {
     )
 }
 
+@Composable
+fun SetRoutineExerciseIcon() {
+    ImageVectorIcon(
+        imageVector = Icons.Outlined.Edit,
+        contentDescription = "Set",
+    )
+}
+
+@Composable
+fun TimedRoutineExerciseIcon() {
+    ImageVectorIcon(
+        imageVector = Icons.Outlined.Add,
+        contentDescription = "Timed",
+    )
+}
+
 
 sealed interface IconVariant
 
@@ -84,3 +102,7 @@ data object Delete : IconVariant
 data object Edit : IconVariant
 
 data object Add : IconVariant
+
+data object SetRoutineExercise : IconVariant
+
+data object TimedRoutineExercise : IconVariant
