@@ -2,6 +2,7 @@ package com.indigo.gymapp.common.icon
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Add
+import androidx.compose.material.icons.outlined.Check
 import androidx.compose.material.icons.outlined.Close
 import androidx.compose.material.icons.outlined.Delete
 import androidx.compose.material.icons.outlined.Edit
@@ -45,7 +46,7 @@ fun CancelIcon() {
 @Composable
 fun SaveIcon() {
     ImageVectorIcon(
-        imageVector = Icons.Outlined.Add,
+        imageVector = Icons.Outlined.Check,
         contentDescription = "Save",
     )
 }
