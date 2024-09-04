@@ -14,25 +14,26 @@ import com.indigo.gymapp.common.preview.screen.ScreenPreview
 import com.indigo.gymapp.time.Rest
 
 @Composable
-fun CreateSetRoutineExercise() {
-    val onClick = { /*TODO*/ }
+fun CreateSetRoutineExercise(
+    selectExerciseOnClick : () -> Unit
+) {
     Column (
         modifier = Modifier
             .fillMaxSize()
     ) {
         OnlyTextDrawerButton(
             leadingText = stringResource(id = R.string.select_exercise),
-            onClick = onClick
+            onClick = selectExerciseOnClick
         )
         TimeAmountTextDrawerButton(
             leadingText = stringResource(id = R.string.rest_between_exercises),
             time = Rest(2, 0),
-            onClick = onClick
+            onClick = {}
         )
         IntAmountTextDrawerButton(
             leadingText = stringResource(id = R.string.amount_of_sets),
             amount = 4,
-            onClick = onClick
+            onClick = {}
         )
     }
 }
@@ -42,6 +43,8 @@ fun CreateSetRoutineExercise() {
 @Composable
 private fun PreviewAddSet() {
     ScreenPreview {
-        CreateSetRoutineExercise()
+        CreateSetRoutineExercise(
+            selectExerciseOnClick = {}
+        )
     }
 }

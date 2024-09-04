@@ -1,5 +1,6 @@
 package com.indigo.gymapp.routines.create.exercise.create
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -17,8 +18,10 @@ import com.indigo.gymapp.R
 import com.indigo.gymapp.common.bottomSheet.BottomSheet
 import com.indigo.gymapp.common.header.CreateHeader
 import com.indigo.gymapp.common.preview.screen.ScreenPreview
+import com.indigo.gymapp.common.searchBar.SearchBar
 import com.indigo.gymapp.routines.create.exercise.create.bottomSheetContent.Closed
 import com.indigo.gymapp.routines.create.exercise.create.bottomSheetContent.CreateRoutineExerciseBottomSheetContentVariant
+import com.indigo.gymapp.routines.create.exercise.create.bottomSheetContent.SelectExerciseVariant
 import com.indigo.gymapp.routines.create.exercise.create.bottomSheetContent.SelectRoutineExerciseBottomSheetContent
 import com.indigo.gymapp.routines.create.exercise.create.bottomSheetContent.SelectRoutineExerciseVariant
 import com.indigo.gymapp.ui.spacing.Spacing.Context
@@ -38,7 +41,9 @@ fun CreateRoutineExercise(
         mutableStateOf<CreateRoutineExerciseBottomSheetContentVariant>(Closed)
     }
 
-
+    var exerciseName by remember {
+        mutableStateOf("")
+    }
     Column {
         CreateHeader(
             title = stringResource(id = addExerciseVariant.titleId()),
@@ -59,7 +64,9 @@ fun CreateRoutineExercise(
                 )
         ) {
             when (addExerciseVariant) {
-                CreateSetRoutineExercise -> CreateSetRoutineExercise()
+                CreateSetRoutineExercise -> CreateSetRoutineExercise(
+                    selectExerciseOnClick = { bottomSheetState = SelectExerciseVariant}
+                )
                 CreateTimedRoutineExercise -> CreateTimedRoutineExercise()
                 Empty -> {}
             }
@@ -82,6 +89,17 @@ fun CreateRoutineExercise(
                             bottomSheetState = Closed
                         }
                     )
+                }
+                SelectExerciseVariant -> {
+                    Column (
+                        verticalArrangement = Arrangement.spacedBy(Context.Gap.default)
+                    ) {
+                        SearchBar(
+                            query = exerciseName,
+                            onQueryChange = { exerciseName = it }
+                        )
+                    }
+
                 }
                 Closed -> {}
             }

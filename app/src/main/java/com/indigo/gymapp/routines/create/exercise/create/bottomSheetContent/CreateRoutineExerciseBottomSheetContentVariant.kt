@@ -12,3 +12,5 @@ sealed interface Open : CreateRoutineExerciseBottomSheetContentVariant {
 }
 
 data object SelectRoutineExerciseVariant : Open
+
+data object SelectExerciseVariant : Open
