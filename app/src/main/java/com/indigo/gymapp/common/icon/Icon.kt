@@ -6,6 +6,7 @@ import androidx.compose.material.icons.outlined.Check
 import androidx.compose.material.icons.outlined.Close
 import androidx.compose.material.icons.outlined.Delete
 import androidx.compose.material.icons.outlined.Edit
+import androidx.compose.material.icons.outlined.Search
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.indigo.gymapp.ui.theme.color.Color
@@ -20,6 +21,7 @@ fun Icon(iconVariant : IconVariant) {
         Add -> AddIcon()
         SetRoutineExercise -> SetRoutineExerciseIcon()
         TimedRoutineExercise -> TimedRoutineExerciseIcon()
+        Search -> SearchIcon()
     }
 }
 
@@ -91,6 +93,14 @@ fun TimedRoutineExerciseIcon() {
     )
 }
 
+@Composable
+fun SearchIcon() {
+    ImageVectorIcon(
+        imageVector = Icons.Outlined.Search,
+        contentDescription = "Search",
+    )
+}
+
 
 sealed interface IconVariant
 
@@ -107,3 +117,5 @@ data object Add : IconVariant
 data object SetRoutineExercise : IconVariant
 
 data object TimedRoutineExercise : IconVariant
+
+data object Search : IconVariant
