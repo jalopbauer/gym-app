@@ -1,5 +1,8 @@
 package com.indigo.gymapp.ui.theme.color
 
+import androidx.compose.material3.TextFieldColors
+import androidx.compose.material3.TextFieldDefaults
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
 object Color {
@@ -37,6 +40,21 @@ object Color {
         object Icon {
             val primary = Brand.Greyscale.`500`()
             val active = Brand.Primary.`600`()
+        }
+    }
+
+    object Component {
+        @Composable
+        fun customTextField(): TextFieldColors {
+            return TextFieldDefaults.colors().copy(
+                unfocusedContainerColor = Context.Surface.base,
+                focusedContainerColor = Context.Surface.base,
+                cursorColor = Context.Icon.active,
+                unfocusedIndicatorColor = Context.Surface.base,
+                focusedIndicatorColor = Context.Icon.active,
+                focusedTextColor = Context.Text.primary,
+                unfocusedTextColor = Context.Text.primary
+            )
         }
     }
 }
