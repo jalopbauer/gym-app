@@ -37,8 +37,8 @@ fun CreateRoutineExercise(
 
     Column {
         CreateHeader(
-            title = stringResource(id = getTitle(addExerciseVariant)),
-            isSelected = getIsSelected(addExerciseVariant),
+            title = stringResource(id = addExerciseVariant.titleId()),
+            isSelected = addExerciseVariant.isSelected(),
             onClickDrawerButton = { bottomSheetState = SelectRoutineExerciseVariant },
             onClickSave = {
                 onNavigateToCreateRoutine()
@@ -85,20 +85,6 @@ fun CreateRoutineExercise(
     }
 }
 
-private fun getIsSelected(addExerciseVariant: AddExerciseVariant) =
-    when (addExerciseVariant) {
-        CreateSetRoutineExercise -> true
-        CreateTimedRoutineExercise -> true
-        Empty -> false
-    }
-
-private fun getTitle(addExerciseVariant: AddExerciseVariant) =
-    when (addExerciseVariant) {
-        CreateSetRoutineExercise -> R.string.set
-        CreateTimedRoutineExercise -> R.string.timed
-        Empty -> R.string.select_exercise_type
-    }
-
 @Preview
 @Composable
 private fun PreviewAddExerciseEmpty() {
@@ -109,10 +95,28 @@ private fun PreviewAddExerciseEmpty() {
     }
 }
 
-sealed interface AddExerciseVariant
-data object CreateSetRoutineExercise : AddExerciseVariant
-data object CreateTimedRoutineExercise : AddExerciseVariant
-data object Empty : AddExerciseVariant
+sealed interface AddExerciseVariant {
+    fun titleId() : Int
+    fun isSelected(): Boolean
+}
+
+data object Empty : AddExerciseVariant {
+    override fun titleId(): Int = R.string.select_exercise_type
+    override fun isSelected() : Boolean = false
+}
+
+sealed interface SelectedAddExerciseVariant : AddExerciseVariant {
+    override fun isSelected(): Boolean = true
+
+}
+
+data object CreateSetRoutineExercise : SelectedAddExerciseVariant {
+    override fun titleId(): Int = R.string.set
+}
+
+data object CreateTimedRoutineExercise : SelectedAddExerciseVariant {
+    override fun titleId(): Int = R.string.timed
+}
 
 sealed interface CreteRoutineExerciseBottomSheetState {
     fun showBottomSheet() : Boolean
