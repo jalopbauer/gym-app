@@ -25,6 +25,6 @@ fun CustomTextField(
                 color = Context.Text.information
             )
         },
-        colors = Component.customTextField()
+        colors = Component.textFieldColorsField()
     )
 }

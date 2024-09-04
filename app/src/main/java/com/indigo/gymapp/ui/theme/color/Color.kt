@@ -45,7 +45,7 @@ object Color {
 
     object Component {
         @Composable
-        fun customTextField(): TextFieldColors {
+        fun textFieldColorsField(): TextFieldColors {
             return TextFieldDefaults.colors().copy(
                 unfocusedContainerColor = Context.Surface.base,
                 focusedContainerColor = Context.Surface.base,
