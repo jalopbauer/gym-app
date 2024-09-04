@@ -28,13 +28,12 @@ fun CreateHeader(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween,
     ) {
-        SaveIconButton { onClickSave() }
+        CancelIconButton { onClickCancel() }
         HeaderTextDrawerButton(
             title = title,
             isSelected = isSelected,
             onClick = onClickDrawerButton
         )
-        CancelIconButton { onClickCancel() }
+        SaveIconButton { onClickSave() }
     }
 }
-
