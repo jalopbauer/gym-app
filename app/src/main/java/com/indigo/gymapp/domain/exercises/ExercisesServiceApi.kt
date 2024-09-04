@@ -7,12 +7,13 @@ import retrofit.Callback
 import retrofit.GsonConverterFactory
 import retrofit.Response
 import retrofit.Retrofit
+import javax.inject.Inject
 
-class ExercisesServiceApi {
+class ExercisesServiceApi @Inject constructor(){
     fun getExercises(context: Context, onSuccess: (List<Exercise>) -> Unit, onFail: () -> Unit, loadingFinished: () -> Unit) {
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl(
-                "10.0.2.2/exercises"
+                "http://10.0.2.2:3000/exercises"
             )
             .addConverterFactory(
                 GsonConverterFactory.create()
