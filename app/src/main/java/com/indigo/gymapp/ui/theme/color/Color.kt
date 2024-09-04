@@ -63,7 +63,7 @@ object Color {
         fun searchBarColors() = SearchBarDefaults.colors(
             containerColor = Context.Surface.top,
             dividerColor = Context.Surface.top,
-            inputFieldColors = Component.textFieldColorsField(),
+            inputFieldColors = textFieldColorsField(),
         )
     }
 }
