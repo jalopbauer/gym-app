@@ -13,7 +13,9 @@ import com.indigo.gymapp.common.preview.screen.ScreenPreview
 import com.indigo.gymapp.time.Duration
 
 @Composable
-fun CreateTimedRoutineExercise() {
+fun CreateTimedRoutineExercise(
+    selectExerciseOnClick : () -> Unit
+) {
     val onClick = { /*TODO*/ }
     Column (
         modifier = Modifier
@@ -21,7 +23,7 @@ fun CreateTimedRoutineExercise() {
     ) {
         OnlyTextDrawerButton(
             leadingText = stringResource(id = R.string.select_exercise),
-            onClick = onClick
+            onClick = selectExerciseOnClick
         )
         TimeAmountTextDrawerButton(
             leadingText = stringResource(id = R.string.duration),
@@ -36,6 +38,8 @@ fun CreateTimedRoutineExercise() {
 @Composable
 private fun PreviewAddSet() {
     ScreenPreview {
-        CreateTimedRoutineExercise()
+        CreateTimedRoutineExercise(
+            selectExerciseOnClick = {}
+        )
     }
 }

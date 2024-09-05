@@ -69,7 +69,9 @@ fun CreateRoutineExercise(
                 CreateSetRoutineExercise -> CreateSetRoutineExercise(
                     selectExerciseOnClick = { bottomSheetState = SelectExerciseVariant}
                 )
-                CreateTimedRoutineExercise -> CreateTimedRoutineExercise()
+                CreateTimedRoutineExercise -> CreateTimedRoutineExercise(
+                    selectExerciseOnClick = { bottomSheetState = SelectExerciseVariant}
+                )
                 Empty -> {}
             }
         }
