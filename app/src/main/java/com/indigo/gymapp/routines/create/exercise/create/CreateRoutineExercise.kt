@@ -2,6 +2,7 @@ package com.indigo.gymapp.routines.create.exercise.create
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -21,6 +22,7 @@ import com.indigo.gymapp.common.preview.screen.ScreenPreview
 import com.indigo.gymapp.common.searchBar.SearchBar
 import com.indigo.gymapp.routines.create.exercise.create.bottomSheetContent.Closed
 import com.indigo.gymapp.routines.create.exercise.create.bottomSheetContent.CreateRoutineExerciseBottomSheetContentVariant
+import com.indigo.gymapp.routines.create.exercise.create.bottomSheetContent.SelectExerciseBottomSheetContent
 import com.indigo.gymapp.routines.create.exercise.create.bottomSheetContent.SelectExerciseVariant
 import com.indigo.gymapp.routines.create.exercise.create.bottomSheetContent.SelectRoutineExerciseBottomSheetContent
 import com.indigo.gymapp.routines.create.exercise.create.bottomSheetContent.SelectRoutineExerciseVariant
@@ -91,15 +93,10 @@ fun CreateRoutineExercise(
                     )
                 }
                 SelectExerciseVariant -> {
-                    Column (
-                        verticalArrangement = Arrangement.spacedBy(Context.Gap.default)
-                    ) {
-                        SearchBar(
-                            query = exerciseName,
-                            onQueryChange = { exerciseName = it }
-                        )
-                    }
-
+                    SelectExerciseBottomSheetContent(
+                        exerciseName = exerciseName,
+                        onQueryChange = { exerciseName = it }
+                    )
                 }
                 Closed -> {}
             }
