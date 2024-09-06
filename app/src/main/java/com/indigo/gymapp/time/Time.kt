@@ -2,7 +2,7 @@ package com.indigo.gymapp.time
 
 import androidx.annotation.IntRange
 
-fun displaySeconds(seconds: Int) = if (seconds in 0 .. 9) "0$seconds" else seconds
+fun displaySeconds(seconds: Int) : String = if (seconds in 0 .. 9) "0$seconds" else "$seconds"
 
 data class Time(
     @IntRange(from = 0, to = 59)
