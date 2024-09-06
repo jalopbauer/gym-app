@@ -16,7 +16,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.indigo.gymapp.R
 import com.indigo.gymapp.common.bottomSheet.BottomSheet
 import com.indigo.gymapp.common.header.CreateHeader
-import com.indigo.gymapp.common.numberScroll.MinuteAndSecondsVerticalScroll
 import com.indigo.gymapp.common.preview.screen.ScreenPreview
 import com.indigo.gymapp.routines.create.exercise.create.bottomSheetContent.Closed
 import com.indigo.gymapp.routines.create.exercise.create.bottomSheetContent.CreateRoutineExerciseBottomSheetContentVariant
@@ -24,7 +23,6 @@ import com.indigo.gymapp.routines.create.exercise.create.bottomSheetContent.Sele
 import com.indigo.gymapp.routines.create.exercise.create.bottomSheetContent.SelectExerciseVariant
 import com.indigo.gymapp.routines.create.exercise.create.bottomSheetContent.SelectRoutineExerciseBottomSheetContent
 import com.indigo.gymapp.routines.create.exercise.create.bottomSheetContent.SelectRoutineExerciseVariant
-import com.indigo.gymapp.routines.create.exercise.create.bottomSheetContent.VerticalTimeScrollBarVariant
 import com.indigo.gymapp.time.Rest
 import com.indigo.gymapp.ui.spacing.Spacing.Context
 
@@ -69,7 +67,7 @@ fun CreateRoutineExercise(
                 CreateSetRoutineExercise -> CreateSetRoutineExercise(
                     selectExerciseOnClick = { bottomSheetState = SelectExerciseVariant},
                     rest = Rest(2, 0),
-                    setRestTimeOnClick = { bottomSheetState = VerticalTimeScrollBarVariant}
+                    setRestTimeOnClick = {}
                 )
                 CreateTimedRoutineExercise -> CreateTimedRoutineExercise(
                     selectExerciseOnClick = { bottomSheetState = SelectExerciseVariant}
