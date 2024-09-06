@@ -24,6 +24,7 @@ object Color {
             fun `600`() = Color(0xFF5E81AC)
             fun `500`() = Color(0xFF81A1C1)
         }
+        val transparent = Color(0x00000000)
     }
 
     object Context {
@@ -38,6 +39,7 @@ object Color {
             val primary = Brand.Greyscale.`500`()
             val information = Brand.Neutral.`300`()
             val active = Brand.Primary.`600`()
+            val transparent = Brand.transparent
         }
         object Icon {
             val primary = Brand.Greyscale.`500`()
