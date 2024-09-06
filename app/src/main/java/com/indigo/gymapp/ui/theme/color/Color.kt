@@ -34,6 +34,7 @@ object Color {
             val active = Brand.Primary.`600`()
             val contrast: Color = Brand.Greyscale.`500`()
             val base = Brand.Neutral.`600`()
+            val information = Brand.Neutral.`300`()
         }
         object Text {
             val primary = Brand.Greyscale.`500`()
