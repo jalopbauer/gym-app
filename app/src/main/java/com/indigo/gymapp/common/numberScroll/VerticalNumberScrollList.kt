@@ -1,5 +1,6 @@
 package com.indigo.gymapp.common.numberScroll
 
+import androidx.annotation.IntRange
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
@@ -55,4 +56,12 @@ fun VerticalNumberScrollList(
             )
         }
     }
+}
+
+@Composable
+fun MinuteAndSecondsVerticalScroll(
+    @IntRange(from = 0, to = 59) startingIndex: Int = 0,
+    selectedItem: (Int) -> Unit
+) {
+    VerticalNumberScrollList(maxValue = 59, startingIndex = startingIndex, selectedItem = selectedItem)
 }
