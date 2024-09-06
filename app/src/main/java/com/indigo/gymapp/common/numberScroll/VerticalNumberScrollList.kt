@@ -79,7 +79,8 @@ fun VerticalNumberScrollList(
 fun MinuteAndSecondsVerticalScroll(
     label: String,
     @IntRange(from = 0, to = 59) startingIndex: Int = 0,
+    indexDisplay: (Int) -> String = { "$it" },
     selectedItem: (Int) -> Unit
 ) {
-    VerticalNumberScrollList(label = label, maxValue = 59, startingIndex = startingIndex, selectedItem = selectedItem)
+    VerticalNumberScrollList(label = label, maxValue = 59, startingIndex = startingIndex, selectedItem = selectedItem, indexDisplay = indexDisplay)
 }
