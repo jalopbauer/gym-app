@@ -8,6 +8,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.indigo.gymapp.common.numberScroll.MinuteAndSecondsVerticalScroll
 import com.indigo.gymapp.time.Time
+import com.indigo.gymapp.time.displaySeconds
 
 @Composable
 fun TimeScroll(
@@ -28,7 +29,8 @@ fun TimeScroll(
         MinuteAndSecondsVerticalScroll(
             label = "Seconds",
             startingIndex = startingTime.seconds,
-            selectedItem = selectedSeconds
+            selectedItem = selectedSeconds,
+            indexDisplay = { displaySeconds(it) }
         )
     }
 }
