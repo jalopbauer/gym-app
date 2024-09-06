@@ -26,6 +26,7 @@ fun VerticalNumberScrollList(
     maxValue: Int,
     minValue: Int = 0,
     startingIndex: Int = 0,
+    indexDisplay: (Int) -> String = { "$it" },
     selectedItem: (Int) -> Unit
 ) {
     val listState = rememberLazyListState()
@@ -62,10 +63,9 @@ fun VerticalNumberScrollList(
             items(actualSize) { index ->
                 val isSelected = index == selectedNumber
                 val displayNumber = index - 6 / 2
-                val displayValue = if (displayNumber in 0 .. 9) "0$displayNumber" else displayNumber
                 val secondary = if (displayNumber in minValue..maxValue) Context.Text.information else Context.Text.transparent
                 Text(
-                    text = "$displayValue",
+                    text = indexDisplay(displayNumber),
                     style = MaterialTheme.typography.displayLarge,
                     color = if (isSelected) Context.Text.primary else secondary
                 )
@@ -73,6 +73,7 @@ fun VerticalNumberScrollList(
         }
     }
 }
+
 
 @Composable
 fun MinuteAndSecondsVerticalScroll(
