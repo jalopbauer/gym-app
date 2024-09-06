@@ -1,8 +1,6 @@
 package com.indigo.gymapp.routines.create.exercise.create
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -18,14 +16,16 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.indigo.gymapp.R
 import com.indigo.gymapp.common.bottomSheet.BottomSheet
 import com.indigo.gymapp.common.header.CreateHeader
+import com.indigo.gymapp.common.numberScroll.MinuteAndSecondsVerticalScroll
 import com.indigo.gymapp.common.preview.screen.ScreenPreview
-import com.indigo.gymapp.common.searchBar.SearchBar
 import com.indigo.gymapp.routines.create.exercise.create.bottomSheetContent.Closed
 import com.indigo.gymapp.routines.create.exercise.create.bottomSheetContent.CreateRoutineExerciseBottomSheetContentVariant
 import com.indigo.gymapp.routines.create.exercise.create.bottomSheetContent.SelectExerciseBottomSheetContent
 import com.indigo.gymapp.routines.create.exercise.create.bottomSheetContent.SelectExerciseVariant
 import com.indigo.gymapp.routines.create.exercise.create.bottomSheetContent.SelectRoutineExerciseBottomSheetContent
 import com.indigo.gymapp.routines.create.exercise.create.bottomSheetContent.SelectRoutineExerciseVariant
+import com.indigo.gymapp.routines.create.exercise.create.bottomSheetContent.VerticalTimeScrollBarVariant
+import com.indigo.gymapp.time.Rest
 import com.indigo.gymapp.ui.spacing.Spacing.Context
 
 
@@ -67,7 +67,9 @@ fun CreateRoutineExercise(
         ) {
             when (addExerciseVariant) {
                 CreateSetRoutineExercise -> CreateSetRoutineExercise(
-                    selectExerciseOnClick = { bottomSheetState = SelectExerciseVariant}
+                    selectExerciseOnClick = { bottomSheetState = SelectExerciseVariant},
+                    rest = Rest(2, 0),
+                    setRestTimeOnClick = { bottomSheetState = VerticalTimeScrollBarVariant}
                 )
                 CreateTimedRoutineExercise -> CreateTimedRoutineExercise(
                     selectExerciseOnClick = { bottomSheetState = SelectExerciseVariant}
@@ -79,7 +81,7 @@ fun CreateRoutineExercise(
         BottomSheet(
             showBottomSheet = bottomSheetState.showBottomSheet(),
             onDismissRequest = { bottomSheetState = Closed },
-            sheetState = sheetState
+            sheetState = sheetState,
         ) {
             when (bottomSheetState) {
                 SelectRoutineExerciseVariant -> {
@@ -106,7 +108,6 @@ fun CreateRoutineExercise(
         }
     }
 }
-
 @Preview
 @Composable
 private fun PreviewAddExerciseEmpty() {
