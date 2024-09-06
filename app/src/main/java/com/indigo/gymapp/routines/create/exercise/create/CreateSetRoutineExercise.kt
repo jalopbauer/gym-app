@@ -16,7 +16,9 @@ import com.indigo.gymapp.time.Rest
 @Composable
 fun CreateSetRoutineExercise(
     selectExerciseOnClick : () -> Unit,
+    rest: Rest,
     setRestTimeOnClick : () -> Unit
+
 ) {
     Column (
         modifier = Modifier
@@ -28,7 +30,7 @@ fun CreateSetRoutineExercise(
         )
         TimeAmountTextDrawerButton(
             leadingText = stringResource(id = R.string.rest_between_exercises),
-            time = Rest(2, 0),
+            time = rest,
             onClick = setRestTimeOnClick
         )
         IntAmountTextDrawerButton(
@@ -46,6 +48,7 @@ private fun PreviewAddSet() {
     ScreenPreview {
         CreateSetRoutineExercise(
             selectExerciseOnClick = {},
+            Rest(2, 0),
             setRestTimeOnClick = {}
         )
     }
