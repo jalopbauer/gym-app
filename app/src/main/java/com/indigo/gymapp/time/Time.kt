@@ -1,5 +1,7 @@
 package com.indigo.gymapp.time
 
+import androidx.annotation.IntRange
+
 fun displaySeconds(seconds: Int) = when (seconds) {
     0 -> "00"
     1 -> "01"
@@ -14,7 +16,12 @@ fun displaySeconds(seconds: Int) = when (seconds) {
     else -> "$seconds"
 }
 
-data class Time(val minutes: Int, val seconds : Int) {
+data class Time(
+    @IntRange(from = 0, to = 59)
+    val minutes: Int,
+    @IntRange(from = 0, to = 59)
+    val seconds : Int
+) {
     override fun toString(): String {
         return "$minutes:${displaySeconds(seconds)}"
     }
