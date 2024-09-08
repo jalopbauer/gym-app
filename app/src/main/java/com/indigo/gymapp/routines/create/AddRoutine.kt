@@ -45,7 +45,7 @@ fun AddRoutine(
     val sheetState = rememberModalBottomSheetState()
 
     var bottomSheetState by remember {
-        mutableStateOf<RoutineBottomSheetState>(Closed)
+        mutableStateOf<CreateRoutineBottomSheetState>(Closed)
     }
 
     val hasWrittenRoutineName = routineName != ""
@@ -148,18 +148,6 @@ private fun isEditEnabledInBottomAppBar(routineExercisesIsEmpty: Boolean) =
         routineExercisesIsEmpty -> false
         else -> true
     }
-
-sealed interface RoutineBottomSheetState {
-    fun showBottomSheet() : Boolean
-}
-data object Closed : RoutineBottomSheetState {
-    override fun showBottomSheet(): Boolean = false
-}
-sealed interface Open : RoutineBottomSheetState {
-    override fun showBottomSheet(): Boolean = true
-}
-
-data object NameYourRoutine : Open
 
 @Preview
 @Composable
