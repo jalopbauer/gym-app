@@ -10,6 +10,7 @@ import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -26,7 +27,9 @@ import com.indigo.gymapp.common.preview.screen.ScreenPreview
 import com.indigo.gymapp.common.text.Large
 import com.indigo.gymapp.common.text.title.Title
 import com.indigo.gymapp.common.textField.CustomTextField
+import com.indigo.gymapp.components.timeScrollTimeButtonsRowConfirm.TimeScrollTimeButtonsRowConfirm
 import com.indigo.gymapp.routines.create.exercise.Exercise
+import com.indigo.gymapp.time.Rest
 import com.indigo.gymapp.ui.spacing.Spacing
 import com.indigo.gymapp.ui.theme.color.Color.Context
 
@@ -50,6 +53,13 @@ fun AddRoutine(
 
     val hasWrittenRoutineName = routineName != ""
     val headerTitle = if (hasWrittenRoutineName) routineName else stringResource(id = R.string.name_your_routine)
+
+    var minutes by remember {
+        mutableIntStateOf(routineRestTimeBetweenExercises.minutes)
+    }
+    var seconds by remember {
+        mutableIntStateOf(routineRestTimeBetweenExercises.seconds)
+    }
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
@@ -91,7 +101,7 @@ fun AddRoutine(
                 TimeAmountTextDrawerButton(
                     leadingText = stringResource(id = R.string.rest_between_exercises),
                     time = routineRestTimeBetweenExercises,
-                    onClick = {}
+                    onClick = { bottomSheetState = SetRoutineRestTimeBetweenExercisesVariant }
                 )
                 Title(
                     title = stringResource(id = R.string.routine_exercises),
@@ -116,6 +126,37 @@ fun AddRoutine(
                         routineName = routineName,
                         onValueChange = { routineViewModel.changeRoutineName(it) }
                     )
+                SetRoutineRestTimeBetweenExercisesVariant -> {
+                    val timButtonOnClick: (Rest) -> Unit = {
+                        minutes = it.minutes
+                        seconds = it.seconds
+                    }
+                    TimeScrollTimeButtonsRowConfirm(
+                        routineRestTimeBetweenExercises = Rest(minutes, seconds),
+                        selectedMinutes = { minutes = it },
+                        selectedSeconds = { seconds = it },
+                        leftTime = Rest(
+                            minutes = 1,
+                            seconds = 0
+                        ),
+                        leftTimeOnClick = timButtonOnClick,
+                        centerTime = Rest(
+                            minutes = 1,
+                            seconds = 30
+                        ),
+                        centerTimeOnClick = timButtonOnClick,
+                        rightTime = Rest(
+                            minutes = 2,
+                            seconds = 0
+                        ),
+                        rightTimeOnClick = timButtonOnClick,
+                        {
+                            routineViewModel.setRestTimeBetweenExercisesMinutes(minutes)
+                            routineViewModel.setRestTimeBetweenExercisesSeconds(seconds)
+                            bottomSheetState = Closed
+                        }
+                        )
+                }
                 Closed -> {}
             }
 

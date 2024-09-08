@@ -11,3 +11,5 @@ sealed interface Open : CreateRoutineBottomSheetState {
 }
 
 data object NameYourRoutine : Open
+
+data object SetRoutineRestTimeBetweenExercisesVariant : Open
