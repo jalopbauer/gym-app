@@ -13,4 +13,5 @@
     <string name="timed">Timed</string>
     <string name="select_exercise_type">Select exercise type</string>
     <string name="select_exercise">Select exercise</string>
+    <string name="confirm">Confirm</string>
 </resources>
