@@ -1,5 +1,6 @@
 package com.indigo.gymapp.routines.create
 
+import androidx.annotation.IntRange
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.indigo.gymapp.routines.create.exercise.RoutineExercise
@@ -19,6 +20,13 @@ class RoutineViewModel @Inject constructor() : ViewModel() {
     private var _restTimeBetweenExercises = MutableStateFlow(Rest(2, 0))
     val restTimeBetweenExercises = _restTimeBetweenExercises.asStateFlow()
 
+    fun setRestTimeBetweenExercisesSeconds(@IntRange(from = 0, to = 59) seconds: Int) {
+        _restTimeBetweenExercises.value = _restTimeBetweenExercises.value.copy(seconds = seconds)
+    }
+
+    fun setRestTimeBetweenExercisesMinutes(@IntRange(from = 0, to = 59) minutes: Int) {
+        _restTimeBetweenExercises.value = _restTimeBetweenExercises.value.copy(minutes = minutes)
+    }
 
     fun changeRoutineName(newRoutineName: String) {
         viewModelScope.launch {
