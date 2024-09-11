@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ExercisesViewModel @Inject constructor(
+class ApiExercisesViewModel @Inject constructor(
     @ApplicationContext private val context: Context,
     private val exercisesServiceApi: ExercisesServiceApi,
 ): ViewModel() {

@@ -29,7 +29,7 @@ import com.indigo.gymapp.ui.theme.PurpleGrey80
 
 @Composable
 fun Exercises() {
-    val viewModel = hiltViewModel<ExercisesViewModel>()
+    val viewModel = hiltViewModel<ApiExercisesViewModel>()
 
     val exercises by viewModel.exercises.collectAsState()
     val loading by viewModel.loadingExercises.collectAsState()
