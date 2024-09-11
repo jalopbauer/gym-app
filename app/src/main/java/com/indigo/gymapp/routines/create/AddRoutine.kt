@@ -26,7 +26,7 @@ import com.indigo.gymapp.common.header.CreateHeader
 import com.indigo.gymapp.common.preview.screen.ScreenPreview
 import com.indigo.gymapp.common.text.Large
 import com.indigo.gymapp.common.text.title.Title
-import com.indigo.gymapp.common.textField.CustomTextField
+import com.indigo.gymapp.common.textField.TextField
 import com.indigo.gymapp.components.timeScrollTimeButtonsRowConfirm.TimeScrollTimeButtonsRowConfirm
 import com.indigo.gymapp.routines.create.exercise.Exercise
 import com.indigo.gymapp.time.Rest
@@ -169,7 +169,7 @@ private fun ChangeNameBottomSheetContent(
     routineName: String,
     onValueChange: (String) -> Unit
 ) {
-    CustomTextField(
+    TextField(
 // TODO Make keyboard open on show bottom sheet
 // TODO close BottomSheet on keyboard enter
         value = routineName,
