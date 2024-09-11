@@ -3,8 +3,8 @@ package com.indigo.gymapp.exercises
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.indigo.gymapp.domain.exercises.Exercise
-import com.indigo.gymapp.domain.exercises.ExercisesServiceApi
+import com.indigo.gymapp.service.api.exercises.Exercise
+import com.indigo.gymapp.service.api.exercises.ExercisesServiceApi
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.MutableStateFlow

@@ -1,4 +1,4 @@
-package com.indigo.gymapp.domain.exercises
+package com.indigo.gymapp.service.api.exercises
 
 data class Exercise(
     val id: Int,

@@ -1,4 +1,4 @@
-package com.indigo.gymapp.domain.exercises
+package com.indigo.gymapp.service.api.exercises
 
 import retrofit.Call
 import retrofit.http.GET
