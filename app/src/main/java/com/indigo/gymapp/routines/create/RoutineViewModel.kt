@@ -29,9 +29,7 @@ class RoutineViewModel @Inject constructor() : ViewModel() {
     }
 
     fun changeRoutineName(newRoutineName: String) {
-        viewModelScope.launch {
-            _name.emit(newRoutineName)
-        }
+        _name.value = newRoutineName
     }
 
     private var _routineExercises = MutableStateFlow(listOf<RoutineExercise>())
