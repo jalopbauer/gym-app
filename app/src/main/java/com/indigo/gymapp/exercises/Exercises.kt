@@ -29,21 +29,29 @@ import com.indigo.gymapp.ui.theme.PurpleGrey80
 
 @Composable
 fun Exercises() {
+
+//    ApiExercises()
+}
+
+@Composable
+private fun ApiExercises() {
     val viewModel = hiltViewModel<ApiExercisesViewModel>()
 
     val exercises by viewModel.exercises.collectAsState()
     val loading by viewModel.loadingExercises.collectAsState()
     val showRetry by viewModel.showRetry.collectAsState()
 
-    if(loading) {
+    if (loading) {
         Box(modifier = Modifier.fillMaxSize()) {
             CircularProgressIndicator(
-                modifier = Modifier.size(64.dp).align(Alignment.Center),
+                modifier = Modifier
+                    .size(64.dp)
+                    .align(Alignment.Center),
                 color = PurpleGrey40,
                 trackColor = PurpleGrey80,
             )
         }
-    } else if(showRetry) {
+    } else if (showRetry) {
         Column(
             verticalArrangement = Arrangement.spacedBy(10.dp, Alignment.CenterVertically),
             horizontalAlignment = Alignment.CenterHorizontally,
