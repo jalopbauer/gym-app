@@ -5,9 +5,9 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.indigo.gymapp.domain.exercises.ExerciseDao
-import com.indigo.gymapp.domain.exercises.ExerciseEntity
+import com.indigo.gymapp.domain.exercises.Exercise
 
-@Database(entities = [ExerciseEntity::class], version = 1)
+@Database(entities = [Exercise::class], version = 1)
 abstract class GymDatabase : RoomDatabase() {
     abstract fun exerciseDao(): ExerciseDao
 
