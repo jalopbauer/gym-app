@@ -10,13 +10,13 @@ import androidx.room.Update
 @Dao
 interface ExerciseDao {
     @Insert
-    suspend fun create(exerciseEntity: Exercise)
+    suspend fun create(exercise: Exercise)
 
     @Update
-    suspend fun update(exerciseEntity: Exercise)
+    suspend fun update(exercise: Exercise)
 
     @Delete
-    suspend fun delete(exerciseEntity: Exercise)
+    suspend fun delete(exercise: Exercise)
 
     @Query("SELECT * FROM EXERCISES")
     fun getAll(): LiveData<List<Exercise>>
