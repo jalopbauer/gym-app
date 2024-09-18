@@ -20,4 +20,8 @@ interface ExerciseDao {
 
     @Query("SELECT * FROM EXERCISES")
     fun getAll(): LiveData<List<Exercise>>
+
+//    @Query("SELECT * FROM exercises WHERE name LIKE '%' || :search || '%'")
+    @Query("SELECT * FROM exercises WHERE name LIKE :search")
+    fun getExercisesByName(search : String): LiveData<List<Exercise>>
 }

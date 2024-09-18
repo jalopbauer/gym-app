@@ -8,6 +8,8 @@ import com.indigo.gymapp.domain.database.GymDatabase
 import com.indigo.gymapp.domain.exercises.Exercise
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -25,5 +27,16 @@ class ExerciseViewModel @Inject constructor(
         viewModelScope.launch {
             gymDatabase.exerciseDao().create(exercise)
         }
+    }
+
+
+    private var _search = MutableStateFlow("")
+    val exerciseSearchText = _search.asStateFlow()
+
+    val searchExercises = gymDatabase.exerciseDao().getExercisesByName(exerciseSearchText.value).asFlow()
+
+
+    fun searchExercise(exerciseName: String) {
+        _search.value = exerciseName
     }
 }
