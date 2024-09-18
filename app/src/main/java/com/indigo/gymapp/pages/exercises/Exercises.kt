@@ -1,44 +1,47 @@
 package com.indigo.gymapp.pages.exercises
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material3.Tab
+import androidx.compose.material3.TabRow
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.hilt.navigation.compose.hiltViewModel
-import com.indigo.gymapp.common.button.Button
-import com.indigo.gymapp.common.text.headline.Headline
-import com.indigo.gymapp.common.textField.TextField
-import com.indigo.gymapp.ui.spacing.Spacing.Context
+import androidx.compose.ui.Modifier
+import com.indigo.gymapp.common.text.Large
+import com.indigo.gymapp.common.text.label.Label
+import com.indigo.gymapp.ui.theme.color.Color.Context
 
 @Composable
 fun Exercises() {
-    val exerciseViewModel = hiltViewModel<ExerciseViewModel>()
-    val exercises by exerciseViewModel.exercises.collectAsState(initial = emptyList())
-    var newExerciseName by remember {
-        mutableStateOf("")
-    }
+    var tabIndex by remember { mutableIntStateOf(0) }
+    val tabs = listOf("Local", "Api")
 
-    Column (
-        verticalArrangement = Arrangement.spacedBy(Context.Gap.default)
-    ) {
-        Column {
-            TextField(
-                value = newExerciseName,
-                label = "ExerciseName",
-                onValueChange = { newExerciseName = it}
-            )
-            Button(
-                text = "Add exercise",
-                onClick = { exerciseViewModel.createExercise(newExerciseName) }
-            )
+    Column(modifier = Modifier.fillMaxWidth()) {
+        TabRow(
+            selectedTabIndex = tabIndex,
+            containerColor = Context.Surface.top
+        ) {
+            tabs.forEachIndexed { index, label ->
+                Tab(
+                    text = {
+                        Label(label = label, textSize = Large)
+                    },
+                    selected = tabIndex == index,
+                    onClick = { tabIndex = index }
+                )
+            }
         }
-        exercises.forEach { exercise ->
-            Headline(exercise.name)
+        when (tabIndex) {
+            0 -> {
+                LocalExercises()
+            }
+            1 -> {
+                ApiExercises()
+            }
+
         }
     }
-//    ApiExercises()
 }
