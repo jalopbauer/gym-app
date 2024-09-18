@@ -9,6 +9,8 @@ import androidx.compose.material.icons.outlined.Edit
 import androidx.compose.material.icons.outlined.Search
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
+import com.indigo.gymapp.R
 import com.indigo.gymapp.ui.theme.color.Color
 
 @Composable
@@ -41,7 +43,7 @@ private fun ImageVectorIcon(
 fun CancelIcon() {
     ImageVectorIcon(
         imageVector = Icons.Outlined.Close,
-        contentDescription = "Cancel"
+        contentDescription = stringResource(R.string.cancel)
     )
 }
 
@@ -49,7 +51,7 @@ fun CancelIcon() {
 fun SaveIcon() {
     ImageVectorIcon(
         imageVector = Icons.Outlined.Check,
-        contentDescription = "Save",
+        contentDescription = stringResource(R.string.save),
     )
 }
 
@@ -57,7 +59,7 @@ fun SaveIcon() {
 fun DeleteIcon() {
     ImageVectorIcon(
         imageVector = Icons.Outlined.Delete,
-        contentDescription = "Delete",
+        contentDescription = stringResource(R.string.delete),
     )
 }
 
@@ -65,7 +67,7 @@ fun DeleteIcon() {
 fun EditIcon() {
     ImageVectorIcon(
         imageVector = Icons.Outlined.Edit,
-        contentDescription = "Edit",
+        contentDescription = stringResource(R.string.edit),
     )
 }
 
@@ -73,7 +75,7 @@ fun EditIcon() {
 fun AddIcon() {
     ImageVectorIcon(
         imageVector = Icons.Outlined.Add,
-        contentDescription = "Add",
+        contentDescription = stringResource(R.string.add),
     )
 }
 
@@ -81,7 +83,7 @@ fun AddIcon() {
 fun SetRoutineExerciseIcon() {
     ImageVectorIcon(
         imageVector = Icons.Outlined.Edit,
-        contentDescription = "Set",
+        contentDescription = stringResource(R.string.set),
     )
 }
 
@@ -89,7 +91,7 @@ fun SetRoutineExerciseIcon() {
 fun TimedRoutineExerciseIcon() {
     ImageVectorIcon(
         imageVector = Icons.Outlined.Add,
-        contentDescription = "Timed",
+        contentDescription = stringResource(R.string.timed),
     )
 }
 
@@ -97,7 +99,7 @@ fun TimedRoutineExerciseIcon() {
 fun SearchIcon() {
     ImageVectorIcon(
         imageVector = Icons.Outlined.Search,
-        contentDescription = "Search",
+        contentDescription = stringResource(R.string.search),
     )
 }
 
