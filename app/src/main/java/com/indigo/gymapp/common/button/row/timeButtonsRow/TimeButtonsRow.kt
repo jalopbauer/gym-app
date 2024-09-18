@@ -8,7 +8,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.indigo.gymapp.common.button.timeButton.TimeButton
-import com.indigo.gymapp.time.Time
+import com.indigo.gymapp.domain.time.Time
 
 @Composable
 fun TimeButtonsRow(

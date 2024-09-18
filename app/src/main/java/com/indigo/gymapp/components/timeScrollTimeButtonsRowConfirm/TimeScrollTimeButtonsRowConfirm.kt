@@ -9,7 +9,7 @@ import com.indigo.gymapp.R
 import com.indigo.gymapp.common.button.Button
 import com.indigo.gymapp.common.button.row.timeButtonsRow.TimeButtonsRow
 import com.indigo.gymapp.components.scroll.timeScroll.TimeScroll
-import com.indigo.gymapp.time.Rest
+import com.indigo.gymapp.domain.time.Rest
 
 
 @Composable

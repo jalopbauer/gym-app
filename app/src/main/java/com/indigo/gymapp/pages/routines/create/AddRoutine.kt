@@ -29,7 +29,7 @@ import com.indigo.gymapp.common.text.title.Title
 import com.indigo.gymapp.common.textField.TextField
 import com.indigo.gymapp.components.timeScrollTimeButtonsRowConfirm.TimeScrollTimeButtonsRowConfirm
 import com.indigo.gymapp.pages.routines.create.exercise.Exercise
-import com.indigo.gymapp.time.Rest
+import com.indigo.gymapp.domain.time.Rest
 import com.indigo.gymapp.ui.spacing.Spacing
 import com.indigo.gymapp.ui.theme.color.Color.Context
 

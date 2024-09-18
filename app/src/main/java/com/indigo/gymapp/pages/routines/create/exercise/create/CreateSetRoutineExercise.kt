@@ -11,7 +11,7 @@ import com.indigo.gymapp.common.button.textInput.IntAmountTextDrawerButton
 import com.indigo.gymapp.common.button.textInput.OnlyTextDrawerButton
 import com.indigo.gymapp.common.button.textInput.TimeAmountTextDrawerButton
 import com.indigo.gymapp.common.preview.screen.ScreenPreview
-import com.indigo.gymapp.time.Rest
+import com.indigo.gymapp.domain.time.Rest
 
 @Composable
 fun CreateSetRoutineExercise(

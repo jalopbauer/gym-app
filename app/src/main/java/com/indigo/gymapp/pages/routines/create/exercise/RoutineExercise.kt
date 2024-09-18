@@ -1,7 +1,7 @@
 package com.indigo.gymapp.pages.routines.create.exercise
 
-import com.indigo.gymapp.time.Duration
-import com.indigo.gymapp.time.Rest
+import com.indigo.gymapp.domain.time.Duration
+import com.indigo.gymapp.domain.time.Rest
 
 sealed interface RoutineExercise {
     val exerciseName : String

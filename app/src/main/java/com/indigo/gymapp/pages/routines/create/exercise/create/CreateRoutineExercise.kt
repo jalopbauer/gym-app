@@ -26,7 +26,7 @@ import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetConten
 import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent.SelectExerciseVariant
 import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent.SelectRoutineExerciseBottomSheetContent
 import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent.SelectRoutineExerciseVariant
-import com.indigo.gymapp.time.Rest
+import com.indigo.gymapp.domain.time.Rest
 import com.indigo.gymapp.ui.spacing.Spacing.Context
 
 
