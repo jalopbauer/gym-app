@@ -19,6 +19,7 @@ import com.indigo.gymapp.R
 import com.indigo.gymapp.common.bottomSheet.BottomSheet
 import com.indigo.gymapp.common.header.CreateHeader
 import com.indigo.gymapp.common.preview.screen.ScreenPreview
+import com.indigo.gymapp.domain.time.Rest
 import com.indigo.gymapp.pages.exercises.ExerciseViewModel
 import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent.Closed
 import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent.CreateRoutineExerciseBottomSheetContentVariant
@@ -26,7 +27,6 @@ import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetConten
 import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent.SelectExerciseVariant
 import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent.SelectRoutineExerciseBottomSheetContent
 import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent.SelectRoutineExerciseVariant
-import com.indigo.gymapp.domain.time.Rest
 import com.indigo.gymapp.ui.spacing.Spacing.Context
 
 
@@ -36,7 +36,7 @@ fun CreateRoutineExercise(
     onNavigateToCreateRoutine : () -> Unit,
 ) {
     val exerciseViewModel = hiltViewModel<ExerciseViewModel>()
-    val searchExercises by exerciseViewModel.searchExercises.collectAsState(initial = emptyList())
+    val searchExercises by exerciseViewModel.searchExercises.collectAsState()
     val exerciseSearchText by exerciseViewModel.exerciseSearchText.collectAsState()
 
     var addExerciseVariant by remember {
