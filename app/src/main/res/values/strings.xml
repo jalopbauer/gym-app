@@ -20,4 +20,8 @@
     <string name="api">Api</string>
     <string name="exercise_name">Exercise name</string>
     <string name="add_exercise">Add exercise</string>
+    <string name="routines">Routines</string>
+    <string name="add_routine">Add routine</string>
+    <string name="exercise_with_weight_for_certain_repetitions_bench_press">Exercise with weight for certain repetitions (bench press)</string>
+    <string name="exercise_that_lasts_a_specific_duration_of_time_running_planche">Exercise that lasts a specific duration of time (running, planche)</string>
 </resources>

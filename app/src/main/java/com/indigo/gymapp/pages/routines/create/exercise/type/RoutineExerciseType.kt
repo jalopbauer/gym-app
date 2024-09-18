@@ -7,7 +7,9 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.indigo.gymapp.R
 import com.indigo.gymapp.common.icon.Icon
 import com.indigo.gymapp.common.icon.IconVariant
 import com.indigo.gymapp.common.icon.SetRoutineExercise
@@ -34,10 +36,10 @@ fun RoutineExerciseType(
         )
         Column {
             Headline(
-                headline = routineExerciseTypeVariant.headline
+                headline = stringResource(routineExerciseTypeVariant.headline)
             )
             Body(
-                body = routineExerciseTypeVariant.description
+                body = stringResource(routineExerciseTypeVariant.description)
             )
         }
     }
@@ -46,20 +48,20 @@ fun RoutineExerciseType(
 
 sealed interface RoutineExerciseTypeVariant {
     val iconVariant: IconVariant
-    val headline: String
-    val description: String
+    val headline: Int
+    val description: Int
 }
 
 data object SetRoutineExerciseVariant : RoutineExerciseTypeVariant {
     override val iconVariant: IconVariant = SetRoutineExercise
-    override val headline: String = "Set"
-    override val description: String = "Exercise with weight for certain repetitions (bench press)"
+    override val headline = R.string.set
+    override val description = R.string.exercise_with_weight_for_certain_repetitions_bench_press
 }
 
 data object TimedRoutineExerciseVariant : RoutineExerciseTypeVariant {
     override val iconVariant: IconVariant = TimedRoutineExercise
-    override val headline: String = "Timed"
-    override val description: String = "Exercise that lasts a specific duration of time (running, planche)"
+    override val headline = R.string.timed
+    override val description = R.string.exercise_that_lasts_a_specific_duration_of_time_running_planche
 }
 
 
