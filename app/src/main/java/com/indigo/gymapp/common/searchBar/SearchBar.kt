@@ -2,7 +2,9 @@ package com.indigo.gymapp.common.searchBar
 
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.indigo.gymapp.R
 import com.indigo.gymapp.common.icon.Icon
 import com.indigo.gymapp.common.icon.Search
 import com.indigo.gymapp.common.text.Medium
@@ -26,7 +28,7 @@ fun SearchBar(
         onActiveChange = {},
         placeholder = {
             Title(
-                title = "Search exercise",
+                title = stringResource(R.string.search_exercise),
                 textSize = Medium,
                 color = Color.Context.Text.information
             )

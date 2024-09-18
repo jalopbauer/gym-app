@@ -26,4 +26,5 @@
     <string name="exercise_that_lasts_a_specific_duration_of_time_running_planche">Exercise that lasts a specific duration of time (running, planche)</string>
     <string name="minutes">Minutes</string>
     <string name="seconds">Seconds</string>
+    <string name="search_exercise">Search exercise</string>
 </resources>
