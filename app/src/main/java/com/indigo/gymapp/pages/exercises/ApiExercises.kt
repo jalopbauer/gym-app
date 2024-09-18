@@ -1,5 +1,6 @@
 package com.indigo.gymapp.pages.exercises
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -35,6 +36,8 @@ fun ApiExercises() {
     val loading by viewModel.loadingExercises.collectAsState()
     val showRetry by viewModel.showRetry.collectAsState()
 
+    val exerciseViewModel = hiltViewModel<ExerciseViewModel>()
+
     if (loading) {
         Box(modifier = Modifier.fillMaxSize()) {
             CircularProgressIndicator(
@@ -62,7 +65,10 @@ fun ApiExercises() {
     } else {
         LazyColumn {
             items(exercises) { exercise ->
-                ExerciseView(exercise = exercise)
+                ExerciseView(
+                    exercise = exercise,
+                    getExerciseOnClick = { exerciseViewModel.createExercise( it.name )}
+                )
             }
         }
     }
@@ -71,14 +77,15 @@ fun ApiExercises() {
 @Composable
 fun ExerciseView(
     exercise: Exercise,
-    modifier: Modifier = Modifier,
+    getExerciseOnClick: (Exercise) -> Unit
 ) {
     Row(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
-        modifier = modifier
+        modifier = Modifier
             .fillMaxWidth()
-            .padding(20.dp),
+            .padding(20.dp)
+            .clickable { getExerciseOnClick(exercise) },
     ) {
         Headline(exercise.name)
     }
