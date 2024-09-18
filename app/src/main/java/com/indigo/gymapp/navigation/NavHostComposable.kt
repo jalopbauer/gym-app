@@ -14,7 +14,7 @@ import com.indigo.gymapp.pages.calendar.Calendar
 import com.indigo.gymapp.pages.configuration.Configuration
 import com.indigo.gymapp.pages.exercises.Exercises
 import com.indigo.gymapp.pages.routines.Routines
-import com.indigo.gymapp.pages.routines.create.AddRoutine
+import com.indigo.gymapp.pages.routines.create.CreateRoutine
 import com.indigo.gymapp.pages.routines.create.exercise.create.CreateRoutineExercise
 import com.indigo.gymapp.ui.theme.color.Color
 
@@ -44,7 +44,7 @@ fun NavHostComposable(innerPadding: PaddingValues, navController: NavHostControl
             )
         }
         composable(route = NavigationPath.Routines.Create.name) {
-            AddRoutine(
+            CreateRoutine(
                 onNavigateToRoutines = { navController.navigate( NavigationPath.Routines.name ) },
                 onNavigateToAddRoutineExercise = { navController.navigate( NavigationPath.Routines.Create.Exercises.Create.name ) }
             )
