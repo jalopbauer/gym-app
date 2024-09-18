@@ -20,9 +20,11 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.indigo.gymapp.R
 import com.indigo.gymapp.common.text.headline.Headline
 import com.indigo.gymapp.service.api.exercises.Exercise
 import com.indigo.gymapp.ui.theme.PurpleGrey40
@@ -54,12 +56,12 @@ fun ApiExercises() {
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Text(
-                text = "Retry",
+                text = stringResource(R.string.retry),
                 fontWeight = FontWeight.Bold,
             )
-            Text(text = "Retry load ranking")
+            Text(text = stringResource(R.string.retry_load_ranking))
             Button(onClick = { viewModel.retryLoadingRanking() }) {
-                Text(text = "Retry")
+                Text(text = stringResource(R.string.retry))
             }
         }
     } else {

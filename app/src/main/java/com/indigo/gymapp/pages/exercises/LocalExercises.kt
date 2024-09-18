@@ -8,7 +8,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.indigo.gymapp.R
 import com.indigo.gymapp.common.button.Button
 import com.indigo.gymapp.common.text.headline.Headline
 import com.indigo.gymapp.common.textField.TextField
@@ -28,11 +30,11 @@ fun LocalExercises() {
         Column {
             TextField(
                 value = newExerciseName,
-                label = "ExerciseName",
+                label = stringResource(R.string.exercise_name),
                 onValueChange = { newExerciseName = it }
             )
             Button(
-                text = "Add exercise",
+                text = stringResource(R.string.add_exercise),
                 onClick = { exerciseViewModel.createExercise(newExerciseName) }
             )
         }

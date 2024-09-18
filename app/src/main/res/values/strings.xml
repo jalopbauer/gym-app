@@ -14,4 +14,10 @@
     <string name="select_exercise_type">Select exercise type</string>
     <string name="select_exercise">Select exercise</string>
     <string name="confirm">Confirm</string>
+    <string name="retry">Retry</string>
+    <string name="retry_load_ranking">Retry load ranking</string>
+    <string name="local">Local</string>
+    <string name="api">Api</string>
+    <string name="exercise_name">Exercise name</string>
+    <string name="add_exercise">Add exercise</string>
 </resources>

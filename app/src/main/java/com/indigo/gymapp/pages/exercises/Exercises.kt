@@ -10,6 +10,8 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import com.indigo.gymapp.R
 import com.indigo.gymapp.common.text.Large
 import com.indigo.gymapp.common.text.label.Label
 import com.indigo.gymapp.ui.theme.color.Color.Context
@@ -17,7 +19,7 @@ import com.indigo.gymapp.ui.theme.color.Color.Context
 @Composable
 fun Exercises() {
     var tabIndex by remember { mutableIntStateOf(0) }
-    val tabs = listOf("Local", "Api")
+    val tabs = listOf(stringResource(R.string.local), stringResource(R.string.api))
 
     Column(modifier = Modifier.fillMaxWidth()) {
         TabRow(
