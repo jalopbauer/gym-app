@@ -1,4 +1,4 @@
-package com.indigo.gymapp.routines.create
+package com.indigo.gymapp.pages.routines.create
 
 sealed interface CreateRoutineBottomSheetState {
     fun showBottomSheet() : Boolean

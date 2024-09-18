@@ -1,11 +1,11 @@
-package com.indigo.gymapp.routines.create.exercise.create.bottomSheetContent
+package com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
-import com.indigo.gymapp.routines.create.exercise.type.RoutineExerciseType
-import com.indigo.gymapp.routines.create.exercise.type.SetRoutineExerciseVariant
-import com.indigo.gymapp.routines.create.exercise.type.TimedRoutineExerciseVariant
+import com.indigo.gymapp.pages.routines.create.exercise.type.RoutineExerciseType
+import com.indigo.gymapp.pages.routines.create.exercise.type.SetRoutineExerciseVariant
+import com.indigo.gymapp.pages.routines.create.exercise.type.TimedRoutineExerciseVariant
 import com.indigo.gymapp.ui.spacing.Spacing.Context
 
 @Composable

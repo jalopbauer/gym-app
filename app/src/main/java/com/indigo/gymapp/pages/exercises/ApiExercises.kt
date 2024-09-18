@@ -1,4 +1,4 @@
-package com.indigo.gymapp.exercises
+package com.indigo.gymapp.pages.exercises
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box

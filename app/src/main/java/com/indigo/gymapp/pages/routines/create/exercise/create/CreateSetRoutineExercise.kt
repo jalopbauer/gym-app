@@ -1,4 +1,4 @@
-package com.indigo.gymapp.routines.create.exercise.create
+package com.indigo.gymapp.pages.routines.create.exercise.create
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize

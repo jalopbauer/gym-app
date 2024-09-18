@@ -1,4 +1,4 @@
-package com.indigo.gymapp.routines.create.exercise.create.bottomSheetContent
+package com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

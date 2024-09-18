@@ -1,4 +1,4 @@
-package com.indigo.gymapp.routines.create.exercise
+package com.indigo.gymapp.pages.routines.create.exercise
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
