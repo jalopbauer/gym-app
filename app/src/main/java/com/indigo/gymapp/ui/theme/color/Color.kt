@@ -8,43 +8,35 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
 object Color {
-    private object Brand {
-//        TODO Brand should implement interface ColorTheme
-        object Neutral {
-            fun `600`() = Color(0xFF2E3440)
-            fun `500`() = Color(0xFF3B4252)
-            fun `300`() = Color(0xFF4C566A)
-        }
-
-        object Greyscale {
-            fun `500`() = Color(0xFFECEFF4)
-        }
-
-        object Primary {
-            fun `600`() = Color(0xFF5E81AC)
-            fun `500`() = Color(0xFF81A1C1)
-        }
-        val transparent = Color(0x00000000)
+    private object Brand : ColorTheme {
+        val theme : ColorTheme = NordDark
+        override val transparent: Color = theme.transparent
+        override fun `neutral-600`(): Color = theme.`neutral-600`()
+        override fun `neutral-500`(): Color = theme.`neutral-500`()
+        override fun `neutral-300`(): Color = theme.`neutral-300`()
+        override fun `greyscale-500`(): Color = theme.`greyscale-500`()
+        override fun `primary-600`(): Color = theme.`primary-600`()
+        override fun `primary-500`(): Color = theme.`primary-500`()
     }
 
     object Context {
         object Surface {
-            val top = Brand.Neutral.`500`()
-            val primary = Brand.Primary.`500`()
-            val active = Brand.Primary.`600`()
-            val contrast: Color = Brand.Greyscale.`500`()
-            val base = Brand.Neutral.`600`()
-            val information = Brand.Neutral.`300`()
+            val top = Brand.`neutral-500`()
+            val primary = Brand.`primary-500`()
+            val active = Brand.`primary-600`()
+            val contrast: Color = Brand.`greyscale-500`()
+            val base = Brand.`neutral-600`()
+            val information = Brand.`neutral-300`()
         }
         object Text {
-            val primary = Brand.Greyscale.`500`()
-            val information = Brand.Neutral.`300`()
-            val active = Brand.Primary.`600`()
+            val primary = Brand.`greyscale-500`()
+            val information = Brand.`neutral-300`()
+            val active = Brand.`primary-600`()
             val transparent = Brand.transparent
         }
         object Icon {
-            val primary = Brand.Greyscale.`500`()
-            val active = Brand.Primary.`600`()
+            val primary = Brand.`greyscale-500`()
+            val active = Brand.`primary-600`()
         }
     }
 
