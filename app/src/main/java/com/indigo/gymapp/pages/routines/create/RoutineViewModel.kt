@@ -3,7 +3,7 @@ package com.indigo.gymapp.pages.routines.create
 import androidx.annotation.IntRange
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.indigo.gymapp.pages.routines.create.exercise.RoutineExercise
+import com.indigo.gymapp.domain.routines.exercises.RoutineExercise
 import com.indigo.gymapp.domain.time.Rest
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

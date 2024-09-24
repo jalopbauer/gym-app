@@ -1,4 +1,4 @@
-package com.indigo.gymapp.pages.routines.create.exercise
+package com.indigo.gymapp.domain.routines.exercises
 
 import com.indigo.gymapp.domain.time.Duration
 import com.indigo.gymapp.domain.time.Rest

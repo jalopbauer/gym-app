@@ -13,6 +13,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.indigo.gymapp.common.text.Medium
 import com.indigo.gymapp.common.text.title.Title
+import com.indigo.gymapp.domain.routines.exercises.RoutineExercise
+import com.indigo.gymapp.domain.routines.exercises.SetExercise
+import com.indigo.gymapp.domain.routines.exercises.TimedExercise
 import com.indigo.gymapp.ui.spacing.Spacing
 import com.indigo.gymapp.ui.theme.color.Color
 
