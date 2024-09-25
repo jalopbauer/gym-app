@@ -25,7 +25,7 @@ import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetConten
 import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent.CreateRoutineExerciseBottomSheetContentVariant
 import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent.SelectExerciseBottomSheetContent
 import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent.SelectExerciseVariant
-import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent.SelectRoutineExerciseBottomSheetContent
+import com.indigo.gymapp.components.menu.selectRoutineExerciseType.SelectRoutineExerciseTypeMenu
 import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent.SelectRoutineExerciseVariant
 import com.indigo.gymapp.ui.spacing.Spacing.Context
 
@@ -87,7 +87,7 @@ fun CreateRoutineExercise(
         ) {
             when (bottomSheetState) {
                 SelectRoutineExerciseVariant -> {
-                    SelectRoutineExerciseBottomSheetContent(
+                    SelectRoutineExerciseTypeMenu(
                         setRoutineExerciseOnClick = {
                             addExerciseVariant = CreateSetRoutineExercise
                             bottomSheetState = Closed

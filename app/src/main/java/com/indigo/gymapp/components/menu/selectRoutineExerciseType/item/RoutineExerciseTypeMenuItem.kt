@@ -1,4 +1,4 @@
-package com.indigo.gymapp.pages.routines.create.exercise.type
+package com.indigo.gymapp.components.menu.selectRoutineExerciseType.item
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -14,13 +14,13 @@ import com.indigo.gymapp.common.icon.Icon
 import com.indigo.gymapp.common.icon.IconVariant
 import com.indigo.gymapp.common.icon.SetRoutineExercise
 import com.indigo.gymapp.common.icon.TimedRoutineExercise
-import com.indigo.gymapp.common.preview.screen.ScreenPreview
+import com.indigo.gymapp.common.preview.hug.HugPreview
 import com.indigo.gymapp.common.text.body.Body
 import com.indigo.gymapp.common.text.headline.Headline
 import com.indigo.gymapp.ui.spacing.Spacing.Context
 
 @Composable
-fun RoutineExerciseType(
+fun RoutineExerciseTypeMenuItem(
     routineExerciseTypeVariant : RoutineExerciseTypeVariant,
     onClick: () -> Unit
 ) {
@@ -69,8 +69,8 @@ data object TimedRoutineExerciseVariant : RoutineExerciseTypeVariant {
 @Preview
 @Composable
 private fun SetRoutineExerciseTypePreview() {
-    ScreenPreview {
-        RoutineExerciseType(
+    HugPreview {
+        RoutineExerciseTypeMenuItem(
             routineExerciseTypeVariant = SetRoutineExerciseVariant,
             onClick = {}
         )
@@ -80,8 +80,8 @@ private fun SetRoutineExerciseTypePreview() {
 @Preview
 @Composable
 private fun TimedRoutineExerciseTypePreview() {
-    ScreenPreview {
-        RoutineExerciseType(
+    HugPreview {
+        RoutineExerciseTypeMenuItem(
             routineExerciseTypeVariant = TimedRoutineExerciseVariant,
             onClick = {}
         )
