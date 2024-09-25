@@ -24,12 +24,10 @@ import com.indigo.gymapp.common.bottomSheet.BottomSheet
 import com.indigo.gymapp.common.button.textInput.TimeAmountTextDrawerButton
 import com.indigo.gymapp.common.header.CreateHeader
 import com.indigo.gymapp.common.preview.screen.ScreenPreview
-import com.indigo.gymapp.common.text.Large
-import com.indigo.gymapp.common.text.title.Title
 import com.indigo.gymapp.common.textField.TextField
+import com.indigo.gymapp.components.list.routineExercise.RoutineExerciseList
 import com.indigo.gymapp.components.timeScrollTimeButtonsRowConfirm.TimeScrollTimeButtonsRowConfirm
 import com.indigo.gymapp.domain.time.Rest
-import com.indigo.gymapp.pages.routines.create.exercise.Exercise
 import com.indigo.gymapp.ui.spacing.Spacing
 import com.indigo.gymapp.ui.theme.color.Color.Context
 
@@ -103,15 +101,7 @@ fun CreateRoutine(
                     time = routineRestTimeBetweenExercises,
                     onClick = { bottomSheetState = SetRoutineRestTimeBetweenExercisesVariant }
                 )
-                Title(
-                    title = stringResource(id = R.string.routine_exercises),
-                    textSize = Large
-                )
-                routineExercises.forEach{
-                    Exercise(
-                        routineExercise = it
-                    )
-                }
+                RoutineExerciseList(routineExercises)
             }
         }
 

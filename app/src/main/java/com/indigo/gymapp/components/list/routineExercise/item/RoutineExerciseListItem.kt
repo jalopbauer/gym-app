@@ -1,4 +1,4 @@
-package com.indigo.gymapp.pages.routines.create.exercise
+package com.indigo.gymapp.components.list.routineExercise.item
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -11,16 +11,20 @@ import androidx.compose.material3.RadioButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import com.indigo.gymapp.R
 import com.indigo.gymapp.common.text.Medium
 import com.indigo.gymapp.common.text.title.Title
 import com.indigo.gymapp.domain.routines.exercises.RoutineExercise
 import com.indigo.gymapp.domain.routines.exercises.SetExercise
 import com.indigo.gymapp.domain.routines.exercises.TimedExercise
+import com.indigo.gymapp.pages.routines.create.exercise.SetExerciseIconTextValue
+import com.indigo.gymapp.pages.routines.create.exercise.TimedExerciseIconTextValue
 import com.indigo.gymapp.ui.spacing.Spacing
 import com.indigo.gymapp.ui.theme.color.Color
 
 @Composable
-fun Exercise(
+fun RoutineExerciseListItem(
     routineExercise: RoutineExercise
 ) {
     val selected = false
@@ -41,7 +45,7 @@ fun Exercise(
         }
         Icon(
             imageVector = Icons.Outlined.Menu,
-            contentDescription = "Sort item",
+            contentDescription = stringResource(R.string.sort_item),
             tint = Color.Context.Icon.primary
         )
     }
