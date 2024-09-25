@@ -2,9 +2,7 @@ package com.indigo.gymapp.components.list.routineExercise
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.indigo.gymapp.R
@@ -20,10 +18,6 @@ import com.indigo.gymapp.ui.spacing.Spacing
 @Composable
 fun RoutineExerciseList(routineExercises: List<RoutineExercise>) {
     Column (
-        modifier = Modifier
-            .padding(
-                horizontal = Spacing.Context.Padding.screen
-            ),
         verticalArrangement = Arrangement.spacedBy(Spacing.Context.Gap.default)
     ) {
         Title(
