@@ -12,12 +12,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import com.indigo.gymapp.R
+import com.indigo.gymapp.common.preview.hug.HugPreview
 import com.indigo.gymapp.common.text.Medium
 import com.indigo.gymapp.common.text.title.Title
 import com.indigo.gymapp.domain.routines.exercises.RoutineExercise
 import com.indigo.gymapp.domain.routines.exercises.SetExercise
 import com.indigo.gymapp.domain.routines.exercises.TimedExercise
+import com.indigo.gymapp.domain.time.Duration
+import com.indigo.gymapp.domain.time.Rest
 import com.indigo.gymapp.pages.routines.create.exercise.SetExerciseIconTextValue
 import com.indigo.gymapp.pages.routines.create.exercise.TimedExerciseIconTextValue
 import com.indigo.gymapp.ui.spacing.Spacing
@@ -66,5 +70,21 @@ private fun ExerciseDescription(routineExercise: RoutineExercise) {
                 is TimedExercise -> TimedExerciseIconTextValue(routineExercise)
             }
         }
+    }
+}
+
+@Preview
+@Composable
+private fun SetExerciseListItemPreview() {
+    HugPreview {
+        RoutineExerciseListItem(SetExercise(exerciseName = "Chest press", amountOfSets = 4, rest = Rest(2,0)))
+    }
+}
+
+@Preview
+@Composable
+private fun TimedExerciseListItemPreview() {
+    HugPreview {
+        RoutineExerciseListItem(TimedExercise(exerciseName = "Running", duration = Duration(30,0)))
     }
 }
