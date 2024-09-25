@@ -8,6 +8,7 @@ import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -19,14 +20,17 @@ import com.indigo.gymapp.R
 import com.indigo.gymapp.common.bottomSheet.BottomSheet
 import com.indigo.gymapp.common.header.CreateHeader
 import com.indigo.gymapp.common.preview.screen.ScreenPreview
+import com.indigo.gymapp.components.menu.selectRoutineExerciseType.SelectRoutineExerciseTypeMenu
+import com.indigo.gymapp.components.timeScrollTimeButtonsRowConfirm.TimeScrollTimeButtonsRowConfirm
 import com.indigo.gymapp.domain.time.Rest
 import com.indigo.gymapp.pages.exercises.ExerciseViewModel
+import com.indigo.gymapp.pages.routines.create.RoutineViewModel
 import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent.Closed
-import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent.CreateRoutineExerciseBottomSheetContentVariant
+import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent.CreateRoutineExerciseBottomSheetContentState
 import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent.SelectExerciseBottomSheetContent
 import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent.SelectExerciseVariant
-import com.indigo.gymapp.components.menu.selectRoutineExerciseType.SelectRoutineExerciseTypeMenu
 import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent.SelectRoutineExerciseVariant
+import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent.SetRoutineRestTimeBetweenExercisesVariant
 import com.indigo.gymapp.ui.spacing.Spacing.Context
 
 
@@ -35,6 +39,17 @@ import com.indigo.gymapp.ui.spacing.Spacing.Context
 fun CreateRoutineExercise(
     onNavigateToCreateRoutine : () -> Unit,
 ) {
+
+    val routineViewModel = hiltViewModel<RoutineViewModel>()
+    val routineExerciseBuilder by routineViewModel.routineExerciseBuilder.collectAsState()
+
+    var minutes by remember {
+        mutableIntStateOf(routineExerciseBuilder.rest.minutes)
+    }
+    var seconds by remember {
+        mutableIntStateOf(routineExerciseBuilder.rest.seconds)
+    }
+
     val exerciseViewModel = hiltViewModel<ExerciseViewModel>()
     val searchExercises by exerciseViewModel.searchExercises.collectAsState()
     val exerciseSearchText by exerciseViewModel.exerciseSearchText.collectAsState()
@@ -45,7 +60,7 @@ fun CreateRoutineExercise(
 
     val sheetState = rememberModalBottomSheetState()
     var bottomSheetState by remember {
-        mutableStateOf<CreateRoutineExerciseBottomSheetContentVariant>(Closed)
+        mutableStateOf<CreateRoutineExerciseBottomSheetContentState>(Closed)
     }
 
     Column {
@@ -70,8 +85,8 @@ fun CreateRoutineExercise(
             when (addExerciseVariant) {
                 CreateSetRoutineExercise -> CreateSetRoutineExercise(
                     selectExerciseOnClick = { bottomSheetState = SelectExerciseVariant },
-                    rest = Rest(2, 0),
-                    setRestTimeOnClick = {}
+                    rest = routineExerciseBuilder.rest,
+                    setRestTimeOnClick = { bottomSheetState = SetRoutineRestTimeBetweenExercisesVariant}
                 )
                 CreateTimedRoutineExercise -> CreateTimedRoutineExercise(
                     selectExerciseOnClick = { bottomSheetState = SelectExerciseVariant }
@@ -103,6 +118,40 @@ fun CreateRoutineExercise(
                         exerciseName = exerciseSearchText,
                         exercises = searchExercises,
                         onQueryChange = { exerciseViewModel.searchExercise(it) }
+                    )
+                }
+                SetRoutineRestTimeBetweenExercisesVariant -> {
+                    val timButtonOnClick: (Rest) -> Unit = {
+                        minutes = it.minutes
+                        seconds = it.seconds
+                    }
+                    TimeScrollTimeButtonsRowConfirm(
+                        routineRestTimeBetweenExercises = Rest(minutes, seconds),
+                        selectedMinutes = { minutes = it },
+                        selectedSeconds = { seconds = it },
+                        leftTime = Rest(
+                            minutes = 1,
+                            seconds = 0
+                        ),
+                        leftTimeOnClick = timButtonOnClick,
+                        centerTime = Rest(
+                            minutes = 1,
+                            seconds = 30
+                        ),
+                        centerTimeOnClick = timButtonOnClick,
+                        rightTime = Rest(
+                            minutes = 2,
+                            seconds = 0
+                        ),
+                        rightTimeOnClick = timButtonOnClick,
+                        {
+                            routineViewModel.setRoutineExerciseBuilder(
+                                routineExerciseBuilder = routineExerciseBuilder.copy(
+                                    rest = Rest(minutes = minutes, seconds = seconds)
+                                )
+                            )
+                            bottomSheetState = Closed
+                        }
                     )
                 }
                 Closed -> {}

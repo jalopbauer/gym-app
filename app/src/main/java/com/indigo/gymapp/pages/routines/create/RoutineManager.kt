@@ -2,6 +2,7 @@ package com.indigo.gymapp.pages.routines.create
 
 import androidx.annotation.IntRange
 import com.indigo.gymapp.domain.routines.exercises.RoutineExercise
+import com.indigo.gymapp.domain.routines.exercises.RoutineExerciseBuilder
 import com.indigo.gymapp.domain.time.Rest
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -39,5 +40,16 @@ class RoutineManager @Inject constructor() : RoutineHandler {
         withContext(Dispatchers.Default) {
             _routineExercises.emit(newList)
         }
+    }
+
+    private var _routineExerciseBuilder = MutableStateFlow(
+        RoutineExerciseBuilder(
+            rest = Rest(2, 0)
+        )
+    )
+    val routineExerciseBuilder = _routineExerciseBuilder.asStateFlow()
+
+    override fun setRoutineExerciseBuilder(routineExerciseBuilder: RoutineExerciseBuilder) {
+        this._routineExerciseBuilder.value = routineExerciseBuilder
     }
 }

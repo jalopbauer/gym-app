@@ -4,6 +4,7 @@ import androidx.annotation.IntRange
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.indigo.gymapp.domain.routines.exercises.RoutineExercise
+import com.indigo.gymapp.domain.routines.exercises.RoutineExerciseBuilder
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -33,5 +34,11 @@ class RoutineViewModel @Inject constructor(private val routineManager: RoutineMa
         viewModelScope.launch {
             routineManager.addExercise(routineExercise)
         }
+    }
+
+    val routineExerciseBuilder = routineManager.routineExerciseBuilder
+
+    override fun setRoutineExerciseBuilder(routineExerciseBuilder: RoutineExerciseBuilder) {
+        routineManager.setRoutineExerciseBuilder(routineExerciseBuilder)
     }
 }

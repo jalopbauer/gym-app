@@ -2,6 +2,7 @@ package com.indigo.gymapp.pages.routines.create
 
 import androidx.annotation.IntRange
 import com.indigo.gymapp.domain.routines.exercises.RoutineExercise
+import com.indigo.gymapp.domain.routines.exercises.RoutineExerciseBuilder
 
 interface RoutineHandler {
 
@@ -12,4 +13,6 @@ interface RoutineHandler {
     fun changeRoutineName(newRoutineName: String)
 
     suspend fun addExercise(routineExercise: RoutineExercise)
+
+    fun setRoutineExerciseBuilder(routineExerciseBuilder: RoutineExerciseBuilder)
 }
