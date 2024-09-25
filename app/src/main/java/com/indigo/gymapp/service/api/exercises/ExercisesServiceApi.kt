@@ -13,7 +13,8 @@ class ExercisesServiceApi @Inject constructor(){
     fun getExercises(context: Context, onSuccess: (List<Exercise>) -> Unit, onFail: () -> Unit, loadingFinished: () -> Unit) {
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl(
-                "http://10.0.2.2:3000/exercises"
+//                "http://10.0.2.2:3000/exercises"
+                "https://api-generator.retool.com/Q4cATJ/exercises"
             )
             .addConverterFactory(
                 GsonConverterFactory.create()
