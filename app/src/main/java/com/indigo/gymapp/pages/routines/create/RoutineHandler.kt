@@ -15,4 +15,8 @@ interface RoutineHandler {
     suspend fun addExercise(routineExercise: RoutineExercise)
 
     fun setRoutineExerciseBuilder(routineExerciseBuilder: RoutineExerciseBuilder)
+
+    fun setRoutineExerciseBuilderRestMinutes(@IntRange(from = 0, to = 59) minutes: Int)
+
+    fun setRoutineExerciseBuilderRestSeconds(@IntRange(from = 0, to = 59) seconds: Int)
 }

@@ -41,4 +41,12 @@ class RoutineViewModel @Inject constructor(private val routineManager: RoutineMa
     override fun setRoutineExerciseBuilder(routineExerciseBuilder: RoutineExerciseBuilder) {
         routineManager.setRoutineExerciseBuilder(routineExerciseBuilder)
     }
+
+    override fun setRoutineExerciseBuilderRestMinutes(@IntRange(from = 0, to = 59) minutes: Int) {
+        routineManager.setRoutineExerciseBuilderRestMinutes(minutes)
+    }
+
+    override fun setRoutineExerciseBuilderRestSeconds(seconds: Int) {
+        routineManager.setRoutineExerciseBuilderRestSeconds(seconds)
+    }
 }

@@ -52,4 +52,12 @@ class RoutineManager @Inject constructor() : RoutineHandler {
     override fun setRoutineExerciseBuilder(routineExerciseBuilder: RoutineExerciseBuilder) {
         this._routineExerciseBuilder.value = routineExerciseBuilder
     }
+
+    override fun setRoutineExerciseBuilderRestMinutes(minutes: Int) {
+        _routineExerciseBuilder.value = _routineExerciseBuilder.value.copy(rest = _routineExerciseBuilder.value.rest.copy(minutes = minutes))
+    }
+
+    override fun setRoutineExerciseBuilderRestSeconds(seconds: Int) {
+        _routineExerciseBuilder.value = _routineExerciseBuilder.value.copy(rest = _routineExerciseBuilder.value.rest.copy(seconds = seconds))
+    }
 }

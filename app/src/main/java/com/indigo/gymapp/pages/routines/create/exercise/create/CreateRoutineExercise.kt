@@ -145,11 +145,8 @@ fun CreateRoutineExercise(
                         ),
                         rightTimeOnClick = timButtonOnClick,
                         {
-                            routineViewModel.setRoutineExerciseBuilder(
-                                routineExerciseBuilder = routineExerciseBuilder.copy(
-                                    rest = Rest(minutes = minutes, seconds = seconds)
-                                )
-                            )
+                            routineViewModel.setRoutineExerciseBuilderRestMinutes(minutes)
+                            routineViewModel.setRoutineExerciseBuilderRestSeconds(seconds)
                             bottomSheetState = Closed
                         }
                     )
