@@ -4,41 +4,34 @@ import androidx.annotation.IntRange
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.indigo.gymapp.domain.routines.exercises.RoutineExercise
-import com.indigo.gymapp.domain.time.Rest
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class RoutineViewModel @Inject constructor() : ViewModel() {
+class RoutineViewModel @Inject constructor(private val routineManager: RoutineManager) : ViewModel(), RoutineHandler {
 
-    private var _name = MutableStateFlow("")
-    val name = _name.asStateFlow()
+    val name = routineManager.name
 
-    private var _restTimeBetweenExercises = MutableStateFlow(Rest(2, 0))
-    val restTimeBetweenExercises = _restTimeBetweenExercises.asStateFlow()
-
-    fun setRestTimeBetweenExercisesSeconds(@IntRange(from = 0, to = 59) seconds: Int) {
-        _restTimeBetweenExercises.value = _restTimeBetweenExercises.value.copy(seconds = seconds)
+    override fun changeRoutineName(newRoutineName: String) {
+        routineManager.changeRoutineName(newRoutineName)
     }
 
-    fun setRestTimeBetweenExercisesMinutes(@IntRange(from = 0, to = 59) minutes: Int) {
-        _restTimeBetweenExercises.value = _restTimeBetweenExercises.value.copy(minutes = minutes)
+    val restTimeBetweenExercises = routineManager.restTimeBetweenExercises
+
+    override fun setRestTimeBetweenExercisesSeconds(@IntRange(from = 0, to = 59) seconds: Int) {
+        routineManager.setRestTimeBetweenExercisesSeconds(seconds)
     }
 
-    fun changeRoutineName(newRoutineName: String) {
-        _name.value = newRoutineName
+    override fun setRestTimeBetweenExercisesMinutes(@IntRange(from = 0, to = 59) minutes: Int) {
+        routineManager.setRestTimeBetweenExercisesMinutes(minutes)
     }
 
-    private var _routineExercises = MutableStateFlow(listOf<RoutineExercise>())
-    val exercises = _routineExercises.asStateFlow()
+    val exercises = routineManager.exercises
 
-    fun addExercise(routineExercise: RoutineExercise) {
-        val newList = _routineExercises.value + routineExercise
+    override suspend fun addExercise(routineExercise: RoutineExercise) {
         viewModelScope.launch {
-            _routineExercises.emit(newList)
+            routineManager.addExercise(routineExercise)
         }
     }
 }
