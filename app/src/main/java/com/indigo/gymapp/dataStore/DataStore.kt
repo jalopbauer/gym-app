@@ -1,4 +1,4 @@
-package com.indigo.gymapp.data.store
+package com.indigo.gymapp.dataStore
 
 import android.content.Context
 import androidx.datastore.preferences.core.Preferences
