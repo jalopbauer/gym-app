@@ -5,8 +5,8 @@ import android.util.Log
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.indigo.gymapp.pages.exercises.Exercise
-import com.indigo.gymapp.pages.exercises.ExerciseDao
+import com.indigo.gymapp.exercises.Exercise
+import com.indigo.gymapp.exercises.ExerciseDao
 import java.util.concurrent.Executors
 
 @Database(entities = [Exercise::class], version = 1)

@@ -1,4 +1,4 @@
-package com.indigo.gymapp.pages.exercises.apiExercises
+package com.indigo.gymapp.exercises.apiExercises
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.indigo.gymapp.R
 import com.indigo.gymapp.common.text.headline.Headline
-import com.indigo.gymapp.pages.exercises.viewModel.ExerciseViewModel
+import com.indigo.gymapp.exercises.viewModel.ExerciseViewModel
 import com.indigo.gymapp.service.api.exercises.Exercise
 import com.indigo.gymapp.ui.theme.PurpleGrey40
 import com.indigo.gymapp.ui.theme.PurpleGrey80

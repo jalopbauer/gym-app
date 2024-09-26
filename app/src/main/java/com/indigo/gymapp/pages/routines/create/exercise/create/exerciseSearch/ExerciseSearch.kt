@@ -6,7 +6,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.indigo.gymapp.common.searchBar.SearchBar
-import com.indigo.gymapp.pages.exercises.Exercise
+import com.indigo.gymapp.exercises.Exercise
 import com.indigo.gymapp.pages.routines.create.exercise.create.exerciseTextButton.ExerciseTextButton
 import com.indigo.gymapp.ui.spacing.Spacing.Context
 

@@ -1,4 +1,4 @@
-package com.indigo.gymapp.pages.exercises
+package com.indigo.gymapp.exercises
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -14,8 +14,8 @@ import androidx.compose.ui.res.stringResource
 import com.indigo.gymapp.R
 import com.indigo.gymapp.common.text.Large
 import com.indigo.gymapp.common.text.label.Label
-import com.indigo.gymapp.pages.exercises.apiExercises.ApiExercises
-import com.indigo.gymapp.pages.exercises.localExercises.LocalExercises
+import com.indigo.gymapp.exercises.apiExercises.ApiExercises
+import com.indigo.gymapp.exercises.localExercises.LocalExercises
 import com.indigo.gymapp.ui.theme.color.Color.Context
 
 @Composable
