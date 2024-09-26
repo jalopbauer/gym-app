@@ -45,7 +45,7 @@ fun NavHostComposable(innerPadding: PaddingValues, navController: NavHostControl
         }
         composable(route = NavigationPath.Routines.Create.name) {
             CreateRoutine(
-                onNavigateToRoutines = { navController.navigate( NavigationPath.Routines.name ) },
+                onNavigateToRoutines = { navController.popBackStack() },
                 onNavigateToAddRoutineExercise = { navController.navigate( NavigationPath.Routines.Create.Exercises.Create.name ) }
             )
         }
