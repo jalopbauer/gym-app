@@ -2,6 +2,7 @@ package com.indigo.gymapp.manager.bottomAppBar
 
 import com.indigo.gymapp.manager.bottomAppBar.state.BottomAppBarManagerState
 import com.indigo.gymapp.manager.bottomAppBar.state.CreateUpdateDelete
+import com.indigo.gymapp.manager.bottomAppBar.state.Empty
 import com.indigo.gymapp.manager.bottomAppBar.state.Navigation
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -33,6 +34,10 @@ class BottomAppBarManagerSingleton @Inject constructor() : BottomAppBarManager {
 
     override fun setNavigation() {
         _bottomAppBarState.value = Navigation
+    }
+
+    override fun setEmpty() {
+        _bottomAppBarState.value = Empty
     }
 
 

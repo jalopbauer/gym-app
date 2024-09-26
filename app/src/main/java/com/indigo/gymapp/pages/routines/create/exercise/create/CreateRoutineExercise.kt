@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -23,14 +24,15 @@ import com.indigo.gymapp.common.preview.screen.ScreenPreview
 import com.indigo.gymapp.components.menu.selectRoutineExerciseType.SelectRoutineExerciseTypeMenu
 import com.indigo.gymapp.components.timeScrollTimeButtonsRowConfirm.TimeScrollTimeButtonsRowConfirm
 import com.indigo.gymapp.domain.time.Rest
+import com.indigo.gymapp.manager.bottomAppBar.BottomAppBarViewModel
 import com.indigo.gymapp.pages.exercises.ExerciseViewModel
-import com.indigo.gymapp.pages.routines.routineManager.RoutineViewModel
 import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent.Closed
 import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent.CreateRoutineExerciseBottomSheetContentState
 import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent.SelectExerciseBottomSheetContent
 import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent.SelectExerciseVariant
 import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent.SelectRoutineExerciseVariant
 import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent.SetRoutineRestTimeBetweenExercisesVariant
+import com.indigo.gymapp.pages.routines.routineManager.RoutineViewModel
 import com.indigo.gymapp.ui.spacing.Spacing.Context
 
 
@@ -61,6 +63,12 @@ fun CreateRoutineExercise(
     val sheetState = rememberModalBottomSheetState()
     var bottomSheetState by remember {
         mutableStateOf<CreateRoutineExerciseBottomSheetContentState>(Closed)
+    }
+
+    val bottomAppBarViewModel = hiltViewModel<BottomAppBarViewModel>()
+
+    LaunchedEffect(Unit) {
+        bottomAppBarViewModel.setEmpty()
     }
 
     Column {

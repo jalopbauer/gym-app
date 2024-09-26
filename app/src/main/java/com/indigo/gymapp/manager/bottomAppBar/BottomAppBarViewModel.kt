@@ -26,4 +26,8 @@ class BottomAppBarViewModel @Inject constructor(private val bottomAppBarManager:
     override fun setNavigation() {
         bottomAppBarManager.setNavigation()
     }
+
+    override fun setEmpty() {
+        bottomAppBarManager.setEmpty()
+    }
 }

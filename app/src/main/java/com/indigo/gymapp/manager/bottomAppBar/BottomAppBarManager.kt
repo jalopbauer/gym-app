@@ -11,4 +11,6 @@ interface BottomAppBarManager {
     )
 
     fun setNavigation()
+
+    fun setEmpty()
 }

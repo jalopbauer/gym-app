@@ -16,6 +16,7 @@ import com.indigo.gymapp.common.bottomAppBar.BottomAppBar
 import com.indigo.gymapp.common.bottomAppBar.CreateUpdateDeleteBottomAppBar
 import com.indigo.gymapp.manager.bottomAppBar.BottomAppBarManagerSingleton
 import com.indigo.gymapp.manager.bottomAppBar.state.CreateUpdateDelete
+import com.indigo.gymapp.manager.bottomAppBar.state.Empty
 import com.indigo.gymapp.manager.bottomAppBar.state.Navigation
 import com.indigo.gymapp.navigation.NavHostComposable
 import com.indigo.gymapp.ui.theme.GymAppTheme
@@ -55,6 +56,7 @@ class MainActivity : ComponentActivity() {
                                         state.deleteOnClick,
                                     )
                                 }
+                                Empty -> {}
                             }
                         },
                     ) { innerPadding ->
