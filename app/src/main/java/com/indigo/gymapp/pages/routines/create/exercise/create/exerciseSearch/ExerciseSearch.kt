@@ -1,4 +1,4 @@
-package com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent
+package com.indigo.gymapp.pages.routines.create.exercise.create.exerciseSearch
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -6,16 +6,17 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.indigo.gymapp.common.searchBar.SearchBar
-import com.indigo.gymapp.common.text.headline.Headline
 import com.indigo.gymapp.domain.exercises.Exercise
+import com.indigo.gymapp.pages.routines.create.exercise.create.exerciseTextButton.ExerciseTextButton
 import com.indigo.gymapp.ui.spacing.Spacing.Context
 
 
 @Composable
-fun SelectExerciseBottomSheetContent(
+fun ExerciseSearch(
     exerciseName: String,
     exercises: List<Exercise>,
-    onQueryChange: (String) -> Unit
+    onQueryChange: (String) -> Unit,
+    getExerciseOnClick: (Exercise) -> Unit
 ) {
     Column(
         modifier = Modifier.fillMaxHeight(0.5f),
@@ -26,7 +27,10 @@ fun SelectExerciseBottomSheetContent(
             onQueryChange = onQueryChange
         )
         exercises.forEach { exercise ->
-            Headline(exercise.name)
+            ExerciseTextButton(
+                exercise = exercise,
+                getExerciseOnClick = getExerciseOnClick
+            )
         }
     }
 }
