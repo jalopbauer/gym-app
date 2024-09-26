@@ -87,10 +87,15 @@ fun IntAmountTextDrawerButton(
 }
 
 @Composable
-fun OnlyTextDrawerButton(leadingText: String, onClick: () -> Unit) {
+fun OnlyTextDrawerButton(
+    leadingText: String,
+    isSelected: Boolean,
+    onClick: () -> Unit
+) {
     TextDrawerButton(
         leadingText = leadingText,
         isOnlyText = true,
+        isSelected = isSelected,
         isTextCentered = true,
         onClick = onClick
     )
