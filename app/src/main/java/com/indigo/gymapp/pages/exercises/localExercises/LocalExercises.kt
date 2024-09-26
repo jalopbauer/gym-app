@@ -1,4 +1,4 @@
-package com.indigo.gymapp.pages.exercises
+package com.indigo.gymapp.pages.exercises.localExercises
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -14,6 +14,7 @@ import com.indigo.gymapp.R
 import com.indigo.gymapp.common.button.Button
 import com.indigo.gymapp.common.text.headline.Headline
 import com.indigo.gymapp.common.textField.TextField
+import com.indigo.gymapp.pages.exercises.ExerciseViewModel
 import com.indigo.gymapp.ui.spacing.Spacing.Context
 
 @Composable

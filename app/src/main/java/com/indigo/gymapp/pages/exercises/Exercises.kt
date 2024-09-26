@@ -15,6 +15,7 @@ import com.indigo.gymapp.R
 import com.indigo.gymapp.common.text.Large
 import com.indigo.gymapp.common.text.label.Label
 import com.indigo.gymapp.pages.exercises.apiExercises.ApiExercises
+import com.indigo.gymapp.pages.exercises.localExercises.LocalExercises
 import com.indigo.gymapp.ui.theme.color.Color.Context
 
 @Composable
