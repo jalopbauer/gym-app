@@ -1,4 +1,4 @@
-package com.indigo.gymapp.pages.routines.create
+package com.indigo.gymapp.pages.routines.routineManager
 
 import androidx.annotation.IntRange
 import com.indigo.gymapp.domain.routines.exercises.RoutineExercise

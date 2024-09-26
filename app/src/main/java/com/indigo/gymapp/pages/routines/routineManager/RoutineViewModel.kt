@@ -1,4 +1,4 @@
-package com.indigo.gymapp.pages.routines.create
+package com.indigo.gymapp.pages.routines.routineManager
 
 import androidx.annotation.IntRange
 import androidx.lifecycle.ViewModel
@@ -10,7 +10,8 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class RoutineViewModel @Inject constructor(private val routineManager: RoutineManager) : ViewModel(), RoutineHandler {
+class RoutineViewModel @Inject constructor(private val routineManager: RoutineManager) : ViewModel(),
+    RoutineHandler {
 
     val name = routineManager.name
 

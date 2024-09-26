@@ -1,6 +1,6 @@
 package com.indigo.gymapp.manager
 
-import com.indigo.gymapp.pages.routines.routineHandler.RoutineManager
+import com.indigo.gymapp.pages.routines.routineManager.RoutineManager
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
