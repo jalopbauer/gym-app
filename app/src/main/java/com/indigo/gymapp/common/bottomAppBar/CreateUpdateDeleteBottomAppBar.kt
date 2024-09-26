@@ -9,7 +9,7 @@ import com.indigo.gymapp.common.icon.button.EditIconButton
 import com.indigo.gymapp.ui.theme.color.Color.Context
 
 @Composable
-fun CreateUpdateDeleteActionBottomAppBar(
+fun CreateUpdateDeleteBottomAppBar(
     isDeleteEnabled : Boolean,
     isEditEnabled : Boolean,
     addOnClick: () -> Unit,
@@ -43,7 +43,7 @@ fun CreateUpdateDeleteActionBottomAppBar(
 @Preview
 @Composable
 private fun DeleteAndEditDisabledCreateUpdateDeleteActionBottomAppBarPreview() {
-    CreateUpdateDeleteActionBottomAppBar(
+    CreateUpdateDeleteBottomAppBar(
         isDeleteEnabled = false,
         isEditEnabled = false,
         addOnClick = {},
@@ -55,7 +55,7 @@ private fun DeleteAndEditDisabledCreateUpdateDeleteActionBottomAppBarPreview() {
 @Preview
 @Composable
 private fun EditDisabledCreateUpdateDeleteActionBottomAppBarPreview() {
-    CreateUpdateDeleteActionBottomAppBar(
+    CreateUpdateDeleteBottomAppBar(
         isDeleteEnabled = true,
         isEditEnabled = false,
         addOnClick = {},
@@ -67,7 +67,7 @@ private fun EditDisabledCreateUpdateDeleteActionBottomAppBarPreview() {
 @Preview
 @Composable
 private fun AllEnabledCreateUpdateDeleteActionBottomAppBarPreview() {
-    CreateUpdateDeleteActionBottomAppBar(
+    CreateUpdateDeleteBottomAppBar(
         isDeleteEnabled = true,
         isEditEnabled = true,
         addOnClick = {},

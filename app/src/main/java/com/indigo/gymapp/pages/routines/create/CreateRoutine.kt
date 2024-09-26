@@ -5,9 +5,9 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -19,7 +19,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.indigo.gymapp.R
-import com.indigo.gymapp.common.bottomAppBar.CreateUpdateDeleteActionBottomAppBar
 import com.indigo.gymapp.common.bottomSheet.BottomSheet
 import com.indigo.gymapp.common.button.textInput.TimeAmountTextDrawerButton
 import com.indigo.gymapp.common.header.CreateHeader
@@ -28,9 +27,9 @@ import com.indigo.gymapp.common.textField.TextField
 import com.indigo.gymapp.components.list.routineExercise.RoutineExerciseList
 import com.indigo.gymapp.components.timeScrollTimeButtonsRowConfirm.TimeScrollTimeButtonsRowConfirm
 import com.indigo.gymapp.domain.time.Rest
+import com.indigo.gymapp.manager.bottomAppBar.BottomAppBarViewModel
 import com.indigo.gymapp.pages.routines.routineManager.RoutineViewModel
 import com.indigo.gymapp.ui.spacing.Spacing
-import com.indigo.gymapp.ui.theme.color.Color.Context
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -38,6 +37,9 @@ fun CreateRoutine(
     onNavigateToRoutines: () -> Unit,
     onNavigateToAddRoutineExercise: () -> Unit
 ) {
+    val bottomAppBarViewModel = hiltViewModel<BottomAppBarViewModel>()
+
+
     val routineViewModel = hiltViewModel<RoutineViewModel>()
     val routineExercises by routineViewModel.exercises.collectAsState()
     val routineName by routineViewModel.name.collectAsState()
@@ -60,99 +62,96 @@ fun CreateRoutine(
         mutableIntStateOf(routineRestTimeBetweenExercises.seconds)
     }
 
-    Scaffold(
-        modifier = Modifier.fillMaxSize(),
-        containerColor = Context.Surface.base,
-        bottomBar = {
-//            TODO Remove CreateUpdateDeleteActionBottomAppBar and Scaffold from here
-            CreateUpdateDeleteActionBottomAppBar(
-                isDeleteEnabled = isDeleteEnabledInBottomAppBar(isRoutineExercisesEmpty),
-                isEditEnabled = isEditEnabledInBottomAppBar(isRoutineExercisesEmpty),
-                addOnClick = onNavigateToAddRoutineExercise,
-                editOnClick = {},
-                deleteOnClick = {}
-            )
-        },
-    ) { innerPadding ->
+    LaunchedEffect(Unit) {
+        bottomAppBarViewModel.setCreateUpdateDelete(
+            isDeleteEnabled = isDeleteEnabledInBottomAppBar(isRoutineExercisesEmpty),
+            isEditEnabled = isEditEnabledInBottomAppBar(isRoutineExercisesEmpty),
+            addOnClick = onNavigateToAddRoutineExercise,
+            editOnClick = {},
+            deleteOnClick = {}
+        )
+    }
 
+    Column {
+        CreateHeader(
+            title = headerTitle,
+            isSelected = hasWrittenRoutineName,
+            onClickDrawerButton = {
+                bottomSheetState = NameYourRoutine
+            },
+            onClickSave = {
+                onNavigateToRoutines()
+                bottomAppBarViewModel.setNavigation()
+            },
+            onClickCancel = {
+                onNavigateToRoutines()
+                bottomAppBarViewModel.setNavigation()
+            }
+        )
         Column (
-            modifier = Modifier.padding(innerPadding),
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(
+                    horizontal = Spacing.Context.Padding.screen
+                ),
+            verticalArrangement = Arrangement.spacedBy(Spacing.Context.Gap.default)
         ) {
-            CreateHeader(
-                title = headerTitle,
-                isSelected = hasWrittenRoutineName,
-                onClickDrawerButton = {
-                    bottomSheetState = NameYourRoutine
-                },
-                onClickSave = {
-                    onNavigateToRoutines()
-                },
-                onClickCancel = onNavigateToRoutines
+            TimeAmountTextDrawerButton(
+                leadingText = stringResource(id = R.string.rest_between_exercises),
+                time = routineRestTimeBetweenExercises,
+                onClick = { bottomSheetState = SetRoutineRestTimeBetweenExercisesVariant }
             )
-            Column (
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(
-                        horizontal = Spacing.Context.Padding.screen
-                    ),
-                verticalArrangement = Arrangement.spacedBy(Spacing.Context.Gap.default)
-            ) {
-                TimeAmountTextDrawerButton(
-                    leadingText = stringResource(id = R.string.rest_between_exercises),
-                    time = routineRestTimeBetweenExercises,
-                    onClick = { bottomSheetState = SetRoutineRestTimeBetweenExercisesVariant }
-                )
-                RoutineExerciseList(routineExercises)
-            }
-        }
-
-        BottomSheet(
-            showBottomSheet = bottomSheetState.showBottomSheet(),
-            onDismissRequest = { bottomSheetState = Closed },
-            sheetState = sheetState
-        ) {
-            when (bottomSheetState) {
-                NameYourRoutine ->
-                    ChangeNameBottomSheetContent(
-                        routineName = routineName,
-                        onValueChange = { routineViewModel.changeRoutineName(it) }
-                    )
-                SetRoutineRestTimeBetweenExercisesVariant -> {
-                    val timButtonOnClick: (Rest) -> Unit = {
-                        minutes = it.minutes
-                        seconds = it.seconds
-                    }
-                    TimeScrollTimeButtonsRowConfirm(
-                        routineRestTimeBetweenExercises = Rest(minutes, seconds),
-                        selectedMinutes = { minutes = it },
-                        selectedSeconds = { seconds = it },
-                        leftTime = Rest(
-                            minutes = 1,
-                            seconds = 0
-                        ),
-                        leftTimeOnClick = timButtonOnClick,
-                        centerTime = Rest(
-                            minutes = 1,
-                            seconds = 30
-                        ),
-                        centerTimeOnClick = timButtonOnClick,
-                        rightTime = Rest(
-                            minutes = 2,
-                            seconds = 0
-                        ),
-                        rightTimeOnClick = timButtonOnClick,
-                        {
-                            routineViewModel.setRestTimeBetweenExercisesMinutes(minutes)
-                            routineViewModel.setRestTimeBetweenExercisesSeconds(seconds)
-                            bottomSheetState = Closed
-                        }
-                        )
-                }
-                Closed -> {}
-            }
-
+            RoutineExerciseList(routineExercises)
         }
     }
+
+    BottomSheet(
+        showBottomSheet = bottomSheetState.showBottomSheet(),
+        onDismissRequest = { bottomSheetState = Closed },
+        sheetState = sheetState
+    ) {
+        when (bottomSheetState) {
+            NameYourRoutine ->
+                ChangeNameBottomSheetContent(
+                    routineName = routineName,
+                    onValueChange = { routineViewModel.changeRoutineName(it) }
+                )
+            SetRoutineRestTimeBetweenExercisesVariant -> {
+                val timButtonOnClick: (Rest) -> Unit = {
+                    minutes = it.minutes
+                    seconds = it.seconds
+                }
+                TimeScrollTimeButtonsRowConfirm(
+                    routineRestTimeBetweenExercises = Rest(minutes, seconds),
+                    selectedMinutes = { minutes = it },
+                    selectedSeconds = { seconds = it },
+                    leftTime = Rest(
+                        minutes = 1,
+                        seconds = 0
+                    ),
+                    leftTimeOnClick = timButtonOnClick,
+                    centerTime = Rest(
+                        minutes = 1,
+                        seconds = 30
+                    ),
+                    centerTimeOnClick = timButtonOnClick,
+                    rightTime = Rest(
+                        minutes = 2,
+                        seconds = 0
+                    ),
+                    rightTimeOnClick = timButtonOnClick,
+                    {
+                        routineViewModel.setRestTimeBetweenExercisesMinutes(minutes)
+                        routineViewModel.setRestTimeBetweenExercisesSeconds(seconds)
+                        bottomSheetState = Closed
+                    }
+                    )
+            }
+            Closed -> {}
+        }
+
+    }
+
 }
 
 @Composable
