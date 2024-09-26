@@ -81,11 +81,9 @@ fun CreateRoutine(
             },
             onClickSave = {
                 onNavigateToRoutines()
-                bottomAppBarViewModel.setNavigation()
             },
             onClickCancel = {
                 onNavigateToRoutines()
-                bottomAppBarViewModel.setNavigation()
             }
         )
         Column (
