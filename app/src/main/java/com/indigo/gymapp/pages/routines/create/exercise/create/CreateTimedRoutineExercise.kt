@@ -23,6 +23,7 @@ fun CreateTimedRoutineExercise(
     ) {
         OnlyTextDrawerButton(
             leadingText = stringResource(id = R.string.select_exercise),
+            isSelected = false,
             onClick = selectExerciseOnClick
         )
         TimeAmountTextDrawerButton(
