@@ -28,10 +28,10 @@ import com.indigo.gymapp.manager.bottomAppBar.BottomAppBarViewModel
 import com.indigo.gymapp.pages.exercises.ExerciseViewModel
 import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent.Closed
 import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent.CreateRoutineExerciseBottomSheetContentState
-import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent.SelectExerciseBottomSheetContent
 import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent.SelectExerciseVariant
 import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent.SelectRoutineExerciseVariant
 import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent.SetRoutineRestTimeBetweenExercisesVariant
+import com.indigo.gymapp.pages.routines.create.exercise.create.exerciseSearch.ExerciseSearch
 import com.indigo.gymapp.pages.routines.routineManager.RoutineViewModel
 import com.indigo.gymapp.ui.spacing.Spacing.Context
 
@@ -94,6 +94,7 @@ fun CreateRoutineExercise(
                 CreateSetRoutineExercise -> CreateSetRoutineExercise(
                     selectExerciseOnClick = { bottomSheetState = SelectExerciseVariant },
                     rest = routineExerciseBuilder.rest,
+                    exercise = routineExerciseBuilder.exercise,
                     setRestTimeOnClick = { bottomSheetState = SetRoutineRestTimeBetweenExercisesVariant}
                 )
                 CreateTimedRoutineExercise -> CreateTimedRoutineExercise(
@@ -122,10 +123,11 @@ fun CreateRoutineExercise(
                     )
                 }
                 SelectExerciseVariant -> {
-                    SelectExerciseBottomSheetContent(
+                    ExerciseSearch(
                         exerciseName = exerciseSearchText,
                         exercises = searchExercises,
-                        onQueryChange = { exerciseViewModel.searchExercise(it) }
+                        onQueryChange = { exerciseViewModel.searchExercise(it) },
+                        getExerciseOnClick = { routineViewModel.setRoutineExerciseBuilderExercise(it)}
                     )
                 }
                 SetRoutineRestTimeBetweenExercisesVariant -> {

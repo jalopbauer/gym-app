@@ -1,6 +1,7 @@
 package com.indigo.gymapp.pages.routines.routineManager
 
 import androidx.annotation.IntRange
+import com.indigo.gymapp.domain.exercises.Exercise
 import com.indigo.gymapp.domain.routines.exercises.RoutineExercise
 import com.indigo.gymapp.domain.routines.exercises.RoutineExerciseBuilder
 import com.indigo.gymapp.domain.time.Rest
@@ -59,5 +60,9 @@ class RoutineManager @Inject constructor() : RoutineHandler {
 
     override fun setRoutineExerciseBuilderRestSeconds(seconds: Int) {
         _routineExerciseBuilder.value = _routineExerciseBuilder.value.copy(rest = _routineExerciseBuilder.value.rest.copy(seconds = seconds))
+    }
+
+    override fun setRoutineExerciseBuilderExercise(exercise: Exercise) {
+        _routineExerciseBuilder.value = _routineExerciseBuilder.value.copy(exercise = exercise)
     }
 }

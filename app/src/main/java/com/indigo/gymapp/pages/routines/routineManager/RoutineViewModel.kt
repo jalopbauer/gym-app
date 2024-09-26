@@ -3,6 +3,7 @@ package com.indigo.gymapp.pages.routines.routineManager
 import androidx.annotation.IntRange
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.indigo.gymapp.domain.exercises.Exercise
 import com.indigo.gymapp.domain.routines.exercises.RoutineExercise
 import com.indigo.gymapp.domain.routines.exercises.RoutineExerciseBuilder
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -49,5 +50,9 @@ class RoutineViewModel @Inject constructor(private val routineManager: RoutineMa
 
     override fun setRoutineExerciseBuilderRestSeconds(seconds: Int) {
         routineManager.setRoutineExerciseBuilderRestSeconds(seconds)
+    }
+
+    override fun setRoutineExerciseBuilderExercise(exercise: Exercise) {
+        routineManager.setRoutineExerciseBuilderExercise(exercise)
     }
 }
