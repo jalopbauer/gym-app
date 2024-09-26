@@ -1,4 +1,4 @@
-package com.indigo.gymapp.pages.exercises
+package com.indigo.gymapp.pages.exercises.apiExercises
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
