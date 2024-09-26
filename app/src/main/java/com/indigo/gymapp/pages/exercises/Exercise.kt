@@ -1,4 +1,4 @@
-package com.indigo.gymapp.domain.exercises
+package com.indigo.gymapp.pages.exercises
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
