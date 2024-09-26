@@ -1,4 +1,4 @@
-package com.indigo.gymapp.exercises.apiExercises
+package com.indigo.gymapp.exercises.api
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
