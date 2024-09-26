@@ -25,7 +25,7 @@ import com.indigo.gymapp.components.menu.selectRoutineExerciseType.SelectRoutine
 import com.indigo.gymapp.components.timeScrollTimeButtonsRowConfirm.TimeScrollTimeButtonsRowConfirm
 import com.indigo.gymapp.domain.time.Rest
 import com.indigo.gymapp.manager.bottomAppBar.BottomAppBarViewModel
-import com.indigo.gymapp.pages.exercises.ExerciseViewModel
+import com.indigo.gymapp.pages.exercises.viewModel.ExerciseViewModel
 import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent.Closed
 import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent.CreateRoutineExerciseBottomSheetContentState
 import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent.SelectExerciseVariant

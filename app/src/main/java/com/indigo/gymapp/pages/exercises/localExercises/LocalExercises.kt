@@ -14,7 +14,7 @@ import com.indigo.gymapp.R
 import com.indigo.gymapp.common.button.Button
 import com.indigo.gymapp.common.text.headline.Headline
 import com.indigo.gymapp.common.textField.TextField
-import com.indigo.gymapp.pages.exercises.ExerciseViewModel
+import com.indigo.gymapp.pages.exercises.viewModel.ExerciseViewModel
 import com.indigo.gymapp.ui.spacing.Spacing.Context
 
 @Composable
