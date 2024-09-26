@@ -1,4 +1,4 @@
-package com.indigo.gymapp.domain.database
+package com.indigo.gymapp.database
 
 import android.content.Context
 import android.util.Log
