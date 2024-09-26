@@ -1,4 +1,4 @@
-package com.indigo.gymapp.pages.routines.create.exercise
+package com.indigo.gymapp.routines.exercises.list.item
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.MailOutline

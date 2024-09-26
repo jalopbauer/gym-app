@@ -1,4 +1,4 @@
-package com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent
+package com.indigo.gymapp.routines.exercises.create
 
 sealed interface CreateRoutineExerciseBottomSheetContentState {
     fun showBottomSheet() : Boolean

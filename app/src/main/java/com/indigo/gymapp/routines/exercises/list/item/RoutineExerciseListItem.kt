@@ -1,7 +1,6 @@
-package com.indigo.gymapp.components.list.routineExercise.item
+package com.indigo.gymapp.routines.exercises.list.item
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.icons.Icons
@@ -15,15 +14,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.indigo.gymapp.R
 import com.indigo.gymapp.common.preview.hug.HugPreview
-import com.indigo.gymapp.common.text.Medium
-import com.indigo.gymapp.common.text.title.Title
 import com.indigo.gymapp.domain.routines.exercises.RoutineExercise
 import com.indigo.gymapp.domain.routines.exercises.SetExercise
 import com.indigo.gymapp.domain.routines.exercises.TimedExercise
 import com.indigo.gymapp.domain.time.Duration
 import com.indigo.gymapp.domain.time.Rest
-import com.indigo.gymapp.pages.routines.create.exercise.SetExerciseIconTextValue
-import com.indigo.gymapp.pages.routines.create.exercise.TimedExerciseIconTextValue
 import com.indigo.gymapp.ui.spacing.Spacing
 import com.indigo.gymapp.ui.theme.color.Color
 
@@ -45,7 +40,7 @@ fun RoutineExerciseListItem(
                 selected = selected,
                 onClick = {}
             )
-            ExerciseDescription(routineExercise)
+            RoutineExerciseDescription(routineExercise)
         }
         Icon(
             imageVector = Icons.Outlined.Menu,
@@ -54,23 +49,6 @@ fun RoutineExerciseListItem(
         )
     }
 
-}
-
-@Composable
-private fun ExerciseDescription(routineExercise: RoutineExercise) {
-    Column(
-        verticalArrangement = Arrangement.spacedBy(Spacing.Context.Gap.space)
-    ) {
-        Title(title = routineExercise.exerciseName, textSize = Medium)
-        Column(
-            verticalArrangement = Arrangement.spacedBy(Spacing.Context.Gap.default),
-        ) {
-            when (routineExercise) {
-                is SetExercise -> SetExerciseIconTextValue(routineExercise)
-                is TimedExercise -> TimedExerciseIconTextValue(routineExercise)
-            }
-        }
-    }
 }
 
 @Preview

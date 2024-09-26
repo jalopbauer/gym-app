@@ -1,4 +1,4 @@
-package com.indigo.gymapp.pages.routines.create.exercise.create
+package com.indigo.gymapp.routines.exercises.create
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -24,15 +24,10 @@ import com.indigo.gymapp.common.preview.screen.ScreenPreview
 import com.indigo.gymapp.components.menu.selectRoutineExerciseType.SelectRoutineExerciseTypeMenu
 import com.indigo.gymapp.components.timeScrollTimeButtonsRowConfirm.TimeScrollTimeButtonsRowConfirm
 import com.indigo.gymapp.domain.time.Rest
-import com.indigo.gymapp.manager.bottomAppBar.BottomAppBarViewModel
 import com.indigo.gymapp.exercises.viewModel.ExerciseViewModel
-import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent.Closed
-import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent.CreateRoutineExerciseBottomSheetContentState
-import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent.SelectExerciseVariant
-import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent.SelectRoutineExerciseVariant
-import com.indigo.gymapp.pages.routines.create.exercise.create.bottomSheetContent.SetRoutineRestTimeBetweenExercisesVariant
-import com.indigo.gymapp.pages.routines.create.exercise.create.exerciseSearch.ExerciseSearch
-import com.indigo.gymapp.pages.routines.routineManager.RoutineViewModel
+import com.indigo.gymapp.manager.bottomAppBar.BottomAppBarViewModel
+import com.indigo.gymapp.routines.exercises.create.exerciseSearch.ExerciseSearch
+import com.indigo.gymapp.routines.manager.RoutineViewModel
 import com.indigo.gymapp.ui.spacing.Spacing.Context
 
 
@@ -95,7 +90,7 @@ fun CreateRoutineExercise(
                     selectExerciseOnClick = { bottomSheetState = SelectExerciseVariant },
                     rest = routineExerciseBuilder.rest,
                     exercise = routineExerciseBuilder.exercise,
-                    setRestTimeOnClick = { bottomSheetState = SetRoutineRestTimeBetweenExercisesVariant}
+                    setRestTimeOnClick = { bottomSheetState = SetRoutineRestTimeBetweenExercisesVariant }
                 )
                 CreateTimedRoutineExercise -> CreateTimedRoutineExercise(
                     selectExerciseOnClick = { bottomSheetState = SelectExerciseVariant }

@@ -1,4 +1,4 @@
-package com.indigo.gymapp.pages.routines.create
+package com.indigo.gymapp.routines.create
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -24,11 +24,11 @@ import com.indigo.gymapp.common.button.textInput.TimeAmountTextDrawerButton
 import com.indigo.gymapp.common.header.CreateHeader
 import com.indigo.gymapp.common.preview.screen.ScreenPreview
 import com.indigo.gymapp.common.textField.TextField
-import com.indigo.gymapp.components.list.routineExercise.RoutineExerciseList
+import com.indigo.gymapp.routines.exercises.list.RoutineExerciseList
 import com.indigo.gymapp.components.timeScrollTimeButtonsRowConfirm.TimeScrollTimeButtonsRowConfirm
 import com.indigo.gymapp.domain.time.Rest
 import com.indigo.gymapp.manager.bottomAppBar.BottomAppBarViewModel
-import com.indigo.gymapp.pages.routines.routineManager.RoutineViewModel
+import com.indigo.gymapp.routines.manager.RoutineViewModel
 import com.indigo.gymapp.ui.spacing.Spacing
 
 @OptIn(ExperimentalMaterial3Api::class)

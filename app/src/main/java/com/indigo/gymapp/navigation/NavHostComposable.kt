@@ -13,9 +13,9 @@ import androidx.navigation.compose.composable
 import com.indigo.gymapp.pages.calendar.Calendar
 import com.indigo.gymapp.pages.configuration.Configuration
 import com.indigo.gymapp.exercises.Exercises
-import com.indigo.gymapp.pages.routines.Routines
-import com.indigo.gymapp.pages.routines.create.CreateRoutine
-import com.indigo.gymapp.pages.routines.create.exercise.create.CreateRoutineExercise
+import com.indigo.gymapp.routines.Routines
+import com.indigo.gymapp.routines.create.CreateRoutine
+import com.indigo.gymapp.routines.exercises.create.CreateRoutineExercise
 import com.indigo.gymapp.ui.theme.color.Color
 
 @Composable
