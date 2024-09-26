@@ -1,6 +1,6 @@
-package com.indigo.gymapp.navigation
+package com.indigo.gymapp.manager
 
-import com.indigo.gymapp.pages.routines.create.RoutineManager
+import com.indigo.gymapp.pages.routines.routineHandler.RoutineManager
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -9,7 +9,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object SingletonProvider {
+object ManagerProvider {
 
     @Provides
     @Singleton
