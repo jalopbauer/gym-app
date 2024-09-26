@@ -1,5 +1,6 @@
 package com.indigo.gymapp.manager.bottomAppBar
 
+import androidx.annotation.IntRange
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -23,8 +24,8 @@ class BottomAppBarViewModel @Inject constructor(private val bottomAppBarManager:
         )
     }
 
-    override fun setNavigation() {
-        bottomAppBarManager.setNavigation()
+    override fun setNavigation(@IntRange(from = 0, to = 4) item: Int,) {
+        bottomAppBarManager.setNavigation(item)
     }
 
     override fun setEmpty() {

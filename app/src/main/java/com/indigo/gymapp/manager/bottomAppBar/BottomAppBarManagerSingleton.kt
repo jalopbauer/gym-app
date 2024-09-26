@@ -1,5 +1,6 @@
 package com.indigo.gymapp.manager.bottomAppBar
 
+import androidx.annotation.IntRange
 import com.indigo.gymapp.manager.bottomAppBar.state.BottomAppBarManagerState
 import com.indigo.gymapp.manager.bottomAppBar.state.CreateUpdateDelete
 import com.indigo.gymapp.manager.bottomAppBar.state.Empty
@@ -13,7 +14,7 @@ import javax.inject.Singleton
 @Singleton
 class BottomAppBarManagerSingleton @Inject constructor() : BottomAppBarManager {
 
-    private var _bottomAppBarState = MutableStateFlow<BottomAppBarManagerState>(Navigation)
+    private var _bottomAppBarState = MutableStateFlow<BottomAppBarManagerState>(Navigation(1))
     val bottomAppBarState: StateFlow<BottomAppBarManagerState> = _bottomAppBarState.asStateFlow()
 
     override fun setCreateUpdateDelete(
@@ -32,8 +33,8 @@ class BottomAppBarManagerSingleton @Inject constructor() : BottomAppBarManager {
         )
     }
 
-    override fun setNavigation() {
-        _bottomAppBarState.value = Navigation
+    override fun setNavigation(@IntRange(from = 0, to = 4) item: Int,) {
+        _bottomAppBarState.value = Navigation(item)
     }
 
     override fun setEmpty() {

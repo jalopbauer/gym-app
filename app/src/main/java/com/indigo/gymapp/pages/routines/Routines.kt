@@ -18,7 +18,7 @@ fun Routines(
     val bottomAppBarViewModel = hiltViewModel<BottomAppBarViewModel>()
 
     LaunchedEffect(Unit) {
-        bottomAppBarViewModel.setNavigation()
+        bottomAppBarViewModel.setNavigation(2)
     }
 
     Column (

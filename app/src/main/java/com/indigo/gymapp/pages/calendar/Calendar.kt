@@ -10,6 +10,6 @@ fun Calendar() {
     val bottomAppBarViewModel = hiltViewModel<BottomAppBarViewModel>()
 
     LaunchedEffect(Unit) {
-        bottomAppBarViewModel.setNavigation()
+        bottomAppBarViewModel.setNavigation(1)
     }
 }

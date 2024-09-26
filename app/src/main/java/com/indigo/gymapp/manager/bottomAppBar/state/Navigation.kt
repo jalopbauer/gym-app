@@ -1,3 +1,8 @@
 package com.indigo.gymapp.manager.bottomAppBar.state
 
-data object Navigation : BottomAppBarManagerState
+import androidx.annotation.IntRange
+
+data class Navigation(
+    @IntRange(from = 0, to = 4)
+    val item: Int,
+) : BottomAppBarManagerState

@@ -46,7 +46,10 @@ class MainActivity : ComponentActivity() {
                         bottomBar = {
 //                            bottomAppBarState is set to a variable as to be able to smart cast
                             when (val state = bottomAppBarState) {
-                                is Navigation -> BottomAppBar { navController.navigate(it) }
+                                is Navigation -> BottomAppBar (
+                                    initialItem = state.item,
+                                    onNavigate = { navController.navigate(it) }
+                                )
                                 is CreateUpdateDelete -> {
                                     CreateUpdateDeleteBottomAppBar(
                                         state.isDeleteEnabled,

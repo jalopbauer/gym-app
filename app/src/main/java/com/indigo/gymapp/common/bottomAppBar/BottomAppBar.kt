@@ -1,5 +1,6 @@
 package com.indigo.gymapp.common.bottomAppBar
 
+import androidx.annotation.IntRange
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Build
 import androidx.compose.material.icons.filled.Home
@@ -11,6 +12,8 @@ import com.indigo.gymapp.navigation.NavigationPath
 
 @Composable
 fun BottomAppBar(
+    @IntRange(from = 0, to = 4)
+    initialItem: Int,
     onNavigate: (String) -> Unit,
 ) {
 
@@ -21,12 +24,19 @@ fun BottomAppBar(
 
     val tabBarItems = listOf(exercisesScreen, calendarScreen, routinesScreen, configScreen)
 
-    TabBottomBar(tabBarItems, onNavigate)
+    TabBottomBar(
+        initialItem = initialItem,
+        tabBarItems = tabBarItems,
+        onNavigate = onNavigate
+    )
 }
 
 
 @Preview
 @Composable
 private fun TabBottomBarVariantPreview() {
-    BottomAppBar( onNavigate = { NavigationPath.Exercises.name } )
+    BottomAppBar(
+        initialItem = 1,
+        onNavigate = { NavigationPath.Exercises.name }
+    )
 }

@@ -21,9 +21,9 @@ data class TabBarItem(
 // TODO Change icons
 
 @Composable
-fun TabBottomBar(tabBarItems: List<TabBarItem>, onNavigate: (String) -> Unit) {
+fun TabBottomBar(initialItem: Int, tabBarItems: List<TabBarItem>, onNavigate: (String) -> Unit) {
     var selectedTabIndex by rememberSaveable {
-        mutableIntStateOf(1)
+        mutableIntStateOf(initialItem)
     }
 
     NavigationBar (
