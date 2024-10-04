@@ -41,12 +41,8 @@ class ExerciseViewModel @Inject constructor(
     fun searchExercise(exerciseName: String) {
         _search.value = exerciseName
         viewModelScope.launch {
-            if (exerciseName == "") {
-                _searchExercises.emit(emptyList())
-            } else {
-                withContext(Dispatchers.Default) {
-                    _searchExercises.emit(gymDatabase.exerciseDao().getExercisesByName(exerciseName))
-                }
+            withContext(Dispatchers.Default) {
+                _searchExercises.emit(gymDatabase.exerciseDao().getExercisesByName(exerciseName))
             }
         }
     }

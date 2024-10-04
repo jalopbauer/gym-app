@@ -50,7 +50,9 @@ fun CreateRoutineExercise(
     val exerciseViewModel = hiltViewModel<ExerciseViewModel>()
     val searchExercises by exerciseViewModel.searchExercises.collectAsState()
     val exerciseSearchText by exerciseViewModel.exerciseSearchText.collectAsState()
-
+    LaunchedEffect(Unit) {
+        exerciseViewModel.searchExercise("")
+    }
     var addExerciseVariant by remember {
         mutableStateOf<AddExerciseVariant>(Empty)
     }
