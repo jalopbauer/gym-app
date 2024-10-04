@@ -130,7 +130,10 @@ fun CreateRoutineExercise(
                         exerciseName = exerciseSearchText,
                         exercises = searchExercises,
                         onQueryChange = { exerciseViewModel.searchExercise(it) },
-                        getExerciseOnClick = { routineViewModel.setRoutineExerciseBuilderExercise(it)}
+                        getExerciseOnClick = {
+                            routineViewModel.setRoutineExerciseBuilderExercise(it)
+                            bottomSheetState = Closed
+                        }
                     )
                 }
                 SetRoutineRestTimeBetweenExercisesVariant -> {
