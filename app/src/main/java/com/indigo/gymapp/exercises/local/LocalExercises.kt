@@ -42,29 +42,58 @@ fun LocalExercises() {
             .clickable { focusManager.clearFocus() },
         verticalArrangement = Arrangement.spacedBy(Context.Gap.default)
     ) {
-        TextField(
-            value = newExerciseName,
-            label = stringResource(R.string.exercise_name),
+        NewExerciseNameTextField(
+            newExerciseName = newExerciseName,
             onValueChange = { newExerciseName = it }
         )
-        Button(
-            text = stringResource(R.string.add_exercise),
+        AddExerciseButton(
             onClick = {
                 exerciseViewModel.createExercise(newExerciseName)
-                Toast.makeText(context, context.getString(R.string.exercise_added, newExerciseName), Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    context,
+                    context.getString(R.string.exercise_added, newExerciseName),
+                    Toast.LENGTH_SHORT
+                ).show()
                 newExerciseName = ""
                 focusManager.clearFocus()
             }
         )
-        LazyColumn (
-            verticalArrangement = Arrangement.spacedBy(space = Context.Gap.default)
-        ) {
-            items(exercises) { exercise ->
-                Exercise(
-                    exercise = exercise,
-                    deleteOnClick = {}
-                )
-            }
+        Exercises(
+            exercises = exercises
+        )
+    }
+}
+
+@Composable
+private fun Exercises(exercises: List<Exercise>) {
+    LazyColumn(
+        verticalArrangement = Arrangement.spacedBy(space = Context.Gap.default)
+    ) {
+        items(exercises) { exercise ->
+            Exercise(
+                exercise = exercise,
+                deleteOnClick = {}
+            )
         }
     }
+}
+
+@Composable
+private fun AddExerciseButton(onClick: () -> Unit) {
+    Button(
+        text = stringResource(R.string.add_exercise),
+        onClick = onClick
+    )
+}
+
+@Composable
+private fun NewExerciseNameTextField(
+    newExerciseName: String,
+    onValueChange: (String) -> Unit
+) {
+    TextField(
+        value = newExerciseName,
+        label = stringResource(R.string.exercise_name),
+        onValueChange = onValueChange
+    )
 }
