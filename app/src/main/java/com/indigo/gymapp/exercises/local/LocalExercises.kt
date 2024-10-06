@@ -45,7 +45,7 @@ fun LocalExercises() {
             text = stringResource(R.string.add_exercise),
             onClick = {
                 exerciseViewModel.createExercise(newExerciseName)
-                Toast.makeText(context, "Exercise $newExerciseName added", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, context.getString(R.string.exercise_added, newExerciseName), Toast.LENGTH_SHORT).show()
                 newExerciseName = ""
                 keyboardController?.hide()
             }

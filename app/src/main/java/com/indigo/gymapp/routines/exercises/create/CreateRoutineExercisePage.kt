@@ -77,8 +77,12 @@ fun CreateRoutineExercise(
             onClickDrawerButton = { bottomSheetState = SelectRoutineExerciseVariant },
             onClickSave = {
                 when {
-                    addExerciseVariant is Empty -> Toast.makeText(context, "Must select exercise type", Toast.LENGTH_SHORT).show()
-                    routineExerciseBuilder.exercise == null -> Toast.makeText(context, "Must select exercise", Toast.LENGTH_SHORT).show()
+                    addExerciseVariant is Empty -> Toast.makeText(context,
+                        context.getString(R.string.must_select_exercise_type), Toast.LENGTH_SHORT).show()
+                    routineExerciseBuilder.exercise == null -> Toast.makeText(context,
+                        context.getString(
+                            R.string.must_select_exercise
+                        ), Toast.LENGTH_SHORT).show()
                     else -> onNavigateToCreateRoutine()
                 }
             },

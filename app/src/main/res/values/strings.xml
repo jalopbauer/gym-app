@@ -34,4 +34,7 @@
     <string name="add">Add</string>
     <string name="search">Search</string>
     <string name="sort_item">Sort item</string>
+    <string name="exercise_added">Exercise %1$s added</string>
+    <string name="must_select_exercise_type">Must select exercise type</string>
+    <string name="must_select_exercise">Must select exercise</string>
 </resources>
