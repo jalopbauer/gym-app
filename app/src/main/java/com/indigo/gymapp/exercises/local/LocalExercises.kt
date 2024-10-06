@@ -3,6 +3,8 @@ package com.indigo.gymapp.exercises.local
 import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -15,8 +17,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.indigo.gymapp.R
 import com.indigo.gymapp.common.button.Button
-import com.indigo.gymapp.common.text.headline.Headline
 import com.indigo.gymapp.common.textField.TextField
+import com.indigo.gymapp.exercises.Exercise
 import com.indigo.gymapp.exercises.viewModel.ExerciseViewModel
 import com.indigo.gymapp.ui.spacing.Spacing.Context
 
@@ -48,8 +50,15 @@ fun LocalExercises() {
                 keyboardController?.hide()
             }
         )
-        exercises.forEach { exercise ->
-            Headline(exercise.name)
+        LazyColumn (
+            verticalArrangement = Arrangement.spacedBy(space = Context.Gap.default)
+        ) {
+            items(exercises) { exercise ->
+                Exercise(
+                    exercise = exercise,
+                    deleteOnClick = {}
+                )
+            }
         }
     }
 }
