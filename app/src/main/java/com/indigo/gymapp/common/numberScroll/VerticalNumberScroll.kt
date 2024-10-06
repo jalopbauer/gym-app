@@ -7,8 +7,8 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.pager.PageSize
+import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.VerticalPager
-import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -25,15 +25,10 @@ import com.indigo.gymapp.ui.theme.color.Color.Context
 @Composable
 fun VerticalNumberScroll(
     label: String,
-    maxValue: Int,
-    startingIndex: Int = 0,
+    pagerState: PagerState,
     indexDisplay: (Int) -> String = { "$it" },
     selectedItem: (Int) -> Unit
 ) {
-    val pagerState = rememberPagerState(
-        initialPage = startingIndex,
-        pageCount = { maxValue }
-    )
     selectedItem(pagerState.settledPage)
     val verticalPagerHeight = 360.dp
     val pageSize = 64.dp

@@ -141,10 +141,6 @@ fun CreateRoutineExercise(
                     )
                 }
                 SetRoutineRestTimeBetweenExercisesVariant -> {
-                    val timButtonOnClick: (Rest) -> Unit = {
-                        minutes = it.minutes
-                        seconds = it.seconds
-                    }
                     TimeScrollTimeButtonsRowConfirm(
                         routineRestTimeBetweenExercises = Rest(minutes, seconds),
                         selectedMinutes = { minutes = it },
@@ -153,17 +149,14 @@ fun CreateRoutineExercise(
                             minutes = 1,
                             seconds = 0
                         ),
-                        leftTimeOnClick = timButtonOnClick,
                         centerTime = Rest(
                             minutes = 1,
                             seconds = 30
                         ),
-                        centerTimeOnClick = timButtonOnClick,
                         rightTime = Rest(
                             minutes = 2,
                             seconds = 0
                         ),
-                        rightTimeOnClick = timButtonOnClick,
                         {
                             routineViewModel.setRoutineExerciseBuilderRestMinutes(minutes)
                             routineViewModel.setRoutineExerciseBuilderRestSeconds(seconds)

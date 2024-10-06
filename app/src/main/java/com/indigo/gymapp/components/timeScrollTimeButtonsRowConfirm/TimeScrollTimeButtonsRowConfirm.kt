@@ -2,14 +2,22 @@ package com.indigo.gymapp.components.timeScrollTimeButtonsRowConfirm
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.indigo.gymapp.R
 import com.indigo.gymapp.common.button.Button
 import com.indigo.gymapp.common.button.row.timeButtonsRow.TimeButtonsRow
-import com.indigo.gymapp.components.scroll.timeScroll.TimeScroll
+import com.indigo.gymapp.common.numberScroll.VerticalNumberScroll
 import com.indigo.gymapp.domain.time.Rest
+import com.indigo.gymapp.domain.time.displaySeconds
+import kotlinx.coroutines.launch
 
 
 @Composable
@@ -18,24 +26,53 @@ fun TimeScrollTimeButtonsRowConfirm(
     selectedMinutes: (Int) -> Unit,
     selectedSeconds: (Int) -> Unit,
     leftTime: Rest,
-    leftTimeOnClick: (Rest) -> Unit,
     centerTime: Rest,
-    centerTimeOnClick: (Rest) -> Unit,
     rightTime: Rest,
-    rightTimeOnClick: (Rest) -> Unit,
     confirmOnClick: () -> Unit,
 ) {
     Column(
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        TimeScroll(routineRestTimeBetweenExercises, selectedMinutes, selectedSeconds)
+        val secondsVerticalNumberScrollPagerState = rememberPagerState(
+            initialPage = routineRestTimeBetweenExercises.seconds,
+            pageCount = { 59 }
+        )
+        val minutesVerticalNumberScrollPagerState = rememberPagerState(
+            initialPage = routineRestTimeBetweenExercises.minutes,
+            pageCount = { 59 }
+        )
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(space = 32.dp, alignment = Alignment.CenterHorizontally),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            VerticalNumberScroll(
+                label = stringResource(R.string.minutes),
+                pagerState = minutesVerticalNumberScrollPagerState,
+                selectedItem = selectedMinutes
+            )
+            VerticalNumberScroll(
+                label = stringResource(R.string.seconds),
+                pagerState = secondsVerticalNumberScrollPagerState,
+                selectedItem = selectedSeconds,
+                indexDisplay = { displaySeconds(it) }
+            )
+        }
+        val coroutineScope = rememberCoroutineScope()
+
+        val onClick: (Rest) -> Unit = {
+            coroutineScope.launch {
+                secondsVerticalNumberScrollPagerState.scrollToPage(it.seconds)
+                minutesVerticalNumberScrollPagerState.scrollToPage(it.minutes)
+            }
+        }
         TimeButtonsRow(
             leftTime,
-            leftTimeOnClick,
+            onClick,
             centerTime,
-            centerTimeOnClick,
+            onClick,
             rightTime,
-            rightTimeOnClick
+            onClick
         )
         Button(
             text = stringResource(R.string.confirm),
