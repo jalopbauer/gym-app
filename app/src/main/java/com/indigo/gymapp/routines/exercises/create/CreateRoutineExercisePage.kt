@@ -100,8 +100,9 @@ fun CreateRoutineExercise(
             when (addExerciseVariant) {
                 CreateSetRoutineExercise -> CreateSetRoutineExercise(
                     selectExerciseOnClick = { bottomSheetState = SelectExerciseVariant },
-                    rest = routineExerciseBuilder.rest,
                     exercise = routineExerciseBuilder.exercise,
+                    rest = routineExerciseBuilder.rest,
+                    amountOfSets = 4,
                     setRestTimeOnClick = { bottomSheetState = SetRoutineRestTimeBetweenExercisesVariant }
                 )
                 CreateTimedRoutineExercise -> CreateTimedRoutineExercise(
