@@ -20,7 +20,8 @@ fun CreateSetRoutineExercise(
     exercise: Exercise?,
     rest: Rest,
     amountOfSets: Int,
-    setRestTimeOnClick : () -> Unit
+    setRestTimeOnClick: () -> Unit,
+    setAmountOfSetsOnClick: () -> Unit,
 
 ) {
     val exerciseText = exercise?.name ?: stringResource(id = R.string.select_exercise)
@@ -41,7 +42,7 @@ fun CreateSetRoutineExercise(
         IntAmountTextDrawerButton(
             leadingText = stringResource(id = R.string.amount_of_sets),
             amount = amountOfSets,
-            onClick = {}
+            onClick = setAmountOfSetsOnClick
         )
     }
 }
@@ -59,7 +60,8 @@ private fun PreviewAddSetWithExerciseSet() {
             ),
             Rest(2, 0),
             amountOfSets = 4,
-            setRestTimeOnClick = {}
+            setRestTimeOnClick = {},
+            setAmountOfSetsOnClick = {}
         )
     }
 }
@@ -73,7 +75,8 @@ private fun PreviewAddSetWithoutExerciseSet() {
             exercise = null,
             Rest(2, 0),
             amountOfSets = 4,
-            setRestTimeOnClick = {}
+            setRestTimeOnClick = {},
+            setAmountOfSetsOnClick = {}
         )
     }
 }

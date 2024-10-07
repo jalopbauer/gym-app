@@ -4,6 +4,7 @@ import android.widget.Toast
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
@@ -22,10 +23,12 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.indigo.gymapp.R
 import com.indigo.gymapp.common.bottomSheet.BottomSheet
 import com.indigo.gymapp.common.header.CreateHeader
+import com.indigo.gymapp.common.numberScroll.HorizontalNumberScroll
 import com.indigo.gymapp.common.preview.screen.ScreenPreview
 import com.indigo.gymapp.components.menu.selectRoutineExerciseType.SelectRoutineExerciseTypeMenu
 import com.indigo.gymapp.components.timeScrollTimeButtonsRowConfirm.TimeScrollTimeButtonsRowConfirm
 import com.indigo.gymapp.domain.time.Rest
+import com.indigo.gymapp.domain.time.displaySeconds
 import com.indigo.gymapp.exercises.viewModel.ExerciseViewModel
 import com.indigo.gymapp.manager.bottomAppBar.BottomAppBarViewModel
 import com.indigo.gymapp.routines.exercises.create.exerciseSearch.ExerciseSearch
@@ -103,7 +106,8 @@ fun CreateRoutineExercise(
                     exercise = routineExerciseBuilder.exercise,
                     rest = routineExerciseBuilder.rest,
                     amountOfSets = routineExerciseBuilder.amountOfSets,
-                    setRestTimeOnClick = { bottomSheetState = SetRoutineRestTimeBetweenExercisesVariant }
+                    setRestTimeOnClick = { bottomSheetState = SetRoutineRestTimeBetweenExercisesVariant },
+                    setAmountOfSetsOnClick = { bottomSheetState = SetRoutineSetExerciseVariant }
                 )
                 CreateTimedRoutineExercise -> CreateTimedRoutineExercise(
                     selectExerciseOnClick = { bottomSheetState = SelectExerciseVariant }
