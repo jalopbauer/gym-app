@@ -66,4 +66,9 @@ class RoutineManager @Inject constructor() : RoutineHandler {
     override fun setRoutineExerciseBuilderExercise(exercise: Exercise) {
         _routineExerciseBuilder.value = _routineExerciseBuilder.value.copy(exercise = exercise)
     }
+
+    override fun setRoutineExerciseBuilderAmountOfSets(amountOfSets: Int) {
+        _routineExerciseBuilder.value = _routineExerciseBuilder.value.copy(amountOfSets = amountOfSets)
+
+    }
 }
