@@ -1,11 +1,11 @@
 package com.indigo.gymapp.common.numberScroll
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PageSize
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.VerticalPager
@@ -21,7 +21,7 @@ import com.indigo.gymapp.common.text.label.Label
 import com.indigo.gymapp.ui.spacing.Spacing
 import com.indigo.gymapp.ui.theme.color.Color.Context
 
-@OptIn(ExperimentalFoundationApi::class)
+// TODO Create one component with a variant parameter
 @Composable
 fun VerticalNumberScroll(
     label: String,
@@ -47,6 +47,43 @@ fun VerticalNumberScroll(
             horizontalAlignment = Alignment.End,
             contentPadding = PaddingValues(vertical = (verticalPagerHeight - pageSize) / 2)
 
+        ) { page ->
+            val isSelected = page == pagerState.currentPage
+            Text(
+                modifier = Modifier.width(pageSize),
+                text = indexDisplay(page),
+                style = MaterialTheme.typography.displayLarge,
+                color = if (isSelected) Context.Text.primary else Context.Text.information,
+                textAlign = TextAlign.Right
+            )
+        }
+    }
+}
+
+@Composable
+fun HorizontalNumberScroll(
+    label: String? = null,
+    pagerState: PagerState,
+    indexDisplay: (Int) -> String = { "$it" },
+    selectedItem: (Int) -> Unit
+) {
+    val pageSize = 64.dp
+    selectedItem(pagerState.settledPage)
+    Column (
+        verticalArrangement = Arrangement.spacedBy(Spacing.Context.Gap.default),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        label?.let {
+            Label(
+                label = label,
+                textSize = Large
+            )
+        }
+        HorizontalPager(
+            state = pagerState,
+            pageSize = PageSize.Fixed(pageSize),
+            contentPadding = PaddingValues(horizontal = pageSize * 2 + pageSize / 4),
+            pageSpacing = Spacing.Context.Gap.default
         ) { page ->
             val isSelected = page == pagerState.currentPage
             Text(
