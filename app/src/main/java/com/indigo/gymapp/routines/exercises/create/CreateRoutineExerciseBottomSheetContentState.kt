@@ -16,3 +16,5 @@ data object SelectRoutineExerciseVariant : Open
 data object SelectExerciseVariant : Open
 
 data object SetRoutineRestTimeBetweenExercisesVariant : Open
+
+data object SetRoutineSetExerciseAmountOfSetsVariant : Open

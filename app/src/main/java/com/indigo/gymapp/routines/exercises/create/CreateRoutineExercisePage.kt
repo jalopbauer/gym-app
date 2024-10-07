@@ -107,7 +107,7 @@ fun CreateRoutineExercise(
                     rest = routineExerciseBuilder.rest,
                     amountOfSets = routineExerciseBuilder.amountOfSets,
                     setRestTimeOnClick = { bottomSheetState = SetRoutineRestTimeBetweenExercisesVariant },
-                    setAmountOfSetsOnClick = { bottomSheetState = SetRoutineSetExerciseVariant }
+                    setAmountOfSetsOnClick = { bottomSheetState = SetRoutineSetExerciseAmountOfSetsVariant }
                 )
                 CreateTimedRoutineExercise -> CreateTimedRoutineExercise(
                     selectExerciseOnClick = { bottomSheetState = SelectExerciseVariant }
@@ -167,6 +167,17 @@ fun CreateRoutineExercise(
                             routineViewModel.setRoutineExerciseBuilderRestSeconds(seconds)
                             bottomSheetState = Closed
                         }
+                    )
+                }
+                SetRoutineSetExerciseAmountOfSetsVariant -> {
+                    val pagerState = rememberPagerState(
+                        initialPage = routineExerciseBuilder.amountOfSets,
+                        pageCount = { 100 }
+                    )
+                    HorizontalNumberScroll(
+                        pagerState = pagerState,
+                        selectedItem = { },
+                        indexDisplay = { displaySeconds(it) }
                     )
                 }
                 Closed -> {}
