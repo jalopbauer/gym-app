@@ -46,15 +46,13 @@ fun CreateRoutine(
     val routineRestTimeBetweenExercises by routineViewModel.restTimeBetweenExercises.collectAsState()
     val isRoutineExercisesEmpty = routineExercises.isEmpty()
 
-    val sheetState = rememberModalBottomSheetState()
-
-    var bottomSheetState by remember {
-        mutableStateOf<CreateRoutineBottomSheetState>(NameYourRoutine)
-    }
-
     val hasWrittenRoutineName = routineName != ""
     val headerTitle = if (hasWrittenRoutineName) routineName else stringResource(id = R.string.name_your_routine)
 
+    val sheetState = rememberModalBottomSheetState()
+    var bottomSheetState by remember {
+        mutableStateOf(if (hasWrittenRoutineName) Closed else NameYourRoutine)
+    }
     var minutes by remember {
         mutableIntStateOf(routineRestTimeBetweenExercises.minutes)
     }
