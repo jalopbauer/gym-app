@@ -61,7 +61,7 @@ fun CreateRoutineExercise(
 
     val sheetState = rememberModalBottomSheetState()
     var bottomSheetState by remember {
-        mutableStateOf<CreateRoutineExerciseBottomSheetContentState>(Closed)
+        mutableStateOf(if(addExerciseVariant is Empty) SelectRoutineExerciseVariant else Closed)
     }
 
     val bottomAppBarViewModel = hiltViewModel<BottomAppBarViewModel>()
