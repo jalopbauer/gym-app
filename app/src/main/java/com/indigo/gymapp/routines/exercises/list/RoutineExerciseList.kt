@@ -2,6 +2,8 @@ package com.indigo.gymapp.routines.exercises.list
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -25,10 +27,12 @@ fun RoutineExerciseList(routineExercises: List<RoutineExercise>) {
             title = stringResource(id = R.string.routine_exercises),
             textSize = Large
         )
-        routineExercises.forEach {
-            RoutineExerciseListItem(
-                routineExercise = it
-            )
+        LazyColumn {
+            items(routineExercises) { exercise ->
+                RoutineExerciseListItem(
+                    routineExercise = exercise
+                )
+            }
         }
     }
 }
