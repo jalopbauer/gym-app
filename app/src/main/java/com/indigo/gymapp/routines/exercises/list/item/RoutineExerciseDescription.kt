@@ -15,7 +15,7 @@ fun RoutineExerciseDescription(routineExercise: RoutineExercise) {
     Column(
         verticalArrangement = Arrangement.spacedBy(Spacing.Context.Gap.space)
     ) {
-        Title(title = routineExercise.exerciseName, textSize = Medium)
+        Title(title = routineExercise.exercise.name, textSize = Medium)
         Column(
             verticalArrangement = Arrangement.spacedBy(Spacing.Context.Gap.default),
         ) {

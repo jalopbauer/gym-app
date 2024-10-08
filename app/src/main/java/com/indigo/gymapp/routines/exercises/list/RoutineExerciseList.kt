@@ -12,6 +12,7 @@ import com.indigo.gymapp.common.text.title.Title
 import com.indigo.gymapp.domain.routines.exercises.RoutineExercise
 import com.indigo.gymapp.domain.routines.exercises.SetExercise
 import com.indigo.gymapp.domain.time.Rest
+import com.indigo.gymapp.exercises.Exercise
 import com.indigo.gymapp.routines.exercises.list.item.RoutineExerciseListItem
 import com.indigo.gymapp.ui.spacing.Spacing
 
@@ -38,10 +39,10 @@ private fun RoutineExerciseListPreview() {
     HugPreview {
         RoutineExerciseList(
             routineExercises = listOf(
-                SetExercise("Chest press", 4, Rest(2, 0)),
-                SetExercise("Incline press", 4, Rest(2, 0)),
-                SetExercise("Bench dips", 3, Rest(2, 0)),
-                SetExercise("Overhead triceps", 3, Rest(2, 0)),
+                SetExercise(Exercise(name = "Chest press"), 4, Rest(2, 0)),
+                SetExercise(Exercise(name = "Incline press"), 4, Rest(2, 0)),
+                SetExercise(Exercise(name = "Bench dips"), 3, Rest(2, 0)),
+                SetExercise(Exercise(name = "Overhead triceps"), 3, Rest(2, 0)),
             )
         )
     }
