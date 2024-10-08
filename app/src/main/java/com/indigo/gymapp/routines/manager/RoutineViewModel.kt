@@ -59,4 +59,8 @@ class RoutineViewModel @Inject constructor(private val routineManager: RoutineMa
     override fun setRoutineExerciseBuilderAmountOfSets(amountOfSets: Int) {
         routineManager.setRoutineExerciseBuilderAmountOfSets(amountOfSets)
     }
+
+    override fun setInitialRoutineExerciseBuilder() {
+        routineManager.setInitialRoutineExerciseBuilder()
+    }
 }

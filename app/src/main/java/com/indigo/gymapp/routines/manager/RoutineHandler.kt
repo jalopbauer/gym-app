@@ -25,4 +25,6 @@ interface RoutineHandler {
 
     fun setRoutineExerciseBuilderAmountOfSets(@IntRange(from = 0) amountOfSets: Int)
 
+    fun setInitialRoutineExerciseBuilder()
+
 }

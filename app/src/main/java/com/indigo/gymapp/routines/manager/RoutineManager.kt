@@ -43,11 +43,13 @@ class RoutineManager @Inject constructor() : RoutineHandler {
         }
     }
 
+    private val initialRoutineExerciseBuilder = RoutineExerciseBuilder(
+        rest = Rest(2, 0),
+        amountOfSets = 4
+    )
+
     private var _routineExerciseBuilder = MutableStateFlow(
-        RoutineExerciseBuilder(
-            rest = Rest(2, 0),
-            amountOfSets = 4
-        )
+        initialRoutineExerciseBuilder
     )
     val routineExerciseBuilder = _routineExerciseBuilder.asStateFlow()
 
@@ -70,5 +72,9 @@ class RoutineManager @Inject constructor() : RoutineHandler {
     override fun setRoutineExerciseBuilderAmountOfSets(amountOfSets: Int) {
         _routineExerciseBuilder.value = _routineExerciseBuilder.value.copy(amountOfSets = amountOfSets)
 
+    }
+
+    override fun setInitialRoutineExerciseBuilder() {
+        _routineExerciseBuilder.value = initialRoutineExerciseBuilder
     }
 }

@@ -76,7 +76,9 @@ fun CreateRoutineExercise(
 
     LaunchedEffect(Unit) {
         bottomAppBarViewModel.setEmpty()
+        routineViewModel.setInitialRoutineExerciseBuilder()
     }
+
     val coroutineScope = rememberCoroutineScope()
     Column {
         CreateHeader(
