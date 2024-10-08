@@ -37,7 +37,7 @@ class RoutineManager @Inject constructor() : RoutineHandler {
     val exercises = _routineExercises.asStateFlow()
 
     override suspend fun addExercise(routineExercise: RoutineExercise) {
-        val newList = _routineExercises.value + routineExercise
+        val newList = _routineExercises.value + routineExercise.setId(_routineExercises.value.size.toLong())
         withContext(Dispatchers.Default) {
             _routineExercises.emit(newList)
         }
