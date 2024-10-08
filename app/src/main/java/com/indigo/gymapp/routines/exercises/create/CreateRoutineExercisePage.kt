@@ -53,7 +53,7 @@ fun CreateRoutineExercise(
         mutableIntStateOf(routineExerciseBuilder.rest.seconds)
     }
 
-    var amounOfSets by remember {
+    var amountOfSets by remember {
         mutableIntStateOf(routineExerciseBuilder.amountOfSets)
     }
 
@@ -188,9 +188,9 @@ fun CreateRoutineExercise(
                 SetRoutineSetExerciseAmountOfSetsVariant -> {
                     HorizontalScrollConfirm(
                         initialPage = routineExerciseBuilder.amountOfSets,
-                        selectedItem = { amounOfSets = it },
+                        selectedItem = { amountOfSets = it },
                         onClick = {
-                            routineViewModel.setRoutineExerciseBuilderAmountOfSets(amounOfSets)
+                            routineViewModel.setRoutineExerciseBuilderAmountOfSets(amountOfSets)
                             bottomSheetState = Closed
                         }
                     )
