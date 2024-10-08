@@ -39,10 +39,10 @@ private fun RoutineExerciseListPreview() {
     HugPreview {
         RoutineExerciseList(
             routineExercises = listOf(
-                SetExercise(Exercise(name = "Chest press"), 4, Rest(2, 0)),
-                SetExercise(Exercise(name = "Incline press"), 4, Rest(2, 0)),
-                SetExercise(Exercise(name = "Bench dips"), 3, Rest(2, 0)),
-                SetExercise(Exercise(name = "Overhead triceps"), 3, Rest(2, 0)),
+                SetExercise(exercise = Exercise(name = "Chest press"), amountOfSets = 4, rest = Rest(2, 0)),
+                SetExercise(exercise = Exercise(name = "Incline press"), amountOfSets = 4, rest = Rest(2, 0)),
+                SetExercise(exercise = Exercise(name = "Bench dips"), amountOfSets = 3, rest = Rest(2, 0)),
+                SetExercise(exercise = Exercise(name = "Overhead triceps"), amountOfSets = 3, rest = Rest(2, 0)),
             )
         )
     }
