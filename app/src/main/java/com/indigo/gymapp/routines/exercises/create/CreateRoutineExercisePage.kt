@@ -13,6 +13,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -26,12 +27,14 @@ import com.indigo.gymapp.common.preview.screen.ScreenPreview
 import com.indigo.gymapp.components.horizontalScrollConfirm.HorizontalScrollConfirm
 import com.indigo.gymapp.components.menu.selectRoutineExerciseType.SelectRoutineExerciseTypeMenu
 import com.indigo.gymapp.components.timeScrollTimeButtonsRowConfirm.TimeScrollTimeButtonsRowConfirm
+import com.indigo.gymapp.domain.routines.exercises.SetExercise
 import com.indigo.gymapp.domain.time.Rest
 import com.indigo.gymapp.exercises.viewModel.ExerciseViewModel
 import com.indigo.gymapp.manager.bottomAppBar.BottomAppBarViewModel
 import com.indigo.gymapp.routines.exercises.create.exerciseSearch.ExerciseSearch
 import com.indigo.gymapp.routines.manager.RoutineViewModel
 import com.indigo.gymapp.ui.spacing.Spacing.Context
+import kotlinx.coroutines.launch
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -74,21 +77,30 @@ fun CreateRoutineExercise(
     LaunchedEffect(Unit) {
         bottomAppBarViewModel.setEmpty()
     }
-
+    val coroutineScope = rememberCoroutineScope()
     Column {
         CreateHeader(
             title = stringResource(id = addExerciseVariant.titleId()),
             isSelected = addExerciseVariant.isSelected(),
             onClickDrawerButton = { bottomSheetState = SelectRoutineExerciseVariant },
             onClickSave = {
-                when {
-                    addExerciseVariant is Empty -> Toast.makeText(context,
-                        context.getString(R.string.must_select_exercise_type), Toast.LENGTH_SHORT).show()
-                    routineExerciseBuilder.exercise == null -> Toast.makeText(context,
-                        context.getString(
-                            R.string.must_select_exercise
-                        ), Toast.LENGTH_SHORT).show()
-                    else -> onNavigateToCreateRoutine()
+                when (addExerciseVariant) {
+                    Empty -> Toast.makeText(context, context.getString(R.string.must_select_exercise_type), Toast.LENGTH_SHORT).show()
+                    CreateSetRoutineExercise -> {
+                        routineExerciseBuilder.exercise?.let {
+                            val routineExercise = SetExercise(
+                                exercise = it,
+                                amountOfSets = routineExerciseBuilder.amountOfSets,
+                                rest = routineExerciseBuilder.rest
+                            )
+//                          TODO No se si esto esta bien si estoy haciendo algo mal
+                            coroutineScope.launch {
+                                routineViewModel.addExercise(routineExercise)
+                            }
+                            onNavigateToCreateRoutine()
+                        } ?: Toast.makeText(context, context.getString(R.string.must_select_exercise), Toast.LENGTH_SHORT).show()
+                    }
+                    CreateTimedRoutineExercise -> TODO()
                 }
             },
             onClickCancel = {
