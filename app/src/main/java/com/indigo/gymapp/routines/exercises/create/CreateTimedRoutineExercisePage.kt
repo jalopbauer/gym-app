@@ -11,19 +11,22 @@ import com.indigo.gymapp.common.button.textInput.OnlyTextDrawerButton
 import com.indigo.gymapp.common.button.textInput.TimeAmountTextDrawerButton
 import com.indigo.gymapp.common.preview.screen.ScreenPreview
 import com.indigo.gymapp.domain.time.Duration
+import com.indigo.gymapp.exercises.Exercise
 
 @Composable
 fun CreateTimedRoutineExercise(
+    exercise: Exercise?,
     selectExerciseOnClick : () -> Unit
 ) {
     val onClick = { /*TODO*/ }
+    val exerciseText = exercise?.name ?: stringResource(id = R.string.select_exercise)
     Column (
         modifier = Modifier
             .fillMaxSize()
     ) {
         OnlyTextDrawerButton(
-            leadingText = stringResource(id = R.string.select_exercise),
-            isSelected = false,
+            leadingText = exerciseText,
+            isSelected = exercise != null,
             onClick = selectExerciseOnClick
         )
         TimeAmountTextDrawerButton(
@@ -40,6 +43,7 @@ fun CreateTimedRoutineExercise(
 private fun PreviewAddSet() {
     ScreenPreview {
         CreateTimedRoutineExercise(
+            exercise = null,
             selectExerciseOnClick = {}
         )
     }
