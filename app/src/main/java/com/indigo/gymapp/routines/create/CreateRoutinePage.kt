@@ -4,8 +4,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -31,7 +29,6 @@ import com.indigo.gymapp.routines.exercises.list.RoutineExerciseList
 import com.indigo.gymapp.routines.manager.RoutineViewModel
 import com.indigo.gymapp.ui.spacing.Spacing
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CreateRoutine(
     onNavigateToRoutines: () -> Unit,
@@ -49,7 +46,6 @@ fun CreateRoutine(
     val hasWrittenRoutineName = routineName != ""
     val headerTitle = if (hasWrittenRoutineName) routineName else stringResource(id = R.string.name_your_routine)
 
-    val sheetState = rememberModalBottomSheetState()
     var bottomSheetState by remember {
         mutableStateOf(if (hasWrittenRoutineName) Closed else NameYourRoutine)
     }
@@ -104,7 +100,6 @@ fun CreateRoutine(
     BottomSheet(
         showBottomSheet = bottomSheetState.showBottomSheet(),
         onDismissRequest = { bottomSheetState = Closed },
-        sheetState = sheetState
     ) {
         when (bottomSheetState) {
             NameYourRoutine ->

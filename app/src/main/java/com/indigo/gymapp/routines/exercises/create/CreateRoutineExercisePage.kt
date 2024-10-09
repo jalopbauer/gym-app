@@ -4,8 +4,6 @@ import android.widget.Toast
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -37,7 +35,6 @@ import com.indigo.gymapp.ui.spacing.Spacing.Context
 import kotlinx.coroutines.launch
 
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CreateRoutineExercise(
     onNavigateToCreateRoutine : () -> Unit,
@@ -65,7 +62,6 @@ fun CreateRoutineExercise(
         mutableStateOf<AddExerciseVariant>(Empty)
     }
 
-    val sheetState = rememberModalBottomSheetState()
     var bottomSheetState by remember {
         mutableStateOf(if(addExerciseVariant is Empty) SelectRoutineExerciseVariant else Closed)
     }
@@ -134,7 +130,6 @@ fun CreateRoutineExercise(
         BottomSheet(
             showBottomSheet = bottomSheetState.showBottomSheet(),
             onDismissRequest = { bottomSheetState = Closed },
-            sheetState = sheetState,
         ) {
             when (bottomSheetState) {
                 SelectRoutineExerciseVariant -> {
