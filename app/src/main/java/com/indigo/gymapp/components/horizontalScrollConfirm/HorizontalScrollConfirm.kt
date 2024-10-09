@@ -5,11 +5,11 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
 import com.indigo.gymapp.R
 import com.indigo.gymapp.common.button.Button
 import com.indigo.gymapp.common.numberScroll.HorizontalNumberScroll
 import com.indigo.gymapp.domain.time.displaySeconds
+import com.indigo.gymapp.ui.spacing.Spacing
 
 @Composable
 fun HorizontalScrollConfirm(
@@ -18,7 +18,7 @@ fun HorizontalScrollConfirm(
     onClick: () -> Unit
 ) {
     Column(
-        verticalArrangement = Arrangement.spacedBy(16.dp)
+        verticalArrangement = Arrangement.spacedBy(space = Spacing.Context.Gap.medium)
     ) {
         val pagerState = rememberPagerState(
             initialPage = initialPage,

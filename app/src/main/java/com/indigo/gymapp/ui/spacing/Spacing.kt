@@ -19,8 +19,10 @@ object Spacing {
             val header_with_icon_button = Brand.m
         }
         object Gap {
-            val default = Brand.s
             val space = Brand.xs
+            val default = Brand.s
+            val medium = Brand.m
+            val extra_large = Brand.xl
         }
     }
 
