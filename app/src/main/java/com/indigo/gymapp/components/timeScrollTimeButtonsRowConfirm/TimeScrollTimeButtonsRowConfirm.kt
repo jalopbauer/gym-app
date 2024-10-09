@@ -35,11 +35,11 @@ fun TimeScrollTimeButtonsRowConfirm(
     ) {
         val secondsVerticalNumberScrollPagerState = rememberPagerState(
             initialPage = routineRestTimeBetweenExercises.seconds,
-            pageCount = { 59 }
+            pageCount = { 60 }
         )
         val minutesVerticalNumberScrollPagerState = rememberPagerState(
             initialPage = routineRestTimeBetweenExercises.minutes,
-            pageCount = { 59 }
+            pageCount = { 60 }
         )
         Row(
             modifier = Modifier.fillMaxWidth(),
