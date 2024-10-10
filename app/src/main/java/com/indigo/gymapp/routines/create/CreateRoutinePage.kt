@@ -1,5 +1,6 @@
 package com.indigo.gymapp.routines.create
 
+import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -13,6 +14,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -34,6 +36,8 @@ fun CreateRoutine(
     onNavigateToRoutines: () -> Unit,
     onNavigateToAddRoutineExercise: () -> Unit
 ) {
+    val context = LocalContext.current
+
     val bottomAppBarViewModel = hiltViewModel<BottomAppBarViewModel>()
 
 
@@ -74,7 +78,10 @@ fun CreateRoutine(
                 bottomSheetState = NameYourRoutine
             },
             onClickSave = {
-                onNavigateToRoutines()
+                if (!hasWrittenRoutineName) Toast.makeText(context, "Must have name set", Toast.LENGTH_SHORT).show()
+                else {
+                    onNavigateToRoutines()
+                }
             },
             onClickCancel = {
                 onNavigateToRoutines()
