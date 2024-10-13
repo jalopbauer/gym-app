@@ -43,6 +43,13 @@ fun CreateRoutineExercise(
     val routineViewModel = hiltViewModel<RoutineViewModel>()
     val routineExerciseBuilder by routineViewModel.routineExerciseBuilder.collectAsState()
 
+    /**
+     * TODO BUG
+     * 1. create a routine exercise with rest time 1:30
+     * 2. create another routine exercise
+     * the rest time is 1:30 instead of the default 2:00
+     * in the button it has the correct value but in the bottom sheet it doesn't
+      */
     var minutes by remember {
         mutableIntStateOf(routineExerciseBuilder.rest.minutes)
     }
