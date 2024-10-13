@@ -78,7 +78,7 @@ fun CreateRoutine(
                 bottomSheetState = NameYourRoutine
             },
             onClickSave = {
-                if (!hasWrittenRoutineName) Toast.makeText(context, "Must have name set", Toast.LENGTH_SHORT).show()
+                if (!hasWrittenRoutineName) Toast.makeText(context, context.getString(R.string.must_have_name_set), Toast.LENGTH_SHORT).show()
                 else {
                     onNavigateToRoutines()
                 }
