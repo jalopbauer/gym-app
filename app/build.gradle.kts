@@ -71,6 +71,7 @@ dependencies {
     implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.datastore.preferences)
     implementation(libs.androidx.biometric)
+    implementation(libs.androidx.material.icons.extended)
 
     kapt(libs.androidx.room.compiler)
 
