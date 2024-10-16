@@ -38,6 +38,4 @@
     <string name="must_select_exercise_type">Must select exercise type</string>
     <string name="must_select_exercise">Must select exercise</string>
     <string name="must_have_name_set">Must have name set</string>
-    <string name="biometric_authentication">Biometric Authentication</string>
-    <string name="log_in_using_your_biometric_credentials">Log in using your biometric credentials</string>
 </resources>
