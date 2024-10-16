@@ -2,11 +2,13 @@ package com.indigo.gymapp.common.icon
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Add
-import androidx.compose.material.icons.outlined.Check
 import androidx.compose.material.icons.outlined.Close
 import androidx.compose.material.icons.outlined.Delete
 import androidx.compose.material.icons.outlined.Edit
+import androidx.compose.material.icons.outlined.Replay
+import androidx.compose.material.icons.outlined.Save
 import androidx.compose.material.icons.outlined.Search
+import androidx.compose.material.icons.outlined.Timer
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
@@ -50,7 +52,7 @@ fun CancelIcon() {
 @Composable
 fun SaveIcon() {
     ImageVectorIcon(
-        imageVector = Icons.Outlined.Check,
+        imageVector = Icons.Outlined.Save,
         contentDescription = stringResource(R.string.save),
     )
 }
@@ -82,7 +84,7 @@ fun AddIcon() {
 @Composable
 fun SetRoutineExerciseIcon() {
     ImageVectorIcon(
-        imageVector = Icons.Outlined.Edit,
+        imageVector = Icons.Outlined.Replay,
         contentDescription = stringResource(R.string.set),
     )
 }
@@ -90,7 +92,7 @@ fun SetRoutineExerciseIcon() {
 @Composable
 fun TimedRoutineExerciseIcon() {
     ImageVectorIcon(
-        imageVector = Icons.Outlined.Add,
+        imageVector = Icons.Outlined.Timer,
         contentDescription = stringResource(R.string.timed),
     )
 }
