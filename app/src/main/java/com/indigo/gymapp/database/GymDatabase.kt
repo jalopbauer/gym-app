@@ -7,11 +7,14 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.indigo.gymapp.exercises.Exercise
 import com.indigo.gymapp.exercises.ExerciseDao
+import com.indigo.gymapp.routines.RoutineEntity
+import com.indigo.gymapp.routines.RoutinesDao
 import java.util.concurrent.Executors
 
-@Database(entities = [Exercise::class], version = 1)
+@Database(entities = [Exercise::class, RoutineEntity::class], version = 2)
 abstract class GymDatabase : RoomDatabase() {
     abstract fun exerciseDao(): ExerciseDao
+    abstract fun routinesDao(): RoutinesDao
 
     companion object {
         @Volatile
@@ -28,7 +31,7 @@ abstract class GymDatabase : RoomDatabase() {
                         Log.d("RoomQuery", "Query: $sqlQuery SQL Args: $bindArgs")
                     },
                     Executors.newSingleThreadExecutor() // Use an executor for handling logs
-                ).build()
+                ).fallbackToDestructiveMigration().build()
                 INSTANCE = instance
                 instance
             }
