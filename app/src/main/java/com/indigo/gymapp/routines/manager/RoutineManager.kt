@@ -1,10 +1,12 @@
 package com.indigo.gymapp.routines.manager
 
 import androidx.annotation.IntRange
+import com.indigo.gymapp.database.GymDatabase
 import com.indigo.gymapp.domain.routines.exercises.RoutineExercise
 import com.indigo.gymapp.domain.routines.exercises.RoutineExerciseBuilder
 import com.indigo.gymapp.domain.time.Rest
 import com.indigo.gymapp.exercises.Exercise
+import com.indigo.gymapp.routines.RoutineEntity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -13,7 +15,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class RoutineManager @Inject constructor() : RoutineHandler {
+class RoutineManager @Inject constructor(private val gymDatabase: GymDatabase) : RoutineHandler {
 
     private var _name = MutableStateFlow("")
     val name = _name.asStateFlow()
@@ -77,4 +79,24 @@ class RoutineManager @Inject constructor() : RoutineHandler {
     override fun setInitialRoutineExerciseBuilder() {
         _routineExerciseBuilder.value = initialRoutineExerciseBuilder
     }
+
+    private val routinesDao = gymDatabase.routinesDao()
+
+
+    override suspend fun saveRoutine(): SaveRoutineResult =
+        when {
+            name.value == "" -> MissingName
+            else -> {
+                withContext(Dispatchers.Default) {
+                    val createdRoutineEntityId = routinesDao.create(
+                        RoutineEntity(
+                            name = name.value,
+                            rest = restTimeBetweenExercises.value
+                        )
+                    )
+                }
+                Saved
+            }
+        }
+
 }

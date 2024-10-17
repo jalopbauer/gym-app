@@ -27,4 +27,6 @@ interface RoutineHandler {
 
     fun setInitialRoutineExerciseBuilder()
 
+    suspend fun saveRoutine() : SaveRoutineResult
+
 }

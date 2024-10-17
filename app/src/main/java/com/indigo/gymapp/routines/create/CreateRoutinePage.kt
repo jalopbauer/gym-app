@@ -12,6 +12,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -28,8 +29,11 @@ import com.indigo.gymapp.components.timeScrollTimeButtonsRowConfirm.TimeScrollTi
 import com.indigo.gymapp.domain.time.Rest
 import com.indigo.gymapp.manager.bottomAppBar.BottomAppBarViewModel
 import com.indigo.gymapp.routines.exercises.list.RoutineExerciseList
+import com.indigo.gymapp.routines.manager.MissingName
 import com.indigo.gymapp.routines.manager.RoutineViewModel
+import com.indigo.gymapp.routines.manager.Saved
 import com.indigo.gymapp.ui.spacing.Spacing
+import kotlinx.coroutines.launch
 
 @Composable
 fun CreateRoutine(
@@ -69,6 +73,7 @@ fun CreateRoutine(
             deleteOnClick = {}
         )
     }
+    val coroutineScope = rememberCoroutineScope()
 
     Column {
         CreateHeader(
@@ -78,9 +83,11 @@ fun CreateRoutine(
                 bottomSheetState = NameYourRoutine
             },
             onClickSave = {
-                if (!hasWrittenRoutineName) Toast.makeText(context, context.getString(R.string.must_have_name_set), Toast.LENGTH_SHORT).show()
-                else {
-                    onNavigateToRoutines()
+                coroutineScope.launch {
+                    when (routineViewModel.saveRoutine()) {
+                        MissingName -> Toast.makeText(context, context.getString(R.string.must_have_name_set), Toast.LENGTH_SHORT).show()
+                        Saved -> onNavigateToRoutines()
+                    }
                 }
             },
             onClickCancel = {
