@@ -4,9 +4,11 @@ import androidx.annotation.IntRange
 import com.indigo.gymapp.database.GymDatabase
 import com.indigo.gymapp.domain.routines.exercises.RoutineExercise
 import com.indigo.gymapp.domain.routines.exercises.RoutineExerciseBuilder
+import com.indigo.gymapp.domain.routines.exercises.SetExercise
 import com.indigo.gymapp.domain.time.Rest
 import com.indigo.gymapp.exercises.Exercise
 import com.indigo.gymapp.routines.RoutineEntity
+import com.indigo.gymapp.routines.exercises.SetExerciseEntity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -81,6 +83,7 @@ class RoutineManager @Inject constructor(private val gymDatabase: GymDatabase) :
     }
 
     private val routinesDao = gymDatabase.routinesDao()
+    private val setExerciseDao = gymDatabase.setExerciseDao()
 
 
     override suspend fun saveRoutine(): SaveRoutineResult =
@@ -94,6 +97,18 @@ class RoutineManager @Inject constructor(private val gymDatabase: GymDatabase) :
                             rest = restTimeBetweenExercises.value
                         )
                     )
+                    val setExerciseEntities = exercises.value
+                        .filterIsInstance<SetExercise>()
+                        .mapIndexed { index, routineExercise ->
+                            SetExerciseEntity(
+                                routineId = createdRoutineEntityId,
+                                order = index,
+                                exerciseId = routineExercise.exercise.id,
+                                amountOfSets = routineExercise.amountOfSets,
+                                rest = routineExercise.rest
+                            )
+                        }
+                    setExerciseDao.insertAll(setExerciseEntities)
                 }
                 Saved
             }
