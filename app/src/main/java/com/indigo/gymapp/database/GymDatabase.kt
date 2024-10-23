@@ -9,12 +9,15 @@ import com.indigo.gymapp.exercises.Exercise
 import com.indigo.gymapp.exercises.ExerciseDao
 import com.indigo.gymapp.routines.RoutineEntity
 import com.indigo.gymapp.routines.RoutinesDao
+import com.indigo.gymapp.routines.exercises.SetExerciseDao
+import com.indigo.gymapp.routines.exercises.SetExerciseEntity
 import java.util.concurrent.Executors
 
-@Database(entities = [Exercise::class, RoutineEntity::class], version = 2)
+@Database(entities = [Exercise::class, RoutineEntity::class, SetExerciseEntity::class], version = 3)
 abstract class GymDatabase : RoomDatabase() {
     abstract fun exerciseDao(): ExerciseDao
     abstract fun routinesDao(): RoutinesDao
+    abstract fun setExerciseDao(): SetExerciseDao
 
     companion object {
         @Volatile
