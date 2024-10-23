@@ -7,7 +7,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.indigo.gymapp.common.preview.hug.HugPreview
 import com.indigo.gymapp.components.menu.selectRoutineExerciseType.item.RoutineExerciseTypeMenuItem
 import com.indigo.gymapp.components.menu.selectRoutineExerciseType.item.SetRoutineExerciseVariant
-import com.indigo.gymapp.components.menu.selectRoutineExerciseType.item.TimedRoutineExerciseVariant
 import com.indigo.gymapp.ui.spacing.Spacing.Context
 
 @Composable
@@ -19,7 +18,7 @@ fun SelectRoutineExerciseTypeMenu(
         verticalArrangement = Arrangement.spacedBy(Context.Gap.default)
     ) {
         RoutineExerciseTypeMenuItem(SetRoutineExerciseVariant, setRoutineExerciseOnClick)
-        RoutineExerciseTypeMenuItem(TimedRoutineExerciseVariant, timedRoutineExerciseOnClick)
+//        RoutineExerciseTypeMenuItem(TimedRoutineExerciseVariant, timedRoutineExerciseOnClick)
     }
 }
 
