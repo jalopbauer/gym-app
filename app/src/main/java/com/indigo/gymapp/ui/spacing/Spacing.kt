@@ -17,12 +17,16 @@ object Spacing {
         object Padding {
             val screen = Brand.l
             val header_with_icon_button = Brand.m
+            val card = Brand.m
         }
         object Gap {
             val space = Brand.xs
             val default = Brand.s
             val medium = Brand.m
             val extra_large = Brand.xl
+        }
+        object BorderRadious {
+            val card = Brand.m
         }
     }
 

@@ -1,6 +1,7 @@
 package com.indigo.gymapp.routines.manager
 
 import androidx.annotation.IntRange
+import androidx.lifecycle.asFlow
 import com.indigo.gymapp.database.GymDatabase
 import com.indigo.gymapp.domain.routines.exercises.RoutineExercise
 import com.indigo.gymapp.domain.routines.exercises.RoutineExerciseBuilder
@@ -84,6 +85,8 @@ class RoutineManager @Inject constructor(private val gymDatabase: GymDatabase) :
 
     private val routinesDao = gymDatabase.routinesDao()
     private val setExerciseDao = gymDatabase.setExerciseDao()
+
+    val routines = routinesDao.getAll().asFlow()
 
 
     override suspend fun saveRoutine(): SaveRoutineResult =
