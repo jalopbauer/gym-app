@@ -1,6 +1,7 @@
 package com.indigo.gymapp.common.button.floatingActionButton
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.indigo.gymapp.common.icon.Edit
 import com.indigo.gymapp.common.icon.Icon
@@ -9,12 +10,14 @@ import com.indigo.gymapp.ui.theme.color.Color.Context
 
 @Composable
 fun FloatingActionButton(
+    modifier: Modifier = Modifier,
     iconVariant : IconVariant,
     onClick: () -> Unit,
 ) {
     val inactiveColor = Context.Surface.primary
     var containerColor = inactiveColor
     androidx.compose.material3.FloatingActionButton(
+        modifier = modifier,
         onClick = {
             containerColor = Context.Surface.active
             onClick()
