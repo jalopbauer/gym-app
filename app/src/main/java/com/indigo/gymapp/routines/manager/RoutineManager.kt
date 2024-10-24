@@ -16,7 +16,6 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Singleton
-
 @Singleton
 class RoutineManager @Inject constructor(private val gymDatabase: GymDatabase) : RoutineHandler {
 
@@ -43,9 +42,7 @@ class RoutineManager @Inject constructor(private val gymDatabase: GymDatabase) :
 
     override suspend fun addExercise(routineExercise: RoutineExercise) {
         val newList = _routineExercises.value + routineExercise.setId(_routineExercises.value.size.toLong())
-        withContext(Dispatchers.Default) {
-            _routineExercises.emit(newList)
-        }
+        setRoutineExercises(newList)
     }
 
     private val initialRoutineExerciseBuilder = RoutineExerciseBuilder(
@@ -88,7 +85,6 @@ class RoutineManager @Inject constructor(private val gymDatabase: GymDatabase) :
 
     val routines = routinesDao.getAll().asFlow()
 
-
     override suspend fun saveRoutine(): SaveRoutineResult =
         when {
             name.value == "" -> MissingName
@@ -117,4 +113,34 @@ class RoutineManager @Inject constructor(private val gymDatabase: GymDatabase) :
             }
         }
 
+    override suspend fun setRoutineId(routineId: Long): SetRoutineResult =
+        withContext(Dispatchers.Default) {
+            routinesDao.findById(routineId)?.let { routine ->
+                changeRoutineName(routine.name)
+                setRestTimeBetweenExercisesMinutes(routine.rest.minutes)
+                setRestTimeBetweenExercisesSeconds(routine.rest.seconds)
+                val routineSetExercises = setExerciseDao.getAllByRoutineIdWithExercise(routine.id).map {
+                    SetExercise(
+                        id = it.id,
+                        exercise = Exercise(
+                            id = it.exerciseId,
+                            name = it.exerciseName
+                        ),
+                        amountOfSets = it.amountOfSets,
+                        rest = it.rest
+                    )
+                }
+                setRoutineExercises(routineSetExercises)
+                RoutineFound
+            } ?: RoutineNotFound
+        }
+
+    private suspend fun setRoutineExercises(newList: List<RoutineExercise>) {
+        withContext(Dispatchers.Default) {
+            _routineExercises.emit(newList)
+        }
+    }
+
 }
+
+

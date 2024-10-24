@@ -15,3 +15,13 @@ data class SetExerciseEntity(
     val amountOfSets: Int,
     @Embedded val rest: Rest
 )
+
+data class SetExerciseWithExercise(
+    val id: Long,
+    val routineId: Long,
+    val order: Int,
+    val exerciseId: Long,
+    val exerciseName: String,
+    val amountOfSets: Int,
+    @Embedded val rest: Rest
+)

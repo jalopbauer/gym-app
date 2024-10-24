@@ -68,4 +68,7 @@ class RoutineViewModel @Inject constructor(private val routineManager: RoutineMa
 
     override suspend fun saveRoutine(): SaveRoutineResult =
         routineManager.saveRoutine()
+
+    override suspend fun setRoutineId(routineId: Long): SetRoutineResult =
+        routineManager.setRoutineId(routineId)
 }

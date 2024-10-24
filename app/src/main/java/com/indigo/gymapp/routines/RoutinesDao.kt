@@ -20,4 +20,7 @@ interface RoutinesDao {
 
     @Query("SELECT * FROM ROUTINES")
     fun getAll(): LiveData<List<RoutineEntity>>
+
+    @Query("SELECT * FROM ROUTINES WHERE id = :routineId LIMIT 1")
+    suspend fun findById(routineId: Long): RoutineEntity?
 }

@@ -14,7 +14,10 @@ import com.indigo.gymapp.common.text.headline.Headline
 import com.indigo.gymapp.ui.spacing.Spacing.Context
 
 @Composable
-fun Routines(routines: List<RoutineEntity>) {
+fun Routines(
+    routines: List<RoutineEntity>,
+    onCardClick: (Long) -> Unit
+) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.spacedBy(space = Context.Gap.default)
@@ -28,7 +31,10 @@ fun Routines(routines: List<RoutineEntity>) {
             verticalArrangement = Arrangement.spacedBy(space = Context.Gap.default)
         ) {
             items(routines) { routine ->
-                RoutineCard(routine)
+                RoutineCard(
+                    routine = routine,
+                    onCardClick = onCardClick
+                )
             }
         }
     }

@@ -29,4 +29,6 @@ interface RoutineHandler {
 
     suspend fun saveRoutine() : SaveRoutineResult
 
+    suspend fun setRoutineId(routineId: Long) : SetRoutineResult
+
 }
