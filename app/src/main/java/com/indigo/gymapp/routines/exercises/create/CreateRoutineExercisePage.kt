@@ -181,8 +181,7 @@ fun CreateRoutineExercise(
                             seconds = 0
                         ),
                         {
-                            routineViewModel.setRoutineExerciseBuilderRestMinutes(minutes)
-                            routineViewModel.setRoutineExerciseBuilderRestSeconds(seconds)
+                            routineViewModel.setRoutineExerciseBuilderRest(Rest(minutes = minutes, seconds = seconds))
                             bottomSheetState = Closed
                         }
                     )

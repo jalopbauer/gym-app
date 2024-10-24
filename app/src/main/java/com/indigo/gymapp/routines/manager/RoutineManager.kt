@@ -61,12 +61,8 @@ class RoutineManager @Inject constructor(private val gymDatabase: GymDatabase) :
         this._routineExerciseBuilder.value = routineExerciseBuilder
     }
 
-    override fun setRoutineExerciseBuilderRestMinutes(minutes: Int) {
-        _routineExerciseBuilder.value = _routineExerciseBuilder.value.copy(rest = _routineExerciseBuilder.value.rest.copy(minutes = minutes))
-    }
-
-    override fun setRoutineExerciseBuilderRestSeconds(seconds: Int) {
-        _routineExerciseBuilder.value = _routineExerciseBuilder.value.copy(rest = _routineExerciseBuilder.value.rest.copy(seconds = seconds))
+    override fun setRoutineExerciseBuilderRest(newRest: Rest) {
+        _routineExerciseBuilder.value = _routineExerciseBuilder.value.copy(rest = newRest)
     }
 
     override fun setRoutineExerciseBuilderExercise(exercise: Exercise) {

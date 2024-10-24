@@ -1,6 +1,5 @@
 package com.indigo.gymapp.routines.manager
 
-import androidx.annotation.IntRange
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.indigo.gymapp.domain.routines.exercises.RoutineExercise
@@ -41,12 +40,8 @@ class RoutineViewModel @Inject constructor(private val routineManager: RoutineMa
         routineManager.setRoutineExerciseBuilder(routineExerciseBuilder)
     }
 
-    override fun setRoutineExerciseBuilderRestMinutes(@IntRange(from = 0, to = 59) minutes: Int) {
-        routineManager.setRoutineExerciseBuilderRestMinutes(minutes)
-    }
-
-    override fun setRoutineExerciseBuilderRestSeconds(seconds: Int) {
-        routineManager.setRoutineExerciseBuilderRestSeconds(seconds)
+    override fun setRoutineExerciseBuilderRest(newRest: Rest) {
+        routineManager.setRoutineExerciseBuilderRest(newRest)
     }
 
     override fun setRoutineExerciseBuilderExercise(exercise: Exercise) {
