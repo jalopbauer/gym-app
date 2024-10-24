@@ -31,8 +31,14 @@ class RoutineManager @Inject constructor(private val gymDatabase: GymDatabase) :
     private var _restTimeBetweenExercises = MutableStateFlow(initialRoutineRestTimeBetweenExercises)
     val restTimeBetweenExercises = _restTimeBetweenExercises.asStateFlow()
 
-    override fun setRestTimeBetweenExercises(newRest: Rest) {
-        _restTimeBetweenExercises.value = newRest
+    override suspend fun setRestTimeBetweenExercises(newRest: Rest) {
+        when (val typedRoutineManagerState = routineManagerState) {
+            CreateRoutine -> _restTimeBetweenExercises.value = newRest
+            is EditRoutine -> {
+                _restTimeBetweenExercises.value = newRest
+                routinesDao.update(typedRoutineManagerState.routineEntity.copy(rest = newRest))
+            }
+        }
     }
 
     override fun changeRoutineName(newRoutineName: String) {
@@ -114,7 +120,7 @@ class RoutineManager @Inject constructor(private val gymDatabase: GymDatabase) :
     override suspend fun setRoutineId(routineId: Long): SetRoutineResult =
         withContext(Dispatchers.Default) {
             routinesDao.findById(routineId)?.let { routine ->
-                routineManagerState = EditRoutine(routine.id)
+                routineManagerState = EditRoutine(routine)
                 changeRoutineName(routine.name)
                 setRestTimeBetweenExercises(routine.rest)
                 val routineSetExercises = setExerciseDao.getAllByRoutineIdWithExercise(routine.id).map {

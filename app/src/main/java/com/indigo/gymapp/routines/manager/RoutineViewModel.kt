@@ -22,7 +22,7 @@ class RoutineViewModel @Inject constructor(private val routineManager: RoutineMa
 
     val restTimeBetweenExercises = routineManager.restTimeBetweenExercises
 
-    override fun setRestTimeBetweenExercises(newRest: Rest) {
+    override suspend fun setRestTimeBetweenExercises(newRest: Rest) {
         routineManager.setRestTimeBetweenExercises(newRest)
     }
 
