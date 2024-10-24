@@ -19,6 +19,9 @@ import javax.inject.Singleton
 
 @Singleton
 class RoutineManager @Inject constructor(private val gymDatabase: GymDatabase) : RoutineHandler {
+
+    private var routineManagerState : RoutineManagerState = CreateRoutine
+
     private val initialRoutineName = ""
     private val initialRoutineRestTimeBetweenExercises = Rest(2, 0)
     private val initialRoutineExercises = listOf<RoutineExercise>()
@@ -120,6 +123,7 @@ class RoutineManager @Inject constructor(private val gymDatabase: GymDatabase) :
     override suspend fun setRoutineId(routineId: Long): SetRoutineResult =
         withContext(Dispatchers.Default) {
             routinesDao.findById(routineId)?.let { routine ->
+                routineManagerState = EditRoutine(routine.id)
                 changeRoutineName(routine.name)
                 setRestTimeBetweenExercisesMinutes(routine.rest.minutes)
                 setRestTimeBetweenExercisesSeconds(routine.rest.seconds)
@@ -140,6 +144,7 @@ class RoutineManager @Inject constructor(private val gymDatabase: GymDatabase) :
         }
 
     override suspend fun setInitialRoutine() {
+        routineManagerState = CreateRoutine
         changeRoutineName(initialRoutineName)
         setRestTimeBetweenExercisesMinutes(initialRoutineRestTimeBetweenExercises.minutes)
         setRestTimeBetweenExercisesSeconds(initialRoutineRestTimeBetweenExercises.seconds)
