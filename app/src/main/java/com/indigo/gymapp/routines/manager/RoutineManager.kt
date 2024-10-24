@@ -17,7 +17,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class RoutineManager @Inject constructor(private val gymDatabase: GymDatabase) : RoutineHandler {
+class RoutineManager @Inject constructor(gymDatabase: GymDatabase) : RoutineHandler {
 
     private var routineManagerState : RoutineManagerState = CreateRoutine
 
