@@ -139,8 +139,7 @@ fun CreateRoutine(
                         seconds = 0
                     ),
                     confirmOnClick = {
-                        routineViewModel.setRestTimeBetweenExercisesMinutes(minutes)
-                        routineViewModel.setRestTimeBetweenExercisesSeconds(seconds)
+                        routineViewModel.setRestTimeBetweenExercises(newRest = Rest(minutes = minutes, seconds = seconds))
                         bottomSheetState = Closed
                     }
                 )

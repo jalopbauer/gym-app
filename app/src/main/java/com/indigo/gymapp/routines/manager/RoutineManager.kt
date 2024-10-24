@@ -1,6 +1,5 @@
 package com.indigo.gymapp.routines.manager
 
-import androidx.annotation.IntRange
 import androidx.lifecycle.asFlow
 import com.indigo.gymapp.database.GymDatabase
 import com.indigo.gymapp.domain.routines.exercises.RoutineExercise
@@ -32,12 +31,8 @@ class RoutineManager @Inject constructor(private val gymDatabase: GymDatabase) :
     private var _restTimeBetweenExercises = MutableStateFlow(initialRoutineRestTimeBetweenExercises)
     val restTimeBetweenExercises = _restTimeBetweenExercises.asStateFlow()
 
-    override fun setRestTimeBetweenExercisesSeconds(@IntRange(from = 0, to = 59) seconds: Int) {
-        _restTimeBetweenExercises.value = _restTimeBetweenExercises.value.copy(seconds = seconds)
-    }
-
-    override fun setRestTimeBetweenExercisesMinutes(@IntRange(from = 0, to = 59) minutes: Int) {
-        _restTimeBetweenExercises.value = _restTimeBetweenExercises.value.copy(minutes = minutes)
+    override fun setRestTimeBetweenExercises(newRest: Rest) {
+        _restTimeBetweenExercises.value = newRest
     }
 
     override fun changeRoutineName(newRoutineName: String) {
@@ -125,8 +120,7 @@ class RoutineManager @Inject constructor(private val gymDatabase: GymDatabase) :
             routinesDao.findById(routineId)?.let { routine ->
                 routineManagerState = EditRoutine(routine.id)
                 changeRoutineName(routine.name)
-                setRestTimeBetweenExercisesMinutes(routine.rest.minutes)
-                setRestTimeBetweenExercisesSeconds(routine.rest.seconds)
+                setRestTimeBetweenExercises(routine.rest)
                 val routineSetExercises = setExerciseDao.getAllByRoutineIdWithExercise(routine.id).map {
                     SetExercise(
                         id = it.id,
@@ -146,8 +140,7 @@ class RoutineManager @Inject constructor(private val gymDatabase: GymDatabase) :
     override suspend fun setInitialRoutine() {
         routineManagerState = CreateRoutine
         changeRoutineName(initialRoutineName)
-        setRestTimeBetweenExercisesMinutes(initialRoutineRestTimeBetweenExercises.minutes)
-        setRestTimeBetweenExercisesSeconds(initialRoutineRestTimeBetweenExercises.seconds)
+        setRestTimeBetweenExercises(initialRoutineRestTimeBetweenExercises)
         setRoutineExercises(initialRoutineExercises)
         setInitialRoutineExerciseBuilder()
     }

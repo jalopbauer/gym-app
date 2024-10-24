@@ -3,13 +3,12 @@ package com.indigo.gymapp.routines.manager
 import androidx.annotation.IntRange
 import com.indigo.gymapp.domain.routines.exercises.RoutineExercise
 import com.indigo.gymapp.domain.routines.exercises.RoutineExerciseBuilder
+import com.indigo.gymapp.domain.time.Rest
 import com.indigo.gymapp.exercises.Exercise
 
 interface RoutineHandler {
 
-    fun setRestTimeBetweenExercisesSeconds(@IntRange(from = 0, to = 59) seconds: Int)
-
-    fun setRestTimeBetweenExercisesMinutes(@IntRange(from = 0, to = 59) minutes: Int)
+    fun setRestTimeBetweenExercises(newRest: Rest)
 
     fun changeRoutineName(newRoutineName: String)
 

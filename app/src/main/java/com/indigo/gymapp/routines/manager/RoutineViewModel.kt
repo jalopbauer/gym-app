@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.indigo.gymapp.domain.routines.exercises.RoutineExercise
 import com.indigo.gymapp.domain.routines.exercises.RoutineExerciseBuilder
+import com.indigo.gymapp.domain.time.Rest
 import com.indigo.gymapp.exercises.Exercise
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -22,12 +23,8 @@ class RoutineViewModel @Inject constructor(private val routineManager: RoutineMa
 
     val restTimeBetweenExercises = routineManager.restTimeBetweenExercises
 
-    override fun setRestTimeBetweenExercisesSeconds(@IntRange(from = 0, to = 59) seconds: Int) {
-        routineManager.setRestTimeBetweenExercisesSeconds(seconds)
-    }
-
-    override fun setRestTimeBetweenExercisesMinutes(@IntRange(from = 0, to = 59) minutes: Int) {
-        routineManager.setRestTimeBetweenExercisesMinutes(minutes)
+    override fun setRestTimeBetweenExercises(newRest: Rest) {
+        routineManager.setRestTimeBetweenExercises(newRest)
     }
 
     val exercises = routineManager.exercises
