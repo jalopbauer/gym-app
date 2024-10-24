@@ -48,7 +48,12 @@ fun Routines(
 
         FloatingActionButton(
             iconVariant = Add,
-            onClick = onNavigateToCreateRoutine,
+            onClick = {
+                coroutineScope.launch {
+                    routineViewModel.setInitialRoutine()
+                }
+                onNavigateToCreateRoutine()
+            },
             modifier = Modifier
                 .align(Alignment.BottomEnd)
                 .padding(16.dp)

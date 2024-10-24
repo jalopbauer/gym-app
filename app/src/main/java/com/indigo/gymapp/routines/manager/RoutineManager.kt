@@ -16,13 +16,17 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Singleton
+
 @Singleton
 class RoutineManager @Inject constructor(private val gymDatabase: GymDatabase) : RoutineHandler {
+    private val initialRoutineName = ""
+    private val initialRoutineRestTimeBetweenExercises = Rest(2, 0)
+    private val initialRoutineExercises = listOf<RoutineExercise>()
 
-    private var _name = MutableStateFlow("")
+    private var _name = MutableStateFlow(initialRoutineName)
+
     val name = _name.asStateFlow()
-
-    private var _restTimeBetweenExercises = MutableStateFlow(Rest(2, 0))
+    private var _restTimeBetweenExercises = MutableStateFlow(initialRoutineRestTimeBetweenExercises)
     val restTimeBetweenExercises = _restTimeBetweenExercises.asStateFlow()
 
     override fun setRestTimeBetweenExercisesSeconds(@IntRange(from = 0, to = 59) seconds: Int) {
@@ -37,7 +41,7 @@ class RoutineManager @Inject constructor(private val gymDatabase: GymDatabase) :
         _name.value = newRoutineName
     }
 
-    private var _routineExercises = MutableStateFlow(listOf<RoutineExercise>())
+    private var _routineExercises = MutableStateFlow(initialRoutineExercises)
     val exercises = _routineExercises.asStateFlow()
 
     override suspend fun addExercise(routineExercise: RoutineExercise) {
@@ -87,7 +91,7 @@ class RoutineManager @Inject constructor(private val gymDatabase: GymDatabase) :
 
     override suspend fun saveRoutine(): SaveRoutineResult =
         when {
-            name.value == "" -> MissingName
+            name.value == initialRoutineName -> MissingName
             else -> {
                 withContext(Dispatchers.Default) {
                     val createdRoutineEntityId = routinesDao.create(
@@ -134,6 +138,14 @@ class RoutineManager @Inject constructor(private val gymDatabase: GymDatabase) :
                 RoutineFound
             } ?: RoutineNotFound
         }
+
+    override suspend fun setInitialRoutine() {
+        changeRoutineName(initialRoutineName)
+        setRestTimeBetweenExercisesMinutes(initialRoutineRestTimeBetweenExercises.minutes)
+        setRestTimeBetweenExercisesSeconds(initialRoutineRestTimeBetweenExercises.seconds)
+        setRoutineExercises(initialRoutineExercises)
+        setInitialRoutineExerciseBuilder()
+    }
 
     private suspend fun setRoutineExercises(newList: List<RoutineExercise>) {
         withContext(Dispatchers.Default) {
