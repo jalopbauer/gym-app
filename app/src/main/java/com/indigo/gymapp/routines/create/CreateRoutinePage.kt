@@ -88,7 +88,6 @@ fun CreateRoutine(
             },
             onClickSave = {
                 coroutineScope.launch {
-                    routineViewModel.changeRoutineName(routineName)
                     when (routineViewModel.saveRoutine()) {
                         MissingName -> Toast.makeText(context, context.getString(R.string.must_have_name_set), Toast.LENGTH_SHORT).show()
                         Saved -> onNavigateToRoutines()
@@ -118,7 +117,14 @@ fun CreateRoutine(
 
     BottomSheet(
         showBottomSheet = bottomSheetState.showBottomSheet(),
-        onDismissRequest = { bottomSheetState = Closed },
+        onDismissRequest = {
+            if (bottomSheetState is NameYourRoutine) {
+                coroutineScope.launch {
+                    routineViewModel.changeRoutineName(routineName)
+                }
+            }
+            bottomSheetState = Closed
+        },
     ) {
         when (bottomSheetState) {
             NameYourRoutine ->
