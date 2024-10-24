@@ -43,6 +43,11 @@ fun Routines(
                     routineViewModel.setRoutineId(it)
                     onNavigateToCreateRoutine()
                 }
+            },
+            onDeleteClick = {
+                coroutineScope.launch {
+                    routineViewModel.deleteRoutine(it)
+                }
             }
         )
 

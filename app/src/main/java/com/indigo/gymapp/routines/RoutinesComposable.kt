@@ -16,7 +16,8 @@ import com.indigo.gymapp.ui.spacing.Spacing.Context
 @Composable
 fun Routines(
     routines: List<RoutineEntity>,
-    onCardClick: (Long) -> Unit
+    onCardClick: (Long) -> Unit,
+    onDeleteClick: (Long) -> Unit,
 ) {
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -33,7 +34,8 @@ fun Routines(
             items(routines) { routine ->
                 RoutineCard(
                     routine = routine,
-                    onCardClick = onCardClick
+                    onCardClick = onCardClick,
+                    onDeleteClick = onDeleteClick
                 )
             }
         }

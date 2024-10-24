@@ -18,4 +18,6 @@ interface SetExerciseDao {
     """)
     fun getAllByRoutineIdWithExercise(routineId: Long): List<SetExerciseWithExercise>
 
+    @Query("DELETE FROM SET_EXERCISES WHERE routineId = :routineId")
+    suspend fun deleteByRoutineId(routineId: Long)
 }

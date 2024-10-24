@@ -30,4 +30,6 @@ interface RoutineHandler {
 
     suspend fun setInitialRoutine()
 
+    suspend fun deleteRoutine(routineId: Long)
+
 }

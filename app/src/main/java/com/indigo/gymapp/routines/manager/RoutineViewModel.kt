@@ -67,4 +67,8 @@ class RoutineViewModel @Inject constructor(private val routineManager: RoutineMa
     override suspend fun setInitialRoutine() {
         routineManager.setInitialRoutine()
     }
+
+    override suspend fun deleteRoutine(routineId: Long) {
+        routineManager.deleteRoutine(routineId)
+    }
 }

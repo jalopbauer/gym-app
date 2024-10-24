@@ -160,6 +160,15 @@ class RoutineManager @Inject constructor(private val gymDatabase: GymDatabase) :
         setInitialRoutineExerciseBuilder()
     }
 
+    override suspend fun deleteRoutine(routineId: Long) {
+        withContext(Dispatchers.Default) {
+            routinesDao.findById(routineId)?.let { routine ->
+                setExerciseDao.deleteByRoutineId(routine.id)
+                routinesDao.delete(routine)
+            }
+        }
+    }
+
     private suspend fun setRoutineExercises(newList: List<RoutineExercise>) {
         withContext(Dispatchers.Default) {
             _routineExercises.emit(newList)
