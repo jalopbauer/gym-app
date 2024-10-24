@@ -16,7 +16,7 @@ class RoutineViewModel @Inject constructor(private val routineManager: RoutineMa
 
     val name = routineManager.name
 
-    override fun changeRoutineName(newRoutineName: String) {
+    override suspend fun changeRoutineName(newRoutineName: String) {
         routineManager.changeRoutineName(newRoutineName)
     }
 

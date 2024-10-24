@@ -41,8 +41,14 @@ class RoutineManager @Inject constructor(private val gymDatabase: GymDatabase) :
         }
     }
 
-    override fun changeRoutineName(newRoutineName: String) {
-        _name.value = newRoutineName
+    override suspend fun changeRoutineName(newRoutineName: String) {
+        when (val typedRoutineManagerState = routineManagerState) {
+            CreateRoutine -> _name.value = newRoutineName
+            is EditRoutine -> {
+                _name.value = newRoutineName
+                routinesDao.update(typedRoutineManagerState.routineEntity.copy(name = newRoutineName))
+            }
+        }
     }
 
     private var _routineExercises = MutableStateFlow(initialRoutineExercises)

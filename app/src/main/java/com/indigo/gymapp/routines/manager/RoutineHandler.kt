@@ -8,7 +8,7 @@ import com.indigo.gymapp.exercises.Exercise
 
 interface RoutineHandler {
 
-    fun changeRoutineName(newRoutineName: String)
+    suspend fun changeRoutineName(newRoutineName: String)
 
     suspend fun setRestTimeBetweenExercises(newRest: Rest)
 
