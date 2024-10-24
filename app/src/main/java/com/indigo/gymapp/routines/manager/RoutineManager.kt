@@ -94,28 +94,35 @@ class RoutineManager @Inject constructor(private val gymDatabase: GymDatabase) :
             name.value == initialRoutineName -> MissingName
             else -> {
                 withContext(Dispatchers.Default) {
-                    val createdRoutineEntityId = routinesDao.create(
-                        RoutineEntity(
-                            name = name.value,
-                            rest = restTimeBetweenExercises.value
-                        )
-                    )
-                    val setExerciseEntities = exercises.value
-                        .filterIsInstance<SetExercise>()
-                        .mapIndexed { index, routineExercise ->
-                            SetExerciseEntity(
-                                routineId = createdRoutineEntityId,
-                                order = index,
-                                exerciseId = routineExercise.exercise.id,
-                                amountOfSets = routineExercise.amountOfSets,
-                                rest = routineExercise.rest
-                            )
-                        }
-                    setExerciseDao.insertAll(setExerciseEntities)
+                    when (routineManagerState) {
+                        CreateRoutine -> saveNewRoutine()
+                        is EditRoutine -> {}
+                    }
                 }
                 Saved
             }
         }
+
+    private suspend fun saveNewRoutine() {
+        val createdRoutineEntityId = routinesDao.create(
+            RoutineEntity(
+                name = name.value,
+                rest = restTimeBetweenExercises.value
+            )
+        )
+        val setExerciseEntities = exercises.value
+            .filterIsInstance<SetExercise>()
+            .mapIndexed { index, routineExercise ->
+                SetExerciseEntity(
+                    routineId = createdRoutineEntityId,
+                    order = index,
+                    exerciseId = routineExercise.exercise.id,
+                    amountOfSets = routineExercise.amountOfSets,
+                    rest = routineExercise.rest
+                )
+            }
+        setExerciseDao.insertAll(setExerciseEntities)
+    }
 
     override suspend fun setRoutineId(routineId: Long): SetRoutineResult =
         withContext(Dispatchers.Default) {

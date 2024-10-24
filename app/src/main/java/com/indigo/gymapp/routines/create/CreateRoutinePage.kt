@@ -47,9 +47,13 @@ fun CreateRoutine(
 
     val routineViewModel = hiltViewModel<RoutineViewModel>()
     val routineExercises by routineViewModel.exercises.collectAsState()
-    val routineName by routineViewModel.name.collectAsState()
+    val savedRoutineName by routineViewModel.name.collectAsState()
     val routineRestTimeBetweenExercises by routineViewModel.restTimeBetweenExercises.collectAsState()
     val isRoutineExercisesEmpty = routineExercises.isEmpty()
+
+    var routineName by remember {
+        mutableStateOf(savedRoutineName)
+    }
 
     val hasWrittenRoutineName = routineName != ""
     val headerTitle = if (hasWrittenRoutineName) routineName else stringResource(id = R.string.name_your_routine)
@@ -84,6 +88,7 @@ fun CreateRoutine(
             },
             onClickSave = {
                 coroutineScope.launch {
+                    routineViewModel.changeRoutineName(routineName)
                     when (routineViewModel.saveRoutine()) {
                         MissingName -> Toast.makeText(context, context.getString(R.string.must_have_name_set), Toast.LENGTH_SHORT).show()
                         Saved -> onNavigateToRoutines()
@@ -119,7 +124,7 @@ fun CreateRoutine(
             NameYourRoutine ->
                 ChangeNameBottomSheetContent(
                     routineName = routineName,
-                    onValueChange = { routineViewModel.changeRoutineName(it) }
+                    onValueChange = { routineName = it }
                 )
             SetRoutineRestTimeBetweenExercisesVariant -> {
                 TimeScrollTimeButtonsRowConfirm(
