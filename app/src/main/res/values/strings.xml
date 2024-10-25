@@ -38,4 +38,5 @@
     <string name="must_select_exercise_type">Must select exercise type</string>
     <string name="must_select_exercise">Must select exercise</string>
     <string name="must_have_name_set">Must have name set</string>
+    <string name="exercise">Exercise</string>
 </resources>

@@ -10,7 +10,9 @@ import androidx.compose.material.icons.outlined.Save
 import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material.icons.outlined.Timer
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import com.indigo.gymapp.R
 import com.indigo.gymapp.ui.theme.color.Color
@@ -26,6 +28,7 @@ fun Icon(iconVariant : IconVariant) {
         SetRoutineExercise -> SetRoutineExerciseIcon()
         TimedRoutineExercise -> TimedRoutineExerciseIcon()
         Search -> SearchIcon()
+        Exercise -> ExerciseIcon()
     }
 }
 
@@ -36,6 +39,18 @@ private fun ImageVectorIcon(
 ) {
     androidx.compose.material3.Icon(
         imageVector = imageVector,
+        contentDescription = contentDescription,
+        tint = Color.Context.Icon.primary
+    )
+}
+
+@Composable
+private fun PainterIcon(
+    painter: Painter,
+    contentDescription: String
+) {
+    androidx.compose.material3.Icon(
+        painter = painter,
         contentDescription = contentDescription,
         tint = Color.Context.Icon.primary
     )
@@ -105,6 +120,13 @@ fun SearchIcon() {
     )
 }
 
+@Composable
+fun ExerciseIcon() {
+    PainterIcon(
+        painter = painterResource(id = R.drawable.exercise),
+        contentDescription = stringResource(R.string.exercise)
+    )
+}
 
 sealed interface IconVariant
 
@@ -123,3 +145,5 @@ data object SetRoutineExercise : IconVariant
 data object TimedRoutineExercise : IconVariant
 
 data object Search : IconVariant
+
+data object Exercise : IconVariant

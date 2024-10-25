@@ -3,7 +3,7 @@ package com.indigo.gymapp.common.bottomAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.indigo.gymapp.common.button.floatingActionButton.FloatingActionButton
-import com.indigo.gymapp.common.icon.Add
+import com.indigo.gymapp.common.icon.Exercise
 import com.indigo.gymapp.common.icon.button.DeleteIconButton
 import com.indigo.gymapp.common.icon.button.EditIconButton
 import com.indigo.gymapp.ui.theme.color.Color.Context
@@ -32,7 +32,7 @@ fun CreateUpdateDeleteBottomAppBar(
         },
         floatingActionButton = {
             FloatingActionButton(
-                iconVariant = Add,
+                iconVariant = Exercise,
                 onClick = addOnClick
             )
         }
