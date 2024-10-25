@@ -49,7 +49,6 @@ fun CreateRoutine(
     val routineExercises by routineViewModel.exercises.collectAsState()
     val savedRoutineName by routineViewModel.name.collectAsState()
     val routineRestTimeBetweenExercises by routineViewModel.restTimeBetweenExercises.collectAsState()
-    val isRoutineExercisesEmpty = routineExercises.isEmpty()
 
     var routineName by remember {
         mutableStateOf(savedRoutineName)
@@ -70,10 +69,13 @@ fun CreateRoutine(
     var selectedRoutineExerciseId by remember {
         mutableStateOf<Long?>(null)
     }
-    LaunchedEffect(Unit) {
+
+    val isEditAndDeleteEnabled = selectedRoutineExerciseId != null
+
+    LaunchedEffect(isEditAndDeleteEnabled) {
         bottomAppBarViewModel.setCreateUpdateDelete(
-            isDeleteEnabled = isDeleteEnabledInBottomAppBar(isRoutineExercisesEmpty),
-            isEditEnabled = isEditEnabledInBottomAppBar(isRoutineExercisesEmpty),
+            isDeleteEnabled = isEditAndDeleteEnabled,
+            isEditEnabled = isEditAndDeleteEnabled,
             addOnClick = onNavigateToAddRoutineExercise,
             editOnClick = {},
             deleteOnClick = {}
@@ -189,18 +191,6 @@ private fun ChangeNameBottomSheetContent(
         onValueChange = onValueChange,
     )
 }
-
-private fun isDeleteEnabledInBottomAppBar(routineExercisesIsEmpty: Boolean) =
-    when {
-        routineExercisesIsEmpty -> false
-        else -> true
-    }
-
-private fun isEditEnabledInBottomAppBar(routineExercisesIsEmpty: Boolean) =
-    when {
-        routineExercisesIsEmpty -> false
-        else -> true
-    }
 
 @Preview
 @Composable
