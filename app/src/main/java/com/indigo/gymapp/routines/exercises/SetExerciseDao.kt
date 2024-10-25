@@ -20,4 +20,7 @@ interface SetExerciseDao {
 
     @Query("DELETE FROM SET_EXERCISES WHERE routineId = :routineId")
     suspend fun deleteByRoutineId(routineId: Long)
+
+    @Query("DELETE FROM SET_EXERCISES WHERE id = :id")
+    suspend fun deleteById(id: Long)
 }

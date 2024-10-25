@@ -32,4 +32,6 @@ interface RoutineHandler {
 
     suspend fun deleteRoutine(routineId: Long)
 
+    suspend fun deleteRoutineExercise(routineExerciseId: Long)
+
 }

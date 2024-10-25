@@ -169,6 +169,36 @@ class RoutineManager @Inject constructor(gymDatabase: GymDatabase) : RoutineHand
         }
     }
 
+    override suspend fun deleteRoutineExercise(routineExerciseId: Long) {
+        withContext(Dispatchers.Default) {
+            when (val typedRoutineManagerState = routineManagerState) {
+                CreateRoutine -> {
+                    val newRoutineExercises =
+                        _routineExercises.value.filterNot { it.id == routineExerciseId }
+                            .mapIndexed { index, routineExercise ->
+                                routineExercise.setId(index.toLong())
+                            }
+                    setRoutineExercises(newRoutineExercises)
+                }
+                is EditRoutine -> {
+                    setExerciseDao.deleteById(routineExerciseId)
+                    val routineSetExercises = setExerciseDao.getAllByRoutineIdWithExercise(typedRoutineManagerState.routineEntity.id).map {
+                        SetExercise(
+                            id = it.id,
+                            exercise = Exercise(
+                                id = it.exerciseId,
+                                name = it.exerciseName
+                            ),
+                            amountOfSets = it.amountOfSets,
+                            rest = it.rest
+                        )
+                    }
+                    setRoutineExercises(routineSetExercises)
+                }
+            }
+        }
+    }
+
     private suspend fun setRoutineExercises(newList: List<RoutineExercise>) {
         withContext(Dispatchers.Default) {
             _routineExercises.emit(newList)

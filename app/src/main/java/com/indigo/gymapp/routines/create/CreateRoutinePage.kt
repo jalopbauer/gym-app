@@ -72,16 +72,24 @@ fun CreateRoutine(
 
     val isEditAndDeleteEnabled = selectedRoutineExerciseId != null
 
+    val coroutineScope = rememberCoroutineScope()
+
     LaunchedEffect(isEditAndDeleteEnabled) {
         bottomAppBarViewModel.setCreateUpdateDelete(
             isDeleteEnabled = isEditAndDeleteEnabled,
             isEditEnabled = isEditAndDeleteEnabled,
             addOnClick = onNavigateToAddRoutineExercise,
             editOnClick = {},
-            deleteOnClick = {}
+            deleteOnClick = {
+                selectedRoutineExerciseId?.let {
+                    coroutineScope.launch {
+                        selectedRoutineExerciseId = null
+                        routineViewModel.deleteRoutineExercise(it)
+                    }
+                }
+            }
         )
     }
-    val coroutineScope = rememberCoroutineScope()
 
     Column {
         CreateHeader(
