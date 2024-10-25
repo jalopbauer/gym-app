@@ -117,13 +117,10 @@ fun CreateRoutine(
                 routineExercises = routineExercises,
                 selectedRoutineExerciseId = selectedRoutineExerciseId,
                 selectOnClick = { id ->
-                    selectedRoutineExerciseId?.let { selectedId ->
-                        selectedRoutineExerciseId = when {
-                            selectedId == id -> null
-                            else -> id
-                        }
-                    } ?: run {
-                        selectedRoutineExerciseId = id
+                    selectedRoutineExerciseId = if (selectedRoutineExerciseId == id) {
+                        null
+                    } else {
+                        id
                     }
                 }
             )
