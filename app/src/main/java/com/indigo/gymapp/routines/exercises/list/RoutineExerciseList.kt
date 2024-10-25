@@ -19,7 +19,11 @@ import com.indigo.gymapp.routines.exercises.list.item.RoutineExerciseListItem
 import com.indigo.gymapp.ui.spacing.Spacing
 
 @Composable
-fun RoutineExerciseList(routineExercises: List<RoutineExercise>) {
+fun RoutineExerciseList(
+    routineExercises: List<RoutineExercise>,
+    selectedRoutineExerciseId: Long?,
+    selectOnClick: (Long) -> Unit
+) {
     Column (
         verticalArrangement = Arrangement.spacedBy(Spacing.Context.Gap.default)
     ) {
@@ -30,7 +34,9 @@ fun RoutineExerciseList(routineExercises: List<RoutineExercise>) {
         LazyColumn {
             items(routineExercises) { exercise ->
                 RoutineExerciseListItem(
-                    routineExercise = exercise
+                    routineExercise = exercise,
+                    selectedRoutineExerciseId = selectedRoutineExerciseId,
+                    selectOnClick = selectOnClick
                 )
             }
         }
@@ -43,11 +49,13 @@ private fun RoutineExerciseListPreview() {
     HugPreview {
         RoutineExerciseList(
             routineExercises = listOf(
-                SetExercise(exercise = Exercise(name = "Chest press"), amountOfSets = 4, rest = Rest(2, 0)),
-                SetExercise(exercise = Exercise(name = "Incline press"), amountOfSets = 4, rest = Rest(2, 0)),
-                SetExercise(exercise = Exercise(name = "Bench dips"), amountOfSets = 3, rest = Rest(2, 0)),
-                SetExercise(exercise = Exercise(name = "Overhead triceps"), amountOfSets = 3, rest = Rest(2, 0)),
-            )
+                SetExercise(id = 0, exercise = Exercise(name = "Chest press"), amountOfSets = 4, rest = Rest(2, 0)),
+                SetExercise(id = 1, exercise = Exercise(name = "Incline press"), amountOfSets = 4, rest = Rest(2, 0)),
+                SetExercise(id = 2, exercise = Exercise(name = "Bench dips"), amountOfSets = 3, rest = Rest(2, 0)),
+                SetExercise(id = 3, exercise = Exercise(name = "Overhead triceps"), amountOfSets = 3, rest = Rest(2, 0)),
+            ),
+            selectedRoutineExerciseId = 2,
+            selectOnClick = {}
         )
     }
 }

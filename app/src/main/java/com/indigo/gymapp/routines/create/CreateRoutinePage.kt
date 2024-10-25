@@ -67,7 +67,9 @@ fun CreateRoutine(
     var seconds by remember {
         mutableIntStateOf(routineRestTimeBetweenExercises.seconds)
     }
-
+    var selectedRoutineExerciseId by remember {
+        mutableStateOf<Long?>(null)
+    }
     LaunchedEffect(Unit) {
         bottomAppBarViewModel.setCreateUpdateDelete(
             isDeleteEnabled = isDeleteEnabledInBottomAppBar(isRoutineExercisesEmpty),
@@ -111,7 +113,20 @@ fun CreateRoutine(
                 time = routineRestTimeBetweenExercises,
                 onClick = { bottomSheetState = SetRoutineRestTimeBetweenExercisesVariant }
             )
-            RoutineExerciseList(routineExercises)
+            RoutineExerciseList(
+                routineExercises = routineExercises,
+                selectedRoutineExerciseId = selectedRoutineExerciseId,
+                selectOnClick = { id ->
+                    selectedRoutineExerciseId?.let { selectedId ->
+                        selectedRoutineExerciseId = when {
+                            selectedId == id -> null
+                            else -> id
+                        }
+                    } ?: run {
+                        selectedRoutineExerciseId = id
+                    }
+                }
+            )
         }
     }
 

@@ -19,9 +19,10 @@ import com.indigo.gymapp.ui.spacing.Spacing
 
 @Composable
 fun RoutineExerciseListItem(
-    routineExercise: RoutineExercise
+    routineExercise: RoutineExercise,
+    selectedRoutineExerciseId: Long?,
+    selectOnClick: (Long) -> Unit
 ) {
-    val selected = false
     Row (
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceBetween,
@@ -32,8 +33,10 @@ fun RoutineExerciseListItem(
             verticalAlignment = Alignment.CenterVertically
         ) {
             RadioButton(
-                selected = selected,
-                onClick = {}
+                selected = routineExercise.id == selectedRoutineExerciseId,
+                onClick = {
+                    selectOnClick(routineExercise.id)
+                }
             )
             RoutineExerciseDescription(routineExercise)
         }
@@ -50,7 +53,15 @@ fun RoutineExerciseListItem(
 @Composable
 private fun SetExerciseListItemPreview() {
     HugPreview {
-        RoutineExerciseListItem(SetExercise(exercise = Exercise(name = "Chest press"), amountOfSets = 4, rest = Rest(2,0)))
+        RoutineExerciseListItem(
+            routineExercise = SetExercise(
+                exercise = Exercise(name = "Chest press"),
+                amountOfSets = 4,
+                rest = Rest(2, 0)
+            ),
+            selectedRoutineExerciseId = 0,
+            selectOnClick = {}
+        )
     }
 }
 
@@ -58,6 +69,13 @@ private fun SetExerciseListItemPreview() {
 @Composable
 private fun TimedExerciseListItemPreview() {
     HugPreview {
-        RoutineExerciseListItem(TimedExercise(exercise = Exercise(name = "Running"), duration = Duration(30,0)))
+        RoutineExerciseListItem(
+            routineExercise = TimedExercise(
+                exercise = Exercise(name = "Running"),
+                duration = Duration(30, 0)
+            ),
+            selectedRoutineExerciseId = 1,
+            selectOnClick = {}
+        )
     }
 }
