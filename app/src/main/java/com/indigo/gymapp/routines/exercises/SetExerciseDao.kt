@@ -6,6 +6,10 @@ import androidx.room.Query
 
 @Dao
 interface SetExerciseDao {
+
+    @Insert
+    suspend fun create(setExercise: SetExerciseEntity) : Long
+
     @Insert
     suspend fun insertAll(setExercises: List<SetExerciseEntity>)
 

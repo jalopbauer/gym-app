@@ -5,6 +5,7 @@ import com.indigo.gymapp.database.GymDatabase
 import com.indigo.gymapp.domain.routines.exercises.RoutineExercise
 import com.indigo.gymapp.domain.routines.exercises.RoutineExerciseBuilder
 import com.indigo.gymapp.domain.routines.exercises.SetExercise
+import com.indigo.gymapp.domain.routines.exercises.TimedExercise
 import com.indigo.gymapp.domain.time.Rest
 import com.indigo.gymapp.exercises.Exercise
 import com.indigo.gymapp.routines.RoutineEntity
@@ -55,8 +56,28 @@ class RoutineManager @Inject constructor(gymDatabase: GymDatabase) : RoutineHand
     val exercises = _routineExercises.asStateFlow()
 
     override suspend fun addExercise(routineExercise: RoutineExercise) {
-        val newList = _routineExercises.value + routineExercise.setId(_routineExercises.value.size.toLong())
-        setRoutineExercises(newList)
+        when (val typedRoutineManagerState = routineManagerState) {
+            CreateRoutine -> {
+                val newList = _routineExercises.value + routineExercise.setId(_routineExercises.value.size.toLong())
+                setRoutineExercises(newList)
+            }
+            is EditRoutine -> {
+                when (routineExercise) {
+                    is SetExercise -> {
+                        val setExerciseEntity = fromRoutineExerciseToEntity(
+                            typedRoutineManagerState.routineEntity.id,
+                            _routineExercises.value.size,
+                            routineExercise
+                        )
+                        val id = setExerciseDao.create(setExerciseEntity)
+                        val newList = _routineExercises.value + routineExercise.setId(id)
+                        setRoutineExercises(newList)
+                    }
+                    is TimedExercise -> {}
+                }
+            }
+        }
+
     }
 
     private val initialRoutineExerciseBuilder = RoutineExerciseBuilder(
@@ -119,16 +140,22 @@ class RoutineManager @Inject constructor(gymDatabase: GymDatabase) : RoutineHand
         val setExerciseEntities = exercises.value
             .filterIsInstance<SetExercise>()
             .mapIndexed { index, routineExercise ->
-                SetExerciseEntity(
-                    routineId = createdRoutineEntityId,
-                    order = index,
-                    exerciseId = routineExercise.exercise.id,
-                    amountOfSets = routineExercise.amountOfSets,
-                    rest = routineExercise.rest
-                )
+                fromRoutineExerciseToEntity(createdRoutineEntityId, index, routineExercise)
             }
         setExerciseDao.insertAll(setExerciseEntities)
     }
+
+    private fun fromRoutineExerciseToEntity(
+        routineId: Long,
+        order: Int,
+        routineExercise: SetExercise
+    ) = SetExerciseEntity(
+        routineId = routineId,
+        order = order,
+        exerciseId = routineExercise.exercise.id,
+        amountOfSets = routineExercise.amountOfSets,
+        rest = routineExercise.rest
+    )
 
     override suspend fun setRoutineId(routineId: Long): SetRoutineResult =
         withContext(Dispatchers.Default) {
