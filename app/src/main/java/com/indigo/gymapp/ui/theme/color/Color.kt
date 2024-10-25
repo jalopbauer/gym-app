@@ -1,6 +1,7 @@
 package com.indigo.gymapp.ui.theme.color
 
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.RadioButtonDefaults
 import androidx.compose.material3.SearchBarDefaults
 import androidx.compose.material3.TextFieldColors
 import androidx.compose.material3.TextFieldDefaults
@@ -60,5 +61,11 @@ object Color {
             dividerColor = Context.Surface.top,
             inputFieldColors = textFieldColorsField(),
         )
+        @Composable
+        fun radioButtonColors() =
+            RadioButtonDefaults.colors(
+                selectedColor = Context.Surface.primary,
+                unselectedColor = Context.Surface.information
+            )
     }
 }

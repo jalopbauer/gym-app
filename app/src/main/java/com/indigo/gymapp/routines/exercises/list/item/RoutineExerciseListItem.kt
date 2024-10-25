@@ -3,12 +3,12 @@ package com.indigo.gymapp.routines.exercises.list.item
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material3.RadioButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.indigo.gymapp.common.preview.hug.HugPreview
+import com.indigo.gymapp.common.radioButton.RadioButton
 import com.indigo.gymapp.domain.routines.exercises.RoutineExercise
 import com.indigo.gymapp.domain.routines.exercises.SetExercise
 import com.indigo.gymapp.domain.routines.exercises.TimedExercise
