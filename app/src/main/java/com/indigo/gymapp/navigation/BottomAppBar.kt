@@ -1,4 +1,4 @@
-package com.indigo.gymapp.common.bottomAppBar
+package com.indigo.gymapp.navigation
 
 import androidx.annotation.IntRange
 import androidx.compose.material.icons.Icons
@@ -8,7 +8,8 @@ import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.indigo.gymapp.navigation.NavigationPath
+import com.indigo.gymapp.common.bottomAppBar.TabBarItem
+import com.indigo.gymapp.common.bottomAppBar.TabBottomBar
 
 @Composable
 fun BottomAppBar(
