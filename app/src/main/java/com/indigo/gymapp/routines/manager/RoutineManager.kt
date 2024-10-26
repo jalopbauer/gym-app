@@ -21,6 +21,7 @@ import javax.inject.Singleton
 class RoutineManager @Inject constructor(gymDatabase: GymDatabase) : RoutineHandler {
 
     private var routineManagerState : RoutineManagerState = CreateRoutine
+    private var routineExerciseState : RoutineExerciseState = CreateRoutineExercise
 
     private val initialRoutineName = ""
     private val initialRoutineRestTimeBetweenExercises = Rest(2, 0)
@@ -58,22 +59,37 @@ class RoutineManager @Inject constructor(gymDatabase: GymDatabase) : RoutineHand
     override suspend fun addExercise(routineExercise: RoutineExercise) {
         when (val typedRoutineManagerState = routineManagerState) {
             CreateRoutine -> {
-                val newList = _routineExercises.value + routineExercise.setId(_routineExercises.value.size.toLong())
-                setRoutineExercises(newList)
-            }
-            is EditRoutine -> {
-                when (routineExercise) {
-                    is SetExercise -> {
-                        val setExerciseEntity = fromRoutineExerciseToEntity(
-                            typedRoutineManagerState.routineEntity.id,
-                            _routineExercises.value.size,
-                            routineExercise
-                        )
-                        val id = setExerciseDao.create(setExerciseEntity)
-                        val newList = _routineExercises.value + routineExercise.setId(id)
+                when (val typedRoutineExerciseState = routineExerciseState) {
+                    CreateRoutineExercise -> {
+                        val newList = _routineExercises.value + routineExercise.setId(_routineExercises.value.size.toLong())
                         setRoutineExercises(newList)
                     }
-                    is TimedExercise -> {}
+                    is EditRoutineExercise -> {
+
+                    }
+                }
+
+            }
+            is EditRoutine -> {
+                when (val typedRoutineExerciseState = routineExerciseState) {
+                    CreateRoutineExercise -> {
+                        when (routineExercise) {
+                            is SetExercise -> {
+                                val setExerciseEntity = fromRoutineExerciseToEntity(
+                                    typedRoutineManagerState.routineEntity.id,
+                                    _routineExercises.value.size,
+                                    routineExercise
+                                )
+                                val id = setExerciseDao.create(setExerciseEntity)
+                                val newList = _routineExercises.value + routineExercise.setId(id)
+                                setRoutineExercises(newList)
+                            }
+                            is TimedExercise -> {}
+                        }
+                    }
+                    is EditRoutineExercise -> {
+
+                    }
                 }
             }
         }
