@@ -18,6 +18,8 @@ object Color {
             fun `neutral-500`(): Color = Color(0xFF3B4252)
             fun `neutral-300`(): Color = Color(0xFF4C566A)
 
+            fun `greyscale-700`(): Color = Color(0xFFd8dee9)
+            fun `greyscale-600`(): Color = Color(0xFFe5e9f0)
             fun `greyscale-500`(): Color = Color(0xFFECEFF4)
 
             fun `primary-600`(): Color = Color(0xFF5E81AC)
