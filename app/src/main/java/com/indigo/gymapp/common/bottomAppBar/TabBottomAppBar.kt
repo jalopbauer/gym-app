@@ -1,6 +1,7 @@
 package com.indigo.gymapp.common.bottomAppBar
 
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.runtime.Composable
@@ -59,7 +60,7 @@ fun TabBottomBar(initialItem: Int, tabBarItems: List<TabBarItem>, onNavigate: (S
 private fun NavigationBarItemLabel(label: String, isSelected: Boolean) =
     Label(
         label = label,
-        color = if (isSelected) Context.Text.active else Context.Text.primary
+        color = if (isSelected) MaterialTheme.colorScheme.onSecondary else Context.Text.primary
     )
 
 @Composable
@@ -68,7 +69,7 @@ fun TabBarIconView(
     icon: ImageVector,
     title: String
 ) {
-    val tint = if (isSelected) { Context.Icon.active } else { Context.Icon.primary }
+    val tint = if (isSelected) { MaterialTheme.colorScheme.onSecondary } else { Context.Icon.primary }
     Icon(
         imageVector = icon,
         contentDescription = title,

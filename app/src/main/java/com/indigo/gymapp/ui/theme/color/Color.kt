@@ -23,7 +23,6 @@ object Color {
 
     object Context {
         object Surface {
-            val active = Brand.`primary-600`()
             val contrast: Color = Brand.`greyscale-500`()
             val base = Brand.`neutral-600`()
             val information = Brand.`neutral-300`()
@@ -31,12 +30,10 @@ object Color {
         object Text {
             val primary = Brand.`greyscale-500`()
             val information = Brand.`neutral-300`()
-            val active = Brand.`primary-600`()
             val transparent = Brand.transparent
         }
         object Icon {
             val primary = Brand.`greyscale-500`()
-            val active = Brand.`primary-600`()
         }
     }
 
@@ -46,9 +43,9 @@ object Color {
             return TextFieldDefaults.colors().copy(
                 unfocusedContainerColor = Context.Surface.base,
                 focusedContainerColor = Context.Surface.base,
-                cursorColor = Context.Icon.active,
+                cursorColor = MaterialTheme.colorScheme.onSecondary,
                 unfocusedIndicatorColor = Context.Surface.base,
-                focusedIndicatorColor = Context.Icon.active,
+                focusedIndicatorColor = MaterialTheme.colorScheme.onSecondary,
                 focusedTextColor = Context.Text.primary,
                 unfocusedTextColor = Context.Text.primary
             )
