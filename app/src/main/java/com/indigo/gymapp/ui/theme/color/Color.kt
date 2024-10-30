@@ -10,24 +10,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
 object Color {
-    private object Brand : ColorTheme {
-        val theme : ColorTheme = NordDark
-        override val transparent: Color = theme.transparent
-        override fun `neutral-600`(): Color = theme.`neutral-600`()
-        override fun `neutral-500`(): Color = theme.`neutral-500`()
-        override fun `neutral-300`(): Color = theme.`neutral-300`()
-        override fun `greyscale-500`(): Color = theme.`greyscale-500`()
-        override fun `primary-600`(): Color = theme.`primary-600`()
-        override fun `primary-500`(): Color = theme.`primary-500`()
-    }
 
-    object Context {
-        object Surface {
-        }
-        object Text {
-            val transparent = Brand.transparent
-        }
-        object Icon {
+    object Theme {
+
+        object Nord {
+            fun `neutral-600`(): Color = Color(0xFF2E3440)
+            fun `neutral-500`(): Color = Color(0xFF3B4252)
+            fun `neutral-300`(): Color = Color(0xFF4C566A)
+
+            fun `greyscale-500`(): Color = Color(0xFFECEFF4)
+
+            fun `primary-600`(): Color = Color(0xFF5E81AC)
+            fun `primary-500`(): Color = Color(0xFF81A1C1)
         }
     }
 

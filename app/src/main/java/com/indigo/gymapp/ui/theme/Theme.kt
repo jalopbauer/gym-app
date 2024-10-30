@@ -9,15 +9,15 @@ import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
-import com.indigo.gymapp.ui.theme.color.NordDark
+import com.indigo.gymapp.ui.theme.color.Color
 
 private val DarkColorScheme = darkColorScheme(
-    primary = NordDark.`greyscale-500`(),
-    onPrimary = NordDark.`neutral-300`(),
-    secondary = NordDark.`primary-500`(),
-    onSecondary = NordDark.`primary-600`(),
-    background = NordDark.`neutral-600`(),
-    surface = NordDark.`neutral-500`(),
+    primary = Color.Theme.Nord.`greyscale-500`(),
+    onPrimary = Color.Theme.Nord.`neutral-300`(),
+    secondary = Color.Theme.Nord.`primary-500`(),
+    onSecondary = Color.Theme.Nord.`primary-600`(),
+    background = Color.Theme.Nord.`neutral-600`(),
+    surface = Color.Theme.Nord.`neutral-500`(),
 )
 
 private val LightColorScheme = lightColorScheme(
