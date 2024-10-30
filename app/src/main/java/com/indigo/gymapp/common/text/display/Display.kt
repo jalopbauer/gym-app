@@ -8,10 +8,9 @@ import com.indigo.gymapp.common.text.Large
 import com.indigo.gymapp.common.text.Medium
 import com.indigo.gymapp.common.text.Small
 import com.indigo.gymapp.common.text.TextSize
-import com.indigo.gymapp.ui.theme.color.Color.Context
 
 @Composable
-fun Display(title: String, textSize : TextSize = Small, color: Color = Context.Text.primary) {
+fun Display(title: String, textSize : TextSize = Small, color: Color = MaterialTheme.colorScheme.primary) {
     Text(
         text = title,
         color = color,

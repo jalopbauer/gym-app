@@ -53,7 +53,7 @@ fun VerticalNumberScroll(
                 modifier = Modifier.width(pageSize),
                 text = indexDisplay(page),
                 style = MaterialTheme.typography.displayLarge,
-                color = if (isSelected) Context.Text.primary else Context.Text.information,
+                color = if (isSelected) MaterialTheme.colorScheme.primary else Context.Text.information,
                 textAlign = TextAlign.Right
             )
         }
@@ -90,7 +90,7 @@ fun HorizontalNumberScroll(
                 modifier = Modifier.width(pageSize),
                 text = indexDisplay(page),
                 style = MaterialTheme.typography.displayLarge,
-                color = if (isSelected) Context.Text.primary else Context.Text.information,
+                color = if (isSelected) MaterialTheme.colorScheme.primary else Context.Text.information,
                 textAlign = TextAlign.Right
             )
         }

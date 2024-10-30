@@ -9,13 +9,13 @@ import androidx.compose.material.icons.outlined.Replay
 import androidx.compose.material.icons.outlined.Save
 import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material.icons.outlined.Timer
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import com.indigo.gymapp.R
-import com.indigo.gymapp.ui.theme.color.Color
 
 @Composable
 fun Icon(iconVariant : IconVariant) {
@@ -40,7 +40,7 @@ private fun ImageVectorIcon(
     androidx.compose.material3.Icon(
         imageVector = imageVector,
         contentDescription = contentDescription,
-        tint = Color.Context.Icon.primary
+        tint = MaterialTheme.colorScheme.primary
     )
 }
 
@@ -52,7 +52,7 @@ private fun PainterIcon(
     androidx.compose.material3.Icon(
         painter = painter,
         contentDescription = contentDescription,
-        tint = Color.Context.Icon.primary
+        tint = MaterialTheme.colorScheme.primary
     )
 }
 

@@ -60,7 +60,7 @@ fun TabBottomBar(initialItem: Int, tabBarItems: List<TabBarItem>, onNavigate: (S
 private fun NavigationBarItemLabel(label: String, isSelected: Boolean) =
     Label(
         label = label,
-        color = if (isSelected) MaterialTheme.colorScheme.onSecondary else Context.Text.primary
+        color = if (isSelected) MaterialTheme.colorScheme.onSecondary else MaterialTheme.colorScheme.primary
     )
 
 @Composable
@@ -69,7 +69,7 @@ fun TabBarIconView(
     icon: ImageVector,
     title: String
 ) {
-    val tint = if (isSelected) { MaterialTheme.colorScheme.onSecondary } else { Context.Icon.primary }
+    val tint = if (isSelected) { MaterialTheme.colorScheme.onSecondary } else { MaterialTheme.colorScheme.primary }
     Icon(
         imageVector = icon,
         contentDescription = title,

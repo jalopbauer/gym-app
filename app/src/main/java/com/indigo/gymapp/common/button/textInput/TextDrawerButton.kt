@@ -30,7 +30,7 @@ private fun TextDrawerButton(
     @FloatRange(from = 0.0, to = 1.0) maxWidthFraction: Float = 1f,
     content: @Composable () -> Unit = {},
 ) {
-    val color = if (isOnlyText && isSelected || !isOnlyText) Color.Context.Text.primary else Color.Context.Text.information
+    val color = if (isOnlyText && isSelected || !isOnlyText) MaterialTheme.colorScheme.primary else Color.Context.Text.information
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween,

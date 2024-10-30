@@ -23,17 +23,14 @@ object Color {
 
     object Context {
         object Surface {
-            val contrast: Color = Brand.`greyscale-500`()
             val base = Brand.`neutral-600`()
             val information = Brand.`neutral-300`()
         }
         object Text {
-            val primary = Brand.`greyscale-500`()
             val information = Brand.`neutral-300`()
             val transparent = Brand.transparent
         }
         object Icon {
-            val primary = Brand.`greyscale-500`()
         }
     }
 
@@ -46,8 +43,8 @@ object Color {
                 cursorColor = MaterialTheme.colorScheme.onSecondary,
                 unfocusedIndicatorColor = Context.Surface.base,
                 focusedIndicatorColor = MaterialTheme.colorScheme.onSecondary,
-                focusedTextColor = Context.Text.primary,
-                unfocusedTextColor = Context.Text.primary
+                focusedTextColor = MaterialTheme.colorScheme.primary,
+                unfocusedTextColor = MaterialTheme.colorScheme.primary
             )
         }
         @Composable
