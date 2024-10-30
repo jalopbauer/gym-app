@@ -11,7 +11,6 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.indigo.gymapp.common.text.label.Label
-import com.indigo.gymapp.ui.theme.color.Color.Context
 
 data class TabBarItem(
     val title: String,
@@ -28,7 +27,7 @@ fun TabBottomBar(initialItem: Int, tabBarItems: List<TabBarItem>, onNavigate: (S
     }
 
     NavigationBar (
-        containerColor = Context.Surface.base
+        containerColor = MaterialTheme.colorScheme.background
     ) {
         tabBarItems.forEachIndexed { index, tabBarItem ->
             val isSelected = selectedTabIndex == index

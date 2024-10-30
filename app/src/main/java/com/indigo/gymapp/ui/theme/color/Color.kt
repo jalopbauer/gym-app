@@ -23,7 +23,6 @@ object Color {
 
     object Context {
         object Surface {
-            val base = Brand.`neutral-600`()
             val information = Brand.`neutral-300`()
         }
         object Text {
@@ -38,10 +37,10 @@ object Color {
         @Composable
         fun textFieldColorsField(): TextFieldColors {
             return TextFieldDefaults.colors().copy(
-                unfocusedContainerColor = Context.Surface.base,
-                focusedContainerColor = Context.Surface.base,
+                unfocusedContainerColor = MaterialTheme.colorScheme.background,
+                focusedContainerColor = MaterialTheme.colorScheme.background,
                 cursorColor = MaterialTheme.colorScheme.onSecondary,
-                unfocusedIndicatorColor = Context.Surface.base,
+                unfocusedIndicatorColor = MaterialTheme.colorScheme.background,
                 focusedIndicatorColor = MaterialTheme.colorScheme.onSecondary,
                 focusedTextColor = MaterialTheme.colorScheme.primary,
                 unfocusedTextColor = MaterialTheme.colorScheme.primary

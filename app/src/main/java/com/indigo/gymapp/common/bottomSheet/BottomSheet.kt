@@ -12,7 +12,6 @@ import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.indigo.gymapp.ui.spacing.Spacing
-import com.indigo.gymapp.ui.theme.color.Color
 
 @Composable
 @OptIn(ExperimentalMaterial3Api::class)
@@ -28,7 +27,7 @@ fun BottomSheet(
         ModalBottomSheet(
             onDismissRequest = onDismissRequest,
             sheetState = sheetState,
-            containerColor = Color.Context.Surface.base,
+            containerColor = MaterialTheme.colorScheme.background,
             dragHandle = { BottomSheetDefaults.DragHandle(color = MaterialTheme.colorScheme.primary) },
             modifier = Modifier.wrapContentHeight()
         ) {

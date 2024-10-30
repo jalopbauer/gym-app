@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.collectAsState
@@ -23,7 +24,6 @@ import com.indigo.gymapp.navigation.BottomAppBar
 import com.indigo.gymapp.navigation.NavHostComposable
 import com.indigo.gymapp.security.biometrics.BiometricAuthManager
 import com.indigo.gymapp.ui.theme.GymAppTheme
-import com.indigo.gymapp.ui.theme.color.Color
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -68,7 +68,7 @@ class MainActivity : FragmentActivity() {
             GymAppTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = Color.Context.Surface.base
+                    color = MaterialTheme.colorScheme.background
                 ) {
                     if (isAuthenticated) {
                         Scaffold(

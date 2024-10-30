@@ -4,19 +4,19 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.indigo.gymapp.exercises.Exercises
 import com.indigo.gymapp.pages.calendar.Calendar
 import com.indigo.gymapp.pages.configuration.Configuration
-import com.indigo.gymapp.exercises.Exercises
 import com.indigo.gymapp.routines.Routines
 import com.indigo.gymapp.routines.create.CreateRoutine
 import com.indigo.gymapp.routines.exercises.create.CreateRoutineExercise
-import com.indigo.gymapp.ui.theme.color.Color
 
 @Composable
 fun NavHostComposable(innerPadding: PaddingValues, navController: NavHostController) {
@@ -25,7 +25,7 @@ fun NavHostComposable(innerPadding: PaddingValues, navController: NavHostControl
         startDestination = NavigationPath.Calendar.name,
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.Context.Surface.base)
+            .background(MaterialTheme.colorScheme.background)
             .padding(innerPadding)
             .padding(horizontal = 10.dp)
     ) {
