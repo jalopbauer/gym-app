@@ -23,7 +23,6 @@ object Color {
 
     object Context {
         object Surface {
-            val primary = Brand.`primary-500`()
             val active = Brand.`primary-600`()
             val contrast: Color = Brand.`greyscale-500`()
             val base = Brand.`neutral-600`()
@@ -64,7 +63,7 @@ object Color {
         @Composable
         fun radioButtonColors() =
             RadioButtonDefaults.colors(
-                selectedColor = Context.Surface.primary,
+                selectedColor = MaterialTheme.colorScheme.secondary,
                 unselectedColor = Context.Surface.information
             )
     }
