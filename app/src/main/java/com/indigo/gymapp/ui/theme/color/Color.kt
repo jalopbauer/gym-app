@@ -1,6 +1,7 @@
 package com.indigo.gymapp.ui.theme.color
 
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RadioButtonDefaults
 import androidx.compose.material3.SearchBarDefaults
 import androidx.compose.material3.TextFieldColors
@@ -22,7 +23,6 @@ object Color {
 
     object Context {
         object Surface {
-            val top = Brand.`neutral-500`()
             val primary = Brand.`primary-500`()
             val active = Brand.`primary-600`()
             val contrast: Color = Brand.`greyscale-500`()
@@ -57,8 +57,8 @@ object Color {
         @Composable
         @OptIn(ExperimentalMaterial3Api::class)
         fun searchBarColors() = SearchBarDefaults.colors(
-            containerColor = Context.Surface.top,
-            dividerColor = Context.Surface.top,
+            containerColor = MaterialTheme.colorScheme.surface,
+            dividerColor = MaterialTheme.colorScheme.surface,
             inputFieldColors = textFieldColorsField(),
         )
         @Composable

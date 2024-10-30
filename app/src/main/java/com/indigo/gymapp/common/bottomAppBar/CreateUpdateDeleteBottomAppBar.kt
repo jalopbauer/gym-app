@@ -1,12 +1,12 @@
 package com.indigo.gymapp.common.bottomAppBar
 
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.indigo.gymapp.common.button.floatingActionButton.FloatingActionButton
 import com.indigo.gymapp.common.icon.Exercise
 import com.indigo.gymapp.common.icon.button.DeleteIconButton
 import com.indigo.gymapp.common.icon.button.EditIconButton
-import com.indigo.gymapp.ui.theme.color.Color.Context
 
 @Composable
 fun CreateUpdateDeleteBottomAppBar(
@@ -17,7 +17,7 @@ fun CreateUpdateDeleteBottomAppBar(
     deleteOnClick: () -> Unit,
 ) {
     androidx.compose.material3.BottomAppBar(
-        containerColor = Context.Surface.top,
+        containerColor = MaterialTheme.colorScheme.surface,
         actions = {
             if (isDeleteEnabled) {
                 DeleteIconButton(

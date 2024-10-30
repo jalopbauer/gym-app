@@ -2,6 +2,7 @@ package com.indigo.gymapp.exercises
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
 import androidx.compose.runtime.Composable
@@ -16,7 +17,6 @@ import com.indigo.gymapp.common.text.Large
 import com.indigo.gymapp.common.text.label.Label
 import com.indigo.gymapp.exercises.api.ApiExercises
 import com.indigo.gymapp.exercises.local.LocalExercises
-import com.indigo.gymapp.ui.theme.color.Color.Context
 
 @Composable
 fun Exercises() {
@@ -26,7 +26,7 @@ fun Exercises() {
     Column(modifier = Modifier.fillMaxWidth()) {
         TabRow(
             selectedTabIndex = tabIndex,
-            containerColor = Context.Surface.top
+            containerColor = MaterialTheme.colorScheme.surface
         ) {
             tabs.forEachIndexed { index, label ->
                 Tab(
