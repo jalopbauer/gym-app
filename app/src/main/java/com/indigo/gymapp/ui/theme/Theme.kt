@@ -1,6 +1,5 @@
 package com.indigo.gymapp.ui.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
@@ -10,11 +9,15 @@ import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
+import com.indigo.gymapp.ui.theme.color.NordDark
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+    primary = NordDark.`greyscale-500`(),
+    onPrimary = NordDark.`neutral-300`(),
+    secondary = NordDark.`primary-500`(),
+    onSecondary = NordDark.`primary-600`(),
+    background = NordDark.`neutral-600`(),
+    surface = NordDark.`neutral-500`(),
 )
 
 private val LightColorScheme = lightColorScheme(
@@ -31,13 +34,14 @@ private val LightColorScheme = lightColorScheme(
     onBackground = Color(0xFF1C1B1F),
     onSurface = Color(0xFF1C1B1F),
     */
+
 )
 
 @Composable
 fun GymAppTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
