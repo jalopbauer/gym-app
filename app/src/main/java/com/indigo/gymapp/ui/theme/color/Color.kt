@@ -23,10 +23,8 @@ object Color {
 
     object Context {
         object Surface {
-            val information = Brand.`neutral-300`()
         }
         object Text {
-            val information = Brand.`neutral-300`()
             val transparent = Brand.transparent
         }
         object Icon {
@@ -57,7 +55,7 @@ object Color {
         fun radioButtonColors() =
             RadioButtonDefaults.colors(
                 selectedColor = MaterialTheme.colorScheme.secondary,
-                unselectedColor = Context.Surface.information
+                unselectedColor = MaterialTheme.colorScheme.onPrimary
             )
     }
 }

@@ -1,6 +1,7 @@
 package com.indigo.gymapp.common.searchBar
 
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -9,7 +10,6 @@ import com.indigo.gymapp.common.icon.Icon
 import com.indigo.gymapp.common.icon.Search
 import com.indigo.gymapp.common.text.Medium
 import com.indigo.gymapp.common.text.title.Title
-import com.indigo.gymapp.ui.theme.color.Color
 import com.indigo.gymapp.ui.theme.color.Color.Component
 
 @Composable
@@ -30,7 +30,7 @@ fun SearchBar(
             Title(
                 title = stringResource(R.string.search_exercise),
                 textSize = Medium,
-                color = Color.Context.Text.information
+                color = MaterialTheme.colorScheme.onPrimary
             )
         },
         leadingIcon = {

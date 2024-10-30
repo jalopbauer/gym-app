@@ -17,7 +17,6 @@ import androidx.compose.ui.unit.dp
 import com.indigo.gymapp.common.amount.intAmount.IntAmount
 import com.indigo.gymapp.common.amount.timeAmount.TimeAmount
 import com.indigo.gymapp.domain.time.Time
-import com.indigo.gymapp.ui.theme.color.Color
 
 @Composable
 private fun TextDrawerButton(
@@ -30,7 +29,7 @@ private fun TextDrawerButton(
     @FloatRange(from = 0.0, to = 1.0) maxWidthFraction: Float = 1f,
     content: @Composable () -> Unit = {},
 ) {
-    val color = if (isOnlyText && isSelected || !isOnlyText) MaterialTheme.colorScheme.primary else Color.Context.Text.information
+    val color = if (isOnlyText && isSelected || !isOnlyText) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onPrimary
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween,
@@ -62,7 +61,7 @@ fun TimeAmountTextDrawerButton(
         content = {
             TimeAmount(
                 time = time,
-                textColor = Color.Context.Text.information
+                textColor = MaterialTheme.colorScheme.onPrimary
             )
         }
     )
@@ -80,7 +79,7 @@ fun IntAmountTextDrawerButton(
         content = {
             IntAmount(
                 amount = amount,
-                textColor = Color.Context.Text.information
+                textColor = MaterialTheme.colorScheme.onPrimary
             )
         }
     )

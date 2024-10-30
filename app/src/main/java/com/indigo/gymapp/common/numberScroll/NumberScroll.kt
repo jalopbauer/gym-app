@@ -19,7 +19,6 @@ import androidx.compose.ui.unit.dp
 import com.indigo.gymapp.common.text.Large
 import com.indigo.gymapp.common.text.label.Label
 import com.indigo.gymapp.ui.spacing.Spacing
-import com.indigo.gymapp.ui.theme.color.Color.Context
 
 // TODO Create one component with a variant parameter
 @Composable
@@ -53,7 +52,7 @@ fun VerticalNumberScroll(
                 modifier = Modifier.width(pageSize),
                 text = indexDisplay(page),
                 style = MaterialTheme.typography.displayLarge,
-                color = if (isSelected) MaterialTheme.colorScheme.primary else Context.Text.information,
+                color = if (isSelected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onPrimary,
                 textAlign = TextAlign.Right
             )
         }
@@ -90,7 +89,7 @@ fun HorizontalNumberScroll(
                 modifier = Modifier.width(pageSize),
                 text = indexDisplay(page),
                 style = MaterialTheme.typography.displayLarge,
-                color = if (isSelected) MaterialTheme.colorScheme.primary else Context.Text.information,
+                color = if (isSelected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onPrimary,
                 textAlign = TextAlign.Right
             )
         }
