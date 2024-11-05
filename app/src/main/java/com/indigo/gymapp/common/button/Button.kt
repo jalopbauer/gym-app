@@ -2,6 +2,7 @@ package com.indigo.gymapp.common.button
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -14,14 +15,30 @@ import com.indigo.gymapp.ui.theme.color.Color
 fun Button(
     text: String,
     onClick: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    buttonVariant : ButtonVariant = Primary,
 ) {
     androidx.compose.material3.Button(
         modifier = modifier.fillMaxWidth(),
         onClick = onClick,
-        colors = Color.Component.Button.primaryButtonColor(),
+        colors = when (buttonVariant) {
+            Primary -> Color.Component.Button.primaryButtonColor()
+            Danger -> Color.Component.Button.dangerButtonColor()
+        },
         contentPadding = PaddingValues(vertical = 16.dp)
     ) {
-        Title(text, Large)
+        Title(
+            title = text,
+            textSize = Large,
+            color = when (buttonVariant) {
+                Danger, Primary -> MaterialTheme.colorScheme.primary
+            }
+        )
     }
 }
+
+sealed interface ButtonVariant
+
+data object Primary : ButtonVariant
+
+data object Danger : ButtonVariant

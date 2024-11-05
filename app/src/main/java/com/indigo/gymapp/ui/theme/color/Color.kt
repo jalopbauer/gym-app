@@ -26,6 +26,8 @@ object Color {
 
             fun `primary-600`(): Color = Color(0xFF5E81AC)
             fun `primary-500`(): Color = Color(0xFF81A1C1)
+
+            fun `state-error`(): Color = Color(0xFFbf616a)
         }
     }
 
@@ -62,6 +64,12 @@ object Color {
             fun primaryButtonColor() =
                 ButtonDefaults.buttonColors().copy(
                     containerColor = MaterialTheme.colorScheme.secondary
+                )
+
+            @Composable
+            fun dangerButtonColor() =
+                ButtonDefaults.buttonColors().copy(
+                    containerColor = MaterialTheme.colorScheme.error
                 )
         }
     }

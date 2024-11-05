@@ -19,6 +19,7 @@ private val DarkColorScheme = darkColorScheme(
     background = Color.Theme.Nord.`neutral-600`(),
     onBackground = Color.Theme.Nord.`greyscale-500`(),
     surface = Color.Theme.Nord.`neutral-500`(),
+    error = Color.Theme.Nord.`state-error`(),
 )
 
 private val LightColorScheme = lightColorScheme(
@@ -29,6 +30,7 @@ private val LightColorScheme = lightColorScheme(
     background = Color.Theme.Nord.`greyscale-500`(),
     onBackground = Color.Theme.Nord.`greyscale-500`(),
     surface = Color.Theme.Nord.`greyscale-700`(),
+    error = Color.Theme.Nord.`state-error`(),
 )
 
 @Composable
