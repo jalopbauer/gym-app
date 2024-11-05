@@ -1,5 +1,6 @@
 package com.indigo.gymapp.ui.theme.color
 
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RadioButtonDefaults
@@ -48,11 +49,20 @@ object Color {
             dividerColor = MaterialTheme.colorScheme.surface,
             inputFieldColors = textFieldColorsField(),
         )
+
         @Composable
         fun radioButtonColors() =
             RadioButtonDefaults.colors(
                 selectedColor = MaterialTheme.colorScheme.secondary,
                 unselectedColor = MaterialTheme.colorScheme.onPrimary
             )
+
+        object Button {
+            @Composable
+            fun primaryButtonColor() =
+                ButtonDefaults.buttonColors().copy(
+                    containerColor = MaterialTheme.colorScheme.secondary
+                )
+        }
     }
 }
