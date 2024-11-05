@@ -28,6 +28,6 @@ fun TimeButton(
             .clickable { onClick(time) },
         contentAlignment = Alignment.Center,
     ) {
-        Body("$time", Large)
+        Body("$time", Large, MaterialTheme.colorScheme.onBackground)
     }
 }

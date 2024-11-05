@@ -17,15 +17,17 @@ private val DarkColorScheme = darkColorScheme(
     secondary = Color.Theme.Nord.`primary-500`(),
     onSecondary = Color.Theme.Nord.`primary-600`(),
     background = Color.Theme.Nord.`neutral-600`(),
+    onBackground = Color.Theme.Nord.`greyscale-500`(),
     surface = Color.Theme.Nord.`neutral-500`(),
 )
 
 private val LightColorScheme = lightColorScheme(
     primary = Color.Theme.Nord.`neutral-500`(),
-    onPrimary = Color.Theme.Nord.`neutral-300`(),
+    onPrimary = Color.Theme.Nord.`neutral-200`(),
     secondary = Color.Theme.Nord.`primary-500`(),
     onSecondary = Color.Theme.Nord.`primary-600`(),
     background = Color.Theme.Nord.`greyscale-500`(),
+    onBackground = Color.Theme.Nord.`greyscale-500`(),
     surface = Color.Theme.Nord.`greyscale-700`(),
 )
 
