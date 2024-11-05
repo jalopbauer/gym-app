@@ -19,6 +19,7 @@ object Spacing {
             val screen = Brand.l
             val header_with_icon_button = Brand.m
             val card = Brand.m
+            val button = Brand.m
         }
         object Gap {
             val space = Brand.xs

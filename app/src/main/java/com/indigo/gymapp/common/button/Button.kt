@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import com.indigo.gymapp.common.text.Large
 import com.indigo.gymapp.common.text.title.Title
 import com.indigo.gymapp.ui.spacing.Spacing
@@ -32,7 +31,7 @@ fun Button(
             Danger -> Color.Component.Button.dangerButtonColor()
             Secondary -> Color.Component.Button.secondaryButtonColor()
         },
-        contentPadding = PaddingValues(vertical = 16.dp)
+        contentPadding = PaddingValues(vertical = Spacing.Context.Padding.button)
     ) {
         Title(
             title = text,
