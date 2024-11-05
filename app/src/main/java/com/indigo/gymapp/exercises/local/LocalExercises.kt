@@ -24,6 +24,7 @@ import com.indigo.gymapp.R
 import com.indigo.gymapp.common.bottomSheet.BottomSheet
 import com.indigo.gymapp.common.button.Button
 import com.indigo.gymapp.common.button.Danger
+import com.indigo.gymapp.common.button.Secondary
 import com.indigo.gymapp.common.text.headline.Headline
 import com.indigo.gymapp.common.textField.TextField
 import com.indigo.gymapp.exercises.Exercise
@@ -105,7 +106,8 @@ fun LocalExercises() {
                                 selectedExerciseId = null
                                 bottomSheetState = Closed
                             },
-                            modifier = Modifier.weight(1f)
+                            modifier = Modifier.weight(1f),
+                            buttonVariant = Secondary
                         )
                         Button(
                             text = "Delete",

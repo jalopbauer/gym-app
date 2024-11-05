@@ -71,6 +71,12 @@ object Color {
                 ButtonDefaults.buttonColors().copy(
                     containerColor = MaterialTheme.colorScheme.error
                 )
+
+            @Composable
+            fun secondaryButtonColor() =
+                ButtonDefaults.buttonColors().copy(
+                    containerColor = MaterialTheme.colorScheme.background,
+                )
         }
     }
 }
