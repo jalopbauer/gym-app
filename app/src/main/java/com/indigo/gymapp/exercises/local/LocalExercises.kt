@@ -4,7 +4,9 @@ import android.widget.Toast
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
@@ -19,7 +21,9 @@ import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.indigo.gymapp.R
+import com.indigo.gymapp.common.bottomSheet.BottomSheet
 import com.indigo.gymapp.common.button.Button
+import com.indigo.gymapp.common.text.headline.Headline
 import com.indigo.gymapp.common.textField.TextField
 import com.indigo.gymapp.exercises.Exercise
 import com.indigo.gymapp.exercises.viewModel.ExerciseViewModel
@@ -34,6 +38,14 @@ fun LocalExercises() {
     val exercises by exerciseViewModel.exercises.collectAsState(initial = emptyList())
     var newExerciseName by remember {
         mutableStateOf("")
+    }
+
+    var selectedExerciseId by remember {
+        mutableStateOf<Long?>(null)
+    }
+
+    var bottomSheetState by remember {
+        mutableStateOf<ExerciseBottomSheetState>(Closed)
     }
 
     Column(
@@ -59,20 +71,65 @@ fun LocalExercises() {
             }
         )
         Exercises(
-            exercises = exercises
+            exercises = exercises,
+            deleteOnClick = {
+                bottomSheetState = DeleteExercise
+                selectedExerciseId = it
+            }
         )
+    }
+    BottomSheet(
+        showBottomSheet = bottomSheetState.showBottomSheet(),
+        onDismissRequest = {
+            selectedExerciseId = null
+            bottomSheetState = Closed
+        },
+    ) {
+        when (bottomSheetState) {
+            DeleteExercise -> {
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    verticalArrangement = Arrangement.spacedBy(Context.Gap.medium)
+                ) {
+                    Headline(headline = "Deleting this exercise will delete all exercises in your routines")
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(Context.Gap.default)
+                    ) {
+                        Button(
+                            text = "Cancel",
+                            onClick = {
+                                selectedExerciseId = null
+                                bottomSheetState = Closed
+                            },
+                            modifier = Modifier.weight(1f)
+                        )
+                        Button(
+                            text = "Delete",
+                            onClick = {
+
+                            },
+                            modifier = Modifier.weight(1f)
+                        )
+                    }
+                }
+            }
+            Closed -> {}
+        }
     }
 }
 
 @Composable
-private fun Exercises(exercises: List<Exercise>) {
+private fun Exercises(exercises: List<Exercise>, deleteOnClick: (Long) -> Unit) {
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(space = Context.Gap.default)
     ) {
         items(exercises) { exercise ->
             Exercise(
                 exercise = exercise,
-                deleteOnClick = {}
+                deleteOnClick = deleteOnClick
             )
         }
     }

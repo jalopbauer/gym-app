@@ -15,9 +15,10 @@ import com.indigo.gymapp.common.text.title.Title
 fun Button(
     text: String,
     onClick: () -> Unit,
+    modifier: Modifier = Modifier
 ) {
     androidx.compose.material3.Button(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = modifier.fillMaxWidth(),
         onClick = onClick,
         colors = ButtonDefaults.buttonColors().copy(
             containerColor = MaterialTheme.colorScheme.secondary
