@@ -197,7 +197,6 @@ private fun ChangeNameBottomSheetContent(
 ) {
     TextField(
 // TODO Make keyboard open on show bottom sheet
-// TODO close BottomSheet on keyboard enter
         value = routineName,
         label = stringResource(id = R.string.name_your_routine),
         onValueChange = onValueChange,
