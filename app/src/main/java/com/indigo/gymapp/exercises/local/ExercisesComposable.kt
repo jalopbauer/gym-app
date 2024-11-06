@@ -4,13 +4,14 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
+import com.indigo.gymapp.common.spacer.ListBottomSpacer
 import com.indigo.gymapp.exercises.Exercise
-import com.indigo.gymapp.ui.spacing.Spacing.Context
+import com.indigo.gymapp.ui.spacing.Spacing.Context.Gap
 
 @Composable
 fun Exercises(exercises: List<Exercise>, deleteOnClick: (Long) -> Unit) {
     LazyColumn(
-        verticalArrangement = Arrangement.spacedBy(space = Context.Gap.default)
+        verticalArrangement = Arrangement.spacedBy(space = Gap.default)
     ) {
         items(exercises) { exercise ->
             Exercise(
@@ -18,5 +19,9 @@ fun Exercises(exercises: List<Exercise>, deleteOnClick: (Long) -> Unit) {
                 deleteOnClick = deleteOnClick
             )
         }
+        item {
+            ListBottomSpacer()
+        }
     }
 }
+

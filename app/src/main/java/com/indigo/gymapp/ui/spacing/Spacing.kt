@@ -33,6 +33,9 @@ object Spacing {
         object BorderStroke {
             val default = Brand.xxs
         }
+        object Spacer {
+            val listBottom = 64.dp
+        }
     }
 
 }
