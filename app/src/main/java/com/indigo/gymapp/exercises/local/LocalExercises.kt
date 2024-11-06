@@ -19,15 +19,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.indigo.gymapp.R
 import com.indigo.gymapp.common.bottomSheet.BottomSheet
-import com.indigo.gymapp.common.button.Button
 import com.indigo.gymapp.common.button.floatingActionButton.FloatingActionButton
 import com.indigo.gymapp.common.icon.Add
-import com.indigo.gymapp.common.textField.TextField
 import com.indigo.gymapp.exercises.Exercise
 import com.indigo.gymapp.exercises.viewModel.ExerciseViewModel
 import com.indigo.gymapp.ui.spacing.Spacing.Context
@@ -108,12 +105,10 @@ fun LocalExercises() {
                 )
             }
             AddExercise -> {
-                NewExerciseNameTextField(
+                AddExercise(
                     newExerciseName = newExerciseName,
-                    onValueChange = { newExerciseName = it }
-                )
-                AddExerciseButton(
-                    onClick = {
+                    onExerciseNameChange = { newExerciseName = it },
+                    addExerciseOnClick = {
                         exerciseViewModel.createExercise(newExerciseName)
                         Toast.makeText(
                             context,
@@ -143,24 +138,4 @@ private fun Exercises(exercises: List<Exercise>, deleteOnClick: (Long) -> Unit) 
             )
         }
     }
-}
-
-@Composable
-private fun AddExerciseButton(onClick: () -> Unit) {
-    Button(
-        text = stringResource(R.string.add_exercise),
-        onClick = onClick
-    )
-}
-
-@Composable
-private fun NewExerciseNameTextField(
-    newExerciseName: String,
-    onValueChange: (String) -> Unit
-) {
-    TextField(
-        value = newExerciseName,
-        label = stringResource(R.string.exercise_name),
-        onValueChange = onValueChange
-    )
 }
