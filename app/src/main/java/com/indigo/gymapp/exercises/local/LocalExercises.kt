@@ -116,6 +116,7 @@ fun LocalExercises() {
                                     exerciseViewModel.deleteExercise(it)
                                 }
                                 bottomSheetState = Closed
+                                Toast.makeText(context, context.getString(R.string.exercise_deleted), Toast.LENGTH_SHORT).show()
                             },
                             modifier = Modifier.weight(1f),
                             buttonVariant = Danger
