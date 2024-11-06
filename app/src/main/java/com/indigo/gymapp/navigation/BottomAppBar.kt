@@ -1,15 +1,14 @@
 package com.indigo.gymapp.navigation
 
 import androidx.annotation.IntRange
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Build
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.Star
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.indigo.gymapp.common.bottomAppBar.TabBarItem
 import com.indigo.gymapp.common.bottomAppBar.TabBottomBar
+import com.indigo.gymapp.common.icon.Calendar
+import com.indigo.gymapp.common.icon.Configuration
+import com.indigo.gymapp.common.icon.Exercise
+import com.indigo.gymapp.common.icon.Routines
 
 @Composable
 fun BottomAppBar(
@@ -18,10 +17,10 @@ fun BottomAppBar(
     onNavigate: (String) -> Unit,
 ) {
 
-    val exercisesScreen = TabBarItem(title = NavigationPath.Exercises.name, icon = Icons.Filled.Home)
-    val calendarScreen = TabBarItem(title = NavigationPath.Calendar.name, icon = Icons.Filled.Star)
-    val routinesScreen = TabBarItem(title = NavigationPath.Routines.name, icon = Icons.Filled.Person)
-    val configScreen = TabBarItem(title = NavigationPath.Configuration.name, icon = Icons.Filled.Build)
+    val exercisesScreen = TabBarItem(title = NavigationPath.Exercises.name, icon = Exercise)
+    val calendarScreen = TabBarItem(title = NavigationPath.Calendar.name, icon = Calendar)
+    val routinesScreen = TabBarItem(title = NavigationPath.Routines.name, icon = Routines)
+    val configScreen = TabBarItem(title = NavigationPath.Configuration.name, icon = Configuration)
 
     val tabBarItems = listOf(exercisesScreen, calendarScreen, routinesScreen, configScreen)
 
