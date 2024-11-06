@@ -2,12 +2,11 @@ package com.indigo.gymapp.routines.exercises.list.item
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.AccountBox
-import androidx.compose.material.icons.outlined.Face
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import com.indigo.gymapp.R
+import com.indigo.gymapp.common.icon.SetRoutineExercise
+import com.indigo.gymapp.common.icon.TimedRoutineExercise
 import com.indigo.gymapp.common.iconTextValue.IconTextValue
 import com.indigo.gymapp.common.text.body.Body
 import com.indigo.gymapp.domain.routines.exercises.SetExercise
@@ -17,15 +16,13 @@ import com.indigo.gymapp.ui.spacing.Spacing
 fun SetExerciseIconTextValue(exercise: SetExercise) {
     Row (horizontalArrangement = Arrangement.spacedBy(Spacing.Context.Gap.default)) {
         IconTextValue(
-            imageVector = Icons.Outlined.Face,
-            contentDescription = stringResource(id = R.string.amount_of_sets),
+            iconVariant = SetRoutineExercise,
             text = stringResource(id = R.string.sets)
         ) {
             Body(body = "${exercise.amountOfSets}")
         }
         IconTextValue(
-            imageVector = Icons.Outlined.AccountBox,
-            contentDescription = stringResource(id = R.string.rest_between_sets),
+            iconVariant = TimedRoutineExercise,
             text = stringResource(id = R.string.rest)
         ) {
             Body(body = "${exercise.rest}")
