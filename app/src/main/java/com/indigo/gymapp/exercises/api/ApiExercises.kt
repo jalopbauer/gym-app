@@ -1,5 +1,6 @@
 package com.indigo.gymapp.exercises.api
 
+import android.widget.Toast
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -20,6 +21,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -33,6 +35,8 @@ import com.indigo.gymapp.ui.theme.PurpleGrey80
 
 @Composable
 fun ApiExercises() {
+    val context = LocalContext.current
+
     val viewModel = hiltViewModel<ApiExercisesViewModel>()
 
     val exercises by viewModel.exercises.collectAsState()
@@ -70,7 +74,11 @@ fun ApiExercises() {
             items(exercises) { exercise ->
                 ExerciseView(
                     exercise = exercise,
-                    getExerciseOnClick = { exerciseViewModel.createExercise( it.name )}
+                    getExerciseOnClick = {
+                        val exerciseName = it.name
+                        exerciseViewModel.createExercise(exerciseName)
+                        Toast.makeText(context, context.getString(R.string.exercise_added, exerciseName), Toast.LENGTH_SHORT).show()
+                    }
                 )
             }
         }
