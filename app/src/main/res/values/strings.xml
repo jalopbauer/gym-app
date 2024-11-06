@@ -41,4 +41,5 @@
     <string name="exercise">Exercise</string>
     <string name="deleting_this_exercise_will_delete_all_exercises_in_your_routines">Deleting this exercise will delete all exercises in your routines</string>
     <string name="exercise_deleted">Exercise deleted</string>
+    <string name="routine_deleted">Routine deleted</string>
 </resources>

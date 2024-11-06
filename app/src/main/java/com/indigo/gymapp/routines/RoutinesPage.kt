@@ -1,5 +1,6 @@
 package com.indigo.gymapp.routines
 
+import android.widget.Toast
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -10,8 +11,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.indigo.gymapp.R
 import com.indigo.gymapp.common.button.floatingActionButton.FloatingActionButton
 import com.indigo.gymapp.common.icon.Add
 import com.indigo.gymapp.manager.bottomAppBar.BottomAppBarViewModel
@@ -22,6 +25,8 @@ import kotlinx.coroutines.launch
 fun Routines(
     onNavigateToCreateRoutine: () -> Unit
 ) {
+    val context = LocalContext.current
+
     val bottomAppBarViewModel = hiltViewModel<BottomAppBarViewModel>()
     val routineViewModel = hiltViewModel<RoutineViewModel>()
     val routines by routineViewModel.routines.collectAsState(initial = emptyList())
@@ -48,6 +53,7 @@ fun Routines(
                 coroutineScope.launch {
                     routineViewModel.deleteRoutine(it)
                 }
+                Toast.makeText(context, context.getString(R.string.routine_deleted), Toast.LENGTH_SHORT).show()
             }
         )
 
