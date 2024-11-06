@@ -103,7 +103,10 @@ fun CreateRoutine(
                 coroutineScope.launch {
                     when (routineViewModel.saveRoutine()) {
                         MissingName -> Toast.makeText(context, context.getString(R.string.must_have_name_set), Toast.LENGTH_SHORT).show()
-                        Saved -> onNavigateToRoutines()
+                        Saved -> {
+                            onNavigateToRoutines()
+                            Toast.makeText(context, context.getString(R.string.routine_saved), Toast.LENGTH_SHORT).show()
+                        }
                     }
                 }
             },
