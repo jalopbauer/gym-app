@@ -18,7 +18,6 @@ data class TabBarItem(
     val icon: ImageVector
 )
 
-// TODO Remove background color behind icon
 // TODO Change icons
 
 @Composable

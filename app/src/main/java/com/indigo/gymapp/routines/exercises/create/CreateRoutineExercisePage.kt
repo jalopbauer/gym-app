@@ -97,7 +97,6 @@ fun CreateRoutineExercise(
                                 amountOfSets = routineExerciseBuilder.amountOfSets,
                                 rest = routineExerciseBuilder.rest
                             )
-//                          TODO No se si esto esta bien si estoy haciendo algo mal
                             coroutineScope.launch {
                                 routineViewModel.addExercise(routineExercise)
                             }
