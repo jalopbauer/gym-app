@@ -3,10 +3,12 @@ package com.indigo.gymapp.exercises.local
 import android.widget.Toast
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
@@ -15,16 +17,20 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.indigo.gymapp.R
 import com.indigo.gymapp.common.bottomSheet.BottomSheet
 import com.indigo.gymapp.common.button.Button
 import com.indigo.gymapp.common.button.Danger
 import com.indigo.gymapp.common.button.Secondary
+import com.indigo.gymapp.common.button.floatingActionButton.FloatingActionButton
+import com.indigo.gymapp.common.icon.Add
 import com.indigo.gymapp.common.text.headline.Headline
 import com.indigo.gymapp.common.textField.TextField
 import com.indigo.gymapp.exercises.Exercise
@@ -50,36 +56,37 @@ fun LocalExercises() {
         mutableStateOf<ExerciseBottomSheetState>(Closed)
     }
 
-    Column(
+    Box(
         modifier = Modifier
             .fillMaxSize()
-            .clickable { focusManager.clearFocus() },
-        verticalArrangement = Arrangement.spacedBy(Context.Gap.default)
     ) {
-        NewExerciseNameTextField(
-            newExerciseName = newExerciseName,
-            onValueChange = { newExerciseName = it }
-        )
-        AddExerciseButton(
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .clickable { focusManager.clearFocus() },
+            verticalArrangement = Arrangement.spacedBy(Context.Gap.default)
+        ) {
+            Exercises(
+                exercises = exercises,
+                deleteOnClick = {
+                    bottomSheetState = DeleteExercise
+                    selectedExerciseId = it
+                }
+            )
+        }
+
+        FloatingActionButton(
+            iconVariant = Add,
             onClick = {
-                exerciseViewModel.createExercise(newExerciseName)
-                Toast.makeText(
-                    context,
-                    context.getString(R.string.exercise_added, newExerciseName),
-                    Toast.LENGTH_SHORT
-                ).show()
-                newExerciseName = ""
-                focusManager.clearFocus()
-            }
-        )
-        Exercises(
-            exercises = exercises,
-            deleteOnClick = {
-                bottomSheetState = DeleteExercise
-                selectedExerciseId = it
-            }
+                bottomSheetState = AddExercise
+            },
+            modifier = Modifier
+                .align(Alignment.BottomEnd)
+                .padding(16.dp)
         )
     }
+
+
     BottomSheet(
         showBottomSheet = bottomSheetState.showBottomSheet(),
         onDismissRequest = {
@@ -123,6 +130,25 @@ fun LocalExercises() {
                         )
                     }
                 }
+            }
+            AddExercise -> {
+                NewExerciseNameTextField(
+                    newExerciseName = newExerciseName,
+                    onValueChange = { newExerciseName = it }
+                )
+                AddExerciseButton(
+                    onClick = {
+                        exerciseViewModel.createExercise(newExerciseName)
+                        Toast.makeText(
+                            context,
+                            context.getString(R.string.exercise_added, newExerciseName),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        newExerciseName = ""
+                        focusManager.clearFocus()
+                        bottomSheetState = Closed
+                    }
+                )
             }
             Closed -> {}
         }

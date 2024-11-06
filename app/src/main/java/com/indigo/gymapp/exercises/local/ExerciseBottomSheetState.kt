@@ -11,3 +11,5 @@ sealed interface Open : ExerciseBottomSheetState {
 }
 
 data object DeleteExercise : Open
+
+data object AddExercise : Open
