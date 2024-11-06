@@ -102,6 +102,7 @@ fun CreateRoutineExercise(
                                 routineViewModel.addExercise(routineExercise)
                             }
                             onNavigateToCreateRoutine()
+                            Toast.makeText(context, context.getString(R.string.routine_exercise_created), Toast.LENGTH_SHORT).show()
                         } ?: Toast.makeText(context, context.getString(R.string.must_select_exercise), Toast.LENGTH_SHORT).show()
                     }
                     CreateTimedRoutineExercise -> TODO()

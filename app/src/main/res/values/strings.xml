@@ -43,4 +43,5 @@
     <string name="exercise_deleted">Exercise deleted</string>
     <string name="routine_deleted">Routine deleted</string>
     <string name="delete_routine_exercise">Delete routine exercise</string>
+    <string name="routine_exercise_created">Routine exercise created</string>
 </resources>
