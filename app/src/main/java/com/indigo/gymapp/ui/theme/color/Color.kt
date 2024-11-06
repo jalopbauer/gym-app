@@ -3,6 +3,7 @@ package com.indigo.gymapp.ui.theme.color
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.RadioButtonDefaults
 import androidx.compose.material3.SearchBarDefaults
 import androidx.compose.material3.TextFieldColors
@@ -57,6 +58,12 @@ object Color {
             RadioButtonDefaults.colors(
                 selectedColor = MaterialTheme.colorScheme.secondary,
                 unselectedColor = MaterialTheme.colorScheme.onPrimary
+            )
+
+        @Composable
+        fun navigationBarItemColors() =
+            NavigationBarItemDefaults.colors(
+                indicatorColor = MaterialTheme.colorScheme.background
             )
 
         object Button {
