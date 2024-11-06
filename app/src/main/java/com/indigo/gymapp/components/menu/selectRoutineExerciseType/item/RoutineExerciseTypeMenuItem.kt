@@ -10,10 +10,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.indigo.gymapp.R
-import com.indigo.gymapp.common.icon.Icon
 import com.indigo.gymapp.common.icon.IconVariant
 import com.indigo.gymapp.common.icon.SetRoutineExercise
 import com.indigo.gymapp.common.icon.TimedRoutineExercise
+import com.indigo.gymapp.common.icon.highlight.HighlightIcon
 import com.indigo.gymapp.common.preview.hug.HugPreview
 import com.indigo.gymapp.common.text.body.Body
 import com.indigo.gymapp.common.text.headline.Headline
@@ -30,9 +30,8 @@ fun RoutineExerciseTypeMenuItem(
             .fillMaxWidth()
             .clickable { onClick() },
     ) {
-//        TODO change icon size to 32.dp
-        Icon(
-            iconVariant = routineExerciseTypeVariant.iconVariant
+        HighlightIcon(
+            routineExerciseTypeVariant = routineExerciseTypeVariant
         )
         Column {
             Headline(
