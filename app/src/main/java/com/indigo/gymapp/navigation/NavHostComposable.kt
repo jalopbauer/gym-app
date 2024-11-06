@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -27,7 +26,6 @@ fun NavHostComposable(innerPadding: PaddingValues, navController: NavHostControl
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background)
             .padding(innerPadding)
-            .padding(horizontal = 10.dp)
     ) {
 //        Exercises
         composable(route = NavigationPath.Exercises.name) {
