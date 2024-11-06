@@ -1,4 +1,4 @@
-package com.indigo.gymapp.common.icon.button
+package com.indigo.gymapp.common.button.iconButton
 
 import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable

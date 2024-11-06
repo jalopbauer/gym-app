@@ -8,9 +8,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.indigo.gymapp.common.button.iconButton.CancelIconButton
+import com.indigo.gymapp.common.button.iconButton.SaveIconButton
 import com.indigo.gymapp.common.button.textInput.HeaderTextDrawerButton
-import com.indigo.gymapp.common.icon.button.CancelIconButton
-import com.indigo.gymapp.common.icon.button.SaveIconButton
 import com.indigo.gymapp.common.preview.hug.HugPreview
 import com.indigo.gymapp.ui.spacing.Spacing
 

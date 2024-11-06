@@ -4,9 +4,9 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.indigo.gymapp.common.button.floatingActionButton.FloatingActionButton
+import com.indigo.gymapp.common.button.iconButton.DeleteIconButton
+import com.indigo.gymapp.common.button.iconButton.EditIconButton
 import com.indigo.gymapp.common.icon.Exercise
-import com.indigo.gymapp.common.icon.button.DeleteIconButton
-import com.indigo.gymapp.common.icon.button.EditIconButton
 
 @Composable
 fun CreateUpdateDeleteBottomAppBar(

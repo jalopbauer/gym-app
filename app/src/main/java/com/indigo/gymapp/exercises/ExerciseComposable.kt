@@ -6,7 +6,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.indigo.gymapp.common.icon.button.DeleteIconButton
+import com.indigo.gymapp.common.button.iconButton.DeleteIconButton
 import com.indigo.gymapp.common.text.headline.Headline
 
 @Composable

@@ -13,7 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import com.indigo.gymapp.common.icon.button.DeleteIconButton
+import com.indigo.gymapp.common.button.iconButton.DeleteIconButton
 import com.indigo.gymapp.common.text.headline.Headline
 import com.indigo.gymapp.ui.spacing.Spacing.Context
 
