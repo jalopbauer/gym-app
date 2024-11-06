@@ -77,7 +77,7 @@ fun CreateRoutine(
     LaunchedEffect(isEditAndDeleteEnabled) {
         bottomAppBarViewModel.setCreateUpdateDelete(
             isDeleteEnabled = isEditAndDeleteEnabled,
-            isEditEnabled = isEditAndDeleteEnabled,
+            isEditEnabled = false,
             addOnClick = onNavigateToAddRoutineExercise,
             editOnClick = {},
             deleteOnClick = {
