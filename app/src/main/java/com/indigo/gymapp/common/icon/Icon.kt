@@ -1,5 +1,6 @@
 package com.indigo.gymapp.common.icon
 
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.List
 import androidx.compose.material.icons.outlined.Add
@@ -14,28 +15,31 @@ import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material.icons.outlined.Timer
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 import com.indigo.gymapp.R
 
 @Composable
-fun Icon(iconVariant : IconVariant, tint: Color = MaterialTheme.colorScheme.primary) {
+fun Icon(iconVariant : IconVariant, tint: Color = MaterialTheme.colorScheme.primary, size: Dp = 24.dp) {
     when (iconVariant) {
-        Save -> SaveIcon(tint)
-        Cancel -> CancelIcon(tint)
-        Delete -> DeleteIcon(tint)
-        Edit -> EditIcon(tint)
-        Add -> AddIcon(tint)
-        SetRoutineExercise -> SetRoutineExerciseIcon(tint)
-        TimedRoutineExercise -> TimedRoutineExerciseIcon(tint)
-        Search -> SearchIcon(tint)
-        Exercise -> ExerciseIcon(tint)
-        Calendar -> CalendarIcon(tint)
-        Routines -> RoutinesIcon(tint)
-        Configuration -> ConfigurationIcon(tint)
+        Save -> SaveIcon(tint, size)
+        Cancel -> CancelIcon(tint, size)
+        Delete -> DeleteIcon(tint, size)
+        Edit -> EditIcon(tint, size)
+        Add -> AddIcon(tint, size)
+        SetRoutineExercise -> SetRoutineExerciseIcon(tint, size)
+        TimedRoutineExercise -> TimedRoutineExerciseIcon(tint, size)
+        Search -> SearchIcon(tint, size)
+        Exercise -> ExerciseIcon(tint, size)
+        Calendar -> CalendarIcon(tint, size)
+        Routines -> RoutinesIcon(tint, size)
+        Configuration -> ConfigurationIcon(tint, size)
     }
 }
 
@@ -44,8 +48,10 @@ private fun ImageVectorIcon(
     imageVector: ImageVector,
     contentDescription: String,
     tint: Color = MaterialTheme.colorScheme.primary,
+    size: Dp = 24.dp,
 ) {
     androidx.compose.material3.Icon(
+        modifier = Modifier.size(size),
         imageVector = imageVector,
         contentDescription = contentDescription,
         tint = tint
@@ -57,8 +63,10 @@ private fun PainterIcon(
     painter: Painter,
     contentDescription: String,
     tint: Color = MaterialTheme.colorScheme.primary,
+    size: Dp = 24.dp,
 ) {
     androidx.compose.material3.Icon(
+        modifier = Modifier.size(size),
         painter = painter,
         contentDescription = contentDescription,
         tint = tint
@@ -66,110 +74,122 @@ private fun PainterIcon(
 }
 
 @Composable
-fun CancelIcon(tint: Color) {
+fun CancelIcon(tint: Color, size: Dp) {
     ImageVectorIcon(
         imageVector = Icons.Outlined.Close,
         contentDescription = stringResource(R.string.cancel),
-        tint = tint
+        tint = tint,
+        size = size,
     )
 }
 
 @Composable
-fun SaveIcon(tint: Color) {
+fun SaveIcon(tint: Color, size: Dp) {
     ImageVectorIcon(
         imageVector = Icons.Outlined.Save,
         contentDescription = stringResource(R.string.save),
-        tint = tint
+        tint = tint,
+        size = size,
     )
 }
 
 @Composable
-fun DeleteIcon(tint: Color) {
+fun DeleteIcon(tint: Color, size: Dp) {
     ImageVectorIcon(
         imageVector = Icons.Outlined.Delete,
         contentDescription = stringResource(R.string.delete),
-        tint = tint
+        tint = tint,
+        size = size,
     )
 }
 
 @Composable
-fun EditIcon(tint: Color) {
+fun EditIcon(tint: Color, size: Dp) {
     ImageVectorIcon(
         imageVector = Icons.Outlined.Edit,
         contentDescription = stringResource(R.string.edit),
-        tint = tint
+        tint = tint,
+        size = size,
     )
 }
 
 @Composable
-fun AddIcon(tint: Color) {
+fun AddIcon(tint: Color, size: Dp) {
     ImageVectorIcon(
         imageVector = Icons.Outlined.Add,
         contentDescription = stringResource(R.string.add),
-        tint = tint
+        tint = tint,
+        size = size,
     )
 }
 
 @Composable
-fun SetRoutineExerciseIcon(tint: Color) {
+fun SetRoutineExerciseIcon(tint: Color, size: Dp) {
     ImageVectorIcon(
         imageVector = Icons.Outlined.Replay,
         contentDescription = stringResource(R.string.set),
-        tint = tint
+        tint = tint,
+        size = size,
     )
 }
 
 @Composable
-fun TimedRoutineExerciseIcon(tint: Color) {
+fun TimedRoutineExerciseIcon(tint: Color, size: Dp) {
     ImageVectorIcon(
         imageVector = Icons.Outlined.Timer,
         contentDescription = stringResource(R.string.timed),
-        tint = tint
+        tint = tint,
+        size = size,
     )
 }
 
 @Composable
-fun SearchIcon(tint: Color) {
+fun SearchIcon(tint: Color, size: Dp) {
     ImageVectorIcon(
         imageVector = Icons.Outlined.Search,
         contentDescription = stringResource(R.string.search),
-        tint = tint
+        tint = tint,
+        size = size,
     )
 }
 
 @Composable
-fun CalendarIcon(tint: Color) {
+fun CalendarIcon(tint: Color, size: Dp) {
     ImageVectorIcon(
         imageVector = Icons.Outlined.CalendarToday,
         contentDescription = stringResource(R.string.calendar),
-        tint = tint
+        tint = tint,
+        size = size,
     )
 }
 
 @Composable
-fun RoutinesIcon(tint: Color) {
+fun RoutinesIcon(tint: Color, size: Dp) {
     ImageVectorIcon(
         imageVector = Icons.AutoMirrored.Outlined.List,
         contentDescription = stringResource(R.string.routines),
-        tint = tint
+        tint = tint,
+        size = size,
     )
 }
 
 @Composable
-fun ConfigurationIcon(tint: Color) {
+fun ConfigurationIcon(tint: Color, size: Dp) {
     ImageVectorIcon(
         imageVector = Icons.Outlined.Settings,
         contentDescription = stringResource(R.string.configuration),
-        tint = tint
+        tint = tint,
+        size = size,
     )
 }
 
 @Composable
-fun ExerciseIcon(tint: Color) {
+fun ExerciseIcon(tint: Color, size: Dp) {
     PainterIcon(
         painter = painterResource(id = R.drawable.exercise),
         contentDescription = stringResource(R.string.exercise),
-        tint = tint
+        tint = tint,
+        size = size,
     )
 }
 
