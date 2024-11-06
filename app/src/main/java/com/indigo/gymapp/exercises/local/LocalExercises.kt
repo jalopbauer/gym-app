@@ -5,9 +5,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -27,11 +25,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.indigo.gymapp.R
 import com.indigo.gymapp.common.bottomSheet.BottomSheet
 import com.indigo.gymapp.common.button.Button
-import com.indigo.gymapp.common.button.Danger
-import com.indigo.gymapp.common.button.Secondary
 import com.indigo.gymapp.common.button.floatingActionButton.FloatingActionButton
 import com.indigo.gymapp.common.icon.Add
-import com.indigo.gymapp.common.text.headline.Headline
 import com.indigo.gymapp.common.textField.TextField
 import com.indigo.gymapp.exercises.Exercise
 import com.indigo.gymapp.exercises.viewModel.ExerciseViewModel
@@ -87,49 +82,30 @@ fun LocalExercises() {
     }
 
 
+    val dismissRequest = {
+        selectedExerciseId = null
+        bottomSheetState = Closed
+    }
     BottomSheet(
         showBottomSheet = bottomSheetState.showBottomSheet(),
-        onDismissRequest = {
-            selectedExerciseId = null
-            bottomSheetState = Closed
-        },
+        onDismissRequest = dismissRequest,
     ) {
         when (bottomSheetState) {
             DeleteExercise -> {
-                Column(
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    verticalArrangement = Arrangement.spacedBy(Context.Gap.medium)
-                ) {
-                    Headline(headline = stringResource(R.string.deleting_this_exercise_will_delete_all_exercises_in_your_routines))
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(Context.Gap.default)
-                    ) {
-                        Button(
-                            text = stringResource(R.string.cancel),
-                            onClick = {
-                                selectedExerciseId = null
-                                bottomSheetState = Closed
-                            },
-                            modifier = Modifier.weight(1f),
-                            buttonVariant = Secondary
-                        )
-                        Button(
-                            text = stringResource(R.string.delete),
-                            onClick = {
-                                selectedExerciseId?.let {
-                                    exerciseViewModel.deleteExercise(it)
-                                }
-                                bottomSheetState = Closed
-                                Toast.makeText(context, context.getString(R.string.exercise_deleted), Toast.LENGTH_SHORT).show()
-                            },
-                            modifier = Modifier.weight(1f),
-                            buttonVariant = Danger
-                        )
+                DeleteExercise(
+                    cancelOnClick = dismissRequest,
+                    deleteOnClick = {
+                        selectedExerciseId?.let {
+                            exerciseViewModel.deleteExercise(it)
+                        }
+                        dismissRequest()
+                        Toast.makeText(
+                            context,
+                            context.getString(R.string.exercise_deleted),
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
-                }
+                )
             }
             AddExercise -> {
                 NewExerciseNameTextField(
