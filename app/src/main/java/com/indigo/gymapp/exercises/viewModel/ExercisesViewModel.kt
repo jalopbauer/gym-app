@@ -15,19 +15,22 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
+
 @HiltViewModel
 class ExerciseViewModel @Inject constructor(
     @ApplicationContext val context: Context,
 ) : ViewModel() {
 
     private val gymDatabase = GymDatabase.getDatabase(context)
+    private val exerciseDao = gymDatabase.exerciseDao()
+    private val setExerciseDao = gymDatabase.setExerciseDao()
 
-    val exercises = gymDatabase.exerciseDao().getAll().asFlow()
+    val exercises = exerciseDao.getAll().asFlow()
 
     fun createExercise(exerciseName: String) {
         val exercise = Exercise(name = exerciseName)
         viewModelScope.launch {
-            gymDatabase.exerciseDao().create(exercise)
+            exerciseDao.create(exercise)
         }
     }
 
@@ -42,7 +45,16 @@ class ExerciseViewModel @Inject constructor(
         _search.value = exerciseName
         viewModelScope.launch {
             withContext(Dispatchers.Default) {
-                _searchExercises.emit(gymDatabase.exerciseDao().getExercisesByName(exerciseName))
+                _searchExercises.emit(exerciseDao.getExercisesByName(exerciseName))
+            }
+        }
+    }
+
+    fun deleteExercise(id : Long) {
+        viewModelScope.launch {
+            withContext(Dispatchers.Default) {
+                setExerciseDao.deleteByExerciseId(id)
+                exerciseDao.deleteById(id)
             }
         }
     }

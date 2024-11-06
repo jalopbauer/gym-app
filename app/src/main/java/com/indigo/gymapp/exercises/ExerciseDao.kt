@@ -22,4 +22,8 @@ interface ExerciseDao {
     fun getAll(): LiveData<List<Exercise>>
 
     @Query("SELECT * FROM exercises WHERE name LIKE '%' || :search || '%'")
-    fun getExercisesByName(search : String): List<Exercise>}
+    fun getExercisesByName(search : String): List<Exercise>
+
+    @Query("DELETE FROM EXERCISES WHERE id = :id")
+    suspend fun deleteById(id: Long)
+}

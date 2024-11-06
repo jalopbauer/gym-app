@@ -112,7 +112,10 @@ fun LocalExercises() {
                         Button(
                             text = "Delete",
                             onClick = {
-
+                                selectedExerciseId?.let {
+                                    exerciseViewModel.deleteExercise(it)
+                                }
+                                bottomSheetState = Closed
                             },
                             modifier = Modifier.weight(1f),
                             buttonVariant = Danger
