@@ -7,8 +7,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -25,7 +23,6 @@ import com.indigo.gymapp.R
 import com.indigo.gymapp.common.bottomSheet.BottomSheet
 import com.indigo.gymapp.common.button.floatingActionButton.FloatingActionButton
 import com.indigo.gymapp.common.icon.Add
-import com.indigo.gymapp.exercises.Exercise
 import com.indigo.gymapp.exercises.viewModel.ExerciseViewModel
 import com.indigo.gymapp.ui.spacing.Spacing.Context
 
@@ -122,20 +119,6 @@ fun LocalExercises() {
                 )
             }
             Closed -> {}
-        }
-    }
-}
-
-@Composable
-private fun Exercises(exercises: List<Exercise>, deleteOnClick: (Long) -> Unit) {
-    LazyColumn(
-        verticalArrangement = Arrangement.spacedBy(space = Context.Gap.default)
-    ) {
-        items(exercises) { exercise ->
-            Exercise(
-                exercise = exercise,
-                deleteOnClick = deleteOnClick
-            )
         }
     }
 }
