@@ -94,14 +94,14 @@ fun LocalExercises() {
                         .fillMaxWidth(),
                     verticalArrangement = Arrangement.spacedBy(Context.Gap.medium)
                 ) {
-                    Headline(headline = "Deleting this exercise will delete all exercises in your routines")
+                    Headline(headline = stringResource(R.string.deleting_this_exercise_will_delete_all_exercises_in_your_routines))
                     Row(
                         modifier = Modifier
                             .fillMaxWidth(),
                         horizontalArrangement = Arrangement.spacedBy(Context.Gap.default)
                     ) {
                         Button(
-                            text = "Cancel",
+                            text = stringResource(R.string.cancel),
                             onClick = {
                                 selectedExerciseId = null
                                 bottomSheetState = Closed
@@ -110,7 +110,7 @@ fun LocalExercises() {
                             buttonVariant = Secondary
                         )
                         Button(
-                            text = "Delete",
+                            text = stringResource(R.string.delete),
                             onClick = {
                                 selectedExerciseId?.let {
                                     exerciseViewModel.deleteExercise(it)
