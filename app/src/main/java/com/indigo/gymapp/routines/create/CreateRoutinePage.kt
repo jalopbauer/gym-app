@@ -86,6 +86,7 @@ fun CreateRoutine(
                         selectedRoutineExerciseId = null
                         routineViewModel.deleteRoutineExercise(it)
                     }
+                    Toast.makeText(context, context.getString(R.string.delete_routine_exercise), Toast.LENGTH_SHORT).show()
                 }
             }
         )
