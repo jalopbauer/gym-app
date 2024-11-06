@@ -46,4 +46,5 @@
     <string name="routine_exercise_created">Routine exercise created</string>
     <string name="routine_saved">Routine saved</string>
     <string name="calendar">Calendar</string>
+    <string name="configuration">Configuration</string>
 </resources>
