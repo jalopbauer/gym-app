@@ -25,6 +25,8 @@ import com.indigo.gymapp.common.button.floatingActionButton.FloatingActionButton
 import com.indigo.gymapp.common.icon.Add
 import com.indigo.gymapp.exercises.viewModel.ExerciseViewModel
 import com.indigo.gymapp.ui.spacing.Spacing.Context
+import com.indigo.gymapp.ui.spacing.Spacing.Context.Padding
+
 
 @Composable
 fun LocalExercises() {
@@ -52,8 +54,10 @@ fun LocalExercises() {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .clickable { focusManager.clearFocus() },
+                .clickable { focusManager.clearFocus() }
+                .padding(horizontal = Padding.screen),
             verticalArrangement = Arrangement.spacedBy(Context.Gap.default)
+
         ) {
             Exercises(
                 exercises = exercises,
