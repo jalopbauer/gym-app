@@ -20,78 +20,113 @@ import com.indigo.gymapp.common.text.Large
 import com.indigo.gymapp.common.text.label.Label
 import com.indigo.gymapp.ui.spacing.Spacing
 
-// TODO Create one component with a variant parameter
+val pageSize = 64.dp
+
 @Composable
-fun VerticalNumberScroll(
-    label: String,
+fun NumberScroll(
+    label: String? = null,
     pagerState: PagerState,
     indexDisplay: (Int) -> String = { "$it" },
-    selectedItem: (Int) -> Unit
+    selectedItem: (Int) -> Unit,
+    numberScrollVariant: NumberScrollVariant
 ) {
-    selectedItem(pagerState.settledPage)
-    val verticalPagerHeight = 360.dp
-    val pageSize = 64.dp
     Column (
         verticalArrangement = Arrangement.spacedBy(Spacing.Context.Gap.default),
         horizontalAlignment = Alignment.CenterHorizontally
     ){
-        Label(
-            label = label,
-            textSize = Large
-        )
-        VerticalPager(
-            state = pagerState,
-            pageSize = PageSize.Fixed(pageSize),
-            modifier = Modifier.height(verticalPagerHeight),
-            horizontalAlignment = Alignment.End,
-            contentPadding = PaddingValues(vertical = (verticalPagerHeight - pageSize) / 2)
-
-        ) { page ->
-            val isSelected = page == pagerState.currentPage
-            Text(
-                modifier = Modifier.width(pageSize),
-                text = indexDisplay(page),
-                style = MaterialTheme.typography.displayLarge,
-                color = if (isSelected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onPrimary,
-                textAlign = TextAlign.Right
-            )
-        }
-    }
-}
-
-@Composable
-fun HorizontalNumberScroll(
-    label: String? = null,
-    pagerState: PagerState,
-    indexDisplay: (Int) -> String = { "$it" },
-    selectedItem: (Int) -> Unit
-) {
-    val pageSize = 64.dp
-    selectedItem(pagerState.settledPage)
-    Column (
-        verticalArrangement = Arrangement.spacedBy(Spacing.Context.Gap.default),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
         label?.let {
             Label(
                 label = label,
                 textSize = Large
             )
         }
-        HorizontalPager(
-            state = pagerState,
-            pageSize = PageSize.Fixed(pageSize),
-            contentPadding = PaddingValues(horizontal = pageSize * 2 + pageSize / 4),
-            pageSpacing = Spacing.Context.Gap.default
-        ) { page ->
-            val isSelected = page == pagerState.currentPage
-            Text(
-                modifier = Modifier.width(pageSize),
-                text = indexDisplay(page),
-                style = MaterialTheme.typography.displayLarge,
-                color = if (isSelected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onPrimary,
-                textAlign = TextAlign.Right
-            )
+        when (numberScrollVariant) {
+            HorizontalNumberScroll -> {
+                HorizontalNumberScroll(
+                    pagerState = pagerState,
+                    selectedItem = selectedItem,
+                ) { page, currentPage ->
+                    Number(
+                        page = page,
+                        currentPage = currentPage,
+                        indexDisplay = indexDisplay
+                    )
+                }
+            }
+            VerticalNumberScroll -> {
+                VerticalNumberScroll(
+                    pagerState = pagerState,
+                    selectedItem = selectedItem
+                ) { page, currentPage ->
+                    Number(
+                        page = page,
+                        currentPage = currentPage,
+                        indexDisplay = indexDisplay
+                    )
+                }
+            }
         }
     }
+
+}
+
+sealed interface NumberScrollVariant
+
+data object VerticalNumberScroll : NumberScrollVariant
+
+data object HorizontalNumberScroll : NumberScrollVariant
+
+@Composable
+fun Number(
+    page: Int,
+    currentPage: Int,
+    indexDisplay: (Int) -> String,
+) {
+    val isSelected = page == currentPage
+    Text(
+        modifier = Modifier.width(pageSize),
+        text = indexDisplay(page),
+        style = MaterialTheme.typography.displayLarge,
+        color = if (isSelected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onPrimary,
+        textAlign = TextAlign.Right
+    )
+}
+
+@Composable
+private fun VerticalNumberScroll(
+    pagerState: PagerState,
+    selectedItem: (Int) -> Unit,
+    content : @Composable (Int, Int) -> Unit
+) {
+    selectedItem(pagerState.settledPage)
+    val verticalPagerHeight = 360.dp
+    VerticalPager(
+        state = pagerState,
+        pageSize = PageSize.Fixed(pageSize),
+        modifier = Modifier.height(verticalPagerHeight),
+        horizontalAlignment = Alignment.End,
+        contentPadding = PaddingValues(vertical = (verticalPagerHeight - pageSize) / 2)
+
+    ) { page ->
+        content(page, pagerState.currentPage)
+    }
+
+}
+
+@Composable
+private fun HorizontalNumberScroll(
+    pagerState: PagerState,
+    selectedItem: (Int) -> Unit,
+    content : @Composable (Int, Int) -> Unit
+) {
+    selectedItem(pagerState.settledPage)
+    HorizontalPager(
+        state = pagerState,
+        pageSize = PageSize.Fixed(pageSize),
+        contentPadding = PaddingValues(horizontal = pageSize * 2 + pageSize / 4),
+        pageSpacing = Spacing.Context.Gap.default
+    ) { page ->
+        content(page, pagerState.currentPage)
+    }
+
 }

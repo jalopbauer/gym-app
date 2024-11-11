@@ -13,6 +13,7 @@ import androidx.compose.ui.res.stringResource
 import com.indigo.gymapp.R
 import com.indigo.gymapp.common.button.Button
 import com.indigo.gymapp.common.button.row.timeButtonsRow.TimeButtonsRow
+import com.indigo.gymapp.common.numberScroll.NumberScroll
 import com.indigo.gymapp.common.numberScroll.VerticalNumberScroll
 import com.indigo.gymapp.domain.time.Rest
 import com.indigo.gymapp.domain.time.displaySeconds
@@ -46,16 +47,18 @@ fun TimeScrollTimeButtonsRowConfirm(
             horizontalArrangement = Arrangement.spacedBy(space = Spacing.Context.Gap.extra_large, alignment = Alignment.CenterHorizontally),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            VerticalNumberScroll(
+            NumberScroll(
                 label = stringResource(R.string.minutes),
                 pagerState = minutesVerticalNumberScrollPagerState,
-                selectedItem = selectedMinutes
+                selectedItem = selectedMinutes,
+                numberScrollVariant = VerticalNumberScroll
             )
-            VerticalNumberScroll(
+            NumberScroll(
                 label = stringResource(R.string.seconds),
                 pagerState = secondsVerticalNumberScrollPagerState,
                 selectedItem = selectedSeconds,
-                indexDisplay = { displaySeconds(it) }
+                indexDisplay = { displaySeconds(it) },
+                numberScrollVariant = VerticalNumberScroll
             )
         }
         val coroutineScope = rememberCoroutineScope()

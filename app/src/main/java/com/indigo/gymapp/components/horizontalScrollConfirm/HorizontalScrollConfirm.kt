@@ -8,6 +8,7 @@ import androidx.compose.ui.res.stringResource
 import com.indigo.gymapp.R
 import com.indigo.gymapp.common.button.Button
 import com.indigo.gymapp.common.numberScroll.HorizontalNumberScroll
+import com.indigo.gymapp.common.numberScroll.NumberScroll
 import com.indigo.gymapp.domain.time.displaySeconds
 import com.indigo.gymapp.ui.spacing.Spacing
 
@@ -24,10 +25,11 @@ fun HorizontalScrollConfirm(
             initialPage = initialPage,
             pageCount = { 100 }
         )
-        HorizontalNumberScroll(
+        NumberScroll(
             pagerState = pagerState,
             selectedItem = selectedItem,
-            indexDisplay = { displaySeconds(it) }
+            indexDisplay = { displaySeconds(it) },
+            numberScrollVariant = HorizontalNumberScroll
         )
         Button(
             text = stringResource(R.string.confirm),
