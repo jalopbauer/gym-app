@@ -1,7 +1,16 @@
 package com.indigo.gymapp.exercises.local
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.res.stringResource
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.compose.LocalLifecycleOwner
 import com.indigo.gymapp.R
 import com.indigo.gymapp.common.button.Button
 import com.indigo.gymapp.common.textField.TextField
@@ -12,10 +21,29 @@ fun AddExercise(
     onExerciseNameChange: (String) -> Unit,
     addExerciseOnClick: () -> Unit
 ) {
+    val focusRequester = remember { FocusRequester() }
+    val lifecycleOwner = LocalLifecycleOwner.current
+
+    LaunchedEffect(Unit) {
+        focusRequester.requestFocus()
+    }
+
+    DisposableEffect(lifecycleOwner) {
+        val observer = LifecycleEventObserver { _, event ->
+            if (event == Lifecycle.Event.ON_RESUME) {
+                focusRequester.requestFocus()
+            }
+        }
+        lifecycleOwner.lifecycle.addObserver(observer)
+        onDispose {
+            lifecycleOwner.lifecycle.removeObserver(observer)
+        }
+    }
     TextField(
         value = newExerciseName,
         label = stringResource(R.string.exercise_name),
-        onValueChange = onExerciseNameChange
+        onValueChange = onExerciseNameChange,
+        modifier = Modifier.focusRequester(focusRequester)
     )
     Button(
         text = stringResource(R.string.add_exercise),
