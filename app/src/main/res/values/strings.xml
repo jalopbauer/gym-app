@@ -47,4 +47,5 @@
     <string name="routine_saved">Routine saved</string>
     <string name="calendar">Calendar</string>
     <string name="configuration">Configuration</string>
+    <string name="cannot_create_empty_name_exercise">Cannot create empty name exercise</string>
 </resources>

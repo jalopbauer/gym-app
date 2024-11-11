@@ -110,15 +110,23 @@ fun LocalExercises() {
                     newExerciseName = newExerciseName,
                     onExerciseNameChange = { newExerciseName = it },
                     addExerciseOnClick = {
-                        exerciseViewModel.createExercise(newExerciseName)
-                        Toast.makeText(
-                            context,
-                            context.getString(R.string.exercise_added, newExerciseName),
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        newExerciseName = ""
-                        focusManager.clearFocus()
-                        bottomSheetState = Closed
+                        if (newExerciseName == "") {
+                            Toast.makeText(
+                                context,
+                                context.getString(R.string.cannot_create_empty_name_exercise),
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        } else {
+                            exerciseViewModel.createExercise(newExerciseName)
+                            Toast.makeText(
+                                context,
+                                context.getString(R.string.exercise_added, newExerciseName),
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            newExerciseName = ""
+                            focusManager.clearFocus()
+                            bottomSheetState = Closed
+                        }
                     }
                 )
             }
