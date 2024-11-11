@@ -1,5 +1,7 @@
 package com.indigo.gymapp.exercises.local
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
@@ -14,6 +16,7 @@ import androidx.lifecycle.compose.LocalLifecycleOwner
 import com.indigo.gymapp.R
 import com.indigo.gymapp.common.button.Button
 import com.indigo.gymapp.common.textField.TextField
+import com.indigo.gymapp.ui.spacing.Spacing
 
 @Composable
 fun AddExercise(
@@ -39,14 +42,18 @@ fun AddExercise(
             lifecycleOwner.lifecycle.removeObserver(observer)
         }
     }
-    TextField(
-        value = newExerciseName,
-        label = stringResource(R.string.exercise_name),
-        onValueChange = onExerciseNameChange,
-        modifier = Modifier.focusRequester(focusRequester)
-    )
-    Button(
-        text = stringResource(R.string.add_exercise),
-        onClick = addExerciseOnClick
-    )
+    Column(
+        verticalArrangement = Arrangement.spacedBy(space = Spacing.Context.Gap.medium)
+    ) {
+        TextField(
+            value = newExerciseName,
+            label = stringResource(R.string.exercise_name),
+            onValueChange = onExerciseNameChange,
+            modifier = Modifier.focusRequester(focusRequester)
+        )
+        Button(
+            text = stringResource(R.string.add_exercise),
+            onClick = addExerciseOnClick
+        )
+    }
 }
