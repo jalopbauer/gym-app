@@ -24,7 +24,6 @@ import com.indigo.gymapp.common.bottomSheet.BottomSheet
 import com.indigo.gymapp.common.button.textInput.TimeAmountTextDrawerButton
 import com.indigo.gymapp.common.header.CreateHeader
 import com.indigo.gymapp.common.preview.screen.ScreenPreview
-import com.indigo.gymapp.common.textField.TextField
 import com.indigo.gymapp.components.timeScrollTimeButtonsRowConfirm.TimeScrollTimeButtonsRowConfirm
 import com.indigo.gymapp.domain.time.Rest
 import com.indigo.gymapp.manager.bottomAppBar.BottomAppBarViewModel
@@ -188,19 +187,6 @@ fun CreateRoutine(
 
     }
 
-}
-
-@Composable
-private fun ChangeNameBottomSheetContent(
-    routineName: String,
-    onValueChange: (String) -> Unit
-) {
-    TextField(
-// TODO Make keyboard open on show bottom sheet
-        value = routineName,
-        label = stringResource(id = R.string.name_your_routine),
-        onValueChange = onValueChange,
-    )
 }
 
 @Preview

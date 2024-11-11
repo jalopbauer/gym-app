@@ -13,9 +13,10 @@ fun TextField(
     value: String,
     label: String,
     onValueChange: (String) -> Unit,
+    modifier: Modifier = Modifier
 ) {
     androidx.compose.material3.TextField(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = modifier.fillMaxWidth(),
         value = value,
         onValueChange = onValueChange,
         placeholder = {
