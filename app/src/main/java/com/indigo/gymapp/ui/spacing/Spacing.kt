@@ -52,6 +52,9 @@ object Spacing {
             object Descriptor {
                 val size = 16.dp
             }
+            object Highlight {
+                val size = 32.dp
+            }
         }
     }
 
