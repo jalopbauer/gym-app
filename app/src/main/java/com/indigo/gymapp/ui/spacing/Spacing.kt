@@ -47,6 +47,12 @@ object Spacing {
             val verticalPaddingValues = PaddingValues(vertical = (verticalPagerHeight - pageSize) / 2)
             val horizontalPaddingValues = PaddingValues(horizontal = pageSize * 2 + pageSize / 4)
         }
+
+        object Icon {
+            object Descriptor {
+                val size = 16.dp
+            }
+        }
     }
 
 }

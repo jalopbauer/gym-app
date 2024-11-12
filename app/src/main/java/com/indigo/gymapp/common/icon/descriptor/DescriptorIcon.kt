@@ -1,9 +1,9 @@
 package com.indigo.gymapp.common.icon.descriptor
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.unit.dp
 import com.indigo.gymapp.common.icon.Icon
 import com.indigo.gymapp.common.icon.IconVariant
+import com.indigo.gymapp.ui.spacing.Spacing.Component.Icon.Descriptor
 
 @Composable
 fun DescriptorIcon(
@@ -11,6 +11,6 @@ fun DescriptorIcon(
 ) {
     Icon(
         iconVariant = iconVariant,
-        size = 16.dp
+        size = Descriptor.size
     )
 }
