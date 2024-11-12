@@ -27,6 +27,7 @@ object Spacing {
             val default = Brand.s
             val medium = Brand.m
             val extra_large = Brand.xl
+            val circle_button = Brand.xl
         }
         object BorderRadious {
             val card = Brand.m
