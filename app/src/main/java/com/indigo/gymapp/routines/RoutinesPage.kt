@@ -12,13 +12,13 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.indigo.gymapp.R
 import com.indigo.gymapp.common.button.floatingActionButton.FloatingActionButton
 import com.indigo.gymapp.common.icon.Add
 import com.indigo.gymapp.manager.bottomAppBar.BottomAppBarViewModel
 import com.indigo.gymapp.routines.manager.RoutineViewModel
+import com.indigo.gymapp.ui.spacing.Spacing.Context.Padding
 import kotlinx.coroutines.launch
 
 @Composable
@@ -67,7 +67,7 @@ fun Routines(
             },
             modifier = Modifier
                 .align(Alignment.BottomEnd)
-                .padding(16.dp)
+                .padding(Padding.button)
         )
     }
 }
