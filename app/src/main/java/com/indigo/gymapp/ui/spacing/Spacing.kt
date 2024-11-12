@@ -1,5 +1,6 @@
 package com.indigo.gymapp.ui.spacing
 
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.ui.unit.dp
 
 object Spacing {
@@ -35,6 +36,15 @@ object Spacing {
         }
         object Spacer {
             val listBottom = 64.dp
+        }
+    }
+
+    object Component {
+        object NumberScroll {
+            val pageSize = 64.dp
+            val verticalPagerHeight = 360.dp
+            val verticalPaddingValues = PaddingValues(vertical = (verticalPagerHeight - pageSize) / 2)
+            val horizontalPaddingValues = PaddingValues(horizontal = pageSize * 2 + pageSize / 4)
         }
     }
 

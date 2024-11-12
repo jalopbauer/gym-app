@@ -2,7 +2,6 @@ package com.indigo.gymapp.common.numberScroll
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.pager.HorizontalPager
@@ -15,12 +14,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
 import com.indigo.gymapp.common.text.Large
 import com.indigo.gymapp.common.text.label.Label
-import com.indigo.gymapp.ui.spacing.Spacing
+import com.indigo.gymapp.ui.spacing.Spacing.Component.NumberScroll
+import com.indigo.gymapp.ui.spacing.Spacing.Context.Gap
 
-val pageSize = 64.dp
 
 @Composable
 fun NumberScroll(
@@ -31,7 +29,7 @@ fun NumberScroll(
     numberScrollVariant: NumberScrollVariant
 ) {
     Column (
-        verticalArrangement = Arrangement.spacedBy(Spacing.Context.Gap.default),
+        verticalArrangement = Arrangement.spacedBy(Gap.default),
         horizontalAlignment = Alignment.CenterHorizontally
     ){
         label?.let {
@@ -84,7 +82,7 @@ fun Number(
 ) {
     val isSelected = page == currentPage
     Text(
-        modifier = Modifier.width(pageSize),
+        modifier = Modifier.width(NumberScroll.pageSize),
         text = indexDisplay(page),
         style = MaterialTheme.typography.displayLarge,
         color = if (isSelected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onPrimary,
@@ -99,14 +97,12 @@ private fun VerticalNumberScroll(
     content : @Composable (Int, Int) -> Unit
 ) {
     selectedItem(pagerState.settledPage)
-    val verticalPagerHeight = 360.dp
     VerticalPager(
         state = pagerState,
-        pageSize = PageSize.Fixed(pageSize),
-        modifier = Modifier.height(verticalPagerHeight),
+        pageSize = PageSize.Fixed(NumberScroll.pageSize),
+        modifier = Modifier.height(NumberScroll.verticalPagerHeight),
         horizontalAlignment = Alignment.End,
-        contentPadding = PaddingValues(vertical = (verticalPagerHeight - pageSize) / 2)
-
+        contentPadding = NumberScroll.verticalPaddingValues
     ) { page ->
         content(page, pagerState.currentPage)
     }
@@ -122,9 +118,9 @@ private fun HorizontalNumberScroll(
     selectedItem(pagerState.settledPage)
     HorizontalPager(
         state = pagerState,
-        pageSize = PageSize.Fixed(pageSize),
-        contentPadding = PaddingValues(horizontal = pageSize * 2 + pageSize / 4),
-        pageSpacing = Spacing.Context.Gap.default
+        pageSize = PageSize.Fixed(NumberScroll.pageSize),
+        contentPadding = NumberScroll.horizontalPaddingValues,
+        pageSpacing = Gap.default
     ) { page ->
         content(page, pagerState.currentPage)
     }
