@@ -55,6 +55,7 @@ object Spacing {
             object Highlight {
                 val size = 32.dp
             }
+            val size = 24.dp
         }
     }
 

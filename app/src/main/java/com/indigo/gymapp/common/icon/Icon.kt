@@ -24,9 +24,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.indigo.gymapp.R
+import com.indigo.gymapp.ui.spacing.Spacing.Component.Icon
 
 @Composable
-fun Icon(iconVariant : IconVariant, tint: Color = MaterialTheme.colorScheme.primary, size: Dp = 24.dp) {
+fun Icon(iconVariant : IconVariant, tint: Color = MaterialTheme.colorScheme.primary, size: Dp = Icon.size) {
     when (iconVariant) {
         Save -> SaveIcon(tint, size)
         Cancel -> CancelIcon(tint, size)
