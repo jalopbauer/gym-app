@@ -11,7 +11,7 @@ import com.indigo.gymapp.common.numberScroll.HorizontalNumberScroll
 import com.indigo.gymapp.common.numberScroll.NumberScroll
 import com.indigo.gymapp.domain.time.displaySeconds
 import com.indigo.gymapp.ui.spacing.Spacing
-
+// TODO make 0 not allowed
 @Composable
 fun HorizontalScrollConfirm(
     initialPage: Int,
