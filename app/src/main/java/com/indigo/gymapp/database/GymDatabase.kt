@@ -13,7 +13,7 @@ import com.indigo.gymapp.routines.exercises.SetExerciseDao
 import com.indigo.gymapp.routines.exercises.SetExerciseEntity
 import java.util.concurrent.Executors
 
-@Database(entities = [Exercise::class, RoutineEntity::class, SetExerciseEntity::class], version = 3)
+@Database(entities = [Exercise::class, RoutineEntity::class, SetExerciseEntity::class], version = 4)
 abstract class GymDatabase : RoomDatabase() {
     abstract fun exerciseDao(): ExerciseDao
     abstract fun routinesDao(): RoutinesDao

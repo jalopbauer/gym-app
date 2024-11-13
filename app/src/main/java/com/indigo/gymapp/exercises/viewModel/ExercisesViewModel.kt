@@ -28,10 +28,12 @@ class ExerciseViewModel @Inject constructor(
     val exercises = exerciseDao.getAll().asFlow()
 
 //    TODO make name unique
-    fun createExercise(exerciseName: String) {
+    suspend fun createExercise(exerciseName: String): Result<Unit> {
         val exercise = Exercise(name = exerciseName)
-        viewModelScope.launch {
-            exerciseDao.create(exercise)
+        return withContext(Dispatchers.Default) {
+            return@withContext runCatching {
+                exerciseDao.create(exercise)
+            }
         }
     }
 

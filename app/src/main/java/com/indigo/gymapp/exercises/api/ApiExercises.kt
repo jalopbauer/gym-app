@@ -19,6 +19,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -32,6 +33,7 @@ import com.indigo.gymapp.exercises.viewModel.ExerciseViewModel
 import com.indigo.gymapp.service.api.exercises.Exercise
 import com.indigo.gymapp.ui.theme.PurpleGrey40
 import com.indigo.gymapp.ui.theme.PurpleGrey80
+import kotlinx.coroutines.launch
 
 @Composable
 fun ApiExercises() {
@@ -44,6 +46,7 @@ fun ApiExercises() {
     val showRetry by viewModel.showRetry.collectAsState()
 
     val exerciseViewModel = hiltViewModel<ExerciseViewModel>()
+    val coroutineScope = rememberCoroutineScope()
 
     if (loading) {
         Box(modifier = Modifier.fillMaxSize()) {
@@ -76,8 +79,14 @@ fun ApiExercises() {
                     exercise = exercise,
                     getExerciseOnClick = {
                         val exerciseName = it.name
-                        exerciseViewModel.createExercise(exerciseName)
-                        Toast.makeText(context, context.getString(R.string.exercise_added, exerciseName), Toast.LENGTH_SHORT).show()
+                        coroutineScope.launch {
+                            exerciseViewModel.createExercise(exerciseName)
+                                .onSuccess {
+                                    Toast.makeText(context, context.getString(R.string.exercise_added, exerciseName), Toast.LENGTH_SHORT).show()
+                                }.onFailure { _ ->
+                                    Toast.makeText(context, context.getString(R.string.cannot_save_exercise_with_same_name), Toast.LENGTH_SHORT).show()
+                                }
+                        }
                     }
                 )
             }

@@ -12,6 +12,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -25,6 +26,7 @@ import com.indigo.gymapp.common.icon.Add
 import com.indigo.gymapp.exercises.viewModel.ExerciseViewModel
 import com.indigo.gymapp.ui.spacing.Spacing.Context
 import com.indigo.gymapp.ui.spacing.Spacing.Context.Padding
+import kotlinx.coroutines.launch
 
 
 @Composable
@@ -45,6 +47,8 @@ fun LocalExercises() {
     var bottomSheetState by remember {
         mutableStateOf<ExerciseBottomSheetState>(Closed)
     }
+
+    val coroutineScope = rememberCoroutineScope()
 
     Box(
         modifier = Modifier
@@ -116,15 +120,22 @@ fun LocalExercises() {
                                 Toast.LENGTH_SHORT
                             ).show()
                         } else {
-                            exerciseViewModel.createExercise(newExerciseName)
-                            Toast.makeText(
-                                context,
-                                context.getString(R.string.exercise_added, newExerciseName),
-                                Toast.LENGTH_SHORT
-                            ).show()
-                            newExerciseName = ""
-                            focusManager.clearFocus()
-                            bottomSheetState = Closed
+                            coroutineScope.launch {
+                                exerciseViewModel.createExercise(newExerciseName)
+                                    .onSuccess {
+                                        Toast.makeText(
+                                            context,
+                                            context.getString(R.string.exercise_added, newExerciseName),
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                        newExerciseName = ""
+                                        focusManager.clearFocus()
+                                        bottomSheetState = Closed
+                                    }.onFailure { _ ->
+                                        Toast.makeText(context, context.getString(R.string.cannot_save_exercise_with_same_name), Toast.LENGTH_SHORT).show()
+                                    }
+                            }
+
                         }
                     }
                 )
