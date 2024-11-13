@@ -27,7 +27,6 @@ class ExerciseViewModel @Inject constructor(
 
     val exercises = exerciseDao.getAll().asFlow()
 
-//    TODO make name unique
     suspend fun createExercise(exerciseName: String): Result<Unit> {
         val exercise = Exercise(name = exerciseName)
         return withContext(Dispatchers.Default) {
