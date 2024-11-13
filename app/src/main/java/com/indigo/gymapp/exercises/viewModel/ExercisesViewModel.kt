@@ -27,6 +27,7 @@ class ExerciseViewModel @Inject constructor(
 
     val exercises = exerciseDao.getAll().asFlow()
 
+//    TODO make name unique
     fun createExercise(exerciseName: String) {
         val exercise = Exercise(name = exerciseName)
         viewModelScope.launch {
