@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.compose.compiler)
 //    TODO move to .toml
     id("dagger.hilt.android.plugin")
     id("kotlin-kapt")
@@ -8,12 +9,12 @@ plugins {
 
 android {
     namespace = "com.indigo.gymapp"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.indigo.gymapp"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 

@@ -4,4 +4,5 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android) apply false
 //    TODO move to .toml
     id("com.google.dagger.hilt.android") version "2.49" apply false
+    alias(libs.plugins.compose.compiler) apply false
 }
