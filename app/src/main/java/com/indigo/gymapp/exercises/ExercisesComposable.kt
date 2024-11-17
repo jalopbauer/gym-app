@@ -1,11 +1,10 @@
-package com.indigo.gymapp.exercises.local
+package com.indigo.gymapp.exercises
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import com.indigo.gymapp.common.spacer.ListBottomSpacer
-import com.indigo.gymapp.exercises.Exercise
 import com.indigo.gymapp.ui.spacing.Spacing.Context.Gap
 
 @Composable

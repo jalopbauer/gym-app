@@ -1,4 +1,4 @@
-package com.indigo.gymapp.exercises.local
+package com.indigo.gymapp.exercises
 
 sealed interface ExerciseBottomSheetState {
     fun showBottomSheet() : Boolean

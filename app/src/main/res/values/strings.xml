@@ -49,4 +49,5 @@
     <string name="configuration">Configuration</string>
     <string name="cannot_create_empty_name_exercise">Cannot create empty name exercise</string>
     <string name="cannot_save_exercise_with_same_name">Cannot save exercise with same name</string>
+    <string name="exercises">Exercises</string>
 </resources>
