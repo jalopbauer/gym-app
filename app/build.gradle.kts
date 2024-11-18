@@ -72,8 +72,7 @@ dependencies {
     implementation(libs.androidx.material.icons.extended)
 
     ksp(libs.androidx.room.compiler)
-
-    kapt(libs.hilt.android.compiler)
+    ksp(libs.hilt.android.compiler)
 
     testImplementation(libs.junit)
     
