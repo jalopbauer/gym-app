@@ -2,10 +2,9 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.compose.compiler)
-//    TODO move to .toml
-    id("dagger.hilt.android.plugin")
+    alias(libs.plugins.hilt.android)
+    alias(libs.plugins.ksp)
     id("kotlin-kapt")
-    id("com.google.devtools.ksp")
 }
 
 android {
