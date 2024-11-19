@@ -12,7 +12,6 @@ object Spacing {
         val m = 16.dp
         val l = 24.dp
         val xl = 32.dp
-        val xxl = 40.dp
     }
 
     object Context {
