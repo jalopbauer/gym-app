@@ -11,6 +11,7 @@ import androidx.compose.foundation.pager.VerticalPager
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
@@ -26,12 +27,17 @@ fun NumberScroll(
     pagerState: PagerState,
     indexDisplay: (Int) -> String = { "$it" },
     selectedItem: (Int) -> Unit,
+    minimumValue: Int = 0,
     numberScrollVariant: NumberScrollVariant
 ) {
-    Column (
+    LaunchedEffect(pagerState.settledPage) {
+        ensurePageIsAtLeastMinimumValue(pagerState, minimumValue)
+    }
+
+    Column(
         verticalArrangement = Arrangement.spacedBy(Gap.default),
         horizontalAlignment = Alignment.CenterHorizontally
-    ){
+    ) {
         label?.let {
             Label(
                 label = label,
@@ -42,12 +48,13 @@ fun NumberScroll(
             HorizontalNumberScroll -> {
                 HorizontalNumberScroll(
                     pagerState = pagerState,
-                    selectedItem = selectedItem,
+                    selectedItem = selectedItem
                 ) { page, currentPage ->
                     Number(
                         page = page,
                         currentPage = currentPage,
-                        indexDisplay = indexDisplay
+                        indexDisplay = indexDisplay,
+                        minimumValue = minimumValue
                     )
                 }
             }
@@ -59,13 +66,22 @@ fun NumberScroll(
                     Number(
                         page = page,
                         currentPage = currentPage,
-                        indexDisplay = indexDisplay
+                        indexDisplay = indexDisplay,
+                        minimumValue = minimumValue
                     )
                 }
             }
         }
     }
+}
 
+private suspend fun ensurePageIsAtLeastMinimumValue(
+    pagerState: PagerState,
+    minimumValue: Int
+) {
+    if (pagerState.settledPage < minimumValue) {
+        pagerState.scrollToPage(minimumValue)
+    }
 }
 
 sealed interface NumberScrollVariant
@@ -79,15 +95,18 @@ fun Number(
     page: Int,
     currentPage: Int,
     indexDisplay: (Int) -> String,
+    minimumValue: Int
 ) {
     val isSelected = page == currentPage
-    Text(
-        modifier = Modifier.width(NumberScroll.pageSize),
-        text = indexDisplay(page),
-        style = MaterialTheme.typography.displayLarge,
-        color = if (isSelected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onPrimary,
-        textAlign = TextAlign.Right
-    )
+    if (page >= minimumValue){
+        Text(
+            modifier = Modifier.width(NumberScroll.pageSize),
+            text = indexDisplay(page),
+            style = MaterialTheme.typography.displayLarge,
+            color = if (isSelected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onPrimary,
+            textAlign = TextAlign.Right
+        )
+    }
 }
 
 @Composable
@@ -106,7 +125,6 @@ private fun VerticalNumberScroll(
     ) { page ->
         content(page, pagerState.currentPage)
     }
-
 }
 
 @Composable
@@ -124,5 +142,4 @@ private fun HorizontalNumberScroll(
     ) { page ->
         content(page, pagerState.currentPage)
     }
-
 }

@@ -29,6 +29,7 @@ fun HorizontalScrollConfirm(
             pagerState = pagerState,
             selectedItem = selectedItem,
             indexDisplay = { displaySeconds(it) },
+            minimumValue = 1,
             numberScrollVariant = HorizontalNumberScroll
         )
         Button(
