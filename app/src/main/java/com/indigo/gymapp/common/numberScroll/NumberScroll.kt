@@ -30,9 +30,13 @@ fun NumberScroll(
     minimumValue: Int = 0,
     numberScrollVariant: NumberScrollVariant
 ) {
+
     LaunchedEffect(pagerState.settledPage) {
         ensurePageIsAtLeastMinimumValue(pagerState, minimumValue)
     }
+
+    selectedItem(pagerState.settledPage)
+    val currentPage = pagerState.currentPage
 
     Column(
         verticalArrangement = Arrangement.spacedBy(Gap.default),
@@ -48,8 +52,7 @@ fun NumberScroll(
             HorizontalNumberScroll -> {
                 HorizontalNumberScroll(
                     pagerState = pagerState,
-                    selectedItem = selectedItem
-                ) { page, currentPage ->
+                ) { page ->
                     Number(
                         page = page,
                         currentPage = currentPage,
@@ -61,8 +64,7 @@ fun NumberScroll(
             VerticalNumberScroll -> {
                 VerticalNumberScroll(
                     pagerState = pagerState,
-                    selectedItem = selectedItem
-                ) { page, currentPage ->
+                ) { page ->
                     Number(
                         page = page,
                         currentPage = currentPage,
@@ -112,10 +114,8 @@ fun Number(
 @Composable
 private fun VerticalNumberScroll(
     pagerState: PagerState,
-    selectedItem: (Int) -> Unit,
-    content : @Composable (Int, Int) -> Unit
+    content : @Composable (Int) -> Unit
 ) {
-    selectedItem(pagerState.settledPage)
     VerticalPager(
         state = pagerState,
         pageSize = PageSize.Fixed(NumberScroll.pageSize),
@@ -123,23 +123,21 @@ private fun VerticalNumberScroll(
         horizontalAlignment = Alignment.End,
         contentPadding = NumberScroll.verticalPaddingValues
     ) { page ->
-        content(page, pagerState.currentPage)
+        content(page)
     }
 }
 
 @Composable
 private fun HorizontalNumberScroll(
     pagerState: PagerState,
-    selectedItem: (Int) -> Unit,
-    content : @Composable (Int, Int) -> Unit
+    content : @Composable (Int) -> Unit
 ) {
-    selectedItem(pagerState.settledPage)
     HorizontalPager(
         state = pagerState,
         pageSize = PageSize.Fixed(NumberScroll.pageSize),
         contentPadding = NumberScroll.horizontalPaddingValues,
         pageSpacing = Gap.default
     ) { page ->
-        content(page, pagerState.currentPage)
+        content(page)
     }
 }
