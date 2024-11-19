@@ -11,8 +11,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.indigo.gymapp.calendar.CalendarPage
+import com.indigo.gymapp.configuration.ConfigurationPage
 import com.indigo.gymapp.exercises.ExercisesPage
-import com.indigo.gymapp.pages.configuration.Configuration
 import com.indigo.gymapp.routines.Routines
 import com.indigo.gymapp.routines.create.CreateRoutine
 import com.indigo.gymapp.routines.exercises.create.CreateRoutineExercise
@@ -54,7 +54,7 @@ fun NavHostComposable(innerPadding: PaddingValues, navController: NavHostControl
         }
 //        Configuration
         composable(route = NavigationPath.Configuration.name) {
-            Configuration()
+            ConfigurationPage()
         }
         
     }

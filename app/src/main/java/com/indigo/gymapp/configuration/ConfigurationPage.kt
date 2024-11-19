@@ -1,4 +1,4 @@
-package com.indigo.gymapp.pages.configuration
+package com.indigo.gymapp.configuration
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -12,7 +12,7 @@ import com.indigo.gymapp.common.text.headline.Headline
 import com.indigo.gymapp.ui.spacing.Spacing.Context.Padding
 
 @Composable
-fun Configuration() {
+fun ConfigurationPage() {
 
     Column(
         modifier = Modifier
