@@ -1,4 +1,4 @@
-package com.indigo.gymapp.pages.calendar
+package com.indigo.gymapp.calendar
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,7 +15,7 @@ import com.indigo.gymapp.manager.bottomAppBar.BottomAppBarViewModel
 import com.indigo.gymapp.ui.spacing.Spacing.Context.Padding
 
 @Composable
-fun Calendar() {
+fun CalendarPage() {
     val bottomAppBarViewModel = hiltViewModel<BottomAppBarViewModel>()
 
     LaunchedEffect(Unit) {

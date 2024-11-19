@@ -10,8 +10,8 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.indigo.gymapp.calendar.CalendarPage
 import com.indigo.gymapp.exercises.ExercisesPage
-import com.indigo.gymapp.pages.calendar.Calendar
 import com.indigo.gymapp.pages.configuration.Configuration
 import com.indigo.gymapp.routines.Routines
 import com.indigo.gymapp.routines.create.CreateRoutine
@@ -33,7 +33,7 @@ fun NavHostComposable(innerPadding: PaddingValues, navController: NavHostControl
         }
 //        Calendar
         composable(route = NavigationPath.Calendar.name) {
-            Calendar()
+            CalendarPage()
         }
 //        Routines
         composable(route = NavigationPath.Routines.name) {
