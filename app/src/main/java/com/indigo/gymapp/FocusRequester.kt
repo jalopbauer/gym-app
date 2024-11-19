@@ -1,5 +1,6 @@
 package com.indigo.gymapp
 
+import android.annotation.SuppressLint
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
@@ -8,6 +9,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
 
+@SuppressLint("ComposableNaming")
 @Composable
 fun requestFocus(
     focusRequester: FocusRequester,
