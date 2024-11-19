@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.indigo.gymapp.domain.routines.exercises.RoutineExercise
 import com.indigo.gymapp.domain.routines.exercises.RoutineExerciseBuilder
 import com.indigo.gymapp.domain.time.Rest
-import com.indigo.gymapp.exercises.Exercise
+import com.indigo.gymapp.exercises.ExerciseEntity
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -44,7 +44,7 @@ class RoutineViewModel @Inject constructor(private val routineManager: RoutineMa
         routineManager.setRoutineExerciseBuilderRest(newRest)
     }
 
-    override fun setRoutineExerciseBuilderExercise(exercise: Exercise) {
+    override fun setRoutineExerciseBuilderExercise(exercise: ExerciseEntity) {
         routineManager.setRoutineExerciseBuilderExercise(exercise)
     }
 

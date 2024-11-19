@@ -7,7 +7,7 @@ import com.indigo.gymapp.domain.routines.exercises.RoutineExerciseBuilder
 import com.indigo.gymapp.domain.routines.exercises.SetExercise
 import com.indigo.gymapp.domain.routines.exercises.TimedExercise
 import com.indigo.gymapp.domain.time.Rest
-import com.indigo.gymapp.exercises.Exercise
+import com.indigo.gymapp.exercises.ExerciseEntity
 import com.indigo.gymapp.routines.RoutineEntity
 import com.indigo.gymapp.routines.exercises.SetExerciseEntity
 import kotlinx.coroutines.Dispatchers
@@ -114,7 +114,7 @@ class RoutineManager @Inject constructor(gymDatabase: GymDatabase) : RoutineHand
         _routineExerciseBuilder.value = _routineExerciseBuilder.value.copy(rest = newRest)
     }
 
-    override fun setRoutineExerciseBuilderExercise(exercise: Exercise) {
+    override fun setRoutineExerciseBuilderExercise(exercise: ExerciseEntity) {
         _routineExerciseBuilder.value = _routineExerciseBuilder.value.copy(exercise = exercise)
     }
 
@@ -182,7 +182,7 @@ class RoutineManager @Inject constructor(gymDatabase: GymDatabase) : RoutineHand
                 val routineSetExercises = setExerciseDao.getAllByRoutineIdWithExercise(routine.id).map {
                     SetExercise(
                         id = it.id,
-                        exercise = Exercise(
+                        exercise = ExerciseEntity(
                             id = it.exerciseId,
                             name = it.exerciseName
                         ),
@@ -228,7 +228,7 @@ class RoutineManager @Inject constructor(gymDatabase: GymDatabase) : RoutineHand
                     val routineSetExercises = setExerciseDao.getAllByRoutineIdWithExercise(typedRoutineManagerState.routineEntity.id).map {
                         SetExercise(
                             id = it.id,
-                            exercise = Exercise(
+                            exercise = ExerciseEntity(
                                 id = it.exerciseId,
                                 name = it.exerciseName
                             ),

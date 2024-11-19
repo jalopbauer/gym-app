@@ -14,7 +14,7 @@ import com.indigo.gymapp.domain.routines.exercises.SetExercise
 import com.indigo.gymapp.domain.routines.exercises.TimedExercise
 import com.indigo.gymapp.domain.time.Duration
 import com.indigo.gymapp.domain.time.Rest
-import com.indigo.gymapp.exercises.Exercise
+import com.indigo.gymapp.exercises.ExerciseEntity
 import com.indigo.gymapp.ui.spacing.Spacing
 
 @Composable
@@ -55,7 +55,7 @@ private fun SetExerciseListItemPreview() {
     HugPreview {
         RoutineExerciseListItem(
             routineExercise = SetExercise(
-                exercise = Exercise(name = "Chest press"),
+                exercise = ExerciseEntity(name = "Chest press"),
                 amountOfSets = 4,
                 rest = Rest(2, 0)
             ),
@@ -71,7 +71,7 @@ private fun TimedExerciseListItemPreview() {
     HugPreview {
         RoutineExerciseListItem(
             routineExercise = TimedExercise(
-                exercise = Exercise(name = "Running"),
+                exercise = ExerciseEntity(name = "Running"),
                 duration = Duration(30, 0)
             ),
             selectedRoutineExerciseId = 1,

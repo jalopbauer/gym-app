@@ -4,7 +4,7 @@ import androidx.annotation.IntRange
 import com.indigo.gymapp.domain.routines.exercises.RoutineExercise
 import com.indigo.gymapp.domain.routines.exercises.RoutineExerciseBuilder
 import com.indigo.gymapp.domain.time.Rest
-import com.indigo.gymapp.exercises.Exercise
+import com.indigo.gymapp.exercises.ExerciseEntity
 
 interface RoutineHandler {
 
@@ -18,7 +18,7 @@ interface RoutineHandler {
 
     fun setRoutineExerciseBuilderRest(newRest: Rest)
 
-    fun setRoutineExerciseBuilderExercise(exercise: Exercise)
+    fun setRoutineExerciseBuilderExercise(exercise: ExerciseEntity)
 
     fun setRoutineExerciseBuilderAmountOfSets(@IntRange(from = 0) amountOfSets: Int)
 

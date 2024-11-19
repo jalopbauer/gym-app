@@ -14,7 +14,7 @@ import com.indigo.gymapp.common.text.title.Title
 import com.indigo.gymapp.domain.routines.exercises.RoutineExercise
 import com.indigo.gymapp.domain.routines.exercises.SetExercise
 import com.indigo.gymapp.domain.time.Rest
-import com.indigo.gymapp.exercises.Exercise
+import com.indigo.gymapp.exercises.ExerciseEntity
 import com.indigo.gymapp.routines.exercises.list.item.RoutineExerciseListItem
 import com.indigo.gymapp.ui.spacing.Spacing
 
@@ -49,10 +49,10 @@ private fun RoutineExerciseListPreview() {
     HugPreview {
         RoutineExerciseList(
             routineExercises = listOf(
-                SetExercise(id = 0, exercise = Exercise(name = "Chest press"), amountOfSets = 4, rest = Rest(2, 0)),
-                SetExercise(id = 1, exercise = Exercise(name = "Incline press"), amountOfSets = 4, rest = Rest(2, 0)),
-                SetExercise(id = 2, exercise = Exercise(name = "Bench dips"), amountOfSets = 3, rest = Rest(2, 0)),
-                SetExercise(id = 3, exercise = Exercise(name = "Overhead triceps"), amountOfSets = 3, rest = Rest(2, 0)),
+                SetExercise(id = 0, exercise = ExerciseEntity(name = "Chest press"), amountOfSets = 4, rest = Rest(2, 0)),
+                SetExercise(id = 1, exercise = ExerciseEntity(name = "Incline press"), amountOfSets = 4, rest = Rest(2, 0)),
+                SetExercise(id = 2, exercise = ExerciseEntity(name = "Bench dips"), amountOfSets = 3, rest = Rest(2, 0)),
+                SetExercise(id = 3, exercise = ExerciseEntity(name = "Overhead triceps"), amountOfSets = 3, rest = Rest(2, 0)),
             ),
             selectedRoutineExerciseId = 2,
             selectOnClick = {}

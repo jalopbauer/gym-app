@@ -8,7 +8,7 @@ import com.indigo.gymapp.common.spacer.ListBottomSpacer
 import com.indigo.gymapp.ui.spacing.Spacing.Context.Gap
 
 @Composable
-fun Exercises(exercises: List<Exercise>, deleteOnClick: (Long) -> Unit) {
+fun Exercises(exercises: List<ExerciseEntity>, deleteOnClick: (Long) -> Unit) {
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(space = Gap.default)
     ) {

@@ -11,11 +11,11 @@ import com.indigo.gymapp.common.button.textInput.OnlyTextDrawerButton
 import com.indigo.gymapp.common.button.textInput.TimeAmountTextDrawerButton
 import com.indigo.gymapp.common.preview.screen.ScreenPreview
 import com.indigo.gymapp.domain.time.Duration
-import com.indigo.gymapp.exercises.Exercise
+import com.indigo.gymapp.exercises.ExerciseEntity
 
 @Composable
 fun CreateTimedRoutineExercise(
-    exercise: Exercise?,
+    exercise: ExerciseEntity?,
     selectExerciseOnClick : () -> Unit
 ) {
     val onClick = { /*TODO*/ }

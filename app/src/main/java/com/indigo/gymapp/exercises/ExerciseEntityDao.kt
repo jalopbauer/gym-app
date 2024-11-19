@@ -8,21 +8,21 @@ import androidx.room.Query
 import androidx.room.Update
 
 @Dao
-interface ExerciseDao {
+interface ExerciseEntityDao {
     @Insert
-    suspend fun create(exercise: Exercise)
+    suspend fun create(exercise: ExerciseEntity)
 
     @Update
-    suspend fun update(exercise: Exercise)
+    suspend fun update(exercise: ExerciseEntity)
 
     @Delete
-    suspend fun delete(exercise: Exercise)
+    suspend fun delete(exercise: ExerciseEntity)
 
     @Query("SELECT * FROM EXERCISES")
-    fun getAll(): LiveData<List<Exercise>>
+    fun getAll(): LiveData<List<ExerciseEntity>>
 
     @Query("SELECT * FROM exercises WHERE name LIKE '%' || :search || '%'")
-    fun getExercisesByName(search : String): List<Exercise>
+    fun getExercisesByName(search : String): List<ExerciseEntity>
 
     @Query("DELETE FROM EXERCISES WHERE id = :id")
     suspend fun deleteById(id: Long)

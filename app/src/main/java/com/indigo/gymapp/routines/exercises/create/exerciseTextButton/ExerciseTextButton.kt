@@ -9,12 +9,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.indigo.gymapp.common.text.headline.Headline
-import com.indigo.gymapp.exercises.Exercise
+import com.indigo.gymapp.exercises.ExerciseEntity
 
 @Composable
 fun ExerciseTextButton(
-    exercise: Exercise,
-    getExerciseOnClick: (Exercise) -> Unit
+    exercise: ExerciseEntity,
+    getExerciseOnClick: (ExerciseEntity) -> Unit
 ) {
     Row(
         modifier = Modifier

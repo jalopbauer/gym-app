@@ -11,7 +11,7 @@ import com.indigo.gymapp.common.text.headline.Headline
 
 @Composable
 fun Exercise(
-    exercise: Exercise,
+    exercise: ExerciseEntity,
     deleteOnClick: (Long) -> Unit
 ) {
     Row(

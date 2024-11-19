@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asFlow
 import androidx.lifecycle.viewModelScope
 import com.indigo.gymapp.database.GymDatabase
-import com.indigo.gymapp.exercises.Exercise
+import com.indigo.gymapp.exercises.ExerciseEntity
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
@@ -28,7 +28,7 @@ class ExerciseViewModel @Inject constructor(
     val exercises = exerciseDao.getAll().asFlow()
 
     suspend fun createExercise(exerciseName: String): Result<Unit> {
-        val exercise = Exercise(name = exerciseName)
+        val exercise = ExerciseEntity(name = exerciseName)
         return withContext(Dispatchers.Default) {
             return@withContext runCatching {
                 exerciseDao.create(exercise)
@@ -40,7 +40,7 @@ class ExerciseViewModel @Inject constructor(
     private var _search = MutableStateFlow("")
     val exerciseSearchText = _search.asStateFlow()
 
-    private var _searchExercises = MutableStateFlow(listOf<Exercise>())
+    private var _searchExercises = MutableStateFlow(listOf<ExerciseEntity>())
     val searchExercises = _searchExercises.asStateFlow()
 
     fun searchExercise(exerciseName: String) {

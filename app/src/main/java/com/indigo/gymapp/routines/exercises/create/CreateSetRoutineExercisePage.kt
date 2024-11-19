@@ -12,18 +12,18 @@ import com.indigo.gymapp.common.button.textInput.OnlyTextDrawerButton
 import com.indigo.gymapp.common.button.textInput.TimeAmountTextDrawerButton
 import com.indigo.gymapp.common.preview.screen.ScreenPreview
 import com.indigo.gymapp.domain.time.Rest
-import com.indigo.gymapp.exercises.Exercise
+import com.indigo.gymapp.exercises.ExerciseEntity
 
 @Composable
 fun CreateSetRoutineExercise(
     selectExerciseOnClick : () -> Unit,
-    exercise: Exercise?,
+    exercise: ExerciseEntity?,
     rest: Rest,
     amountOfSets: Int,
     setRestTimeOnClick: () -> Unit,
     setAmountOfSetsOnClick: () -> Unit,
 
-) {
+    ) {
     val exerciseText = exercise?.name ?: stringResource(id = R.string.select_exercise)
     Column (
         modifier = Modifier
@@ -54,7 +54,7 @@ private fun PreviewAddSetWithExerciseSet() {
     ScreenPreview {
         CreateSetRoutineExercise(
             selectExerciseOnClick = {},
-            exercise = Exercise(
+            exercise = ExerciseEntity(
                 id = 1,
                 name = "Chest press"
             ),
