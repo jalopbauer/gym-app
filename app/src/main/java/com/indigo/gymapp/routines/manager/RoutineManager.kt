@@ -59,7 +59,7 @@ class RoutineManager @Inject constructor(gymDatabase: GymDatabase) : RoutineHand
     override suspend fun addExercise(routineExercise: RoutineExercise) {
         when (val typedRoutineManagerState = routineManagerState) {
             CreateRoutine -> {
-                when (val typedRoutineExerciseState = routineExerciseState) {
+                when (routineExerciseState) {
                     CreateRoutineExercise -> {
                         val newList = _routineExercises.value + routineExercise.setId(_routineExercises.value.size.toLong())
                         setRoutineExercises(newList)
@@ -71,7 +71,7 @@ class RoutineManager @Inject constructor(gymDatabase: GymDatabase) : RoutineHand
 
             }
             is EditRoutine -> {
-                when (val typedRoutineExerciseState = routineExerciseState) {
+                when (routineExerciseState) {
                     CreateRoutineExercise -> {
                         when (routineExercise) {
                             is SetExercise -> {
