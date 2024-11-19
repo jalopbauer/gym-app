@@ -26,6 +26,9 @@ import com.indigo.gymapp.common.button.floatingActionButton.FloatingActionButton
 import com.indigo.gymapp.common.icon.Add
 import com.indigo.gymapp.common.text.Large
 import com.indigo.gymapp.common.text.headline.Headline
+import com.indigo.gymapp.exercises.composable.AddExercise
+import com.indigo.gymapp.exercises.composable.DeleteExercise
+import com.indigo.gymapp.exercises.composable.Exercises
 import com.indigo.gymapp.exercises.viewModel.ExerciseViewModel
 import com.indigo.gymapp.ui.spacing.Spacing.Context
 import com.indigo.gymapp.ui.spacing.Spacing.Context.Padding
