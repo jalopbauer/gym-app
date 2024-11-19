@@ -18,12 +18,10 @@ fun SearchBar(
     query: String,
     onQueryChange: (String) -> Unit
 ) {
-//  https://www.youtube.com/watch?v=90gokceSYdM
     androidx.compose.material3.SearchBar(
         query = query,
         onQueryChange = onQueryChange,
         onSearch = { },
-//  This opens the searchbar garbage that i dont want. soooooooo always faaalse *high pitch*
         active = false,
         onActiveChange = {},
         placeholder = {
