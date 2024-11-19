@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asFlow
 import androidx.lifecycle.viewModelScope
 import com.indigo.gymapp.database.GymDatabase
-import com.indigo.gymapp.exercises.ExerciseEntity
+import com.indigo.gymapp.exercises.entity.ExerciseEntity
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers

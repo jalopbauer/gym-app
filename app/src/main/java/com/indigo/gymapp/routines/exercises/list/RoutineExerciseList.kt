@@ -14,7 +14,7 @@ import com.indigo.gymapp.common.text.title.Title
 import com.indigo.gymapp.domain.routines.exercises.RoutineExercise
 import com.indigo.gymapp.domain.routines.exercises.SetExercise
 import com.indigo.gymapp.domain.time.Rest
-import com.indigo.gymapp.exercises.ExerciseEntity
+import com.indigo.gymapp.exercises.entity.ExerciseEntity
 import com.indigo.gymapp.routines.exercises.list.item.RoutineExerciseListItem
 import com.indigo.gymapp.ui.spacing.Spacing
 

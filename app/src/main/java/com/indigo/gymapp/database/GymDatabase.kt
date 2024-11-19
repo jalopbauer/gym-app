@@ -5,8 +5,8 @@ import android.util.Log
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.indigo.gymapp.exercises.ExerciseEntity
-import com.indigo.gymapp.exercises.ExerciseEntityDao
+import com.indigo.gymapp.exercises.entity.ExerciseEntity
+import com.indigo.gymapp.exercises.entity.ExerciseEntityDao
 import com.indigo.gymapp.routines.RoutineEntity
 import com.indigo.gymapp.routines.RoutinesDao
 import com.indigo.gymapp.routines.exercises.SetExerciseDao

@@ -9,7 +9,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.indigo.gymapp.common.text.headline.Headline
-import com.indigo.gymapp.exercises.ExerciseEntity
+import com.indigo.gymapp.exercises.entity.ExerciseEntity
 
 @Composable
 fun ExerciseTextButton(

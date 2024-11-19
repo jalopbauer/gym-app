@@ -8,7 +8,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.indigo.gymapp.common.searchBar.SearchBar
-import com.indigo.gymapp.exercises.ExerciseEntity
+import com.indigo.gymapp.exercises.entity.ExerciseEntity
 import com.indigo.gymapp.routines.exercises.create.exerciseTextButton.ExerciseTextButton
 import com.indigo.gymapp.ui.spacing.Spacing.Context
 

@@ -2,7 +2,7 @@ package com.indigo.gymapp.domain.routines.exercises
 
 import com.indigo.gymapp.domain.time.Duration
 import com.indigo.gymapp.domain.time.Rest
-import com.indigo.gymapp.exercises.ExerciseEntity
+import com.indigo.gymapp.exercises.entity.ExerciseEntity
 
 sealed interface RoutineExercise {
     val id : Long

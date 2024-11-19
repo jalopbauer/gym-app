@@ -7,7 +7,7 @@ import com.indigo.gymapp.domain.routines.exercises.RoutineExerciseBuilder
 import com.indigo.gymapp.domain.routines.exercises.SetExercise
 import com.indigo.gymapp.domain.routines.exercises.TimedExercise
 import com.indigo.gymapp.domain.time.Rest
-import com.indigo.gymapp.exercises.ExerciseEntity
+import com.indigo.gymapp.exercises.entity.ExerciseEntity
 import com.indigo.gymapp.routines.RoutineEntity
 import com.indigo.gymapp.routines.exercises.SetExerciseEntity
 import kotlinx.coroutines.Dispatchers

@@ -1,4 +1,4 @@
-package com.indigo.gymapp.exercises
+package com.indigo.gymapp.exercises.entity
 
 import androidx.room.Entity
 import androidx.room.Index
