@@ -28,7 +28,7 @@ object Spacing {
             val extra_large = Brand.xl
             val circle_button = Brand.xl
         }
-        object BorderRadious {
+        object BorderRadius {
             val card = Brand.m
         }
         object BorderStroke {

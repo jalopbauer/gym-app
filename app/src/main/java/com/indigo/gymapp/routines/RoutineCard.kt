@@ -26,7 +26,7 @@ fun RoutineCard(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .clip(RoundedCornerShape(Context.BorderRadious.card))
+            .clip(RoundedCornerShape(Context.BorderRadius.card))
             .clickable { onCardClick(routine.id) }
             .background(color = MaterialTheme.colorScheme.surface)
             .padding(PaddingValues(start=Context.Padding.card)),
