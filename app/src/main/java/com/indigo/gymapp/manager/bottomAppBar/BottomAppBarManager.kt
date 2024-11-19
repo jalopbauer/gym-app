@@ -12,7 +12,7 @@ interface BottomAppBarManager {
         deleteOnClick: () -> Unit,
     )
 
-    fun setNavigation(@IntRange(from = 0, to = 4) item: Int,)
+    fun setNavigation(@IntRange(from = 0, to = 4) item: Int)
 
     fun setEmpty()
 }

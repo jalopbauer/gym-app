@@ -24,7 +24,7 @@ class BottomAppBarViewModel @Inject constructor(private val bottomAppBarManager:
         )
     }
 
-    override fun setNavigation(@IntRange(from = 0, to = 4) item: Int,) {
+    override fun setNavigation(@IntRange(from = 0, to = 4) item: Int) {
         bottomAppBarManager.setNavigation(item)
     }
 

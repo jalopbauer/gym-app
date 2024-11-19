@@ -33,7 +33,7 @@ class BottomAppBarManagerSingleton @Inject constructor() : BottomAppBarManager {
         )
     }
 
-    override fun setNavigation(@IntRange(from = 0, to = 4) item: Int,) {
+    override fun setNavigation(@IntRange(from = 0, to = 4) item: Int) {
         _bottomAppBarState.value = Navigation(item)
     }
 

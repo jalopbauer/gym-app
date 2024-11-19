@@ -10,7 +10,7 @@ sealed interface RoutineExercise {
     fun setId(id: Long) : RoutineExercise
 }
 
-data class SetExercise(override val id: Long = 0, override val exercise: ExerciseEntity, val amountOfSets: Int, val rest: Rest, ) : RoutineExercise {
+data class SetExercise(override val id: Long = 0, override val exercise: ExerciseEntity, val amountOfSets: Int, val rest: Rest) : RoutineExercise {
     override fun setId(id: Long): RoutineExercise = this.copy(id = id)
 }
 
