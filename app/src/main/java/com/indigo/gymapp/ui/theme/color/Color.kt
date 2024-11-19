@@ -50,7 +50,6 @@ object Color {
         fun searchBarColors() = SearchBarDefaults.colors(
             containerColor = MaterialTheme.colorScheme.surface,
             dividerColor = MaterialTheme.colorScheme.surface,
-            inputFieldColors = textFieldColorsField(),
         )
 
         @Composable

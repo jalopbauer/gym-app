@@ -2,6 +2,7 @@ package com.indigo.gymapp.common.searchBar
 
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.SearchBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -19,23 +20,31 @@ fun SearchBar(
     onQueryChange: (String) -> Unit
 ) {
     androidx.compose.material3.SearchBar(
-        query = query,
-        onQueryChange = onQueryChange,
-        onSearch = { },
-        active = false,
-        onActiveChange = {},
-        placeholder = {
-            Title(
-                title = stringResource(R.string.search_exercise),
-                textSize = Medium,
-                color = MaterialTheme.colorScheme.onPrimary
+        inputField = {
+            SearchBarDefaults.InputField(
+                query = query,
+                onQueryChange = onQueryChange,
+                onSearch = { },
+                expanded = false,
+                onExpandedChange = { },
+                placeholder = {
+                    Title(
+                        title = stringResource(R.string.search_exercise),
+                        textSize = Medium,
+                        color = MaterialTheme.colorScheme.onPrimary
+                    )
+                },
+                leadingIcon = {
+                    Icon(Search)
+                },
+                trailingIcon = { },
+                colors = Component.textFieldColorsField()
             )
         },
-        leadingIcon = {
-            Icon(Search)
-        },
-        colors = Component.searchBarColors()
-    ) { }
+        expanded = false,
+        onExpandedChange = {},
+        colors = Component.searchBarColors(),
+    ) {}
 }
 
 @Preview
