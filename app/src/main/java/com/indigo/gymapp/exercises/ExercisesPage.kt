@@ -33,7 +33,7 @@ import kotlinx.coroutines.launch
 
 
 @Composable
-fun Exercises() {
+fun ExercisesPage() {
     val context = LocalContext.current
     val focusManager = LocalFocusManager.current
 
