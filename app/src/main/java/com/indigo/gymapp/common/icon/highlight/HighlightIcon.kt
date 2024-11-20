@@ -2,13 +2,13 @@ package com.indigo.gymapp.common.icon.highlight
 
 import androidx.compose.runtime.Composable
 import com.indigo.gymapp.common.icon.Icon
-import com.indigo.gymapp.common.selectRoutineExerciseType.item.RoutineExerciseTypeVariant
+import com.indigo.gymapp.common.icon.IconVariant
 import com.indigo.gymapp.ui.spacing.Spacing.Component.Icon.Highlight
 
 @Composable
-fun HighlightIcon(routineExerciseTypeVariant: RoutineExerciseTypeVariant) {
+fun HighlightIcon(iconVariant: IconVariant) {
     Icon(
-        iconVariant = routineExerciseTypeVariant.iconVariant,
+        iconVariant = iconVariant,
         size = Highlight.size
     )
 }

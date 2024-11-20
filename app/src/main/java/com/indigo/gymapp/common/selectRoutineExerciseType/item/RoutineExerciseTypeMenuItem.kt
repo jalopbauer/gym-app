@@ -31,7 +31,7 @@ fun RoutineExerciseTypeMenuItem(
             .clickable { onClick() },
     ) {
         HighlightIcon(
-            routineExerciseTypeVariant = routineExerciseTypeVariant
+            iconVariant = routineExerciseTypeVariant.iconVariant
         )
         Column {
             Headline(
