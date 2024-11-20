@@ -1,4 +1,4 @@
-package com.indigo.gymapp.components.timeScrollTimeButtonsRowConfirm
+package com.indigo.gymapp.common.timeScrollTimeButtonsRowConfirm
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

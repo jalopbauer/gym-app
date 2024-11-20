@@ -22,9 +22,9 @@ import com.indigo.gymapp.R
 import com.indigo.gymapp.common.bottomSheet.BottomSheet
 import com.indigo.gymapp.common.header.CreateHeader
 import com.indigo.gymapp.common.preview.screen.ScreenPreview
-import com.indigo.gymapp.components.horizontalScrollConfirm.HorizontalScrollConfirm
-import com.indigo.gymapp.components.menu.selectRoutineExerciseType.SelectRoutineExerciseTypeMenu
-import com.indigo.gymapp.components.timeScrollTimeButtonsRowConfirm.TimeScrollTimeButtonsRowConfirm
+import com.indigo.gymapp.common.horizontalScrollConfirm.HorizontalScrollConfirm
+import com.indigo.gymapp.common.selectRoutineExerciseType.SelectRoutineExerciseTypeMenu
+import com.indigo.gymapp.common.timeScrollTimeButtonsRowConfirm.TimeScrollTimeButtonsRowConfirm
 import com.indigo.gymapp.domain.time.Rest
 import com.indigo.gymapp.exercises.viewModel.ExerciseViewModel
 import com.indigo.gymapp.manager.bottomAppBar.BottomAppBarViewModel

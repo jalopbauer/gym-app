@@ -1,4 +1,4 @@
-package com.indigo.gymapp.components.horizontalScrollConfirm
+package com.indigo.gymapp.common.horizontalScrollConfirm
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
