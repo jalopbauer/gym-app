@@ -1,12 +1,12 @@
-package com.indigo.gymapp.common.selectRoutineExerciseType
+package com.indigo.gymapp.routines.exercises.composable.selectRoutineExerciseType
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.indigo.gymapp.common.preview.hug.HugPreview
-import com.indigo.gymapp.common.selectRoutineExerciseType.item.RoutineExerciseTypeMenuItem
-import com.indigo.gymapp.common.selectRoutineExerciseType.item.SetRoutineExerciseVariant
+import com.indigo.gymapp.routines.exercises.composable.selectRoutineExerciseType.item.RoutineExerciseTypeMenuItem
+import com.indigo.gymapp.routines.exercises.composable.selectRoutineExerciseType.item.SetRoutineExerciseVariant
 import com.indigo.gymapp.ui.spacing.Spacing.Context
 
 @Composable
