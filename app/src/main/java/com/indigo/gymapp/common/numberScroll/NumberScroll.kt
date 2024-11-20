@@ -9,13 +9,13 @@ import androidx.compose.foundation.pager.PageSize
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.VerticalPager
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import com.indigo.gymapp.common.text.Large
+import com.indigo.gymapp.common.text.display.Display
 import com.indigo.gymapp.common.text.label.Label
 import com.indigo.gymapp.ui.spacing.Spacing.Component.NumberScroll
 import com.indigo.gymapp.ui.spacing.Spacing.Context.Gap
@@ -101,12 +101,12 @@ fun Number(
 ) {
     val isSelected = page == currentPage
     if (page >= minimumValue){
-        Text(
+        Display(
             modifier = Modifier.width(NumberScroll.pageSize),
-            text = indexDisplay(page),
-            style = MaterialTheme.typography.displayLarge,
+            display = indexDisplay(page),
             color = if (isSelected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onPrimary,
-            textAlign = TextAlign.Right
+            textAlign = TextAlign.Right,
+            textSize = Large
         )
     }
 }

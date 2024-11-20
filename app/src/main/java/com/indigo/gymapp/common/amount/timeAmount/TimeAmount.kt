@@ -1,10 +1,10 @@
 package com.indigo.gymapp.common.amount.timeAmount
 
 import androidx.compose.foundation.layout.Row
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import com.indigo.gymapp.common.text.Large
+import com.indigo.gymapp.common.text.title.Title
 import com.indigo.gymapp.domain.time.Time
 
 @Composable
@@ -13,10 +13,10 @@ fun TimeAmount(
     textColor: Color
 ) {
     Row {
-        Text(
-            text = "$time",
+        Title(
+            title = "$time",
             color = textColor,
-            style = MaterialTheme.typography.titleLarge
+            textSize = Large
         )
     }
 }
