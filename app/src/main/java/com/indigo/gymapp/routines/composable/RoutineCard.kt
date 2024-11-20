@@ -1,4 +1,4 @@
-package com.indigo.gymapp.routines
+package com.indigo.gymapp.routines.composable
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import com.indigo.gymapp.common.button.iconButton.DeleteIconButton
 import com.indigo.gymapp.common.text.headline.Headline
+import com.indigo.gymapp.routines.entity.RoutineEntity
 import com.indigo.gymapp.ui.spacing.Spacing.Context
 
 @Composable

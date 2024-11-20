@@ -1,4 +1,4 @@
-package com.indigo.gymapp.routines
+package com.indigo.gymapp.routines.composable
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -12,6 +12,7 @@ import androidx.compose.ui.res.stringResource
 import com.indigo.gymapp.R
 import com.indigo.gymapp.common.text.Large
 import com.indigo.gymapp.common.text.headline.Headline
+import com.indigo.gymapp.routines.entity.RoutineEntity
 import com.indigo.gymapp.ui.spacing.Spacing.Context
 import com.indigo.gymapp.ui.spacing.Spacing.Context.Padding
 

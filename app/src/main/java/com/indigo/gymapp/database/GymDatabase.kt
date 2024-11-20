@@ -7,10 +7,10 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.indigo.gymapp.exercises.entity.ExerciseEntity
 import com.indigo.gymapp.exercises.entity.ExerciseEntityDao
-import com.indigo.gymapp.routines.RoutineEntity
-import com.indigo.gymapp.routines.RoutinesDao
-import com.indigo.gymapp.routines.exercises.SetExerciseDao
-import com.indigo.gymapp.routines.exercises.SetExerciseEntity
+import com.indigo.gymapp.routines.entity.RoutineEntity
+import com.indigo.gymapp.routines.entity.RoutinesDao
+import com.indigo.gymapp.routines.exercises.entity.SetExerciseDao
+import com.indigo.gymapp.routines.exercises.entity.SetExerciseEntity
 import java.util.concurrent.Executors
 
 @Database(entities = [ExerciseEntity::class, RoutineEntity::class, SetExerciseEntity::class], version = 4)

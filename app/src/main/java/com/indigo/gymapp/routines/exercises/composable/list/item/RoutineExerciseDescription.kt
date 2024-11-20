@@ -1,13 +1,13 @@
-package com.indigo.gymapp.routines.exercises.list.item
+package com.indigo.gymapp.routines.exercises.composable.list.item
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import com.indigo.gymapp.common.text.Medium
 import com.indigo.gymapp.common.text.title.Title
-import com.indigo.gymapp.domain.routines.exercises.RoutineExercise
-import com.indigo.gymapp.domain.routines.exercises.SetExercise
-import com.indigo.gymapp.domain.routines.exercises.TimedExercise
+import com.indigo.gymapp.routines.exercises.RoutineExercise
+import com.indigo.gymapp.routines.exercises.SetExercise
+import com.indigo.gymapp.routines.exercises.TimedExercise
 import com.indigo.gymapp.ui.spacing.Spacing
 
 @Composable

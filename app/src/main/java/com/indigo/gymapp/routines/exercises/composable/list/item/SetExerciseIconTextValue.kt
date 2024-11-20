@@ -1,4 +1,4 @@
-package com.indigo.gymapp.routines.exercises.list.item
+package com.indigo.gymapp.routines.exercises.composable.list.item
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -9,7 +9,7 @@ import com.indigo.gymapp.common.icon.SetRoutineExercise
 import com.indigo.gymapp.common.icon.TimedRoutineExercise
 import com.indigo.gymapp.common.iconTextValue.IconTextValue
 import com.indigo.gymapp.common.text.body.Body
-import com.indigo.gymapp.domain.routines.exercises.SetExercise
+import com.indigo.gymapp.routines.exercises.SetExercise
 import com.indigo.gymapp.ui.spacing.Spacing
 
 @Composable

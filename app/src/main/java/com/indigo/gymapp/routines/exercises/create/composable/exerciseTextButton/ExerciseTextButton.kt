@@ -1,4 +1,4 @@
-package com.indigo.gymapp.routines.exercises.create.exerciseTextButton
+package com.indigo.gymapp.routines.exercises.create.composable.exerciseTextButton
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row

@@ -1,4 +1,4 @@
-package com.indigo.gymapp.routines.exercises.create.exerciseSearch
+package com.indigo.gymapp.routines.exercises.create.composable.exerciseSearch
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -9,7 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.indigo.gymapp.common.searchBar.SearchBar
 import com.indigo.gymapp.exercises.entity.ExerciseEntity
-import com.indigo.gymapp.routines.exercises.create.exerciseTextButton.ExerciseTextButton
+import com.indigo.gymapp.routines.exercises.create.composable.exerciseTextButton.ExerciseTextButton
 import com.indigo.gymapp.ui.spacing.Spacing.Context
 
 

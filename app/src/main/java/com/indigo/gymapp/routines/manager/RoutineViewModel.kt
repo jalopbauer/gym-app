@@ -2,10 +2,10 @@ package com.indigo.gymapp.routines.manager
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.indigo.gymapp.domain.routines.exercises.RoutineExercise
-import com.indigo.gymapp.domain.routines.exercises.RoutineExerciseBuilder
 import com.indigo.gymapp.domain.time.Rest
 import com.indigo.gymapp.exercises.entity.ExerciseEntity
+import com.indigo.gymapp.routines.exercises.RoutineExercise
+import com.indigo.gymapp.routines.exercises.RoutineExerciseBuilder
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

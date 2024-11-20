@@ -1,4 +1,4 @@
-package com.indigo.gymapp.routines
+package com.indigo.gymapp.routines.entity
 
 import androidx.room.Embedded
 import androidx.room.Entity

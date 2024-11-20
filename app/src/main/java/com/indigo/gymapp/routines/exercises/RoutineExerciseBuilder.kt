@@ -1,4 +1,4 @@
-package com.indigo.gymapp.domain.routines.exercises
+package com.indigo.gymapp.routines.exercises
 
 import com.indigo.gymapp.domain.time.Rest
 import com.indigo.gymapp.exercises.entity.ExerciseEntity

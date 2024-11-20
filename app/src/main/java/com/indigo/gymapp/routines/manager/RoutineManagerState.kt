@@ -1,6 +1,7 @@
 package com.indigo.gymapp.routines.manager
 
-import com.indigo.gymapp.routines.RoutineEntity
+import com.indigo.gymapp.routines.entity.RoutineEntity
+
 
 sealed interface RoutineManagerState
 

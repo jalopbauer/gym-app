@@ -1,4 +1,4 @@
-package com.indigo.gymapp.routines.exercises
+package com.indigo.gymapp.routines.exercises.entity
 
 import androidx.room.Dao
 import androidx.room.Insert

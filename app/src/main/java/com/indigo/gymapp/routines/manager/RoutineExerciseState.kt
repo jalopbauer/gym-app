@@ -1,6 +1,6 @@
 package com.indigo.gymapp.routines.manager
 
-import com.indigo.gymapp.routines.exercises.SetExerciseEntity
+import com.indigo.gymapp.routines.exercises.entity.SetExerciseEntity
 
 sealed interface RoutineExerciseState
 

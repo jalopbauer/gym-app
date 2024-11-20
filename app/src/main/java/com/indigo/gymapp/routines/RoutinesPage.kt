@@ -17,12 +17,13 @@ import com.indigo.gymapp.R
 import com.indigo.gymapp.common.button.floatingActionButton.FloatingActionButton
 import com.indigo.gymapp.common.icon.Add
 import com.indigo.gymapp.manager.bottomAppBar.BottomAppBarViewModel
+import com.indigo.gymapp.routines.composable.Routines
 import com.indigo.gymapp.routines.manager.RoutineViewModel
 import com.indigo.gymapp.ui.spacing.Spacing.Context.Padding
 import kotlinx.coroutines.launch
 
 @Composable
-fun Routines(
+fun RoutinesPage(
     onNavigateToCreateRoutine: () -> Unit
 ) {
     val context = LocalContext.current
@@ -53,7 +54,11 @@ fun Routines(
                 coroutineScope.launch {
                     routineViewModel.deleteRoutine(it)
                 }
-                Toast.makeText(context, context.getString(R.string.routine_deleted), Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    context,
+                    context.getString(R.string.routine_deleted),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         )
 

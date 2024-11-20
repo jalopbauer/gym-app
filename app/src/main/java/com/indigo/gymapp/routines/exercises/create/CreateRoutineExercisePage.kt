@@ -25,11 +25,10 @@ import com.indigo.gymapp.common.preview.screen.ScreenPreview
 import com.indigo.gymapp.components.horizontalScrollConfirm.HorizontalScrollConfirm
 import com.indigo.gymapp.components.menu.selectRoutineExerciseType.SelectRoutineExerciseTypeMenu
 import com.indigo.gymapp.components.timeScrollTimeButtonsRowConfirm.TimeScrollTimeButtonsRowConfirm
-import com.indigo.gymapp.domain.routines.exercises.SetExercise
-import com.indigo.gymapp.domain.time.Rest
 import com.indigo.gymapp.exercises.viewModel.ExerciseViewModel
 import com.indigo.gymapp.manager.bottomAppBar.BottomAppBarViewModel
-import com.indigo.gymapp.routines.exercises.create.exerciseSearch.ExerciseSearch
+import com.indigo.gymapp.routines.exercises.SetExercise
+import com.indigo.gymapp.routines.exercises.create.composable.exerciseSearch.ExerciseSearch
 import com.indigo.gymapp.routines.manager.RoutineViewModel
 import com.indigo.gymapp.ui.spacing.Spacing.Context
 import kotlinx.coroutines.launch
