@@ -3,7 +3,7 @@ package com.indigo.gymapp.routines.entity
 import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.indigo.gymapp.domain.time.Rest
+import com.indigo.gymapp.time.Rest
 
 @Entity(tableName = "ROUTINES")
 data class RoutineEntity(

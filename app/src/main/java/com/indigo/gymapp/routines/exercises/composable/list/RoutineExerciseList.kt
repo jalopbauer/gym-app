@@ -11,7 +11,7 @@ import com.indigo.gymapp.R
 import com.indigo.gymapp.common.preview.hug.HugPreview
 import com.indigo.gymapp.common.text.Large
 import com.indigo.gymapp.common.text.title.Title
-import com.indigo.gymapp.domain.time.Rest
+import com.indigo.gymapp.time.Rest
 import com.indigo.gymapp.exercises.entity.ExerciseEntity
 import com.indigo.gymapp.routines.exercises.RoutineExercise
 import com.indigo.gymapp.routines.exercises.SetExercise

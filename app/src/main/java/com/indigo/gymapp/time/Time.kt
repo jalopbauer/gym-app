@@ -1,4 +1,4 @@
-package com.indigo.gymapp.domain.time
+package com.indigo.gymapp.time
 
 import androidx.annotation.IntRange
 

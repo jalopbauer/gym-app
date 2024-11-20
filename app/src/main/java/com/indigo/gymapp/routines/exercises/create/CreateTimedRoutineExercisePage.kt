@@ -10,7 +10,7 @@ import com.indigo.gymapp.R
 import com.indigo.gymapp.common.button.textInput.OnlyTextDrawerButton
 import com.indigo.gymapp.common.button.textInput.TimeAmountTextDrawerButton
 import com.indigo.gymapp.common.preview.screen.ScreenPreview
-import com.indigo.gymapp.domain.time.Duration
+import com.indigo.gymapp.time.Duration
 import com.indigo.gymapp.exercises.entity.ExerciseEntity
 
 @Composable

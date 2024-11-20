@@ -1,7 +1,7 @@
 package com.indigo.gymapp.routines.exercises
 
-import com.indigo.gymapp.domain.time.Duration
-import com.indigo.gymapp.domain.time.Rest
+import com.indigo.gymapp.time.Duration
+import com.indigo.gymapp.time.Rest
 import com.indigo.gymapp.exercises.entity.ExerciseEntity
 
 sealed interface RoutineExercise {

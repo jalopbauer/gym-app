@@ -1,7 +1,7 @@
 package com.indigo.gymapp.routines.manager
 
 import androidx.annotation.IntRange
-import com.indigo.gymapp.domain.time.Rest
+import com.indigo.gymapp.time.Rest
 import com.indigo.gymapp.exercises.entity.ExerciseEntity
 import com.indigo.gymapp.routines.exercises.RoutineExercise
 import com.indigo.gymapp.routines.exercises.RoutineExerciseBuilder

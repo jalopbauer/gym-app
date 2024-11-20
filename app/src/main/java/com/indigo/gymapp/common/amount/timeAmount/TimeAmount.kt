@@ -5,7 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import com.indigo.gymapp.common.text.Large
 import com.indigo.gymapp.common.text.title.Title
-import com.indigo.gymapp.domain.time.Time
+import com.indigo.gymapp.time.Time
 
 @Composable
 fun TimeAmount(

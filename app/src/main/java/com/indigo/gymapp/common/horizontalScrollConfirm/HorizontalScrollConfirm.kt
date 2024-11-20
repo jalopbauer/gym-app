@@ -9,7 +9,7 @@ import com.indigo.gymapp.R
 import com.indigo.gymapp.common.button.Button
 import com.indigo.gymapp.common.numberScroll.HorizontalNumberScroll
 import com.indigo.gymapp.common.numberScroll.NumberScroll
-import com.indigo.gymapp.domain.time.displaySeconds
+import com.indigo.gymapp.time.displaySeconds
 import com.indigo.gymapp.ui.spacing.Spacing
 
 @Composable

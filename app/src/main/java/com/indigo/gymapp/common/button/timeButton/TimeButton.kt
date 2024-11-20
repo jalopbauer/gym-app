@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.indigo.gymapp.common.text.Large
 import com.indigo.gymapp.common.text.body.Body
-import com.indigo.gymapp.domain.time.Time
+import com.indigo.gymapp.time.Time
 
 @Composable
 fun TimeButton(

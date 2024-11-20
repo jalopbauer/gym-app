@@ -2,7 +2,7 @@ package com.indigo.gymapp.routines.manager
 
 import androidx.lifecycle.asFlow
 import com.indigo.gymapp.database.GymDatabase
-import com.indigo.gymapp.domain.time.Rest
+import com.indigo.gymapp.time.Rest
 import com.indigo.gymapp.exercises.entity.ExerciseEntity
 import com.indigo.gymapp.routines.entity.RoutineEntity
 import com.indigo.gymapp.routines.exercises.RoutineExercise
