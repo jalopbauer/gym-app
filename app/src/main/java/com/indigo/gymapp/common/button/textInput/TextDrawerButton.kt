@@ -7,15 +7,14 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.indigo.gymapp.common.amount.intAmount.IntAmount
 import com.indigo.gymapp.common.amount.timeAmount.TimeAmount
+import com.indigo.gymapp.common.text.title.Title
 import com.indigo.gymapp.domain.time.Time
 
 @Composable
@@ -24,7 +23,6 @@ private fun TextDrawerButton(
     isOnlyText: Boolean = false,
     isTextCentered: Boolean = false,
     isSelected: Boolean = false,
-    textStyle: TextStyle = MaterialTheme.typography.titleLarge,
     onClick: () -> Unit,
     @FloatRange(from = 0.0, to = 1.0) maxWidthFraction: Float = 1f,
     content: @Composable () -> Unit = {},
@@ -38,12 +36,11 @@ private fun TextDrawerButton(
             .clickable { onClick() }
             .height(48.dp),
     ) {
-        Text(
+        Title(
             modifier = Modifier.weight(1f),
             textAlign = if (isTextCentered) TextAlign.Center else TextAlign.Start,
-            text = leadingText,
+            title = leadingText,
             color = color,
-            style = textStyle
         )
         content()
     }
@@ -111,7 +108,6 @@ fun HeaderTextDrawerButton(
         isOnlyText = true,
         isTextCentered = true,
         isSelected = isSelected,
-        textStyle = MaterialTheme.typography.headlineSmall,
         onClick = onClick,
         maxWidthFraction = 0.82f
     )
