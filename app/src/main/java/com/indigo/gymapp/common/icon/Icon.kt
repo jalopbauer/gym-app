@@ -27,7 +27,7 @@ import com.indigo.gymapp.R
 import com.indigo.gymapp.ui.spacing.Spacing.Component.Icon
 
 @Composable
-fun Icon(iconVariant : IconVariant, tint: Color = MaterialTheme.colorScheme.primary, size: Dp = Icon.size) {
+fun Icon(iconVariant : IconVariant, tint: Color = MaterialTheme.colorScheme.primary, size: Dp = Icon.default) {
     when (iconVariant) {
         Save -> SaveIcon(tint, size)
         Cancel -> CancelIcon(tint, size)

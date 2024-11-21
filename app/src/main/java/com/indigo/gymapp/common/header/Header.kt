@@ -26,7 +26,7 @@ fun CreateHeader(
     Row (
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = Spacing.Context.Padding.header_with_icon_button),
+            .padding(horizontal = Spacing.Context.Padding.headerWithIconButton),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween,
     ) {

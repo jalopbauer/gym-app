@@ -17,7 +17,7 @@ object Spacing {
     object Context {
         object Padding {
             val screen = Brand.l
-            val header_with_icon_button = Brand.m
+            val headerWithIconButton = Brand.m
             val card = Brand.m
             val button = Brand.m
         }
@@ -34,12 +34,12 @@ object Spacing {
         object BorderStroke {
             val default = Brand.xxs
         }
-        object Spacer {
-            val listBottom = 64.dp
-        }
     }
 
     object Component {
+        object Spacer {
+            val listBottom = 64.dp
+        }
         object NumberScroll {
             val pageSize = 64.dp
             val verticalPagerHeight = 360.dp
@@ -48,13 +48,9 @@ object Spacing {
         }
 
         object Icon {
-            object Descriptor {
-                val size = 16.dp
-            }
-            object Highlight {
-                val size = 32.dp
-            }
-            val size = 24.dp
+            val descriptor = 16.dp
+            val default = 24.dp
+            val highlight = 32.dp
         }
     }
 
