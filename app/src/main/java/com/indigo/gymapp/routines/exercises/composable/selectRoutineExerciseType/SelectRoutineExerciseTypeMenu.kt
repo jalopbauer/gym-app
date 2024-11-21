@@ -7,7 +7,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.indigo.gymapp.common.preview.hug.HugPreview
 import com.indigo.gymapp.routines.exercises.composable.selectRoutineExerciseType.item.RoutineExerciseTypeMenuItem
 import com.indigo.gymapp.routines.exercises.composable.selectRoutineExerciseType.item.SetRoutineExerciseVariant
-import com.indigo.gymapp.ui.spacing.Spacing.Context
+import com.indigo.gymapp.ui.number.Number.Context
 
 @Composable
 fun SelectRoutineExerciseTypeMenu(

@@ -16,7 +16,7 @@ import androidx.compose.ui.draw.clip
 import com.indigo.gymapp.common.button.iconButton.DeleteIconButton
 import com.indigo.gymapp.common.text.headline.Headline
 import com.indigo.gymapp.routines.entity.RoutineEntity
-import com.indigo.gymapp.ui.spacing.Spacing.Context
+import com.indigo.gymapp.ui.number.Number.Context
 
 @Composable
 fun RoutineCard(

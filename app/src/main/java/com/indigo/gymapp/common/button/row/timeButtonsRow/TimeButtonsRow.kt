@@ -8,7 +8,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.indigo.gymapp.common.button.timeButton.TimeButton
 import com.indigo.gymapp.time.Time
-import com.indigo.gymapp.ui.spacing.Spacing.Context.Gap
+import com.indigo.gymapp.ui.number.Number.Context.Gap
 
 @Composable
 fun TimeButtonsRow(

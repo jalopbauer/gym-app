@@ -10,11 +10,11 @@ import com.indigo.gymapp.common.icon.TimedRoutineExercise
 import com.indigo.gymapp.common.iconTextValue.IconTextValue
 import com.indigo.gymapp.common.text.body.Body
 import com.indigo.gymapp.routines.exercises.SetExercise
-import com.indigo.gymapp.ui.spacing.Spacing
+import com.indigo.gymapp.ui.number.Number
 
 @Composable
 fun SetExerciseIconTextValue(exercise: SetExercise) {
-    Row (horizontalArrangement = Arrangement.spacedBy(Spacing.Context.Gap.default)) {
+    Row (horizontalArrangement = Arrangement.spacedBy(Number.Context.Gap.default)) {
         IconTextValue(
             iconVariant = SetRoutineExercise,
             text = stringResource(id = R.string.sets)

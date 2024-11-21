@@ -12,7 +12,7 @@ import com.indigo.gymapp.common.button.Button
 import com.indigo.gymapp.common.button.Danger
 import com.indigo.gymapp.common.button.Secondary
 import com.indigo.gymapp.common.text.headline.Headline
-import com.indigo.gymapp.ui.spacing.Spacing.Context
+import com.indigo.gymapp.ui.number.Number.Context
 
 @Composable
 fun DeleteExercise(cancelOnClick: () -> Unit, deleteOnClick: () -> Unit) {

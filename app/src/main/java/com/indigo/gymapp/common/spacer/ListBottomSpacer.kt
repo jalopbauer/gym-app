@@ -4,7 +4,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.indigo.gymapp.ui.spacing.Spacing.Component.Spacer
+import com.indigo.gymapp.ui.number.Number.Component.Spacer
 
 @Composable
 fun ListBottomSpacer() {

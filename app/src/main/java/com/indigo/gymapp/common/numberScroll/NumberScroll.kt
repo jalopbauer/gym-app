@@ -17,8 +17,8 @@ import androidx.compose.ui.text.style.TextAlign
 import com.indigo.gymapp.common.text.Large
 import com.indigo.gymapp.common.text.display.Display
 import com.indigo.gymapp.common.text.label.Label
-import com.indigo.gymapp.ui.spacing.Spacing.Component.NumberScroll
-import com.indigo.gymapp.ui.spacing.Spacing.Context.Gap
+import com.indigo.gymapp.ui.number.Number.Component.NumberScroll
+import com.indigo.gymapp.ui.number.Number.Context.Gap
 
 
 @Composable

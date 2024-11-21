@@ -11,7 +11,7 @@ import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.indigo.gymapp.ui.spacing.Spacing
+import com.indigo.gymapp.ui.number.Number
 
 @Composable
 @OptIn(ExperimentalMaterial3Api::class)
@@ -34,7 +34,7 @@ fun BottomSheet(
             Column(
                 modifier = Modifier
                     .padding(
-                        horizontal = Spacing.Context.Padding.screen
+                        horizontal = Number.Context.Padding.screen
                     ),
             ) {
                 content()

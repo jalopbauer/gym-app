@@ -15,7 +15,7 @@ import com.indigo.gymapp.exercises.entity.ExerciseEntity
 import com.indigo.gymapp.routines.exercises.RoutineExercise
 import com.indigo.gymapp.routines.exercises.SetExercise
 import com.indigo.gymapp.routines.exercises.TimedExercise
-import com.indigo.gymapp.ui.spacing.Spacing
+import com.indigo.gymapp.ui.number.Number
 
 @Composable
 fun RoutineExerciseListItem(
@@ -29,7 +29,7 @@ fun RoutineExerciseListItem(
         verticalAlignment = Alignment.CenterVertically
     ){
         Row(
-            horizontalArrangement = Arrangement.spacedBy(Spacing.Context.Gap.default),
+            horizontalArrangement = Arrangement.spacedBy(Number.Context.Gap.default),
             verticalAlignment = Alignment.CenterVertically
         ) {
             RadioButton(

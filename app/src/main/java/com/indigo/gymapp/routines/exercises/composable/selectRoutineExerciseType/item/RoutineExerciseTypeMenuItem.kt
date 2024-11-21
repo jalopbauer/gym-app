@@ -17,7 +17,7 @@ import com.indigo.gymapp.common.icon.highlight.HighlightIcon
 import com.indigo.gymapp.common.preview.hug.HugPreview
 import com.indigo.gymapp.common.text.body.Body
 import com.indigo.gymapp.common.text.headline.Headline
-import com.indigo.gymapp.ui.spacing.Spacing.Context
+import com.indigo.gymapp.ui.number.Number.Context
 
 @Composable
 fun RoutineExerciseTypeMenuItem(

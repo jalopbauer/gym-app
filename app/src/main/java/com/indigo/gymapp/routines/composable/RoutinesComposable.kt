@@ -13,8 +13,8 @@ import com.indigo.gymapp.R
 import com.indigo.gymapp.common.text.Large
 import com.indigo.gymapp.common.text.headline.Headline
 import com.indigo.gymapp.routines.entity.RoutineEntity
-import com.indigo.gymapp.ui.spacing.Spacing.Context
-import com.indigo.gymapp.ui.spacing.Spacing.Context.Padding
+import com.indigo.gymapp.ui.number.Number.Context
+import com.indigo.gymapp.ui.number.Number.Context.Padding
 
 @Composable
 fun Routines(

@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.indigo.gymapp.common.text.Large
 import com.indigo.gymapp.common.text.title.Title
-import com.indigo.gymapp.ui.spacing.Spacing
+import com.indigo.gymapp.ui.number.Number
 import com.indigo.gymapp.ui.theme.color.Color
 
 
@@ -24,14 +24,14 @@ fun Button(
         onClick = onClick,
         border = when (buttonVariant) {
             Danger, Primary -> null
-            Secondary -> BorderStroke(Spacing.Context.BorderStroke.default, MaterialTheme.colorScheme.secondary)
+            Secondary -> BorderStroke(Number.Context.BorderStroke.default, MaterialTheme.colorScheme.secondary)
         },
         colors = when (buttonVariant) {
             Primary -> Color.Component.Button.primaryButtonColor()
             Danger -> Color.Component.Button.dangerButtonColor()
             Secondary -> Color.Component.Button.secondaryButtonColor()
         },
-        contentPadding = PaddingValues(vertical = Spacing.Context.Padding.button)
+        contentPadding = PaddingValues(vertical = Number.Context.Padding.button)
     ) {
         Title(
             title = text,

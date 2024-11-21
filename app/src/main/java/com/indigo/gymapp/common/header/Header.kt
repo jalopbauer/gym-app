@@ -12,7 +12,7 @@ import com.indigo.gymapp.common.button.iconButton.CancelIconButton
 import com.indigo.gymapp.common.button.iconButton.SaveIconButton
 import com.indigo.gymapp.common.button.textInput.HeaderTextDrawerButton
 import com.indigo.gymapp.common.preview.hug.HugPreview
-import com.indigo.gymapp.ui.spacing.Spacing
+import com.indigo.gymapp.ui.number.Number
 
 @Composable
 fun CreateHeader(
@@ -26,7 +26,7 @@ fun CreateHeader(
     Row (
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = Spacing.Context.Padding.headerWithIconButton),
+            .padding(horizontal = Number.Context.Padding.headerWithIconButton),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween,
     ) {

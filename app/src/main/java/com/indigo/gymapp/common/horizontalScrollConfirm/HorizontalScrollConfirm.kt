@@ -10,7 +10,7 @@ import com.indigo.gymapp.common.button.Button
 import com.indigo.gymapp.common.numberScroll.HorizontalNumberScroll
 import com.indigo.gymapp.common.numberScroll.NumberScroll
 import com.indigo.gymapp.time.displaySeconds
-import com.indigo.gymapp.ui.spacing.Spacing
+import com.indigo.gymapp.ui.number.Number
 
 @Composable
 fun HorizontalScrollConfirm(
@@ -19,7 +19,7 @@ fun HorizontalScrollConfirm(
     onClick: () -> Unit
 ) {
     Column(
-        verticalArrangement = Arrangement.spacedBy(space = Spacing.Context.Gap.medium)
+        verticalArrangement = Arrangement.spacedBy(space = Number.Context.Gap.medium)
     ) {
         val pagerState = rememberPagerState(
             initialPage = initialPage,

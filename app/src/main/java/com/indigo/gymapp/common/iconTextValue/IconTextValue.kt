@@ -7,7 +7,7 @@ import androidx.compose.ui.Alignment
 import com.indigo.gymapp.common.icon.IconVariant
 import com.indigo.gymapp.common.icon.descriptor.DescriptorIcon
 import com.indigo.gymapp.common.text.body.Body
-import com.indigo.gymapp.ui.spacing.Spacing
+import com.indigo.gymapp.ui.number.Number
 
 @Composable
 fun IconTextValue(
@@ -16,7 +16,7 @@ fun IconTextValue(
     content: @Composable () -> Unit = {},
 ) {
     Row(
-        horizontalArrangement = Arrangement.spacedBy(Spacing.Context.Gap.space),
+        horizontalArrangement = Arrangement.spacedBy(Number.Context.Gap.space),
         verticalAlignment = Alignment.CenterVertically
     ) {
         DescriptorIcon(

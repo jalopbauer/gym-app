@@ -30,8 +30,8 @@ import com.indigo.gymapp.exercises.composable.AddExercise
 import com.indigo.gymapp.exercises.composable.DeleteExercise
 import com.indigo.gymapp.exercises.composable.Exercises
 import com.indigo.gymapp.exercises.viewModel.ExerciseViewModel
-import com.indigo.gymapp.ui.spacing.Spacing.Context
-import com.indigo.gymapp.ui.spacing.Spacing.Context.Padding
+import com.indigo.gymapp.ui.number.Number.Context
+import com.indigo.gymapp.ui.number.Number.Context.Padding
 import kotlinx.coroutines.launch
 
 

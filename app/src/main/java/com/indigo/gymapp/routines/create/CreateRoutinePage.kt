@@ -31,7 +31,7 @@ import com.indigo.gymapp.routines.exercises.composable.list.RoutineExerciseList
 import com.indigo.gymapp.routines.manager.MissingName
 import com.indigo.gymapp.routines.manager.RoutineViewModel
 import com.indigo.gymapp.routines.manager.Saved
-import com.indigo.gymapp.ui.spacing.Spacing
+import com.indigo.gymapp.ui.number.Number
 import kotlinx.coroutines.launch
 
 @Composable
@@ -117,9 +117,9 @@ fun CreateRoutine(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(
-                    horizontal = Spacing.Context.Padding.screen
+                    horizontal = Number.Context.Padding.screen
                 ),
-            verticalArrangement = Arrangement.spacedBy(Spacing.Context.Gap.default)
+            verticalArrangement = Arrangement.spacedBy(Number.Context.Gap.default)
         ) {
             TimeAmountTextDrawerButton(
                 leadingText = stringResource(id = R.string.rest_between_exercises),

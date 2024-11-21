@@ -1,9 +1,9 @@
-package com.indigo.gymapp.ui.spacing
+package com.indigo.gymapp.ui.number
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.ui.unit.dp
 
-object Spacing {
+object Number {
 
     private object Brand {
         val xxs = 2.dp

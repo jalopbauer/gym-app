@@ -8,16 +8,16 @@ import com.indigo.gymapp.common.text.title.Title
 import com.indigo.gymapp.routines.exercises.RoutineExercise
 import com.indigo.gymapp.routines.exercises.SetExercise
 import com.indigo.gymapp.routines.exercises.TimedExercise
-import com.indigo.gymapp.ui.spacing.Spacing
+import com.indigo.gymapp.ui.number.Number
 
 @Composable
 fun RoutineExerciseDescription(routineExercise: RoutineExercise) {
     Column(
-        verticalArrangement = Arrangement.spacedBy(Spacing.Context.Gap.space)
+        verticalArrangement = Arrangement.spacedBy(Number.Context.Gap.space)
     ) {
         Title(title = routineExercise.exercise.name, textSize = Medium)
         Column(
-            verticalArrangement = Arrangement.spacedBy(Spacing.Context.Gap.default),
+            verticalArrangement = Arrangement.spacedBy(Number.Context.Gap.default),
         ) {
             when (routineExercise) {
                 is SetExercise -> SetExerciseIconTextValue(routineExercise)
