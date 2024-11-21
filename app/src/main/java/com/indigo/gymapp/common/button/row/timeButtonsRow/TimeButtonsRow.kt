@@ -23,7 +23,7 @@ fun TimeButtonsRow(
         modifier = Modifier
             .fillMaxWidth(),
         horizontalArrangement = Arrangement.spacedBy(
-            space = Gap.circle_button,
+            space = Gap.circleButton,
             alignment = Alignment.CenterHorizontally
         ),
     ) {

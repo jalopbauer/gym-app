@@ -25,8 +25,8 @@ object Number {
             val space = Brand.xs
             val default = Brand.s
             val medium = Brand.m
-            val extra_large = Brand.xl
-            val circle_button = Brand.xl
+            val extraLarge = Brand.xl
+            val circleButton = Brand.xl
         }
         object BorderRadius {
             val card = Brand.m

@@ -44,7 +44,7 @@ fun TimeScrollTimeButtonsRowConfirm(
         )
         Row(
             modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(space = Number.Context.Gap.extra_large, alignment = Alignment.CenterHorizontally),
+            horizontalArrangement = Arrangement.spacedBy(space = Number.Context.Gap.extraLarge, alignment = Alignment.CenterHorizontally),
             verticalAlignment = Alignment.CenterVertically
         ) {
             NumberScroll(
