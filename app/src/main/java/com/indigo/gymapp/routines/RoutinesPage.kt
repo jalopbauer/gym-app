@@ -51,6 +51,7 @@ fun RoutinesPage(
                 }
             },
             onDeleteClick = {
+//                TODO Open Bottom Sheet to confirm
                 coroutineScope.launch {
                     routineViewModel.deleteRoutine(it)
                 }
