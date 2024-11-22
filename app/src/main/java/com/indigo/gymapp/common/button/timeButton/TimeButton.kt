@@ -10,10 +10,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import com.indigo.gymapp.common.text.Large
 import com.indigo.gymapp.common.text.body.Body
 import com.indigo.gymapp.time.Time
+import com.indigo.gymapp.ui.number.Number.Component.Button.TimeButton
 
 @Composable
 fun TimeButton(
@@ -22,8 +22,8 @@ fun TimeButton(
 ) {
     Box(
         modifier = Modifier
-            .width(69.dp)
-            .height(69.dp)
+            .width(TimeButton.diameter)
+            .height(TimeButton.diameter)
             .background(color = MaterialTheme.colorScheme.onPrimary, shape = CircleShape)
             .clickable { onClick(time) },
         contentAlignment = Alignment.Center,

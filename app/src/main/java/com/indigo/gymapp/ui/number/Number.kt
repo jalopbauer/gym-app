@@ -52,6 +52,12 @@ object Number {
             val default = 24.dp
             val highlight = 32.dp
         }
+
+        object Button {
+            object TimeButton {
+                val diameter = 69.dp
+            }
+        }
     }
 
 }
