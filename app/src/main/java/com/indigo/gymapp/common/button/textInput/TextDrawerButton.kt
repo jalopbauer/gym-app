@@ -11,11 +11,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
 import com.indigo.gymapp.common.amount.intAmount.IntAmount
 import com.indigo.gymapp.common.amount.timeAmount.TimeAmount
 import com.indigo.gymapp.common.text.title.Title
 import com.indigo.gymapp.time.Time
+import com.indigo.gymapp.ui.number.Number.Component.Button
 
 @Composable
 private fun TextDrawerButton(
@@ -34,7 +34,7 @@ private fun TextDrawerButton(
         modifier = Modifier
             .fillMaxWidth(maxWidthFraction)
             .clickable { onClick() }
-            .height(48.dp),
+            .height(Button.minimumHeight),
     ) {
         Title(
             modifier = Modifier.weight(1f),
