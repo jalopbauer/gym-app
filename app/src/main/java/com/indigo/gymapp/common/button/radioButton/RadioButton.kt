@@ -1,4 +1,4 @@
-package com.indigo.gymapp.common.radioButton
+package com.indigo.gymapp.common.button.radioButton
 
 import androidx.compose.runtime.Composable
 import com.indigo.gymapp.ui.theme.color.Color

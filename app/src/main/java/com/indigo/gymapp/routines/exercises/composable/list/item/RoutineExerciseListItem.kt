@@ -8,7 +8,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.indigo.gymapp.common.preview.hug.HugPreview
-import com.indigo.gymapp.common.radioButton.RadioButton
+import com.indigo.gymapp.common.button.radioButton.RadioButton
 import com.indigo.gymapp.time.Rest
 import com.indigo.gymapp.time.Duration
 import com.indigo.gymapp.exercises.entity.ExerciseEntity
