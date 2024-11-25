@@ -55,8 +55,9 @@ object Number {
 
         object Button {
             val minimumHeight = 48.dp
-            object TimeButton {
+            object CircleButton {
                 val diameter = 69.dp
+                val padding = 0.dp
             }
         }
     }

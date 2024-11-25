@@ -83,6 +83,12 @@ object Color {
                 ButtonDefaults.buttonColors().copy(
                     containerColor = MaterialTheme.colorScheme.background,
                 )
+
+            @Composable
+            fun circleButtonColor() =
+                ButtonDefaults.buttonColors(
+                    containerColor = MaterialTheme.colorScheme.onPrimary
+                )
         }
     }
 }

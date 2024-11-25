@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.indigo.gymapp.R
 import com.indigo.gymapp.common.button.Button
-import com.indigo.gymapp.common.button.row.timeButtonsRow.TimeButtonsRow
+import com.indigo.gymapp.common.button.timeButtonsRow.TimeButtonsRow
 import com.indigo.gymapp.common.numberScroll.NumberScroll
 import com.indigo.gymapp.common.numberScroll.VerticalNumberScroll
 import com.indigo.gymapp.time.Rest
