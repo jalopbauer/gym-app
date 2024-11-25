@@ -6,8 +6,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.indigo.gymapp.common.button.iconButton.DeleteIconButton
-import com.indigo.gymapp.common.text.headline.Headline
+import com.indigo.gymapp.common.button.textButton.DeleteTextButton
 import com.indigo.gymapp.exercises.entity.ExerciseEntity
 
 @Composable
@@ -20,7 +19,9 @@ fun Exercise(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
-        Headline(exercise.name)
-        DeleteIconButton(onClick = { deleteOnClick(exercise.id) })
+        DeleteTextButton(
+            text = exercise.name,
+            onClick = { deleteOnClick(exercise.id) }
+        )
     }
 }

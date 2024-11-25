@@ -13,8 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import com.indigo.gymapp.common.button.iconButton.DeleteIconButton
-import com.indigo.gymapp.common.text.headline.Headline
+import com.indigo.gymapp.common.button.textButton.DeleteTextButton
 import com.indigo.gymapp.routines.entity.RoutineEntity
 import com.indigo.gymapp.ui.number.Number.Context
 
@@ -34,7 +33,9 @@ fun RoutineCard(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Headline(routine.name)
-        DeleteIconButton(onClick = {onDeleteClick(routine.id)})
+        DeleteTextButton(
+            text = routine.name,
+            onClick = {onDeleteClick(routine.id)}
+        )
     }
 }

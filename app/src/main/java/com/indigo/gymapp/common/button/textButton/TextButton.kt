@@ -11,6 +11,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import com.indigo.gymapp.common.button.iconButton.IconButton
+import com.indigo.gymapp.common.icon.IconVariant
 import com.indigo.gymapp.common.text.Large
 import com.indigo.gymapp.common.text.title.Title
 import com.indigo.gymapp.ui.number.Number.Component.Button
@@ -27,7 +29,7 @@ fun TextButton(
         horizontalArrangement = horizontalArrangement(textButtonVariant = textButtonVariant),
         modifier = Modifier
             .fillMaxWidth(maxWidthFraction)
-            .clickable { onClick() }
+            .clickable(enabled = clickableModifier(textButtonVariant)) { onClick() }
             .height(Button.minimumHeight),
     ) {
         Title(
@@ -41,14 +43,14 @@ fun TextButton(
 @Composable
 private fun horizontalArrangement(textButtonVariant : TextButtonVariant) : Arrangement.Horizontal =
     when (textButtonVariant) {
-        is Text -> Arrangement.SpaceBetween
+        is Text, is TrailingIcon -> Arrangement.SpaceBetween
         is Centered -> Arrangement.Center
     }
 
 @Composable
 private fun textColor(textButtonVariant : TextButtonVariant): Color =
     when (textButtonVariant) {
-        is Text -> MaterialTheme.colorScheme.primary
+        is Text, is TrailingIcon -> MaterialTheme.colorScheme.primary
         is Centered -> if (textButtonVariant.selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onPrimary
     }
 
@@ -64,16 +66,24 @@ private fun Leading(textButtonVariant : TextButtonVariant) =
                     textSize = Large
                 )
         }
+        is TrailingIcon -> {
+            IconButton(iconVariant = textButtonVariant.iconVariant, onClick = textButtonVariant.onClick)
+        }
+    }
+
+private fun clickableModifier(textButtonVariant : TextButtonVariant) : Boolean =
+    when (textButtonVariant) {
+        is Centered, is Text -> true
+        is TrailingIcon -> false
     }
 
 
 sealed interface TextButtonVariant
 
-// TODO Add Icon Left
-// Includes removing the clickable from the Modifier
-// Adding a new variant to left that is icon
 sealed interface Left : TextButtonVariant
 
 data class Text(val leadingText: String? = null) : Left
+
+data class TrailingIcon(val iconVariant: IconVariant, val onClick: () -> Unit) : Left
 
 data class Centered(val selected: Boolean) : TextButtonVariant
