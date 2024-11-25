@@ -77,9 +77,9 @@ fun CreateRoutineExercise(
     val coroutineScope = rememberCoroutineScope()
     Column {
         CreateHeader(
-            title = stringResource(id = addExerciseVariant.titleId()),
-            isSelected = addExerciseVariant.isSelected(),
-            onClickDrawerButton = { bottomSheetState = SelectRoutineExerciseVariant },
+            text = stringResource(id = addExerciseVariant.titleId()),
+            selected = addExerciseVariant.isSelected(),
+            onClickTextButton = { bottomSheetState = SelectRoutineExerciseVariant },
             onClickSave = {
                 when (addExerciseVariant) {
                     Empty -> Toast.makeText(context, context.getString(R.string.must_select_exercise_type), Toast.LENGTH_SHORT).show()

@@ -12,31 +12,35 @@ import com.indigo.gymapp.common.button.iconButton.CancelIconButton
 import com.indigo.gymapp.common.button.iconButton.SaveIconButton
 import com.indigo.gymapp.common.button.textButton.HeaderTextButton
 import com.indigo.gymapp.common.preview.hug.HugPreview
-import com.indigo.gymapp.ui.number.Number
+import com.indigo.gymapp.ui.number.Number.Component.Header.CreateHeader
 
 @Composable
 fun CreateHeader(
-    title: String,
-    isSelected: Boolean = false,
-    onClickDrawerButton: () -> Unit,
+    text: String,
+    selected: Boolean,
+    onClickTextButton: () -> Unit,
     onClickSave: () -> Unit,
     onClickCancel: () -> Unit,
 
-) {
+    ) {
     Row (
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = Number.Context.Padding.headerWithIconButton),
+            .padding(horizontal = CreateHeader.horizontalPadding),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween,
     ) {
-        CancelIconButton { onClickCancel() }
-        HeaderTextButton(
-            text = title,
-            selected = isSelected,
-            onClick = onClickDrawerButton
+        CancelIconButton(
+            onClick = onClickCancel
         )
-        SaveIconButton { onClickSave() }
+        HeaderTextButton(
+            text = text,
+            selected = selected,
+            onClick = onClickTextButton
+        )
+        SaveIconButton(
+            onClick = onClickSave
+        )
     }
 }
 
@@ -45,9 +49,9 @@ fun CreateHeader(
 private fun UnselectedCreateHeaderPreview() {
     HugPreview {
         CreateHeader (
-            title = "header",
-            isSelected = false,
-            onClickDrawerButton = {},
+            text = "header",
+            selected = false,
+            onClickTextButton = {},
             onClickSave = {},
             onClickCancel = {}
         )
@@ -59,9 +63,9 @@ private fun UnselectedCreateHeaderPreview() {
 private fun SelectedCreateHeaderPreview() {
     HugPreview {
         CreateHeader (
-            title = "header",
-            isSelected = true,
-            onClickDrawerButton = {},
+            text = "header",
+            selected = true,
+            onClickTextButton = {},
             onClickSave = {},
             onClickCancel = {}
         )

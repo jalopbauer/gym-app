@@ -17,7 +17,6 @@ object Number {
     object Context {
         object Padding {
             val screen = Brand.l
-            val headerWithIconButton = Brand.m
             val card = Brand.m
             val button = Brand.m
         }
@@ -39,6 +38,12 @@ object Number {
     object Component {
         object Spacer {
             val listBottom = 64.dp
+        }
+
+        object Header {
+            object CreateHeader {
+                val horizontalPadding = Brand.m
+            }
         }
         object NumberScroll {
             val pageSize = 64.dp

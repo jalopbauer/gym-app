@@ -93,9 +93,9 @@ fun CreateRoutine(
 
     Column {
         CreateHeader(
-            title = headerTitle,
-            isSelected = hasWrittenRoutineName,
-            onClickDrawerButton = {
+            text = headerTitle,
+            selected = hasWrittenRoutineName,
+            onClickTextButton = {
                 bottomSheetState = NameYourRoutine
             },
             onClickSave = {
