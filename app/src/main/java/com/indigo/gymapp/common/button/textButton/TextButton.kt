@@ -43,14 +43,14 @@ fun TextButton(
 @Composable
 private fun horizontalArrangement(textButtonVariant : TextButtonVariant) : Arrangement.Horizontal =
     when (textButtonVariant) {
-        is Text, is TrailingIcon -> Arrangement.SpaceBetween
+        is TrailingText, is TrailingIcon -> Arrangement.SpaceBetween
         is Centered -> Arrangement.Center
     }
 
 @Composable
 private fun textColor(textButtonVariant : TextButtonVariant): Color =
     when (textButtonVariant) {
-        is Text, is TrailingIcon -> MaterialTheme.colorScheme.primary
+        is TrailingText, is TrailingIcon -> MaterialTheme.colorScheme.primary
         is Centered -> if (textButtonVariant.selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onPrimary
     }
 
@@ -58,10 +58,10 @@ private fun textColor(textButtonVariant : TextButtonVariant): Color =
 private fun Leading(textButtonVariant : TextButtonVariant) =
     when (textButtonVariant) {
         is Centered -> {}
-        is Text ->
-            textButtonVariant.leadingText?.let {
+        is TrailingText ->
+            textButtonVariant.text?.let {
                 Title(
-                    title = textButtonVariant.leadingText,
+                    title = textButtonVariant.text,
                     color = MaterialTheme.colorScheme.onPrimary,
                     textSize = Large
                 )
@@ -73,17 +73,17 @@ private fun Leading(textButtonVariant : TextButtonVariant) =
 
 private fun clickableModifier(textButtonVariant : TextButtonVariant) : Boolean =
     when (textButtonVariant) {
-        is Centered, is Text -> true
+        is Centered, is TrailingText -> true
         is TrailingIcon -> false
     }
 
 
 sealed interface TextButtonVariant
 
-sealed interface Left : TextButtonVariant
+sealed interface Trailing: TextButtonVariant
 
-data class Text(val leadingText: String? = null) : Left
+data class TrailingText(val text: String? = null) : Trailing
 
-data class TrailingIcon(val iconVariant: IconVariant, val onClick: () -> Unit) : Left
+data class TrailingIcon(val iconVariant: IconVariant, val onClick: () -> Unit) : Trailing
 
 data class Centered(val selected: Boolean) : TextButtonVariant

@@ -10,7 +10,7 @@ fun IntAmountTextButton(
 ) {
     TextButton(
         text = text,
-        textButtonVariant = Text(leadingText = "$amount"),
+        textButtonVariant = TrailingText(text = "$amount"),
         onClick = onClick,
     )
 }

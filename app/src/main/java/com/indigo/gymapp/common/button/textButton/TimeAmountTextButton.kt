@@ -11,7 +11,7 @@ fun TimeAmountTextButton(
 ) {
     TextButton(
         text = text,
-        textButtonVariant = Text(leadingText = "$time"),
+        textButtonVariant = TrailingText(text = "$time"),
         onClick = onClick
     )
 }
