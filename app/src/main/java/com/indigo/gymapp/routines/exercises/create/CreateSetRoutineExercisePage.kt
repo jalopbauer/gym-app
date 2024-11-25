@@ -7,9 +7,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.indigo.gymapp.R
-import com.indigo.gymapp.common.button.textInput.IntAmountTextDrawerButton
-import com.indigo.gymapp.common.button.textInput.OnlyTextDrawerButton
-import com.indigo.gymapp.common.button.textInput.TimeAmountTextDrawerButton
+import com.indigo.gymapp.common.button.textButton.IntAmountTextButton
+import com.indigo.gymapp.common.button.textButton.CenteredTextButton
+import com.indigo.gymapp.common.button.textButton.TimeAmountTextButton
 import com.indigo.gymapp.common.preview.screen.ScreenPreview
 import com.indigo.gymapp.time.Rest
 import com.indigo.gymapp.exercises.entity.ExerciseEntity
@@ -29,18 +29,18 @@ fun CreateSetRoutineExercise(
         modifier = Modifier
             .fillMaxSize()
     ) {
-        OnlyTextDrawerButton(
-            leadingText = exerciseText,
-            isSelected = exercise != null,
+        CenteredTextButton(
+            text = exerciseText,
+            selected = exercise != null,
             onClick = selectExerciseOnClick
         )
-        TimeAmountTextDrawerButton(
-            leadingText = stringResource(id = R.string.rest_between_exercises),
+        TimeAmountTextButton(
+            text = stringResource(id = R.string.rest_between_exercises),
             time = rest,
             onClick = setRestTimeOnClick
         )
-        IntAmountTextDrawerButton(
-            leadingText = stringResource(id = R.string.amount_of_sets),
+        IntAmountTextButton(
+            text = stringResource(id = R.string.amount_of_sets),
             amount = amountOfSets,
             onClick = setAmountOfSetsOnClick
         )

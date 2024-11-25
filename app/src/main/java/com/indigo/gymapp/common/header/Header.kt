@@ -10,7 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.indigo.gymapp.common.button.iconButton.CancelIconButton
 import com.indigo.gymapp.common.button.iconButton.SaveIconButton
-import com.indigo.gymapp.common.button.textInput.HeaderTextDrawerButton
+import com.indigo.gymapp.common.button.textButton.HeaderTextButton
 import com.indigo.gymapp.common.preview.hug.HugPreview
 import com.indigo.gymapp.ui.number.Number
 
@@ -31,9 +31,9 @@ fun CreateHeader(
         horizontalArrangement = Arrangement.SpaceBetween,
     ) {
         CancelIconButton { onClickCancel() }
-        HeaderTextDrawerButton(
-            title = title,
-            isSelected = isSelected,
+        HeaderTextButton(
+            text = title,
+            selected = isSelected,
             onClick = onClickDrawerButton
         )
         SaveIconButton { onClickSave() }

@@ -21,7 +21,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.indigo.gymapp.R
 import com.indigo.gymapp.common.bottomSheet.BottomSheet
-import com.indigo.gymapp.common.button.textInput.TimeAmountTextDrawerButton
+import com.indigo.gymapp.common.button.textButton.TimeAmountTextButton
 import com.indigo.gymapp.common.header.CreateHeader
 import com.indigo.gymapp.common.preview.screen.ScreenPreview
 import com.indigo.gymapp.common.timeScrollTimeButtonsRowConfirm.TimeScrollTimeButtonsRowConfirm
@@ -121,8 +121,8 @@ fun CreateRoutine(
                 ),
             verticalArrangement = Arrangement.spacedBy(Number.Context.Gap.default)
         ) {
-            TimeAmountTextDrawerButton(
-                leadingText = stringResource(id = R.string.rest_between_exercises),
+            TimeAmountTextButton(
+                text = stringResource(id = R.string.rest_between_exercises),
                 time = routineRestTimeBetweenExercises,
                 onClick = { bottomSheetState = SetRoutineRestTimeBetweenExercisesVariant }
             )
