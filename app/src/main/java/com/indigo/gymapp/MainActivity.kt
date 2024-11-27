@@ -13,11 +13,11 @@ import androidx.compose.ui.Modifier
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.compose.rememberNavController
 import com.indigo.gymapp.common.bottomAppBar.CreateUpdateDeleteBottomAppBar
+import com.indigo.gymapp.common.navigation.NavigationBar
 import com.indigo.gymapp.manager.bottomAppBar.BottomAppBarManagerSingleton
 import com.indigo.gymapp.manager.bottomAppBar.state.CreateUpdateDelete
 import com.indigo.gymapp.manager.bottomAppBar.state.Empty
 import com.indigo.gymapp.manager.bottomAppBar.state.Navigation
-import com.indigo.gymapp.navigation.BottomAppBar
 import com.indigo.gymapp.navigation.NavHostComposable
 import com.indigo.gymapp.ui.theme.GymAppTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -48,7 +48,7 @@ class MainActivity : FragmentActivity() {
                         bottomBar = {
 //                              bottomAppBarState is set to a variable as to be able to smart cast
                             when (val state = bottomAppBarState) {
-                                is Navigation -> BottomAppBar(
+                                is Navigation -> NavigationBar(
                                     initialItem = state.item,
                                     onNavigate = { navController.navigate(it) }
                                 )

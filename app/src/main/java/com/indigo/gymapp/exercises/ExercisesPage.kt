@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -24,12 +25,14 @@ import com.indigo.gymapp.R
 import com.indigo.gymapp.common.bottomSheet.BottomSheet
 import com.indigo.gymapp.common.button.floatingActionButton.FloatingActionButton
 import com.indigo.gymapp.common.icon.Add
+import com.indigo.gymapp.common.navigation.NavigationIndex
 import com.indigo.gymapp.common.text.Large
 import com.indigo.gymapp.common.text.headline.Headline
 import com.indigo.gymapp.exercises.composable.AddExercise
 import com.indigo.gymapp.exercises.composable.DeleteExercise
 import com.indigo.gymapp.exercises.composable.Exercises
 import com.indigo.gymapp.exercises.viewModel.ExerciseViewModel
+import com.indigo.gymapp.manager.bottomAppBar.BottomAppBarViewModel
 import com.indigo.gymapp.ui.number.Number.Context
 import com.indigo.gymapp.ui.number.Number.Context.Padding
 import kotlinx.coroutines.launch
@@ -39,6 +42,11 @@ import kotlinx.coroutines.launch
 fun ExercisesPage() {
     val context = LocalContext.current
     val focusManager = LocalFocusManager.current
+
+    val bottomAppBarViewModel = hiltViewModel<BottomAppBarViewModel>()
+    LaunchedEffect(Unit) {
+        bottomAppBarViewModel.setNavigation(NavigationIndex.EXERCISES)
+    }
 
     val exerciseViewModel = hiltViewModel<ExerciseViewModel>()
     val exercises by exerciseViewModel.exercises.collectAsState(initial = emptyList())

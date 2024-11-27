@@ -16,6 +16,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.indigo.gymapp.R
 import com.indigo.gymapp.common.button.floatingActionButton.FloatingActionButton
 import com.indigo.gymapp.common.icon.Add
+import com.indigo.gymapp.common.navigation.NavigationIndex
 import com.indigo.gymapp.manager.bottomAppBar.BottomAppBarViewModel
 import com.indigo.gymapp.routines.composable.Routines
 import com.indigo.gymapp.routines.manager.RoutineViewModel
@@ -33,7 +34,7 @@ fun RoutinesPage(
     val routines by routineViewModel.routines.collectAsState(initial = emptyList())
 
     LaunchedEffect(Unit) {
-        bottomAppBarViewModel.setNavigation(2)
+        bottomAppBarViewModel.setNavigation(NavigationIndex.ROUTINES)
     }
 
     val coroutineScope = rememberCoroutineScope()

@@ -9,6 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.indigo.gymapp.R
+import com.indigo.gymapp.common.navigation.NavigationIndex
 import com.indigo.gymapp.common.text.Large
 import com.indigo.gymapp.common.text.headline.Headline
 import com.indigo.gymapp.manager.bottomAppBar.BottomAppBarViewModel
@@ -16,10 +17,10 @@ import com.indigo.gymapp.ui.number.Number.Context.Padding
 
 @Composable
 fun CalendarPage() {
-    val bottomAppBarViewModel = hiltViewModel<BottomAppBarViewModel>()
 
+    val bottomAppBarViewModel = hiltViewModel<BottomAppBarViewModel>()
     LaunchedEffect(Unit) {
-        bottomAppBarViewModel.setNavigation(1)
+        bottomAppBarViewModel.setNavigation(NavigationIndex.CALENDAR)
     }
 
     Column(
