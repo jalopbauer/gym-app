@@ -54,7 +54,7 @@ fun NumberScroll(
                     pagerState = pagerState,
                 ) { page ->
                     Number(
-                        page = page,
+                        value = page,
                         currentPage = currentPage,
                         indexDisplay = indexDisplay,
                         minimumValue = minimumValue
@@ -66,7 +66,7 @@ fun NumberScroll(
                     pagerState = pagerState,
                 ) { page ->
                     Number(
-                        page = page,
+                        value = page,
                         currentPage = currentPage,
                         indexDisplay = indexDisplay,
                         minimumValue = minimumValue
@@ -94,17 +94,17 @@ data object HorizontalNumberScroll : NumberScrollVariant
 
 @Composable
 fun Number(
-    page: Int,
+    value: Int,
     currentPage: Int,
     indexDisplay: (Int) -> String,
     minimumValue: Int
 ) {
-    val isSelected = page == currentPage
-    if (page >= minimumValue){
+    val selected = value == currentPage
+    if (value >= minimumValue){
         Display(
             modifier = Modifier.width(NumberScroll.pageSize),
-            display = indexDisplay(page),
-            color = if (isSelected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onPrimary,
+            display = indexDisplay(value),
+            color = if (selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onPrimary,
             textAlign = TextAlign.Right,
             textSize = Large
         )
