@@ -7,7 +7,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.indigo.gymapp.routines.entity.RoutineEntity
-import com.indigo.gymapp.ui.number.Number.Context
+import com.indigo.gymapp.ui.number.Number.Context.Gap
 
 @Composable
 fun Routines(
@@ -17,7 +17,7 @@ fun Routines(
 ) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.spacedBy(space = Context.Gap.default)
+        verticalArrangement = Arrangement.spacedBy(space = Gap.default)
     ) {
         items(routines) { routine ->
             RoutineCard(
