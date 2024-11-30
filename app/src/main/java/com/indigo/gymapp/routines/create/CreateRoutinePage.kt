@@ -24,7 +24,7 @@ import com.indigo.gymapp.common.bottomSheet.BottomSheet
 import com.indigo.gymapp.common.button.textButton.TimeAmountTextButton
 import com.indigo.gymapp.common.header.CreateHeader
 import com.indigo.gymapp.common.preview.screen.ScreenPreview
-import com.indigo.gymapp.common.timeScrollTimeButtonsRowConfirm.TimeScrollTimeButtonsRowConfirm
+import com.indigo.gymapp.common.restSelector.RestSelector
 import com.indigo.gymapp.time.Rest
 import com.indigo.gymapp.manager.bottomAppBar.BottomAppBarViewModel
 import com.indigo.gymapp.routines.exercises.composable.list.RoutineExerciseList
@@ -158,7 +158,7 @@ fun CreateRoutine(
                     onValueChange = { routineName = it }
                 )
             SetRoutineRestTimeBetweenExercisesVariant -> {
-                TimeScrollTimeButtonsRowConfirm(
+                RestSelector(
                     routineRestTimeBetweenExercises = Rest(minutes, seconds),
                     selectedMinutes = { minutes = it },
                     selectedSeconds = { seconds = it },

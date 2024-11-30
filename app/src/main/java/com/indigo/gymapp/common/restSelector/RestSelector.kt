@@ -1,4 +1,4 @@
-package com.indigo.gymapp.common.timeScrollTimeButtonsRowConfirm
+package com.indigo.gymapp.common.restSelector
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -17,12 +17,12 @@ import com.indigo.gymapp.common.numberScroll.NumberScroll
 import com.indigo.gymapp.common.numberScroll.VerticalNumberScroll
 import com.indigo.gymapp.time.Rest
 import com.indigo.gymapp.time.displaySeconds
-import com.indigo.gymapp.ui.number.Number
+import com.indigo.gymapp.ui.number.Number.Context.Gap
 import kotlinx.coroutines.launch
 
 
 @Composable
-fun TimeScrollTimeButtonsRowConfirm(
+fun RestSelector(
     routineRestTimeBetweenExercises: Rest,
     selectedMinutes: (Int) -> Unit,
     selectedSeconds: (Int) -> Unit,
@@ -32,7 +32,7 @@ fun TimeScrollTimeButtonsRowConfirm(
     confirmOnClick: () -> Unit,
 ) {
     Column(
-        verticalArrangement = Arrangement.spacedBy(space = Number.Context.Gap.medium)
+        verticalArrangement = Arrangement.spacedBy(space = Gap.medium)
     ) {
         val secondsVerticalNumberScrollPagerState = rememberPagerState(
             initialPage = routineRestTimeBetweenExercises.seconds,
@@ -44,7 +44,7 @@ fun TimeScrollTimeButtonsRowConfirm(
         )
         Row(
             modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(space = Number.Context.Gap.extraLarge, alignment = Alignment.CenterHorizontally),
+            horizontalArrangement = Arrangement.spacedBy(space = Gap.extraLarge, alignment = Alignment.CenterHorizontally),
             verticalAlignment = Alignment.CenterVertically
         ) {
             NumberScroll(
