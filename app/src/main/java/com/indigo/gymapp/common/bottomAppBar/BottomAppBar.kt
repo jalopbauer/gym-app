@@ -9,9 +9,9 @@ import com.indigo.gymapp.common.button.iconButton.EditIconButton
 import com.indigo.gymapp.common.icon.Exercise
 
 @Composable
-fun CreateUpdateDeleteBottomAppBar(
-    isDeleteEnabled : Boolean,
-    isEditEnabled : Boolean,
+fun BottomAppBar(
+    showDelete : Boolean,
+    showEdit : Boolean,
     addOnClick: () -> Unit,
     editOnClick: () -> Unit,
     deleteOnClick: () -> Unit,
@@ -19,12 +19,12 @@ fun CreateUpdateDeleteBottomAppBar(
     androidx.compose.material3.BottomAppBar(
         containerColor = MaterialTheme.colorScheme.surface,
         actions = {
-            if (isDeleteEnabled) {
+            if (showDelete) {
                 DeleteIconButton(
                     onClick = deleteOnClick
                 )
             }
-            if (isEditEnabled) {
+            if (showEdit) {
                 EditIconButton(
                     onClick = editOnClick
                 )
@@ -43,9 +43,9 @@ fun CreateUpdateDeleteBottomAppBar(
 @Preview
 @Composable
 private fun DeleteAndEditDisabledCreateUpdateDeleteActionBottomAppBarPreview() {
-    CreateUpdateDeleteBottomAppBar(
-        isDeleteEnabled = false,
-        isEditEnabled = false,
+    BottomAppBar(
+        showDelete = false,
+        showEdit = false,
         addOnClick = {},
         editOnClick = {},
         deleteOnClick = {},
@@ -55,9 +55,9 @@ private fun DeleteAndEditDisabledCreateUpdateDeleteActionBottomAppBarPreview() {
 @Preview
 @Composable
 private fun EditDisabledCreateUpdateDeleteActionBottomAppBarPreview() {
-    CreateUpdateDeleteBottomAppBar(
-        isDeleteEnabled = true,
-        isEditEnabled = false,
+    BottomAppBar(
+        showDelete = true,
+        showEdit = false,
         addOnClick = {},
         editOnClick = {},
         deleteOnClick = {},
@@ -67,9 +67,9 @@ private fun EditDisabledCreateUpdateDeleteActionBottomAppBarPreview() {
 @Preview
 @Composable
 private fun AllEnabledCreateUpdateDeleteActionBottomAppBarPreview() {
-    CreateUpdateDeleteBottomAppBar(
-        isDeleteEnabled = true,
-        isEditEnabled = true,
+    BottomAppBar(
+        showDelete = true,
+        showEdit = true,
         addOnClick = {},
         editOnClick = {},
         deleteOnClick = {},

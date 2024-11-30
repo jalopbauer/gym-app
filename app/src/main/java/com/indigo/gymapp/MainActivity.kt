@@ -12,7 +12,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.compose.rememberNavController
-import com.indigo.gymapp.common.bottomAppBar.CreateUpdateDeleteBottomAppBar
+import com.indigo.gymapp.common.bottomAppBar.BottomAppBar
 import com.indigo.gymapp.common.navigation.NavigationBar
 import com.indigo.gymapp.manager.bottomAppBar.BottomAppBarManagerSingleton
 import com.indigo.gymapp.manager.bottomAppBar.state.CreateUpdateDelete
@@ -52,7 +52,7 @@ class MainActivity : FragmentActivity() {
                                     initialItem = state.item,
                                     onNavigate = { navController.navigate(it) }
                                 )
-                                is CreateUpdateDelete -> CreateUpdateDeleteBottomAppBar(
+                                is CreateUpdateDelete -> BottomAppBar(
                                     state.isDeleteEnabled,
                                     state.isEditEnabled,
                                     state.addOnClick,
