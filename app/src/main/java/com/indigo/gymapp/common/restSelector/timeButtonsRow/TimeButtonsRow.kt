@@ -1,4 +1,4 @@
-package com.indigo.gymapp.common.button.timeButtonsRow
+package com.indigo.gymapp.common.restSelector.timeButtonsRow
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
