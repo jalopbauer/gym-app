@@ -12,7 +12,17 @@ import com.indigo.gymapp.common.button.iconButton.CancelIconButton
 import com.indigo.gymapp.common.button.iconButton.SaveIconButton
 import com.indigo.gymapp.common.button.textButton.HeaderTextButton
 import com.indigo.gymapp.common.preview.hug.HugPreview
+import com.indigo.gymapp.common.text.Large
+import com.indigo.gymapp.common.text.headline.Headline
 import com.indigo.gymapp.ui.number.Number.Component.Header.CreateHeader
+
+@Composable
+fun TextHeader(text: String) {
+    Headline(
+        headline = text,
+        textSize = Large
+    )
+}
 
 @Composable
 fun CreateHeader(
