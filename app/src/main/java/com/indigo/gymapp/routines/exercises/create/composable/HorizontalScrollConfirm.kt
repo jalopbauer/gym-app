@@ -1,4 +1,4 @@
-package com.indigo.gymapp.common.horizontalScrollConfirm
+package com.indigo.gymapp.routines.exercises.create.composable
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
