@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import com.indigo.gymapp.common.text.Small
 import com.indigo.gymapp.common.text.title.Title
 import com.indigo.gymapp.ui.theme.color.Color.Component
 
@@ -19,10 +20,12 @@ fun TextField(
         modifier = modifier.fillMaxWidth(),
         value = value,
         onValueChange = onValueChange,
+        textStyle = MaterialTheme.typography.titleLarge,
         placeholder = {
             Title(
                 title = label,
-                color = MaterialTheme.colorScheme.onPrimary
+                color = MaterialTheme.colorScheme.onPrimary,
+                textSize = Small
             )
         },
         colors = Component.textFieldColorsField()
