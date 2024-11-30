@@ -21,6 +21,7 @@ import com.indigo.gymapp.common.page.HeaderPage
 import com.indigo.gymapp.exercises.composable.AddExercise
 import com.indigo.gymapp.exercises.composable.DeleteExercise
 import com.indigo.gymapp.exercises.composable.Exercises
+import com.indigo.gymapp.exercises.viewModel.CannotCreateEmptyExercise
 import com.indigo.gymapp.exercises.viewModel.ExerciseViewModel
 import com.indigo.gymapp.manager.bottomAppBar.BottomAppBarViewModel
 import kotlinx.coroutines.launch
@@ -104,29 +105,30 @@ fun ExercisesPage() {
                     newExerciseName = newExerciseName,
                     onExerciseNameChange = { newExerciseName = it },
                     addExerciseOnClick = {
-                        if (newExerciseName == "") {
-                            Toast.makeText(
-                                context,
-                                context.getString(R.string.cannot_create_empty_name_exercise),
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        } else {
-                            coroutineScope.launch {
-                                exerciseViewModel.createExercise(newExerciseName)
-                                    .onSuccess {
+                        coroutineScope.launch {
+                            exerciseViewModel.createExercise(newExerciseName)
+                                .onSuccess {
+                                    Toast.makeText(
+                                        context,
+                                        context.getString(R.string.exercise_added, newExerciseName),
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                    newExerciseName = ""
+                                    bottomSheetState = Closed
+                                }.onFailure { error ->
+                                    if (error is CannotCreateEmptyExercise) {
                                         Toast.makeText(
                                             context,
-                                            context.getString(R.string.exercise_added, newExerciseName),
+                                            context.getString(R.string.cannot_create_empty_name_exercise),
                                             Toast.LENGTH_SHORT
                                         ).show()
-                                        newExerciseName = ""
-                                        bottomSheetState = Closed
-                                    }.onFailure { _ ->
+                                    } else {
                                         Toast.makeText(context, context.getString(R.string.cannot_save_exercise_with_same_name), Toast.LENGTH_SHORT).show()
                                     }
-                            }
-
+                                }
                         }
+
+
                     }
                 )
             }

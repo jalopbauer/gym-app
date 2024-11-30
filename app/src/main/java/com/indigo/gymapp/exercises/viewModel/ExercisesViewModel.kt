@@ -28,10 +28,14 @@ class ExerciseViewModel @Inject constructor(
     val exercises = exerciseDao.getAll().asFlow()
 
     suspend fun createExercise(exerciseName: String): Result<Unit> {
-        val exercise = ExerciseEntity(name = exerciseName)
-        return withContext(Dispatchers.Default) {
-            return@withContext runCatching {
-                exerciseDao.create(exercise)
+        return if (exerciseName == "") {
+            Result.failure(CannotCreateEmptyExercise())
+        } else {
+            val exercise = ExerciseEntity(name = exerciseName)
+            return withContext(Dispatchers.Default) {
+                return@withContext runCatching {
+                    exerciseDao.create(exercise)
+                }
             }
         }
     }
