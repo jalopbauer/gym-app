@@ -9,9 +9,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.indigo.gymapp.R
+import com.indigo.gymapp.common.header.TextHeader
 import com.indigo.gymapp.common.navigation.NavigationIndex
-import com.indigo.gymapp.common.text.Large
-import com.indigo.gymapp.common.text.headline.Headline
 import com.indigo.gymapp.manager.bottomAppBar.BottomAppBarViewModel
 import com.indigo.gymapp.ui.number.Number.Context.Padding
 
@@ -28,9 +27,8 @@ fun ConfigurationPage() {
             .fillMaxSize()
             .padding(horizontal = Padding.screen),
     ) {
-        Headline(
-            headline = stringResource(R.string.configuration),
-            textSize = Large
+        TextHeader(
+            text = stringResource(R.string.configuration)
         )
     }
 }
