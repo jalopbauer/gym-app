@@ -70,12 +70,12 @@ fun RestSelector(
             }
         }
         TimeButtons(
-            leftTime,
-            onClick,
-            centerTime,
-            onClick,
-            rightTime,
-            onClick
+            leftTime = leftTime,
+            leftTimeOnClick = onClick,
+            centerTime = centerTime,
+            centerTimeOnClick = onClick,
+            rightTime = rightTime,
+            rightTimeOnClick = onClick
         )
         Button(
             text = stringResource(R.string.confirm),
