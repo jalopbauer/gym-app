@@ -14,7 +14,7 @@ import com.indigo.gymapp.R
 import com.indigo.gymapp.common.button.Button
 import com.indigo.gymapp.common.numberScroll.NumberScroll
 import com.indigo.gymapp.common.numberScroll.VerticalNumberScroll
-import com.indigo.gymapp.common.restSelector.timeButtonsRow.TimeButtonsRow
+import com.indigo.gymapp.common.restSelector.timeButtons.TimeButtons
 import com.indigo.gymapp.time.Rest
 import com.indigo.gymapp.time.displaySeconds
 import com.indigo.gymapp.ui.number.Number.Context.Gap
@@ -69,7 +69,7 @@ fun RestSelector(
                 minutesVerticalNumberScrollPagerState.scrollToPage(it.minutes)
             }
         }
-        TimeButtonsRow(
+        TimeButtons(
             leftTime,
             onClick,
             centerTime,

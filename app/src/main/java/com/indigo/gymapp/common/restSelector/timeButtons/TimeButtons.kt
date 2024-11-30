@@ -1,4 +1,4 @@
-package com.indigo.gymapp.common.restSelector.timeButtonsRow
+package com.indigo.gymapp.common.restSelector.timeButtons
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -11,7 +11,7 @@ import com.indigo.gymapp.time.Time
 import com.indigo.gymapp.ui.number.Number.Context.Gap
 
 @Composable
-fun TimeButtonsRow(
+fun TimeButtons(
     leftTime: Time,
     leftTimeOnClick: (Time) -> Unit,
     centerTime: Time,
