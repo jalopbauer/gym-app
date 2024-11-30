@@ -1,6 +1,7 @@
 package com.indigo.gymapp.common.header
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -15,13 +16,20 @@ import com.indigo.gymapp.common.preview.hug.HugPreview
 import com.indigo.gymapp.common.text.Large
 import com.indigo.gymapp.common.text.headline.Headline
 import com.indigo.gymapp.ui.number.Number.Component.Header.CreateHeader
+import com.indigo.gymapp.ui.number.Number.Context.Padding
 
 @Composable
 fun TextHeader(text: String) {
-    Headline(
-        headline = text,
-        textSize = Large
-    )
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = Padding.screen),
+    ) {
+        Headline(
+            headline = text,
+            textSize = Large
+        )
+    }
 }
 
 @Composable

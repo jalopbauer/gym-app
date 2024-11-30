@@ -1,12 +1,6 @@
 package com.indigo.gymapp.exercises
 
 import android.widget.Toast
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -15,33 +9,26 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.indigo.gymapp.R
 import com.indigo.gymapp.common.bottomSheet.BottomSheet
-import com.indigo.gymapp.common.button.floatingActionButton.FloatingActionButton
-import com.indigo.gymapp.common.icon.Add
+import com.indigo.gymapp.common.header.TextHeader
 import com.indigo.gymapp.common.navigation.NavigationIndex
-import com.indigo.gymapp.common.text.Large
-import com.indigo.gymapp.common.text.headline.Headline
+import com.indigo.gymapp.common.page.AddPage
+import com.indigo.gymapp.common.page.HeaderPage
 import com.indigo.gymapp.exercises.composable.AddExercise
 import com.indigo.gymapp.exercises.composable.DeleteExercise
 import com.indigo.gymapp.exercises.composable.Exercises
 import com.indigo.gymapp.exercises.viewModel.ExerciseViewModel
 import com.indigo.gymapp.manager.bottomAppBar.BottomAppBarViewModel
-import com.indigo.gymapp.ui.number.Number.Context
-import com.indigo.gymapp.ui.number.Number.Context.Padding
 import kotlinx.coroutines.launch
 
 
 @Composable
 fun ExercisesPage() {
     val context = LocalContext.current
-    val focusManager = LocalFocusManager.current
 
     val bottomAppBarViewModel = hiltViewModel<BottomAppBarViewModel>()
     LaunchedEffect(Unit) {
@@ -64,22 +51,18 @@ fun ExercisesPage() {
 
     val coroutineScope = rememberCoroutineScope()
 
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
+    AddPage (
+        onClick = {
+            bottomSheetState = AddExercise
+        }
     ) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .clickable { focusManager.clearFocus() }
-                .padding(horizontal = Padding.screen),
-            verticalArrangement = Arrangement.spacedBy(Context.Gap.default)
-
+        HeaderPage(
+            header = {
+                TextHeader(
+                    text = stringResource(R.string.exercises)
+                )
+            }
         ) {
-            Headline(
-                headline = stringResource(R.string.exercises),
-                textSize = Large
-            )
             Exercises(
                 exercises = exercises,
                 deleteOnClick = {
@@ -88,16 +71,6 @@ fun ExercisesPage() {
                 }
             )
         }
-
-        FloatingActionButton(
-            iconVariant = Add,
-            onClick = {
-                bottomSheetState = AddExercise
-            },
-            modifier = Modifier
-                .align(Alignment.BottomEnd)
-                .padding(Padding.button)
-        )
     }
 
 
@@ -147,7 +120,6 @@ fun ExercisesPage() {
                                             Toast.LENGTH_SHORT
                                         ).show()
                                         newExerciseName = ""
-                                        focusManager.clearFocus()
                                         bottomSheetState = Closed
                                     }.onFailure { _ ->
                                         Toast.makeText(context, context.getString(R.string.cannot_save_exercise_with_same_name), Toast.LENGTH_SHORT).show()
