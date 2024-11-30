@@ -13,7 +13,7 @@ import com.indigo.gymapp.R
 import com.indigo.gymapp.common.button.Button
 import com.indigo.gymapp.common.textField.TextField
 import com.indigo.gymapp.requestFocus
-import com.indigo.gymapp.ui.number.Number
+import com.indigo.gymapp.ui.number.Number.Context.Gap
 
 @Composable
 fun AddExercise(
@@ -27,7 +27,7 @@ fun AddExercise(
     requestFocus(focusRequester, lifecycleOwner)
 
     Column(
-        verticalArrangement = Arrangement.spacedBy(space = Number.Context.Gap.medium)
+        verticalArrangement = Arrangement.spacedBy(space = Gap.medium)
     ) {
         TextField(
             value = newExerciseName,
