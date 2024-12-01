@@ -1,4 +1,4 @@
-package com.indigo.gymapp.routines.exercises.create.composable.exerciseSearch
+package com.indigo.gymapp.routines.exercises.composable.search
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -9,8 +9,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.indigo.gymapp.common.searchBar.SearchBar
 import com.indigo.gymapp.exercises.entity.ExerciseEntity
-import com.indigo.gymapp.routines.exercises.create.composable.exerciseTextButton.ExerciseTextButton
-import com.indigo.gymapp.ui.number.Number.Context
+import com.indigo.gymapp.routines.exercises.composable.textButton.ExerciseTextButton
+import com.indigo.gymapp.ui.number.Number.Context.Gap
 
 
 @Composable
@@ -22,7 +22,7 @@ fun ExerciseSearch(
 ) {
     Column(
         modifier = Modifier.fillMaxHeight(0.5f),
-        verticalArrangement = Arrangement.spacedBy(Context.Gap.default)
+        verticalArrangement = Arrangement.spacedBy(Gap.default)
     ) {
         SearchBar(
             query = exerciseName,
