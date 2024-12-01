@@ -1,4 +1,4 @@
-package com.indigo.gymapp.routines.exercises.composable.list.item
+package com.indigo.gymapp.routines.exercises.composable.list.item.description
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -12,7 +12,7 @@ import com.indigo.gymapp.routines.exercises.SetExercise
 import com.indigo.gymapp.ui.number.Number.Context.Gap
 
 @Composable
-fun SetExerciseIconTextValue(exercise: SetExercise) {
+fun SetExerciseItemDescription(exercise: SetExercise) {
     Row (horizontalArrangement = Arrangement.spacedBy(Gap.default)) {
         IconTextValue(
             iconVariant = SetRoutineExercise,

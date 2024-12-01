@@ -1,4 +1,4 @@
-package com.indigo.gymapp.routines.exercises.composable.list.item
+package com.indigo.gymapp.routines.exercises.composable.list.item.description
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
@@ -8,7 +8,7 @@ import com.indigo.gymapp.common.iconTextValue.IconTextValue
 import com.indigo.gymapp.routines.exercises.TimedExercise
 
 @Composable
-fun TimedExerciseIconTextValue(exercise: TimedExercise) {
+fun TimedExerciseItemDescription(exercise: TimedExercise) {
     IconTextValue(
         iconVariant = TimedRoutineExercise,
         label = stringResource(id = R.string.duration),
