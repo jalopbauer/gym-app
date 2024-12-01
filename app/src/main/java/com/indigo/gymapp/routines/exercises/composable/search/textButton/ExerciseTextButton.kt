@@ -1,4 +1,4 @@
-package com.indigo.gymapp.routines.exercises.composable.textButton
+package com.indigo.gymapp.routines.exercises.composable.search.textButton
 
 import androidx.compose.runtime.Composable
 import com.indigo.gymapp.common.button.textButton.OnlyTextButton

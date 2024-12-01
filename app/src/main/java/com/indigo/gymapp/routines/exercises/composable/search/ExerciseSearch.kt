@@ -9,7 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.indigo.gymapp.common.searchBar.SearchBar
 import com.indigo.gymapp.exercises.entity.ExerciseEntity
-import com.indigo.gymapp.routines.exercises.composable.textButton.ExerciseTextButton
+import com.indigo.gymapp.routines.exercises.composable.search.textButton.ExerciseTextButton
 import com.indigo.gymapp.ui.number.Number.Context.Gap
 
 
