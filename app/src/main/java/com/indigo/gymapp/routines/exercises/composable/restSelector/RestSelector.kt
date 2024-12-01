@@ -1,4 +1,4 @@
-package com.indigo.gymapp.routines.exercises.create.composable
+package com.indigo.gymapp.routines.exercises.composable.restSelector
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -10,16 +10,16 @@ import com.indigo.gymapp.common.button.Button
 import com.indigo.gymapp.common.numberScroll.HorizontalNumberScroll
 import com.indigo.gymapp.common.numberScroll.NumberScroll
 import com.indigo.gymapp.time.displaySeconds
-import com.indigo.gymapp.ui.number.Number
+import com.indigo.gymapp.ui.number.Number.Context.Gap
 
 @Composable
-fun HorizontalScrollConfirm(
+fun RestSelector(
     initialPage: Int,
     selectedItem: (Int) -> Unit,
     onClick: () -> Unit
 ) {
     Column(
-        verticalArrangement = Arrangement.spacedBy(space = Number.Context.Gap.medium)
+        verticalArrangement = Arrangement.spacedBy(space = Gap.medium)
     ) {
         val pagerState = rememberPagerState(
             initialPage = initialPage,
