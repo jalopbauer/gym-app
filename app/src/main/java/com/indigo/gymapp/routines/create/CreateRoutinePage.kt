@@ -27,6 +27,7 @@ import com.indigo.gymapp.common.preview.screen.ScreenPreview
 import com.indigo.gymapp.common.restSelector.RestSelector
 import com.indigo.gymapp.time.Rest
 import com.indigo.gymapp.manager.bottomAppBar.BottomAppBarViewModel
+import com.indigo.gymapp.routines.composable.ChangeNameTextField
 import com.indigo.gymapp.routines.exercises.composable.list.RoutineExerciseList
 import com.indigo.gymapp.routines.manager.MissingName
 import com.indigo.gymapp.routines.manager.RoutineViewModel
@@ -153,7 +154,7 @@ fun CreateRoutine(
     ) {
         when (bottomSheetState) {
             NameYourRoutine ->
-                ChangeNameBottomSheetContent(
+                ChangeNameTextField(
                     routineName = routineName,
                     onValueChange = { routineName = it }
                 )

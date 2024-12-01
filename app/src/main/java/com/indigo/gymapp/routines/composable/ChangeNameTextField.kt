@@ -1,4 +1,4 @@
-package com.indigo.gymapp.routines.create
+package com.indigo.gymapp.routines.composable
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -12,7 +12,7 @@ import com.indigo.gymapp.common.textField.TextField
 import com.indigo.gymapp.requestFocus
 
 @Composable
-fun ChangeNameBottomSheetContent(
+fun ChangeNameTextField(
     routineName: String,
     onValueChange: (String) -> Unit
 ) {
