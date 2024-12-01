@@ -46,6 +46,7 @@ fun TextButton(
 @Composable
 private fun horizontalArrangement(textButtonVariant : TextButtonVariant) : Arrangement.Horizontal =
     when (textButtonVariant) {
+        OnlyText -> Arrangement.Start
         is TrailingText, is TrailingIcon -> Arrangement.SpaceBetween
         is Centered -> Arrangement.Center
     }
@@ -53,14 +54,14 @@ private fun horizontalArrangement(textButtonVariant : TextButtonVariant) : Arran
 @Composable
 private fun textColor(textButtonVariant : TextButtonVariant): Color =
     when (textButtonVariant) {
-        is TrailingText, is TrailingIcon -> MaterialTheme.colorScheme.primary
+        is TrailingText, is TrailingIcon, OnlyText -> MaterialTheme.colorScheme.primary
         is Centered -> if (textButtonVariant.selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onPrimary
     }
 
 @Composable
 private fun Leading(textButtonVariant : TextButtonVariant) =
     when (textButtonVariant) {
-        is Centered -> {}
+        is Centered, OnlyText -> {}
         is TrailingText ->
             textButtonVariant.text?.let {
                 Title(
@@ -77,7 +78,7 @@ private fun Leading(textButtonVariant : TextButtonVariant) =
 @Composable
 private fun clickableModifier(modifier: Modifier, textButtonVariant : TextButtonVariant, onClick: () -> Unit) : Modifier =
     when (textButtonVariant) {
-        is Centered, is TrailingText -> modifier.clickable { onClick() }
+        is Centered, is TrailingText, OnlyText -> modifier.clickable { onClick() }
         is TrailingIcon -> modifier
     }
 
@@ -91,3 +92,5 @@ data class TrailingText(val text: String? = null) : Trailing
 data class TrailingIcon(val iconVariant: IconVariant, val onClick: () -> Unit) : Trailing
 
 data class Centered(val selected: Boolean) : TextButtonVariant
+
+data object OnlyText : TextButtonVariant
