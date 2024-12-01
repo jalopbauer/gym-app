@@ -4,9 +4,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SearchBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.indigo.gymapp.R
 import com.indigo.gymapp.common.icon.Icon
 import com.indigo.gymapp.common.icon.Search
 import com.indigo.gymapp.common.text.Medium
@@ -16,6 +14,7 @@ import com.indigo.gymapp.ui.theme.color.Color.Component
 @Composable
 @OptIn(ExperimentalMaterial3Api::class)
 fun SearchBar(
+    placeholder: String,
     query: String,
     onQueryChange: (String) -> Unit
 ) {
@@ -29,7 +28,7 @@ fun SearchBar(
                 onExpandedChange = { },
                 placeholder = {
                     Title(
-                        title = stringResource(R.string.search_exercise),
+                        title = placeholder,
                         textSize = Medium,
                         color = MaterialTheme.colorScheme.onPrimary
                     )
@@ -51,6 +50,7 @@ fun SearchBar(
 @Composable
 private fun EmptySearchBarPreview() {
     SearchBar(
+        placeholder = "Placeholder",
         query = "",
         onQueryChange = {}
     )
@@ -60,6 +60,7 @@ private fun EmptySearchBarPreview() {
 @Composable
 private fun FilledSearchBarPreview() {
     SearchBar(
+        placeholder = "Placeholder",
         query = "che",
         onQueryChange = {}
     )

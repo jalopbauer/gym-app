@@ -7,6 +7,8 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import com.indigo.gymapp.R
 import com.indigo.gymapp.common.searchBar.SearchBar
 import com.indigo.gymapp.exercises.entity.ExerciseEntity
 import com.indigo.gymapp.routines.exercises.composable.search.textButton.ExerciseTextButton
@@ -25,6 +27,7 @@ fun ExerciseSearch(
         verticalArrangement = Arrangement.spacedBy(Gap.default)
     ) {
         SearchBar(
+            placeholder = stringResource(R.string.search_exercise),
             query = exerciseName,
             onQueryChange = onQueryChange
         )
