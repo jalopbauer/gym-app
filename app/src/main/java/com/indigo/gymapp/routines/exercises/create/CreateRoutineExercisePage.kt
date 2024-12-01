@@ -22,14 +22,14 @@ import com.indigo.gymapp.R
 import com.indigo.gymapp.common.bottomSheet.BottomSheet
 import com.indigo.gymapp.common.header.CreateHeader
 import com.indigo.gymapp.common.preview.screen.ScreenPreview
-import com.indigo.gymapp.routines.exercises.create.composable.HorizontalScrollConfirm
+import com.indigo.gymapp.routines.exercises.composable.restSelector.RestSelector
 import com.indigo.gymapp.time.Rest
 import com.indigo.gymapp.routines.exercises.composable.routineExerciseTypeSelector.RoutineExerciseTypeSelector
 import com.indigo.gymapp.common.restSelector.RestSelector
 import com.indigo.gymapp.exercises.viewModel.ExerciseViewModel
 import com.indigo.gymapp.manager.bottomAppBar.BottomAppBarViewModel
 import com.indigo.gymapp.routines.exercises.SetExercise
-import com.indigo.gymapp.routines.exercises.create.composable.exerciseSearch.ExerciseSearch
+import com.indigo.gymapp.routines.exercises.composable.search.ExerciseSearch
 import com.indigo.gymapp.routines.manager.RoutineViewModel
 import com.indigo.gymapp.ui.number.Number.Context
 import kotlinx.coroutines.launch
@@ -181,7 +181,7 @@ fun CreateRoutineExercise(
                     )
                 }
                 SetRoutineSetExerciseAmountOfSetsVariant -> {
-                    HorizontalScrollConfirm(
+                    RestSelector(
                         initialPage = routineExerciseBuilder.amountOfSets,
                         selectedItem = { amountOfSets = it },
                         onClick = {
