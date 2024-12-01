@@ -27,10 +27,13 @@ fun TextButton(
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = horizontalArrangement(textButtonVariant = textButtonVariant),
-        modifier = Modifier
-            .fillMaxWidth(maxWidthFraction)
-            .clickable(enabled = clickableModifier(textButtonVariant)) { onClick() }
-            .height(Button.minimumHeight),
+        modifier = clickableModifier(
+            Modifier
+                .fillMaxWidth(maxWidthFraction)
+                .height(Button.minimumHeight),
+            textButtonVariant = textButtonVariant,
+            onClick
+        )
     ) {
         Title(
             title = text,
@@ -71,10 +74,11 @@ private fun Leading(textButtonVariant : TextButtonVariant) =
         }
     }
 
-private fun clickableModifier(textButtonVariant : TextButtonVariant) : Boolean =
+@Composable
+private fun clickableModifier(modifier: Modifier, textButtonVariant : TextButtonVariant, onClick: () -> Unit) : Modifier =
     when (textButtonVariant) {
-        is Centered, is TrailingText -> true
-        is TrailingIcon -> false
+        is Centered, is TrailingText -> modifier.clickable { onClick() }
+        is TrailingIcon -> modifier
     }
 
 
