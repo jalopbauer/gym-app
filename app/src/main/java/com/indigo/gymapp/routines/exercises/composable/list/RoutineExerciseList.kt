@@ -15,8 +15,8 @@ import com.indigo.gymapp.time.Rest
 import com.indigo.gymapp.exercises.entity.ExerciseEntity
 import com.indigo.gymapp.routines.exercises.RoutineExercise
 import com.indigo.gymapp.routines.exercises.SetExercise
-import com.indigo.gymapp.routines.exercises.composable.list.item.RoutineExerciseListItem
-import com.indigo.gymapp.ui.number.Number
+import com.indigo.gymapp.routines.exercises.composable.list.item.RoutineExerciseItem
+import com.indigo.gymapp.ui.number.Number.Context.Gap
 
 @Composable
 fun RoutineExerciseList(
@@ -25,7 +25,7 @@ fun RoutineExerciseList(
     selectOnClick: (Long) -> Unit
 ) {
     Column (
-        verticalArrangement = Arrangement.spacedBy(Number.Context.Gap.default)
+        verticalArrangement = Arrangement.spacedBy(Gap.default)
     ) {
         Title(
             title = stringResource(id = R.string.routine_exercises),
@@ -33,7 +33,7 @@ fun RoutineExerciseList(
         )
         LazyColumn {
             items(routineExercises) { exercise ->
-                RoutineExerciseListItem(
+                RoutineExerciseItem(
                     routineExercise = exercise,
                     selectedRoutineExerciseId = selectedRoutineExerciseId,
                     selectOnClick = selectOnClick
