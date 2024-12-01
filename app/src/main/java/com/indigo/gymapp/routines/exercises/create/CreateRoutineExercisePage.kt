@@ -24,7 +24,7 @@ import com.indigo.gymapp.common.header.CreateHeader
 import com.indigo.gymapp.common.preview.screen.ScreenPreview
 import com.indigo.gymapp.routines.exercises.create.composable.HorizontalScrollConfirm
 import com.indigo.gymapp.time.Rest
-import com.indigo.gymapp.routines.exercises.composable.selectRoutineExerciseType.SelectRoutineExerciseTypeMenu
+import com.indigo.gymapp.routines.exercises.composable.routineExerciseTypeSelector.RoutineExerciseTypeSelector
 import com.indigo.gymapp.common.restSelector.RestSelector
 import com.indigo.gymapp.exercises.viewModel.ExerciseViewModel
 import com.indigo.gymapp.manager.bottomAppBar.BottomAppBarViewModel
@@ -135,7 +135,7 @@ fun CreateRoutineExercise(
         ) {
             when (bottomSheetState) {
                 SelectRoutineExerciseVariant -> {
-                    SelectRoutineExerciseTypeMenu(
+                    RoutineExerciseTypeSelector(
                         setRoutineExerciseOnClick = {
                             addExerciseVariant = CreateSetRoutineExercise
                             bottomSheetState = Closed

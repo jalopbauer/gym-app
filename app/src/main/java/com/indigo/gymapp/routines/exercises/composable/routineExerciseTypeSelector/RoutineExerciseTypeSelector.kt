@@ -1,23 +1,23 @@
-package com.indigo.gymapp.routines.exercises.composable.selectRoutineExerciseType
+package com.indigo.gymapp.routines.exercises.composable.routineExerciseTypeSelector
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.indigo.gymapp.common.preview.hug.HugPreview
-import com.indigo.gymapp.routines.exercises.composable.selectRoutineExerciseType.item.RoutineExerciseTypeMenuItem
-import com.indigo.gymapp.routines.exercises.composable.selectRoutineExerciseType.item.SetRoutineExerciseVariant
+import com.indigo.gymapp.routines.exercises.composable.routineExerciseTypeSelector.item.RoutineExerciseTypeItem
+import com.indigo.gymapp.routines.exercises.composable.routineExerciseTypeSelector.item.SetExerciseVariant
 import com.indigo.gymapp.ui.number.Number.Context
 
 @Composable
-fun SelectRoutineExerciseTypeMenu(
+fun RoutineExerciseTypeSelector(
     setRoutineExerciseOnClick: () -> Unit,
     timedRoutineExerciseOnClick: () -> Unit
 ) {
     Column(
         verticalArrangement = Arrangement.spacedBy(Context.Gap.default)
     ) {
-        RoutineExerciseTypeMenuItem(SetRoutineExerciseVariant, setRoutineExerciseOnClick)
+        RoutineExerciseTypeItem(SetExerciseVariant, setRoutineExerciseOnClick)
 //        RoutineExerciseTypeMenuItem(TimedRoutineExerciseVariant, timedRoutineExerciseOnClick)
     }
 }
@@ -26,7 +26,7 @@ fun SelectRoutineExerciseTypeMenu(
 @Composable
 private fun SelectRoutineExerciseTypeMenuPreview() {
     HugPreview {
-        SelectRoutineExerciseTypeMenu(
+        RoutineExerciseTypeSelector(
             setRoutineExerciseOnClick = {},
             timedRoutineExerciseOnClick = {}
         )
