@@ -24,9 +24,9 @@ import com.indigo.gymapp.common.restSelector.RestSelector
 import com.indigo.gymapp.exercises.viewModel.ExerciseViewModel
 import com.indigo.gymapp.manager.bottomAppBar.BottomAppBarViewModel
 import com.indigo.gymapp.routines.exercises.SetExercise
-import com.indigo.gymapp.routines.exercises.composable.restSelector.RestSelector
 import com.indigo.gymapp.routines.exercises.composable.routineExerciseTypeSelector.RoutineExerciseTypeSelector
 import com.indigo.gymapp.routines.exercises.composable.search.ExerciseSearch
+import com.indigo.gymapp.routines.exercises.composable.setsSelector.SetsSelector
 import com.indigo.gymapp.routines.manager.RoutineViewModel
 import kotlinx.coroutines.launch
 
@@ -174,7 +174,7 @@ fun CreateRoutineExercise(
                 )
             }
             SetRoutineSetExerciseAmountOfSetsVariant -> {
-                RestSelector(
+                SetsSelector(
                     initialPage = routineExerciseBuilder.amountOfSets,
                     selectedItem = { amountOfSets = it },
                     onClick = {

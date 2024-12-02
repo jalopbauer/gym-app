@@ -1,4 +1,4 @@
-package com.indigo.gymapp.routines.exercises.composable.restSelector
+package com.indigo.gymapp.routines.exercises.composable.setsSelector
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -13,7 +13,7 @@ import com.indigo.gymapp.time.displaySeconds
 import com.indigo.gymapp.ui.number.Number.Context.Gap
 
 @Composable
-fun RestSelector(
+fun SetsSelector(
     initialPage: Int,
     selectedItem: (Int) -> Unit,
     onClick: () -> Unit
