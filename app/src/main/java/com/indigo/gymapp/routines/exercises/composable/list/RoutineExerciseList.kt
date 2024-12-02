@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.indigo.gymapp.R
+import com.indigo.gymapp.common.placeholder.Placeholder
 import com.indigo.gymapp.common.preview.hug.HugPreview
 import com.indigo.gymapp.common.text.Large
 import com.indigo.gymapp.common.text.title.Title
@@ -39,6 +40,11 @@ fun RoutineExerciseList(
                     selectOnClick = selectOnClick
                 )
             }
+        }
+        if (routineExercises.isEmpty()) {
+            Placeholder(
+                text = stringResource(R.string.click_to_add_a_exercise_to_your_routine)
+            )
         }
     }
 }

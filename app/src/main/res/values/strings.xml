@@ -43,4 +43,5 @@
     <string name="cannot_save_exercise_with_same_name">Cannot save exercise with same name</string>
     <string name="exercises">Exercises</string>
     <string name="deleting_this_will_permanently_delete_your_routine">Deleting this will permanently delete your routine</string>
+    <string name="click_to_add_a_exercise_to_your_routine">click + to add a exercise \nto your routine</string>
 </resources>
