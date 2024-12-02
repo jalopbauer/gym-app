@@ -21,7 +21,7 @@ object NavigationPath {
                 override val name = "${Routines.Create.name}Exercises"
 
                 data object Create : NamedNavigation {
-                    override val name = "${Routines.Create.Exercises.name}Creates"
+                    override val name = "${Exercises.name}Creates"
                 }
             }
         }
