@@ -42,7 +42,7 @@ object Number {
 
         object Header {
             object CreateHeader {
-                val horizontalPadding = Brand.m
+                val horizontalPadding = Brand.s
             }
         }
         object NumberScroll {
