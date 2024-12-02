@@ -15,9 +15,7 @@ fun HeaderPage(
     content: @Composable () -> Unit
 ) {
     Column(
-        modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.spacedBy(Gap.default)
-
+        modifier = Modifier.fillMaxSize()
     ) {
         header()
         Column(
