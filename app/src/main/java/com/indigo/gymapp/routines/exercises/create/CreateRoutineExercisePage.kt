@@ -19,6 +19,7 @@ import com.indigo.gymapp.common.bottomSheet.BottomSheet
 import com.indigo.gymapp.common.header.CreateHeader
 import com.indigo.gymapp.common.page.HeaderPage
 import com.indigo.gymapp.common.preview.screen.ScreenPreview
+import com.indigo.gymapp.time.Rest
 import com.indigo.gymapp.common.restSelector.RestSelector
 import com.indigo.gymapp.exercises.viewModel.ExerciseViewModel
 import com.indigo.gymapp.manager.bottomAppBar.BottomAppBarViewModel
