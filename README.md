@@ -32,3 +32,5 @@
         - [ ] Routine
             - [ ] Rest
             - [ ] Amount of sets
+        - [ ] Event
+          - [ ] Sunday First Day
