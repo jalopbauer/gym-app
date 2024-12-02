@@ -1,18 +1,10 @@
 package com.indigo.gymapp.routines.exercises.composable.search
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.indigo.gymapp.R
-import com.indigo.gymapp.common.searchBar.SearchBar
+import com.indigo.gymapp.common.searchList.SearchList
 import com.indigo.gymapp.exercises.entity.ExerciseEntity
-import com.indigo.gymapp.routines.exercises.composable.search.textButton.ExerciseTextButton
-import com.indigo.gymapp.ui.number.Number.Context.Gap
 
 
 @Composable
@@ -22,23 +14,12 @@ fun ExerciseSearch(
     onQueryChange: (String) -> Unit,
     getExerciseOnClick: (ExerciseEntity) -> Unit
 ) {
-    Column(
-        modifier = Modifier.fillMaxHeight(0.5f),
-        verticalArrangement = Arrangement.spacedBy(Gap.default)
-    ) {
-        SearchBar(
-            placeholder = stringResource(R.string.search_exercise),
-            query = exerciseName,
-            onQueryChange = onQueryChange
-        )
-        LazyColumn {
-            items(exercises) { exercise ->
-                ExerciseTextButton(
-                    exercise = exercise,
-                    getExerciseOnClick = getExerciseOnClick
-                )
-
-            }
-        }
-    }
+    SearchList(
+        query = exerciseName,
+        placeholder = stringResource(R.string.search_exercise),
+        items = exercises,
+        text = { exercise -> exercise.name},
+        onQueryChange = onQueryChange,
+        getItemOnClick = getExerciseOnClick
+    )
 }
