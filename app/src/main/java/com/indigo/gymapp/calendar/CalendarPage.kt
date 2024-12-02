@@ -23,6 +23,7 @@ fun CalendarPage() {
             TextHeader(
                 text = stringResource(R.string.calendar)
             )
-        }
+        },
+        topPadding = true
     ) {}
 }

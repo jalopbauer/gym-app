@@ -6,11 +6,13 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import com.indigo.gymapp.ui.number.Number.Component.Page
 import com.indigo.gymapp.ui.number.Number.Context.Gap
 import com.indigo.gymapp.ui.number.Number.Context.Padding
 
 @Composable
 fun HeaderPage(
+    topPadding : Boolean = false,
     header: @Composable () -> Unit,
     content: @Composable () -> Unit
 ) {
@@ -19,9 +21,9 @@ fun HeaderPage(
     ) {
         header()
         Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(horizontal = Padding.screen),
+            modifier = padding(
+                modifier = Modifier.fillMaxSize(),
+                topPadding = topPadding),
             verticalArrangement = Arrangement.spacedBy(Gap.default)
 
         ) {
@@ -29,3 +31,11 @@ fun HeaderPage(
         }
     }
 }
+
+@Composable
+fun padding(modifier: Modifier, topPadding: Boolean) : Modifier =
+    if (topPadding) {
+        modifier.padding(start = Padding.screen, end = Padding.screen, top = Page.topPadding)
+    } else {
+        modifier.padding(horizontal = Padding.screen)
+    }

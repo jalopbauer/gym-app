@@ -61,7 +61,8 @@ fun RoutinesPage(
                 TextHeader(
                     text = stringResource(id = R.string.routines)
                 )
-            }
+            },
+            topPadding = true
         ) {
             Routines(
                 routines = routines,

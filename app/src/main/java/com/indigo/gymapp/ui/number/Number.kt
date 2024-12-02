@@ -65,6 +65,10 @@ object Number {
                 val padding = 0.dp
             }
         }
+
+        object Page {
+            val topPadding = Brand.s
+        }
     }
 
 }
