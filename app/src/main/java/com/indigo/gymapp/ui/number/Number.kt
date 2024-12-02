@@ -74,6 +74,7 @@ object Number {
 
         object Page {
             val topPadding = Brand.s
+            val fabGap = Brand.s
         }
     }
 
