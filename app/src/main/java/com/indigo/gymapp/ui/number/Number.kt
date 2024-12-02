@@ -64,6 +64,12 @@ object Number {
                 val diameter = 69.dp
                 val padding = 0.dp
             }
+            object FloatingActionButton {
+                object Size {
+                    val default = 56.dp
+                    val small = 40.dp
+                }
+            }
         }
 
         object Page {
