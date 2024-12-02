@@ -22,13 +22,13 @@ import com.indigo.gymapp.R
 import com.indigo.gymapp.common.bottomSheet.BottomSheet
 import com.indigo.gymapp.common.header.CreateHeader
 import com.indigo.gymapp.common.preview.screen.ScreenPreview
-import com.indigo.gymapp.routines.exercises.composable.restSelector.RestSelector
 import com.indigo.gymapp.time.Rest
-import com.indigo.gymapp.routines.exercises.composable.routineExerciseTypeSelector.RoutineExerciseTypeSelector
 import com.indigo.gymapp.common.restSelector.RestSelector
 import com.indigo.gymapp.exercises.viewModel.ExerciseViewModel
 import com.indigo.gymapp.manager.bottomAppBar.BottomAppBarViewModel
 import com.indigo.gymapp.routines.exercises.SetExercise
+import com.indigo.gymapp.routines.exercises.composable.restSelector.RestSelector
+import com.indigo.gymapp.routines.exercises.composable.routineExerciseTypeSelector.RoutineExerciseTypeSelector
 import com.indigo.gymapp.routines.exercises.composable.search.ExerciseSearch
 import com.indigo.gymapp.routines.manager.RoutineViewModel
 import com.indigo.gymapp.ui.number.Number.Context
@@ -128,71 +128,70 @@ fun CreateRoutineExercise(
                 Empty -> {}
             }
         }
+    }
 
-        BottomSheet(
-            showBottomSheet = bottomSheetState.showBottomSheet(),
-            onDismissRequest = { bottomSheetState = Closed },
-        ) {
-            when (bottomSheetState) {
-                SelectRoutineExerciseVariant -> {
-                    RoutineExerciseTypeSelector(
-                        setRoutineExerciseOnClick = {
-                            addExerciseVariant = CreateSetRoutineExercise
-                            bottomSheetState = Closed
-                        },
-                        timedRoutineExerciseOnClick = {
-                            addExerciseVariant = CreateTimedRoutineExercise
-                            bottomSheetState = Closed
-                        }
-                    )
-                }
-                SelectExerciseVariant -> {
-                    ExerciseSearch(
-                        exerciseName = exerciseSearchText,
-                        exercises = searchExercises,
-                        onQueryChange = { exerciseViewModel.searchExercise(it) },
-                        getExerciseOnClick = {
-                            routineViewModel.setRoutineExerciseBuilderExercise(it)
-                            bottomSheetState = Closed
-                        }
-                    )
-                }
-                SetRoutineRestTimeBetweenExercisesVariant -> {
-                    RestSelector(
-                        routineRestTimeBetweenExercises = Rest(minutes, seconds),
-                        selectedMinutes = { minutes = it },
-                        selectedSeconds = { seconds = it },
-                        leftTime = Rest(
-                            minutes = 1,
-                            seconds = 0
-                        ),
-                        centerTime = Rest(
-                            minutes = 1,
-                            seconds = 30
-                        ),
-                        rightTime = Rest(
-                            minutes = 2,
-                            seconds = 0
-                        ),
-                        {
-                            routineViewModel.setRoutineExerciseBuilderRest(Rest(minutes = minutes, seconds = seconds))
-                            bottomSheetState = Closed
-                        }
-                    )
-                }
-                SetRoutineSetExerciseAmountOfSetsVariant -> {
-                    RestSelector(
-                        initialPage = routineExerciseBuilder.amountOfSets,
-                        selectedItem = { amountOfSets = it },
-                        onClick = {
-                            routineViewModel.setRoutineExerciseBuilderAmountOfSets(amountOfSets)
-                            bottomSheetState = Closed
-                        }
-                    )
-                }
-                Closed -> {}
+    BottomSheet(
+        showBottomSheet = bottomSheetState.showBottomSheet(),
+        onDismissRequest = { bottomSheetState = Closed },
+    ) {
+        when (bottomSheetState) {
+            SelectRoutineExerciseVariant -> {
+                RoutineExerciseTypeSelector(
+                    setRoutineExerciseOnClick = {
+                        addExerciseVariant = CreateSetRoutineExercise
+                        bottomSheetState = Closed
+                    },
+                    timedRoutineExerciseOnClick = {
+                        addExerciseVariant = CreateTimedRoutineExercise
+                        bottomSheetState = Closed
+                    }
+                )
             }
-
+            SelectExerciseVariant -> {
+                ExerciseSearch(
+                    exerciseName = exerciseSearchText,
+                    exercises = searchExercises,
+                    onQueryChange = { exerciseViewModel.searchExercise(it) },
+                    getExerciseOnClick = {
+                        routineViewModel.setRoutineExerciseBuilderExercise(it)
+                        bottomSheetState = Closed
+                    }
+                )
+            }
+            SetRoutineRestTimeBetweenExercisesVariant -> {
+                RestSelector(
+                    routineRestTimeBetweenExercises = Rest(minutes, seconds),
+                    selectedMinutes = { minutes = it },
+                    selectedSeconds = { seconds = it },
+                    leftTime = Rest(
+                        minutes = 1,
+                        seconds = 0
+                    ),
+                    centerTime = Rest(
+                        minutes = 1,
+                        seconds = 30
+                    ),
+                    rightTime = Rest(
+                        minutes = 2,
+                        seconds = 0
+                    ),
+                    {
+                        routineViewModel.setRoutineExerciseBuilderRest(Rest(minutes = minutes, seconds = seconds))
+                        bottomSheetState = Closed
+                    }
+                )
+            }
+            SetRoutineSetExerciseAmountOfSetsVariant -> {
+                RestSelector(
+                    initialPage = routineExerciseBuilder.amountOfSets,
+                    selectedItem = { amountOfSets = it },
+                    onClick = {
+                        routineViewModel.setRoutineExerciseBuilderAmountOfSets(amountOfSets)
+                        bottomSheetState = Closed
+                    }
+                )
+            }
+            Closed -> {}
         }
     }
 }
