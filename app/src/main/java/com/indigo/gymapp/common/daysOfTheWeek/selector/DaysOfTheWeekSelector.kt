@@ -18,11 +18,22 @@ import com.indigo.gymapp.common.daysOfTheWeek.selector.item.DaysOfTheWeekSelecto
 import com.indigo.gymapp.common.preview.screen.ScreenPreview
 
 @Composable
-fun DaysOfTheWeekSelector(selectedDayOfTheWeek: DayOfTheWeek, getDayOnClick : (DayOfTheWeek) -> Unit) {
+fun DaysOfTheWeekSelector(
+    sundayFirstDay: Boolean,
+    selectedDayOfTheWeek: DayOfTheWeek,
+    getDayOnClick: (DayOfTheWeek) -> Unit
+) {
     Row(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
+        if (sundayFirstDay) {
+            DaysOfTheWeekSelectorItem(
+                day = Sunday,
+                selectedDayOfTheWeek = selectedDayOfTheWeek,
+                getDayOnClick = getDayOnClick
+            )
+        }
         DaysOfTheWeekSelectorItem(
             day = Monday,
             selectedDayOfTheWeek = selectedDayOfTheWeek,
@@ -53,19 +64,35 @@ fun DaysOfTheWeekSelector(selectedDayOfTheWeek: DayOfTheWeek, getDayOnClick : (D
             selectedDayOfTheWeek = selectedDayOfTheWeek,
             getDayOnClick = getDayOnClick
         )
-        DaysOfTheWeekSelectorItem(
-            day = Sunday,
-            selectedDayOfTheWeek = selectedDayOfTheWeek,
-            getDayOnClick = getDayOnClick
+        if (!sundayFirstDay) {
+            DaysOfTheWeekSelectorItem(
+                day = Sunday,
+                selectedDayOfTheWeek = selectedDayOfTheWeek,
+                getDayOnClick = getDayOnClick
+            )
+        }
+
+    }
+}
+
+@Preview
+@Composable
+private fun DaysOfTheWeekSelectorSundayIsFirstDayPreview() {
+    ScreenPreview {
+        DaysOfTheWeekSelector(
+            sundayFirstDay = true,
+            selectedDayOfTheWeek = Wednesday,
+            getDayOnClick = { }
         )
     }
 }
 
 @Preview
 @Composable
-private fun DaysOfTheWeekSelectorPreview() {
+private fun DaysOfTheWeekSelectorSundayIsNotFirstDayPreview() {
     ScreenPreview {
         DaysOfTheWeekSelector(
+            sundayFirstDay = false,
             selectedDayOfTheWeek = Wednesday,
             getDayOnClick = { }
         )
