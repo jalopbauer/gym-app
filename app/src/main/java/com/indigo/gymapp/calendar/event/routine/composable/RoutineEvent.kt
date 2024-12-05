@@ -5,7 +5,9 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.indigo.gymapp.R
 import com.indigo.gymapp.calendar.event.RoutineEvent
 import com.indigo.gymapp.common.button.iconButton.IconButton
 import com.indigo.gymapp.common.icon.RightArrow
@@ -39,7 +41,7 @@ fun RoutineEvent(isToday : Boolean, event: RoutineEvent, onClick : (RoutineEvent
                 )
                 IconTextValue(
                     iconVariant = TimedRoutineExercise,
-                    label = "Estimated duration",
+                    label = stringResource(R.string.estimated_duration),
                     value = event.estimatedDuration.displayDuration()
                 )
             }
