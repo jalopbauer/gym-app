@@ -9,7 +9,7 @@ import com.indigo.gymapp.ui.theme.GymAppTheme
 fun HugPreview(
     content: @Composable () -> Unit = {}
 ) {
-    GymAppTheme {
+    GymAppTheme(darkTheme = true) {
         Surface(
             color = MaterialTheme.colorScheme.background
         ) {

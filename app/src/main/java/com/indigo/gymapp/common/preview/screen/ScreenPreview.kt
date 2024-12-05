@@ -13,7 +13,7 @@ import com.indigo.gymapp.ui.theme.GymAppTheme
 fun ScreenPreview(
     content: @Composable () -> Unit = {}
 ) {
-    GymAppTheme {
+    GymAppTheme(darkTheme = true) {
         Surface(
             modifier = Modifier
                 .width(720.dp)
