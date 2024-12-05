@@ -5,10 +5,11 @@ import androidx.annotation.IntRange
 fun displaySeconds(seconds: Int) : String = if (seconds in 0 .. 9) "0$seconds" else "$seconds"
 
 data class Time(
+    val hours: Int = 0,
     @IntRange(from = 0, to = 59)
     val minutes: Int,
     @IntRange(from = 0, to = 59)
-    val seconds : Int
+    val seconds : Int = 0
 ) {
     override fun toString(): String {
         return "$minutes:${displaySeconds(seconds)}"
