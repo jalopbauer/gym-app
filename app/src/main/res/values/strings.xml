@@ -46,4 +46,6 @@
     <string name="click_to_add_a_exercise_to_your_routine">click + to add a exercise \nto your routine</string>
     <string name="estimated_duration">Estimated duration</string>
     <string name="no_activity_for">no activity for</string>
+    <string name="routine">Routine</string>
+    <string name="select_one_of_your_routines_to_repeat_weekly">Select one of your routines to repeat weekly</string>
 </resources>
