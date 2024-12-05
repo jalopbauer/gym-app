@@ -44,4 +44,6 @@
     <string name="exercises">Exercises</string>
     <string name="deleting_this_will_permanently_delete_your_routine">Deleting this will permanently delete your routine</string>
     <string name="click_to_add_a_exercise_to_your_routine">click + to add a exercise \nto your routine</string>
+    <string name="estimated_duration">Estimated duration</string>
+    <string name="no_activity_for">no activity for</string>
 </resources>
