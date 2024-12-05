@@ -25,7 +25,7 @@ fun Sidebar(
                 RoundedCornerShape(Sidebar.borderRadius)
             )
             .background(
-                color = if (selected) MaterialTheme.colorScheme.onSecondary else MaterialTheme.colorScheme.surface
+                color = if (selected) MaterialTheme.colorScheme.onSecondary else MaterialTheme.colorScheme.onPrimary
             )
     )
 }
