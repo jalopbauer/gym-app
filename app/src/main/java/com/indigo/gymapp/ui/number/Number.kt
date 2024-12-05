@@ -76,6 +76,12 @@ object Number {
             val topPadding = Brand.s
             val fabGap = Brand.s
         }
+
+        object Sidebar {
+            val width = 3.dp
+            val height = 48.dp
+            val borderRadius = 4.dp
+        }
     }
 
 }
