@@ -41,6 +41,7 @@ fun Icon(iconVariant : IconVariant, tint: Color = MaterialTheme.colorScheme.prim
         Calendar -> CalendarIcon(tint, size)
         Routines -> RoutinesIcon(tint, size)
         Configuration -> ConfigurationIcon(tint, size)
+        RightArrow -> RightArrowIcon(tint, size)
     }
 }
 
@@ -185,6 +186,16 @@ fun ConfigurationIcon(tint: Color, size: Dp) {
 }
 
 @Composable
+fun RightArrowIcon(tint: Color, size: Dp) {
+    PainterIcon(
+        painter = painterResource(id = R.drawable.right_arrow),
+        contentDescription = "Right Arrow",
+        tint = tint,
+        size = size,
+    )
+}
+
+@Composable
 fun ExerciseIcon(tint: Color, size: Dp) {
     PainterIcon(
         painter = painterResource(id = R.drawable.exercise),
@@ -193,6 +204,7 @@ fun ExerciseIcon(tint: Color, size: Dp) {
         size = size,
     )
 }
+
 
 sealed interface IconVariant
 
@@ -219,3 +231,5 @@ data object Calendar : IconVariant
 data object Routines : IconVariant
 
 data object Configuration : IconVariant
+
+data object RightArrow : IconVariant
