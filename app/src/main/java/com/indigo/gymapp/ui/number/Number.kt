@@ -82,6 +82,12 @@ object Number {
             val height = 48.dp
             val borderRadius = 4.dp
         }
+
+        object Card {
+            object Event {
+                val bottomPadding = Brand.s
+            }
+        }
     }
 
 }
