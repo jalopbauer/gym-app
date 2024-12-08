@@ -20,3 +20,14 @@ fun getDayFirstLetter(day: DayOfTheWeek): String =
         is Saturday -> "S"
         is Sunday -> "S"
     }
+
+fun getDayFullName(day: DayOfTheWeek): String =
+    when (day) {
+        is Monday -> "Monday"
+        is Tuesday -> "Tuesday"
+        is Wednesday -> "Wednesday"
+        is Thursday -> "Thursday"
+        is Friday -> "Friday"
+        is Saturday -> "Saturday"
+        is Sunday -> "Sunday"
+    }
