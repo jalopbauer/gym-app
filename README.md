@@ -5,6 +5,11 @@
 - [x] Exercise
     - [x] Create
     - [x] Delete
+    - [ ] Categories
+      - [ ] Create
+      - [ ] Delete
+      - [ ] Assign
+      - [ ] Filter
 - [x] Routine
     - [x] Create
     - [x] Update
