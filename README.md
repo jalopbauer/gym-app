@@ -5,6 +5,7 @@
 - [x] Exercise
     - [x] Create
     - [x] Delete
+    - [ ] Image
     - [ ] Categories
       - [ ] Create
       - [ ] Delete
