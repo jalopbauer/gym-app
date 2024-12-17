@@ -1,8 +1,7 @@
 package com.indigo.gymapp.calendar.event.routine.composable
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import com.indigo.gymapp.calendar.event.RoutineEvent
 import com.indigo.gymapp.ui.number.Number.Context.Gap
@@ -13,10 +12,10 @@ fun RoutineEvents(
     isToday : Boolean,
     onClick : (RoutineEvent) -> Unit
 ) {
-    LazyColumn(
+    Column(
         verticalArrangement = Arrangement.spacedBy(Gap.default)
     ) {
-        items(routineEvents) { routineEvent ->
+        routineEvents.forEach { routineEvent ->
             RoutineEvent(
                 isToday = isToday,
                 event = routineEvent,
