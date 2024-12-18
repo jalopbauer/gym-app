@@ -12,8 +12,8 @@ junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 lifecycleRuntimeKtx = "2.8.7"
 activityCompose = "1.9.3"
-composeBom = "2024.11.00"
-navigationCompose = "2.8.4"
+composeBom = "2024.12.01"
+navigationCompose = "2.8.5"
 roomRuntime = "2.6.1"
 
 [libraries]
