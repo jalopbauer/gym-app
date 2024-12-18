@@ -5,6 +5,7 @@ import com.indigo.gymapp.time.Duration
 
 data class RoutineEvent(
     val id: Long = 0,
+    val routineId: Long = 0,
     val name: String,
     val estimatedDuration : Duration,
     val daysOfTheWeek: Set<DayOfTheWeek> = emptySet()

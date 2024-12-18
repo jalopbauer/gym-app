@@ -1,5 +1,7 @@
 package com.indigo.gymapp.common.daysOfTheWeek
 
+import java.time.LocalDate
+
 sealed interface DayOfTheWeek
 
 object Monday : DayOfTheWeek
@@ -31,3 +33,16 @@ fun getDayFullName(day: DayOfTheWeek): String =
         is Saturday -> "Saturday"
         is Sunday -> "Sunday"
     }
+
+fun getDayFromFullName(name: String): DayOfTheWeek = when (name.uppercase()) {
+    "MONDAY" -> Monday
+    "TUESDAY" -> Tuesday
+    "WEDNESDAY" -> Wednesday
+    "THURSDAY" -> Thursday
+    "FRIDAY" -> Friday
+    "SATURDAY" -> Saturday
+    "SUNDAY" -> Sunday
+    else -> throw IllegalArgumentException("Invalid day name: $name")
+}
+
+fun today(): DayOfTheWeek = getDayFromFullName("${LocalDate.now().dayOfWeek}")
