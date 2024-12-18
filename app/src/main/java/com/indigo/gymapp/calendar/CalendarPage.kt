@@ -9,7 +9,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.indigo.gymapp.R
 import com.indigo.gymapp.calendar.day.composable.CalendarDays
 import com.indigo.gymapp.calendar.event.RoutineEvent
-import com.indigo.gymapp.calendar.event.routine.viewModel.CalendarViewModel
+import com.indigo.gymapp.calendar.viewModel.CalendarViewModel
 import com.indigo.gymapp.common.daysOfTheWeek.Friday
 import com.indigo.gymapp.common.daysOfTheWeek.Thursday
 import com.indigo.gymapp.common.daysOfTheWeek.Tuesday

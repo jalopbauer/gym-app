@@ -1,4 +1,4 @@
-package com.indigo.gymapp.calendar.event.routine.viewModel
+package com.indigo.gymapp.calendar.viewModel
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
