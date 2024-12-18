@@ -40,3 +40,16 @@
             - [ ] Amount of sets
         - [ ] Event
           - [ ] Sunday First Day
+
+## TODO
+- [ ] Refactor project structure
+  - package or subpackage
+    - composable/
+    - repository/
+    - service/
+    - viewModel/
+    - subpackage/
+    - subpackage/
+    - ...Page.kt
+  - [ ] create repository layer
+  - [ ] create service layer
