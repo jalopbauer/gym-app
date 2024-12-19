@@ -10,6 +10,7 @@ import com.indigo.gymapp.calendar.event.RoutineEvent
 import com.indigo.gymapp.calendar.event.routine.entity.RoutineEventEntity
 import com.indigo.gymapp.calendar.event.routine.entity.RoutineEventFrequencyEntity
 import com.indigo.gymapp.common.daysOfTheWeek.DayOfTheWeek
+import com.indigo.gymapp.common.daysOfTheWeek.getDayFromInt
 import com.indigo.gymapp.common.daysOfTheWeek.today
 import com.indigo.gymapp.database.GymDatabase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -48,17 +49,50 @@ class CalendarViewModel @Inject constructor(
         .fold(mapOf<DayOfTheWeek, List<RoutineEvent>>()) {acc, (dayOfTheWeek, event) ->
             acc + (dayOfTheWeek to (acc.getOrDefault(dayOfTheWeek, emptyList()) + event))
         }
-        .map { (dayOfTheWeek, routineEvents) ->
+        .let {
+            (1 until 8)
+                .map(::getDayFromInt)
+                .map { dayOfTheWeek ->
+                    dayOfTheWeek to it.getOrElse(dayOfTheWeek) { emptyList<RoutineEvent>() }
+                }
+        }
+        .fold(Triple(emptyList<CalendarDay>(), emptyList<CalendarDay>(), false)) {
+            (beforeToday, afterToday, todayHappened),
+            (dayOfTheWeek, routineEvents) ->
             if (today() == dayOfTheWeek) {
-                Today(
-                    routineEvents = routineEvents,
+                Triple(
+                    listOf(
+                        Today(
+                            routineEvents = routineEvents,
+                        )
+                    ),
+                    afterToday,
+                    true
                 )
             } else {
-                NotToday(
-                    dayOfTheWeek = dayOfTheWeek,
-                    routineEvents = routineEvents,
-                )
+                if (todayHappened) {
+                    Triple(
+                        beforeToday
+                        + NotToday(
+                            dayOfTheWeek = dayOfTheWeek,
+                            routineEvents = routineEvents,
+                        ),
+                        afterToday,
+                        todayHappened)
+                } else {
+                    Triple(
+                        beforeToday,
+                        afterToday
+                        + NotToday(
+                            dayOfTheWeek = dayOfTheWeek,
+                            routineEvents = routineEvents,
+                        ),
+                        todayHappened
+                    )
+                }
             }
+        }.let { (beforeToday, afterToday, _ ) ->
+            beforeToday + afterToday
         }
 
     private val _calendarDays = MutableStateFlow<List<CalendarDay>>(emptyList())
