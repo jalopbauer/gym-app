@@ -14,7 +14,7 @@ fun RoutineSearch(
     routineName: String,
     routines: List<RoutineEntity>,
     onQueryChange: (String) -> Unit,
-    getExerciseOnClick: (RoutineEntity) -> Unit
+    getRoutineOnClick: (RoutineEntity) -> Unit
 ) {
     SearchList(
         query = routineName,
@@ -22,7 +22,7 @@ fun RoutineSearch(
         items = routines,
         text = { exercise -> exercise.name},
         onQueryChange = onQueryChange,
-        getItemOnClick = getExerciseOnClick
+        getItemOnClick = getRoutineOnClick
     )
 }
 
@@ -43,7 +43,7 @@ private fun RoutineSearchPreview() {
                 ),
             ),
             onQueryChange = { },
-            getExerciseOnClick = { }
+            getRoutineOnClick = { }
         )
     }
 }
