@@ -52,4 +52,5 @@
     <string name="select_event_type">Select event type</string>
     <string name="must_select_event_type">Must select event type</string>
     <string name="select_routine">Select routine</string>
+    <string name="search_routine">Search routine</string>
 </resources>

@@ -18,7 +18,7 @@ fun RoutineSearch(
 ) {
     SearchList(
         query = routineName,
-        placeholder = stringResource(R.string.search_exercise),
+        placeholder = stringResource(R.string.search_routine),
         items = routines,
         text = { exercise -> exercise.name},
         onQueryChange = onQueryChange,
