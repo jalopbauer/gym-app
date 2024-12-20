@@ -49,4 +49,7 @@
     <string name="routine">Routine</string>
     <string name="select_one_of_your_routines_to_repeat_weekly">Select one of your routines to repeat weekly</string>
     <string name="today">Today</string>
+    <string name="select_event_type">Select event type</string>
+    <string name="must_select_event_type">Must select event type</string>
+    <string name="select_routine">Select routine</string>
 </resources>

@@ -9,6 +9,14 @@ object NavigationPath {
 
     data object Calendar : NamedNavigation {
         override val name = "Calendar"
+
+        data object Event : NamedNavigation {
+            override val name = "${Calendar.name}Event"
+
+            data object Create : NamedNavigation {
+                override val name = "${Event.name}Create"
+            }
+        }
     }
 
     data object Routines : NamedNavigation {
