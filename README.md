@@ -53,3 +53,4 @@
     - ...Page.kt
   - [ ] create repository layer
   - [ ] create service layer
+  - [ ] View model contain state to be saved using MutableStateFlow, Page uses remember to save UI state
