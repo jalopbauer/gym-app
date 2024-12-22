@@ -20,7 +20,7 @@ import com.indigo.gymapp.common.preview.screen.ScreenPreview
 @Composable
 fun DaysOfTheWeekSelector(
     sundayFirstDay: Boolean,
-    selectedDayOfTheWeek: DayOfTheWeek,
+    selectedDayOfTheWeek: DayOfTheWeek?,
     getDayOnClick: (DayOfTheWeek) -> Unit
 ) {
     Row(

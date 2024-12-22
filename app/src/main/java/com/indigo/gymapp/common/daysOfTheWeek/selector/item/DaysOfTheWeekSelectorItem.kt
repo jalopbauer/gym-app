@@ -20,7 +20,7 @@ import com.indigo.gymapp.common.text.Large
 import com.indigo.gymapp.common.text.body.Body
 
 @Composable
-fun DaysOfTheWeekSelectorItem(day: DayOfTheWeek, selectedDayOfTheWeek: DayOfTheWeek, getDayOnClick : (DayOfTheWeek) -> Unit) {
+fun DaysOfTheWeekSelectorItem(day: DayOfTheWeek, selectedDayOfTheWeek: DayOfTheWeek?, getDayOnClick : (DayOfTheWeek) -> Unit) {
     val selected = day == selectedDayOfTheWeek
     Row (
         modifier = Modifier
