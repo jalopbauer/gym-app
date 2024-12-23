@@ -20,8 +20,8 @@ import com.indigo.gymapp.common.text.Large
 import com.indigo.gymapp.common.text.body.Body
 
 @Composable
-fun DaysOfTheWeekSelectorItem(day: DayOfTheWeek, selectedDayOfTheWeek: DayOfTheWeek?, getDayOnClick : (DayOfTheWeek) -> Unit) {
-    val selected = day == selectedDayOfTheWeek
+fun DaysOfTheWeekSelectorItem(day: DayOfTheWeek, selectedDayOfTheWeek: Set<DayOfTheWeek>, getDayOnClick: (DayOfTheWeek) -> Unit) {
+    val selected = selectedDayOfTheWeek.contains(day)
     Row (
         modifier = Modifier
             .size(48.dp)
@@ -53,7 +53,7 @@ private fun Modifier.background(selected: Boolean) : Modifier =
 private fun DaysOfTheWeekSelectorItemSelected() {
     DaysOfTheWeekSelectorItem(
         day = Monday,
-        selectedDayOfTheWeek = Monday,
+        selectedDayOfTheWeek = setOf(Monday),
         getDayOnClick = { }
     )
 }
@@ -63,7 +63,7 @@ private fun DaysOfTheWeekSelectorItemSelected() {
 private fun DaysOfTheWeekSelectorItemUnselected() {
     DaysOfTheWeekSelectorItem(
         day = Monday,
-        selectedDayOfTheWeek = Wednesday,
+        selectedDayOfTheWeek = setOf(Wednesday),
         getDayOnClick = { }
     )
 }

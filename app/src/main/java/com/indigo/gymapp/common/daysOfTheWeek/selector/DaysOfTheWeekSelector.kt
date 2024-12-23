@@ -20,9 +20,10 @@ import com.indigo.gymapp.common.preview.screen.ScreenPreview
 @Composable
 fun DaysOfTheWeekSelector(
     sundayFirstDay: Boolean,
-    selectedDayOfTheWeek: DayOfTheWeek?,
+    selectedDayOfTheWeek: Set<DayOfTheWeek>,
     getDayOnClick: (DayOfTheWeek) -> Unit
 ) {
+
     Row(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceBetween
@@ -81,7 +82,7 @@ private fun DaysOfTheWeekSelectorSundayIsFirstDayPreview() {
     ScreenPreview {
         DaysOfTheWeekSelector(
             sundayFirstDay = true,
-            selectedDayOfTheWeek = Wednesday,
+            selectedDayOfTheWeek = setOf(Wednesday, Saturday),
             getDayOnClick = { }
         )
     }
@@ -93,7 +94,7 @@ private fun DaysOfTheWeekSelectorSundayIsNotFirstDayPreview() {
     ScreenPreview {
         DaysOfTheWeekSelector(
             sundayFirstDay = false,
-            selectedDayOfTheWeek = Wednesday,
+            selectedDayOfTheWeek = setOf(Wednesday, Saturday),
             getDayOnClick = { }
         )
     }
