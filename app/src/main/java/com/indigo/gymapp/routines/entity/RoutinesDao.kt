@@ -23,4 +23,7 @@ interface RoutinesDao {
 
     @Query("SELECT * FROM ROUTINES WHERE id = :routineId LIMIT 1")
     suspend fun findById(routineId: Long): RoutineEntity?
+
+    @Query("SELECT * FROM ROUTINES WHERE name LIKE '%' || :search || '%'")
+    fun getRoutinesByName(search: String): List<RoutineEntity>
 }

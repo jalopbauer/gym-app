@@ -1,8 +1,8 @@
 package com.indigo.gymapp.calendar.event.create
 import android.widget.Toast
-import androidx.compose.foundation.layout.Row
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -12,13 +12,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.indigo.gymapp.R
 import com.indigo.gymapp.calendar.event.composable.eventTypeSelector.EventTypeItemSelector
+import com.indigo.gymapp.calendar.event.create.viewModel.CreateEventViewModel
 import com.indigo.gymapp.calendar.event.routine.composable.RoutineSearch
 import com.indigo.gymapp.common.bottomSheet.BottomSheet
 import com.indigo.gymapp.common.button.textButton.CenteredTextButton
+import com.indigo.gymapp.common.daysOfTheWeek.selector.DaysOfTheWeekSelector
 import com.indigo.gymapp.common.header.CreateHeader
 import com.indigo.gymapp.common.page.HeaderPage
 import com.indigo.gymapp.manager.bottomAppBar.BottomAppBarViewModel
-import com.indigo.gymapp.routines.entity.RoutineEntity
 
 
 @Composable
@@ -29,7 +30,7 @@ fun CreateEventPage(
 
 
     var createEventVariant by remember {
-        mutableStateOf<CreateEventVariant>(Empty)
+        mutableStateOf<CreateEventVariant>(CreateRoutineEvent)
     }
 
     var bottomSheetState by remember {
@@ -37,18 +38,24 @@ fun CreateEventPage(
     }
 
     val bottomAppBarViewModel = hiltViewModel<BottomAppBarViewModel>()
+    val createEventViewModel = hiltViewModel<CreateEventViewModel>()
 
     LaunchedEffect(Unit) {
         bottomAppBarViewModel.setEmpty()
     }
 
-    var searchingRoutineName by remember {
+    val searchRoutines by createEventViewModel.routines.collectAsState()
+
+    var routineSearchText by remember {
         mutableStateOf("")
     }
 
-    var selectedRoutine by remember {
-        mutableStateOf<RoutineEntity?>(null)
+    LaunchedEffect(routineSearchText) {
+        createEventViewModel.searchRoutine(routineSearchText)
     }
+
+    val selectedRoutine by createEventViewModel.selectedRoutine.collectAsState()
+    val selectedDaysOfTheWeek by createEventViewModel.selectedDaysOfTheWeek.collectAsState()
 
     HeaderPage(
         header = {
@@ -72,15 +79,21 @@ fun CreateEventPage(
     ) {
         when (createEventVariant) {
             CreateRoutineEvent -> {
-                Row {
-                    CenteredTextButton(
-                        text = stringResource(R.string.select_routine),
-                        selected = selectedRoutine != null,
-                        onClick = {
-                            bottomSheetState = SelectRoutineVariant
-                        }
-                    )
-                }
+                CenteredTextButton(
+                    text = selectedRoutine?.name ?: stringResource(R.string.select_routine),
+                    selected = selectedRoutine != null,
+                    onClick = {
+                        bottomSheetState = SelectRoutineVariant
+                    }
+                )
+                DaysOfTheWeekSelector(
+                    sundayFirstDay = false,
+                    selectedDayOfTheWeek = selectedDaysOfTheWeek,
+                    getDayOnClick = {
+                        createEventViewModel.setSelectedDayOfTheWeek(it)
+                    }
+                )
+
             }
             Empty -> {}
         }
@@ -101,11 +114,11 @@ fun CreateEventPage(
             }
             SelectRoutineVariant -> {
                 RoutineSearch(
-                    routineName = searchingRoutineName,
-                    routines = emptyList(),
-                    onQueryChange = { searchingRoutineName = it},
+                    routineName = routineSearchText,
+                    routines = searchRoutines,
+                    onQueryChange = { routineSearchText = it },
                     getRoutineOnClick = {
-                        selectedRoutine = it
+                        createEventViewModel.setSelectedRoutine(it)
                         bottomSheetState = Closed
                     }
                 )
