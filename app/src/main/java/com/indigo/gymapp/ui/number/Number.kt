@@ -58,6 +58,11 @@ object Number {
             val highlight = 32.dp
         }
 
+        object DaysOfTheWeekSelectorItem {
+            val diameter = 48.dp
+            val padding = 0.dp
+        }
+
         object Button {
             val minimumHeight = 48.dp
             object TimeButton {

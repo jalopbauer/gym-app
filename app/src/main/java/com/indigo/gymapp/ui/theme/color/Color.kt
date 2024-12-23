@@ -90,5 +90,19 @@ object Color {
                     containerColor = MaterialTheme.colorScheme.onPrimary
                 )
         }
+
+        object DaysOfTheWeekSelectorItem {
+            @Composable
+            fun selectedDaysOfTheWeekSelectorItem() =
+                ButtonDefaults.buttonColors().copy(
+                    containerColor = MaterialTheme.colorScheme.onSecondary,
+                )
+
+            @Composable
+            fun unselectedDaysOfTheWeekSelectorItem() =
+                ButtonDefaults.buttonColors().copy(
+                    containerColor = MaterialTheme.colorScheme.background,
+                )
+        }
     }
 }
