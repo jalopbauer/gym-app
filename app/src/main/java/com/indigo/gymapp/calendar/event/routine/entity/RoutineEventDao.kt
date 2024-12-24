@@ -1,7 +1,6 @@
 package com.indigo.gymapp.calendar.event.routine.entity
 
 import androidx.room.Dao
-import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Transaction
@@ -25,8 +24,8 @@ interface RoutineEventDao {
         create(routineEventFrequencies.map { it.copy(routineEventId = routineEventId) })
     }
 
-    @Delete
-    suspend fun delete(routine: RoutineEventEntity)
+    @Query("DELETE FROM ROUTINE_EVENT WHERE id = :id")
+    suspend fun deleteById(id: Long)
 
     @Query("SELECT * FROM ROUTINE_EVENT")
     fun getAll(): List<RoutineEventWithRoutineAndFrequency>

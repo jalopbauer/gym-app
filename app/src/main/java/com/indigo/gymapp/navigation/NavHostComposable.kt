@@ -11,6 +11,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.indigo.gymapp.calendar.CalendarPage
+import com.indigo.gymapp.calendar.event.RoutineEventsPage
 import com.indigo.gymapp.calendar.event.create.CreateEventPage
 import com.indigo.gymapp.configuration.ConfigurationPage
 import com.indigo.gymapp.exercises.ExercisesPage
@@ -35,12 +36,18 @@ fun NavHostComposable(innerPadding: PaddingValues, navController: NavHostControl
 //        Calendar
         composable(route = NavigationPath.Calendar.name) {
             CalendarPage(
-                onNavigateToCreateEvent = { navController.navigate( NavigationPath.Calendar.Event.Create.name )}
+                onNavigateToCreateEvent = { navController.navigate(NavigationPath.Calendar.Event.Create.name) },
+                onNavigateToEditEvents = { navController.navigate(NavigationPath.Calendar.Event.name) },
             )
         }
         composable(route = NavigationPath.Calendar.Event.Create.name) {
             CreateEventPage(
                 onNavigateToCalendar = { navController.navigate( NavigationPath.Calendar.name )}
+            )
+        }
+        composable(route = NavigationPath.Calendar.Event.name) {
+            RoutineEventsPage(
+                onNavigateToCreateEvent = { navController.navigate( NavigationPath.Calendar.Event.Create.name )}
             )
         }
 //        Routines

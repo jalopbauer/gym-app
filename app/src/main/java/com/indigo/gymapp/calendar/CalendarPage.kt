@@ -17,6 +17,7 @@ import com.indigo.gymapp.manager.bottomAppBar.BottomAppBarViewModel
 @Composable
 fun CalendarPage(
     onNavigateToCreateEvent : () -> Unit,
+    onNavigateToEditEvents : () -> Unit,
 ) {
 
     val bottomAppBarViewModel = hiltViewModel<BottomAppBarViewModel>()
@@ -29,7 +30,7 @@ fun CalendarPage(
 
     AddEditPage(
         addOnClick = onNavigateToCreateEvent,
-        editOnClick = { },
+        editOnClick = onNavigateToEditEvents,
     ) {
         HeaderPage(
             header = {
