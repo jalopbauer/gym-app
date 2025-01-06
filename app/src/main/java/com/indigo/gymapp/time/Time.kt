@@ -20,3 +20,15 @@ data class Time(
 }
 typealias Rest = Time
 typealias Duration = Time
+
+fun toMillis(rest: Rest): Long {
+    return (rest.minutes * 60 * 1000L) + (rest.seconds * 1000L)
+}
+
+
+fun fromMillis(millis: Long): Rest {
+    val totalSeconds = millis / 1000
+    val minutes = (totalSeconds / 60).toInt()
+    val seconds = (totalSeconds % 60).toInt()
+    return Rest(minutes = minutes, seconds = seconds)
+}
